@@ -1,0 +1,17 @@
+[
+  {"id": "q01", "topic": "pricing", "with_diacritics": "Thiết kế website giá bao nhiêu tiền?", "no_diacritics": "thiet ke website gia bao nhieu tien"},
+  {"id": "q02", "topic": "service_seo", "with_diacritics": "Bên anh có làm SEO tổng thể không?", "no_diacritics": "ben anh co lam seo tong the khong"},
+  {"id": "q03", "topic": "service_ads", "with_diacritics": "Chạy quảng cáo Google Ads chi phí thế nào?", "no_diacritics": "chay quang cao google ads chi phi the nao"},
+  {"id": "q04", "topic": "domain_hosting", "with_diacritics": "Tư vấn giúp em cách đăng ký tên miền", "no_diacritics": "tu van giup em cach dang ky ten mien"},
+  {"id": "q05", "topic": "maintenance", "with_diacritics": "Dịch vụ chăm sóc website hàng tháng có những gì?", "no_diacritics": "dich vu cham soc website hang thang co nhung gi"},
+  {"id": "q06", "topic": "backlink", "with_diacritics": "Có làm backlink báo chí tăng traffic không ạ?", "no_diacritics": "co lam backlink bao chi tang traffic khong a"},
+  {"id": "q07", "topic": "security", "with_diacritics": "Website có được bảo mật SSL không?", "no_diacritics": "website co duoc bao mat ssl khong"},
+  {"id": "q08", "topic": "seo_commitment", "with_diacritics": "Có cam kết lên top 1 Google trong 1 tháng không?", "no_diacritics": "co cam ket len top 1 google trong 1 thang khong"},
+  {"id": "q09", "topic": "contact", "with_diacritics": "Cho em xin số điện thoại liên hệ", "no_diacritics": "cho em xin so dien thoai lien he"},
+  {"id": "q10", "topic": "pricing_cheap", "with_diacritics": "Có gói thiết kế web giá rẻ dùng mẫu có sẵn không?", "no_diacritics": "co goi thiet ke web gia re dung mau co san khong"},
+  {"id": "q11", "topic": "seo_reason", "with_diacritics": "Vì sao website của em mãi không lên top Google?", "no_diacritics": "vi sao website cua em mai khong len top google"},
+  {"id": "q12", "topic": "company_intro", "with_diacritics": "MIMA là công ty làm về lĩnh vực gì?", "no_diacritics": "mima la cong ty lam ve linh vuc gi"},
+  {"id": "q13", "topic": "human_handoff", "with_diacritics": "Cho em gặp trực tiếp nhân viên tư vấn được không?", "no_diacritics": "cho em gap truc tiep nhan vien tu van duoc khong"},
+  {"id": "q14", "topic": "out_of_scope", "with_diacritics": "Cho anh công thức nấu phở bò truyền thống", "no_diacritics": "cho anh cong thuc nau pho bo truyen thong"},
+  {"id": "q15", "topic": "out_of_scope", "with_diacritics": "Dự báo thời tiết Hà Nội ngày mai thế nào?", "no_diacritics": "du bao thoi tiet ha noi ngay mai the nao"}
+]

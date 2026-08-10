@@ -1,0 +1,8 @@
+# Cài trước khi chạy repo này:
+pydantic>=2.0
+pyyaml
+numpy
+
+# Cho embedding/LLM — cài 1 hoặc cả 2 tuỳ provider dùng (xem tenants/mima_internal.yaml -> model_policy.provider):
+openai          # provider="openai"
+google-genai    # provider="gemini" (mặc định)

@@ -1,6 +1,4 @@
-# Hợp đồng API — ai\_core ↔ Backend
-
-
+# Hợp đồng API — ai_core ↔ Backend
 
 ## 1\. Hợp đồng `chat(payload)`
 
@@ -42,7 +40,7 @@
 
 \---
 
-## 2\. Hợp đồng chunk tri thức 
+## 2\. Hợp đồng chunk tri thức
 
 ```json
 {
@@ -61,7 +59,4 @@
 `seed\_chunks.json` (đầu vào của HOA-05) là 1 mảng JSON gồm nhiều object
 đúng cấu trúc trên.
 
-
-
-## 
-
+##

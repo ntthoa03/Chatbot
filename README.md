@@ -1,4 +1,4 @@
-# ai_core — Chatbot (Tuần 1)
+# Ai_core — Chatbot (Tuần 1)
 
 ## Chạy thử
 
