@@ -2,7 +2,11 @@
 pydantic>=2.0
 pyyaml
 numpy
+python-dotenv
 
-# Cho embedding/LLM — cài 1 hoặc cả 2 tuỳ provider dùng (xem tenants/mima_internal.yaml -> model_policy.provider):
-openai          # provider="openai"
-google-genai    # provider="gemini" (mặc định)
+# Cho embedding/LLM — cài cả hai để hỗ trợ primary Gemini và fallback OpenAI:
+openai
+google-genai
+
+# HOA-09 — giao diện test nội bộ:
+streamlit>=1.40,<2
