@@ -1,13 +1,7 @@
-"""
-Nạp config của tenant từ file YAML (persona, guardrails, pricing, contact,
-enabled_tools, model_policy).
+"""Nạp cấu hình hành vi/kỹ thuật của tenant.
 
-QUY TẮC BẮT BUỘC (theo task HOA-04 và NT-4 spec kiến trúc multi-tenant):
-mọi thứ riêng của một khách hàng (tên bot, hotline, bảng giá được phép nói...)
-nằm trong file YAML dưới thư mục tenants/, TUYỆT ĐỐI không hardcode trong file
-Python này hay bất cứ đâu trong ai_core/*.
-
-Sửa file YAML là bot đổi hành vi ngay — không cần sửa một dòng code nào.
+Giá và mô tả chi tiết dịch vụ phải đi qua chunk RAG hoặc kết quả tool có nguồn.
+Config chỉ giữ mã nhóm được/phải báo giá qua chuyên viên và kênh liên hệ tối thiểu.
 """
 
 from __future__ import annotations
@@ -15,7 +9,9 @@ from __future__ import annotations
 from pathlib import Path
 
 import yaml
-from pydantic import BaseModel, ConfigDict, Field, ValidationError
+import re
+
+from pydantic import BaseModel, ConfigDict, Field, ValidationError, field_validator, model_validator
 
 
 TENANTS_DIR = Path(__file__).resolve().parent.parent / "tenants"
@@ -48,35 +44,115 @@ class SeoPhrasingExample(BaseModel):
     incorrect: str = Field(min_length=1)
 
 
+class OutputRuleConfig(BaseModel):
+    """Một luật chặn đầu ra; pattern chạy trên văn bản viết thường, bỏ dấu."""
+
+    model_config = ConfigDict(extra="forbid")
+
+    reason: str = Field(min_length=1)
+    description: str = Field(min_length=1)
+    enabled: bool = True
+    patterns: list[str] = Field(min_length=1)
+    allow_patterns: list[str] = Field(default_factory=list)
+
+    @field_validator("patterns", "allow_patterns")
+    @classmethod
+    def validate_regexes(cls, values: list[str]) -> list[str]:
+        for value in values:
+            try:
+                re.compile(value)
+            except re.error as exc:
+                raise ValueError(f"regex không hợp lệ '{value}': {exc}") from exc
+        return values
+
+
+class GroundingConfig(BaseModel):
+    """Chính sách phát hiện phát biểu thực tế không có bằng chứng."""
+
+    model_config = ConfigDict(extra="forbid")
+
+    enabled: bool = True
+    reason: str = "ungrounded_claim"
+    description: str = "Không bịa thông tin khi không có trong kho tri thức"
+    claim_patterns: list[str] = Field(default_factory=list)
+    conversation_claim_patterns: list[str] = Field(default_factory=list)
+    ignore_patterns: list[str] = Field(default_factory=list)
+    min_token_overlap: float = Field(default=0.35, ge=0.0, le=1.0)
+    min_matching_tokens: int = Field(default=2, ge=1, le=20)
+
+    @field_validator("claim_patterns", "conversation_claim_patterns", "ignore_patterns")
+    @classmethod
+    def validate_regexes(cls, values: list[str]) -> list[str]:
+        for value in values:
+            try:
+                re.compile(value)
+            except re.error as exc:
+                raise ValueError(f"regex không hợp lệ '{value}': {exc}") from exc
+        return values
+
+
+class OutputGuardrailConfig(BaseModel):
+    model_config = ConfigDict(extra="forbid")
+
+    rules: list[OutputRuleConfig] = Field(default_factory=list)
+    grounding: GroundingConfig = Field(default_factory=GroundingConfig)
+    block_configured_model_names: bool = True
+
+    @model_validator(mode="after")
+    def reasons_must_be_unique(self) -> "OutputGuardrailConfig":
+        reasons = [rule.reason for rule in self.rules]
+        if len(reasons) != len(set(reasons)):
+            raise ValueError("guardrails.output.rules.reason phải là duy nhất")
+        return self
+
+
 class GuardrailsConfig(BaseModel):
     model_config = ConfigDict(extra="forbid")
 
-    forbidden: list[str]
     refusal_message: str = Field(min_length=1)
     escalate_when: list[str] = Field(default_factory=list)
     seo_phrasing_example: SeoPhrasingExample
+    input_model: str | None = Field(default=None, min_length=1)
+    # Gemini API enforces a minimum manually configured deadline of 10 seconds.
+    input_model_timeout_seconds: float = Field(default=10.0, ge=10.0, le=30.0)
+    output: OutputGuardrailConfig = Field(default_factory=OutputGuardrailConfig)
 
+    @property
+    def forbidden(self) -> list[str]:
+        """Một nguồn duy nhất cho cả prompt HOA-07 và enforcement HOA-12."""
 
-class PricingItem(BaseModel):
-    model_config = ConfigDict(extra="forbid")
-
-    key: str = Field(min_length=1)
-    label: str = Field(min_length=1)
-    note: str | None = None
+        descriptions = [rule.description for rule in self.output.rules if rule.enabled]
+        if self.output.grounding.enabled:
+            descriptions.append(self.output.grounding.description)
+        return descriptions
 
 
 class PricingConfig(BaseModel):
+    """Chỉ là mã định tuyến; không chứa giá, note hoặc mô tả dịch vụ."""
+
     model_config = ConfigDict(extra="forbid")
 
-    can_quote: list[PricingItem] = Field(default_factory=list)
-    must_contact: list[PricingItem] = Field(default_factory=list)
+    can_quote: list[str] = Field(default_factory=list)
+    must_contact: list[str] = Field(default_factory=list)
 
 
 class ContactConfig(BaseModel):
+    """Kênh liên hệ tối thiểu bot phải biết theo mẫu tenant."""
+
     model_config = ConfigDict(extra="forbid")
 
     hotline: str | None = None
     zalo: str | None = None
+
+
+class ModelCostConfig(BaseModel):
+    """List-price estimate used for comparable eval cost reporting."""
+
+    model_config = ConfigDict(extra="forbid")
+
+    model: str = Field(min_length=1)
+    input_usd_per_million: float = Field(ge=0.0)
+    output_usd_per_million: float = Field(ge=0.0)
 
 
 class ModelPolicyConfig(BaseModel):
@@ -98,6 +174,39 @@ class ModelPolicyConfig(BaseModel):
     primary: str = Field(min_length=1)
     fallback: str = Field(min_length=1)
     temperature: float = 0.3
+    usd_to_vnd: float = Field(default=26_000.0, gt=0.0)
+    costs: list[ModelCostConfig] = Field(default_factory=list)
+
+    def estimate_cost_vnd(self, model: str, tokens_in: int, tokens_out: int) -> float:
+        rate = next((item for item in self.costs if item.model == model), None)
+        if rate is None:
+            return 0.0
+        usd = (
+            tokens_in * rate.input_usd_per_million
+            + tokens_out * rate.output_usd_per_million
+        ) / 1_000_000
+        return round(usd * self.usd_to_vnd, 4)
+
+
+class EmbeddingModelConfig(BaseModel):
+    model_config = ConfigDict(extra="forbid")
+
+    provider: str = Field(pattern="^(gemini|openai)$")
+    model: str = Field(min_length=1)
+
+
+class EmbeddingPolicyConfig(BaseModel):
+    model_config = ConfigDict(extra="forbid")
+
+    primary: EmbeddingModelConfig
+    fallback: EmbeddingModelConfig
+
+
+class RetrievalPolicyConfig(BaseModel):
+    model_config = ConfigDict(extra="forbid")
+
+    min_score: float = Field(ge=0.0, le=1.0)
+    relative_score_margin: float = Field(default=0.05, ge=0.0, le=1.0)
 
 
 class AgentConfig(BaseModel):
@@ -112,6 +221,8 @@ class AgentConfig(BaseModel):
     contact: ContactConfig = Field(default_factory=ContactConfig)
     enabled_tools: list[str] = Field(default_factory=list)
     model_policy: ModelPolicyConfig
+    embedding_policy: EmbeddingPolicyConfig
+    retrieval_policy: RetrievalPolicyConfig
 
     # --------------------------------------------------------
     # Convenience properties

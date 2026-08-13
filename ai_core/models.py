@@ -7,10 +7,33 @@ chốt ở HOA-01 (file contract.md — không nằm trong package này, xem rep
 
 from __future__ import annotations
 
+from datetime import date
 from typing import Literal, Optional
 from uuid import UUID
 
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, ConfigDict, Field, HttpUrl
+
+
+class ChunkMetadata(BaseModel):
+    """Metadata contract from Task.xlsx / sheet ``Tham chieu``."""
+
+    model_config = ConfigDict(extra="forbid")
+
+    url: HttpUrl
+    title: str = Field(min_length=1)
+    type: Literal["service", "pricing", "policy", "faq", "blog"]
+    updated_at: date
+
+
+class KnowledgeChunk(BaseModel):
+    """Exact business chunk exchanged between Hieu and Hoa."""
+
+    model_config = ConfigDict(extra="forbid")
+
+    tenant_id: str = Field(min_length=1)
+    chunk_id: str = Field(min_length=1)
+    content: str = Field(min_length=1)
+    metadata: ChunkMetadata
 
 
 class Message(BaseModel):
@@ -21,7 +44,9 @@ class Message(BaseModel):
 class ChatRequest(BaseModel):
     tenant_id: str
     conversation_id: UUID
-    message: str = Field(min_length=1, max_length=1000)
+    # HOA-11 returns an auditable guardrail response for oversized input instead
+    # of letting Pydantic raise before the guardrail can run.
+    message: str = Field(min_length=1)
     history: list[Message] = Field(default_factory=list)
     config_version: int = 1
 

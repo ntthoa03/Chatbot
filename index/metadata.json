@@ -1,0 +1,170 @@
+[
+  {
+    "chunk_id": "853d815d-1314-43ae-ab0e-1c1c2da88429",
+    "tenant_id": "mima_internal",
+    "content": "MIMA là tên viết tắt của Công ty TNHH Thương Mại Dịch Vụ MIMA, hoạt động trong lĩnh vực thiết kế website và marketing online với định hướng 'giải cứu website' — biến website từ một tấm danh thiếp điện tử thành công cụ bán hàng thực sự, hoạt động như hàng ngàn nhân viên kinh doanh 24/7. Công ty có hơn 10 năm kinh nghiệm, đã thực hiện trên 2000 dự án cho hơn 1700 khách hàng hài lòng, với đội ngũ hơn 50 nhân viên phục vụ khách hàng ở hơn 33 tỉnh thành.",
+    "content_hash": "da8f2606237e984cab44374b1ea70067fbc004fe800412cde1a2460bf4eaec81",
+    "metadata": {
+      "url": "https://mimadigi.com/",
+      "title": "MIMA Giải Cứu Website - Biến Web Thành 1000 Nhân Viên Bán Hàng",
+      "type": "blog",
+      "updated_at": "2026-08-07"
+    }
+  },
+  {
+    "chunk_id": "836ff8c2-a803-497e-a2e9-509955b8e134",
+    "tenant_id": "mima_internal",
+    "content": "Dịch vụ thiết kế website tại MIMA cung cấp giao diện hiện đại, tối ưu trải nghiệm người dùng, tốc độ tải trang nhanh, chuẩn SEO Google, thiết kế riêng theo từng ngành nghề, đảm bảo tính bản quyền - độc quyền và tương thích trên mọi thiết bị (PC, tablet, điện thoại). Website tích hợp sẵn công nghệ AI Content SEO, giúp tự động sinh nội dung chuẩn SEO cho sản phẩm, dịch vụ, tin tức với năng suất cao hơn nhiều so với viết tay thủ công.",
+    "content_hash": "28f8a28cac8782e1af46621ce9adf66fdaa0f8c811e7900da6879e3d38808c78",
+    "metadata": {
+      "url": "https://mimadigi.com/thiet-ke-website",
+      "title": "Công Ty Thiết Kế Website Theo Yêu Cầu Chuẩn SEO Google",
+      "type": "service",
+      "updated_at": "2026-08-07"
+    }
+  },
+  {
+    "chunk_id": "33a88e68-cbb4-432b-84e1-0f6e3ffd4422",
+    "tenant_id": "mima_internal",
+    "content": "Gói Website Basic giá 2.000.000đ: dùng giao diện mẫu có sẵn (copy), kết nối mạng xã hội, khách tự cập nhật nội dung, có tiện ích Zalo/nút gọi/chat ngay, kèm livechat, chống copy nội dung, đóng dấu sản phẩm, popup đầu trang. Gói này CHƯA có: AI Content SEO, tối ưu SEO, bàn giao source code, SSL, song ngữ, giỏ hàng.",
+    "content_hash": "54474a0aa023b74a71289da5e4aed14c7618f6e8afca4eb48673fa94b266c8a0",
+    "metadata": {
+      "url": "https://mimadigi.com/thiet-ke-website",
+      "title": "Bảng giá thiết kế website - Gói Basic",
+      "type": "pricing",
+      "updated_at": "2026-08-07"
+    }
+  },
+  {
+    "chunk_id": "d36879c5-aa67-4c22-91ef-e427a608410b",
+    "tenant_id": "mima_internal",
+    "content": "Gói Website phổ thông giá 6.000.000đ: thiết kế giao diện theo yêu cầu, tích hợp AI Content SEO, chuẩn SEO theo tiêu chuẩn Google, tiện ích Zalo/nút gọi/chat ngay, bàn giao source code, tặng kèm 5 bài viết chuẩn SEO và 200 chủ đề SEO. Gói này chưa có bản mobile/tablet riêng, chưa có SSL, song ngữ hay giỏ hàng.",
+    "content_hash": "1ddc56fdbb9d914a3de0a3fa5dad898fec69303a5aea3d8796fcff646dd967f4",
+    "metadata": {
+      "url": "https://mimadigi.com/thiet-ke-website",
+      "title": "Bảng giá thiết kế website - Gói phổ thông",
+      "type": "pricing",
+      "updated_at": "2026-08-07"
+    }
+  },
+  {
+    "chunk_id": "c854fcde-4bfe-4b84-86c8-017d492e3b36",
+    "tenant_id": "mima_internal",
+    "content": "Gói Website khởi nghiệp giá 9.000.000đ: thiết kế giao diện theo yêu cầu, tích hợp AI Content SEO, chuẩn SEO Google, có phiên bản mobile - tablet, bàn giao source code, tặng 5 bài viết chuẩn SEO và 200 chủ đề SEO. Chưa bao gồm SSL, song ngữ, giỏ hàng.",
+    "content_hash": "e57918a97004c1c05a2c1aead8820576ff253597c80947e73911a32cb855406d",
+    "metadata": {
+      "url": "https://mimadigi.com/thiet-ke-website",
+      "title": "Bảng giá thiết kế website - Gói khởi nghiệp",
+      "type": "pricing",
+      "updated_at": "2026-08-07"
+    }
+  },
+  {
+    "chunk_id": "0a7189b6-a2dd-45ca-a05a-c9a186b256c2",
+    "tenant_id": "mima_internal",
+    "content": "Gói Website chuyên nghiệp giá 12.000.000đ: đầy đủ như gói khởi nghiệp, cộng thêm tích hợp chứng chỉ số SSL, tặng 20 bài viết chuẩn SEO và 500 chủ đề SEO. Gói này vẫn chưa hỗ trợ song ngữ và giỏ hàng.",
+    "content_hash": "2edc8426f923956afa8ed3787740f8d72227ff5da0a378ee8a2fd07a96c298b0",
+    "metadata": {
+      "url": "https://mimadigi.com/thiet-ke-website",
+      "title": "Bảng giá thiết kế website - Gói chuyên nghiệp",
+      "type": "pricing",
+      "updated_at": "2026-08-07"
+    }
+  },
+  {
+    "chunk_id": "63237e6a-88af-4e93-945e-c11187729e6b",
+    "tenant_id": "mima_internal",
+    "content": "Gói Website cao cấp giá 17.000.000đ: đầy đủ tính năng như gói chuyên nghiệp, cộng thêm giỏ hàng và hỗ trợ song ngữ, tặng 30 bài viết chuẩn SEO và 500 chủ đề SEO. Gói Website theo yêu cầu (cao cấp nhất) có thêm phân quyền quản trị, đăng ký/đăng nhập, thanh toán online, bình luận, đánh giá và so sánh sản phẩm, voucher giảm giá, phí vận chuyển, trang Flash Sale, khoá học trực tuyến, đăng tin miễn phí — giá của gói này được báo riêng qua Zalo, không niêm yết cố định.",
+    "content_hash": "d53366f63e85bdeea4710f984a886c4ba650bcd55b66427394a3178e641d3947",
+    "metadata": {
+      "url": "https://mimadigi.com/thiet-ke-website",
+      "title": "Bảng giá thiết kế website - Gói cao cấp và theo yêu cầu",
+      "type": "pricing",
+      "updated_at": "2026-08-07"
+    }
+  },
+  {
+    "chunk_id": "3c8375dd-0385-4970-8c40-60343762d882",
+    "tenant_id": "mima_internal",
+    "content": "Quy trình thiết kế website tại MIMA gồm 5 bước: (1) Lấy ý tưởng — tiếp nhận yêu cầu, tư vấn định hướng nội dung/giao diện/chức năng và từ khoá SEO chính; (2) Thiết kế UX/UI — dựng giao diện chuẩn, tương thích di động, hài hoà màu sắc thương hiệu; (3) Lập trình code bằng HTML5, CSS3, PHP hoặc Laravel, tích hợp biểu mẫu liên hệ, sản phẩm, giỏ hàng; (4) Viết nội dung chuẩn SEO — tối ưu tiêu đề, mô tả, heading, URL, ảnh có ALT, cài Google Analytics/Search Console; (5) Bàn giao và đào tạo — chuyển giao quyền quản trị, hướng dẫn CMS và SEO cơ bản.",
+    "content_hash": "6dab557227b2d6ec78ecff416eaa5222b445162f59c80ead8c46f84aee088bb5",
+    "metadata": {
+      "url": "https://mimadigi.com/thiet-ke-website",
+      "title": "Quy trình thiết kế website tại MIMA",
+      "type": "service",
+      "updated_at": "2026-08-07"
+    }
+  },
+  {
+    "chunk_id": "dd6424c2-0095-4f7d-ad82-005f50dcf0d9",
+    "tenant_id": "mima_internal",
+    "content": "Dịch vụ Hosting SEO của MIMA cung cấp lưu trữ web tốc độ cao, uptime 99.9%, được tối ưu riêng để hỗ trợ website tăng thứ hạng trên Google. Đây là một trong các yếu tố kỹ thuật quan trọng (cùng với source chuẩn, tên miền đẹp, nội dung chuẩn SEO, quảng cáo, backlink và traffic) để website lên top nhanh.",
+    "content_hash": "835880076150541809a17bb8d201b19b55d0649893f56c81111614e43aa895d9",
+    "metadata": {
+      "url": "https://mimadigi.com/hosting-seo",
+      "title": "Dịch vụ Hosting SEO",
+      "type": "service",
+      "updated_at": "2026-08-07"
+    }
+  },
+  {
+    "chunk_id": "f63f914d-d4f7-42a0-9615-de6b69957ef5",
+    "tenant_id": "mima_internal",
+    "content": "Dịch vụ tên miền của MIMA hỗ trợ đăng ký và quản lý tên miền theo yêu cầu, tư vấn chọn tên miền đẹp, dễ nhớ, phù hợp chiến lược thương hiệu của khách hàng. Trang chủ có sẵn công cụ kiểm tra tên miền (WHOIS) ngay trên website để khách tự tra cứu tình trạng tên miền mong muốn.",
+    "content_hash": "a5096c194fcd077c15a97234bea1e3400d6d819bffd43768a76846bd0bd279df",
+    "metadata": {
+      "url": "https://mimadigi.com/ten-mien",
+      "title": "Dịch vụ tên miền",
+      "type": "service",
+      "updated_at": "2026-08-07"
+    }
+  },
+  {
+    "chunk_id": "29135891-3c8a-4066-8f03-4cefc4a4999e",
+    "tenant_id": "mima_internal",
+    "content": "Dịch vụ SEO của MIMA triển khai chiến lược SEO toàn diện: nghiên cứu từ khoá, tối ưu cấu trúc website, viết bài chuẩn SEO, link building, entity SEO, schema markup, tăng traffic người dùng thật và xây dựng backlink — nhằm tăng thứ hạng từ khoá, thu hút traffic tự nhiên và tạo nền tảng tăng trưởng dài hạn cho doanh nghiệp.",
+    "content_hash": "0f52bd9c77f66948441b185c9b4bb9dc3128097b8345b125de55a8f942c6479d",
+    "metadata": {
+      "url": "https://mimadigi.com/dich-vu-seo",
+      "title": "Dịch vụ SEO tổng thể",
+      "type": "service",
+      "updated_at": "2026-08-07"
+    }
+  },
+  {
+    "chunk_id": "67637d1c-4067-4974-95e5-63aa5b8dd342",
+    "tenant_id": "mima_internal",
+    "content": "Dịch vụ Backlink của MIMA xây dựng liên kết từ các website khác trỏ về website khách hàng, giúp tăng uy tín (trust) với Google, cải thiện thứ hạng từ khoá và hỗ trợ SEO bền vững. MIMA nhấn mạnh đây là yếu tố giúp lên top ổn định lâu dài, không chỉ tăng hạng nhất thời.",
+    "content_hash": "888371357b87754af720a0a508ae96353175feb85f1b7b7f296ba68777ec195c",
+    "metadata": {
+      "url": "https://mimadigi.com/dich-vu-backlink",
+      "title": "Dịch vụ Backlink Website",
+      "type": "service",
+      "updated_at": "2026-08-07"
+    }
+  },
+  {
+    "chunk_id": "dcdb3de1-4803-4918-bcd5-1f7593d867ed",
+    "tenant_id": "mima_internal",
+    "content": "Dịch vụ Traffic User Thật của MIMA cung cấp lượng truy cập từ người dùng thật 100%, tự tìm kiếm - tự click - tương tác tự nhiên theo đúng chuẩn thuật toán Google, khác với traffic ảo/bot. MIMA cũng có dịch vụ Chăm sóc website (cập nhật nội dung, tối ưu tốc độ, bảo mật, hỗ trợ SEO định kỳ) và Chăm sóc fanpage (trọn gói, không phát sinh phí, giúp tiếp cận hàng ngàn khách hàng).",
+    "content_hash": "469925f3c2ceef1a5daff30731ae1eac07fc6d5e25c83fd2ddd0b2136b91c589",
+    "metadata": {
+      "url": "https://mimadigi.com/traffic-user-that",
+      "title": "Traffic User Thật và các dịch vụ chăm sóc đi kèm",
+      "type": "service",
+      "updated_at": "2026-08-07"
+    }
+  },
+  {
+    "chunk_id": "2b658696-1aba-418a-9c7b-14dbefbe0cc3",
+    "tenant_id": "mima_internal",
+    "content": "Câu hỏi thường gặp: 'Thiết kế website chuẩn Google là gì?' — Là xây dựng website theo tiêu chí và thuật toán của Google để dễ được lập chỉ mục (index), cấu trúc/từ khoá/nội dung rõ ràng, tốc độ tải nhanh, tương thích mobile và dễ lên top từ khoá tìm kiếm. Thiết kế website trọn gói tại MIMA bao gồm: tư vấn cấu trúc - giao diện - chức năng, thiết kế giao diện, lập trình, đăng ký tên miền và hosting, tối ưu SEO cơ bản, đăng bài demo, bàn giao hướng dẫn sử dụng, cùng bảo trì và hỗ trợ kỹ thuật sau bàn giao.",
+    "content_hash": "f210863399d6ae6f92275653932a1c9db3725722b2966a7bbaf4ca762178a80e",
+    "metadata": {
+      "url": "https://mimadigi.com/thiet-ke-website",
+      "title": "FAQ thiết kế website chuẩn SEO Google",
+      "type": "faq",
+      "updated_at": "2026-08-07"
+    }
+  }
+]
