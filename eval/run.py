@@ -15,7 +15,7 @@ from ai_core.evaluator import (
     EvalCase,
     EvalConfigError,
     JudgeVerdict,
-    build_run_fingerprint,
+    build_case_fingerprint,
     load_report_summary,
     run_eval,
     save_report,
@@ -37,8 +37,8 @@ def _configure_utf8_console() -> None:
             reconfigure(encoding="utf-8", errors="replace")
 
 
-def _latest_compatible_report(report_dir: Path, fingerprint: str) -> Path | None:
-    """Return the newest report produced from exactly the same eval inputs."""
+def _latest_compatible_report(report_dir: Path, case_fingerprint: str) -> Path | None:
+    """Return the newest report for the same case suite and scoring contract."""
 
     reports = sorted(
         report_dir.glob("*.json"), key=lambda path: path.stat().st_mtime, reverse=True
@@ -48,7 +48,8 @@ def _latest_compatible_report(report_dir: Path, fingerprint: str) -> Path | None
             data = json.loads(path.read_text(encoding="utf-8"))
         except (OSError, json.JSONDecodeError):
             continue
-        if data.get("fingerprint") == fingerprint:
+        report_case_fingerprint = data.get("case_fingerprint") or data.get("fingerprint")
+        if report_case_fingerprint == case_fingerprint:
             return path
     return None
 
@@ -107,11 +108,19 @@ def _table(rows: list[list[str]], headers: list[str]) -> str:
     return "\n".join([line, render(headers), line, *(render(row) for row in rows), line])
 
 
-def print_report(report, json_path: Path, csv_path: Path) -> None:
+def print_report(
+    report, json_path: Path, csv_path: Path, summary_path: Path,
+    scorecard_path: Path, manual_review_path: Path,
+    *, time_budget_seconds: float,
+) -> None:
     rows = []
     for result in report.results:
+        if result.model_called:
+            cost_display = f"{result.cost_vnd:.2f}"
+        else:
+            cost_display = "0.00 (không gọi model)"
         detail = (
-            result.failed_checks or result.error or result.judge_reason
+            result.error or result.failed_checks or result.judge_reason
             or result.diagnostic_stage or "-"
         )
         rows.append([
@@ -120,7 +129,7 @@ def print_report(report, json_path: Path, csv_path: Path) -> None:
             "không dấu" if result.input_style == "unaccented" else "có dấu",
             result.status,
             f"{result.score:.0%}",
-            f"{result.cost_vnd:.2f}",
+            cost_display,
             str(result.latency_ms),
             detail,
         ])
@@ -135,7 +144,10 @@ def print_report(report, json_path: Path, csv_path: Path) -> None:
         f"Hoàn tất: {summary.completion_rate:.1%}"
     )
     print(
-        f"Chi phí TB: {summary.average_cost_vnd:.2f} VND | "
+        f"Chi phí TB/lượt: {summary.average_cost_vnd:.2f} VND "
+        f"({summary.total_cost_vnd:.2f}/{summary.total}) | "
+        f"TB/lượt gọi model: {summary.average_model_call_cost_vnd:.2f} VND "
+        f"({summary.model_calls} lượt model, {summary.zero_cost_turns} lượt 0 VND) | "
         f"Tổng chi phí: {summary.total_cost_vnd:.2f} VND | "
         f"Độ trễ TB: {summary.average_latency_ms:.2f} ms | "
         f"Thời gian chạy: {summary.duration_seconds:.3f}s"
@@ -153,16 +165,48 @@ def print_report(report, json_path: Path, csv_path: Path) -> None:
     if report.comparison:
         delta = report.comparison
         if delta.get("compatible") is False:
-            print("Không so sánh baseline: bộ case/config/prompt không tương thích.")
+            print("Không so sánh baseline: bộ case hoặc phiên bản phép chấm không tương thích.")
         else:
-            print(
-                f"So với {delta.get('baseline_run_id') or 'baseline'}: "
-                f"đúng {delta['pass_rate_delta']:+.1%}, "
-                f"chi phí TB {delta['average_cost_vnd_delta']:+.2f} VND, "
-                f"độ trễ TB {delta['average_latency_ms_delta']:+.2f} ms"
-            )
+            comparison_rows = [
+                [
+                    "Tỷ lệ đạt",
+                    f"{delta['baseline_pass_rate']:.1%}",
+                    f"{delta['current_pass_rate']:.1%}",
+                    f"{delta['pass_rate_delta']:+.1%}",
+                ],
+                [
+                    "Hoàn tất",
+                    f"{delta['baseline_completion_rate']:.1%}",
+                    f"{delta['current_completion_rate']:.1%}",
+                    f"{delta['completion_rate_delta']:+.1%}",
+                ],
+                [
+                    "Chi phí TB (VND)",
+                    f"{delta['baseline_average_cost_vnd']:.2f}",
+                    f"{delta['current_average_cost_vnd']:.2f}",
+                    f"{delta['average_cost_vnd_delta']:+.2f}",
+                ],
+                [
+                    "Độ trễ TB (ms)",
+                    f"{delta['baseline_average_latency_ms']:.2f}",
+                    f"{delta['current_average_latency_ms']:.2f}",
+                    f"{delta['average_latency_ms_delta']:+.2f}",
+                ],
+            ]
+            print(f"\nSo sánh với {delta.get('baseline_run_id') or 'baseline'}:")
+            print(_table(comparison_rows, ["Chỉ số", "Lần trước", "Lần này", "Chênh lệch"]))
+            if delta.get("context_changed"):
+                print("Ghi chú: tenant config hoặc prompt đã thay đổi giữa hai lần chạy.")
+    within_budget = report.summary.duration_seconds < time_budget_seconds
+    print(
+        f"Ngân sách thời gian: {report.summary.duration_seconds:.3f}/"
+        f"{time_budget_seconds:.0f}s — {'ĐẠT' if within_budget else 'KHÔNG ĐẠT'}"
+    )
     print(f"Báo cáo JSON: {json_path}")
-    print(f"Bảng CSV: {csv_path}")
+    print(f"Bảng chi tiết CSV: {csv_path}")
+    print(f"Bảng tổng hợp/so sánh CSV: {summary_path}")
+    print(f"Bảng điểm rút gọn CSV: {scorecard_path}")
+    print(f"Bảng tự đánh giá 4 cột CSV: {manual_review_path}")
 
 
 def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
@@ -175,10 +219,17 @@ def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
     )
     parser.add_argument("--tenant-id", default="mima_internal")
     parser.add_argument("--config-version", type=int, default=1)
-    parser.add_argument("--workers", type=int, default=1, help="Mặc định 1 để tránh quota burst.")
+    parser.add_argument(
+        "--workers", type=int, default=3,
+        help="Số case chạy đồng thời (mặc định 3; rate limit vẫn áp dụng toàn cục).",
+    )
     parser.add_argument(
         "--requests-per-minute", type=float, default=15.0,
         help="Giới hạn tốc độ gọi chat (mặc định 15 RPM; phải > 0).",
+    )
+    parser.add_argument(
+        "--time-budget-seconds", type=float, default=300.0,
+        help="Ngưỡng thời gian nghiệm thu (mặc định 300 giây; phải > 0).",
     )
     return parser.parse_args(argv)
 
@@ -187,11 +238,11 @@ def main(argv: list[str] | None = None) -> int:
     _configure_utf8_console()
     args = parse_args(argv)
     try:
-        fingerprint = build_run_fingerprint(
-            args.cases, args.tenant_id, args.config_version
-        )
+        if args.time_budget_seconds <= 0:
+            raise EvalConfigError("time-budget-seconds phải lớn hơn 0.")
+        case_fingerprint = build_case_fingerprint(args.cases)
         baseline_path = args.baseline or _latest_compatible_report(
-            args.report_dir, fingerprint
+            args.report_dir, case_fingerprint
         )
         baseline = load_report_summary(baseline_path) if baseline_path else None
         report = run_eval(
@@ -205,11 +256,18 @@ def main(argv: list[str] | None = None) -> int:
             diagnostic_resolver=find_trace,
             judge_fn=_make_llm_judge(args.tenant_id, args.config_version),
         )
-        json_path, csv_path = save_report(report, args.report_dir)
+        json_path, csv_path, summary_path, scorecard_path, manual_review_path = save_report(
+            report, args.report_dir
+        )
     except (EvalConfigError, OSError, ValueError) as exc:
         print(f"Lỗi eval: {exc}", file=sys.stderr)
         return 2
-    print_report(report, json_path, csv_path)
+    print_report(
+        report, json_path, csv_path, summary_path, scorecard_path, manual_review_path,
+        time_budget_seconds=args.time_budget_seconds,
+    )
+    if report.summary.duration_seconds >= args.time_budget_seconds:
+        return 4
     if report.summary.errors:
         return 2
     if report.summary.manual_review:

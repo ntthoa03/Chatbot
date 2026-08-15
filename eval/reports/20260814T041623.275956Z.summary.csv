@@ -1,0 +1,10 @@
+﻿metric,current,baseline,delta,unit
+pass_rate,0.6207,,,%
+completion_rate,0.9667,,,%
+average_cost_vnd,14.07,,,VND
+average_latency_ms,1795.0,,,ms
+duration_seconds,117.866,,,s
+passed,18,,,cases
+failed,11,,,cases
+errors,0,,,cases
+manual_review,1,,,cases
