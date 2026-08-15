@@ -98,9 +98,22 @@ def _init_session() -> None:
         st.session_state.conversation_id = str(uuid4())
 
 
-def _render_sidebar() -> None:
+def _render_sidebar(config: Any) -> str | None:
     response = st.session_state.last_response
     with st.sidebar:
+        st.header("Cấu hình thử nghiệm")
+        model_role = st.selectbox(
+            "Model",
+            options=("primary", "fallback"),
+            index=None,
+            placeholder="Chọn primary hoặc fallback",
+            format_func=lambda role: (
+                f"Primary — {config.model_primary}"
+                if role == "primary"
+                else f"Fallback — {config.model_fallback}"
+            ),
+        )
+
         st.header("Thông tin lượt trả lời")
         if st.button("🗑️ Xoá hội thoại", use_container_width=True):
             reset_conversation()
@@ -108,7 +121,7 @@ def _render_sidebar() -> None:
 
         if not response:
             st.info("Hãy gửi một câu hỏi để xem nguồn và số liệu.")
-            return
+            return model_role
 
         usage = response.get("usage", {})
         left, right = st.columns(2)
@@ -143,6 +156,7 @@ def _render_sidebar() -> None:
             for call in tool_calls:
                 with st.expander(str(call.get("name", "tool"))):
                     st.json({"args": call.get("args", {}), "result": call.get("result", {})})
+        return model_role
 
 
 def run_app() -> None:
@@ -159,13 +173,18 @@ def run_app() -> None:
     st.caption(
         "Giao diện thử nghiệm nội bộ. Câu trả lời có thể cần chuyên viên xác nhận trước khi sử dụng."
     )
-    _render_sidebar()
+    model_role = _render_sidebar(config)
 
     for item in st.session_state.messages:
         with st.chat_message(item["role"]):
             st.markdown(item["content"])
 
-    question = st.chat_input("Nhập câu hỏi về website, SEO, tên miền…")
+    question = st.chat_input(
+        "Nhập câu hỏi về website, SEO, tên miền…",
+        disabled=model_role is None,
+    )
+    if model_role is None:
+        st.info("Chọn Primary hoặc Fallback trong thanh bên để bắt đầu thử nghiệm.")
     if not question:
         return
 
@@ -184,7 +203,7 @@ def run_app() -> None:
                 st.session_state.conversation_id,
                 previous_messages,
             )
-            for event in chat(payload, stream=True):
+            for event in chat(payload, stream=True, model_role=model_role):
                 if event.get("type") == "delta":
                     answer += str(event.get("delta", ""))
                     placeholder.markdown(answer + "▌")
