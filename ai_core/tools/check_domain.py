@@ -78,11 +78,23 @@ def matches_domain_question(message: str) -> bool:
             "con trong",
             "con khong",
             "dang ky duoc",
+            "dang ki duoc",
+            "dang ky",
+            "dang ki",
             "mua duoc",
             "available",
         )
     )
     return has_subject and has_check_intent
+
+
+def extract_domain(message: str) -> str | None:
+    """Extract and normalize the first syntactically valid domain in free text."""
+
+    match = DOMAIN_IN_TEXT_PATTERN.search(message.casefold())
+    if not match:
+        return None
+    return CheckDomainArgs(domain=match.group(0)).domain
 
 
 def mock_check_domain(domain: str) -> dict:

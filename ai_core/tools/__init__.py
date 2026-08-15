@@ -10,7 +10,7 @@ from ai_core.tools.base import (
     ToolTimeoutError,
     ToolValidationError,
 )
-from ai_core.tools.check_domain import CHECK_DOMAIN_TOOL
+from ai_core.tools.check_domain import CHECK_DOMAIN_TOOL, extract_domain
 from ai_core.tools.registry import TOOL_REGISTRY, ToolRegistry
 
 
@@ -43,6 +43,7 @@ __all__ = [
     "ToolTimeoutError",
     "ToolValidationError",
     "execute_tool",
+    "extract_domain",
     "get_enabled_tools",
     "get_tool_schemas",
     "message_may_need_tools",
