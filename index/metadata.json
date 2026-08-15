@@ -12,6 +12,18 @@
     }
   },
   {
+    "chunk_id": "861e0773-712a-4623-95ab-f98cf3fcd220",
+    "tenant_id": "mima_internal",
+    "content": "Thông tin liên hệ MIMA: Công Ty TNHH Thương Mại Dịch Vụ MIMA, MST 0318672839. Địa chỉ: 31/3B Ấp Thới Tứ 1, Xã Đông Thạnh, TP. Hồ Chí Minh. Hotline: 0909 035 333. Zalo tư vấn: 0902875586. Email: info@mimadigi.com. Khách để lại thông tin sẽ được nhân viên tư vấn liên hệ lại, MIMA cam kết không dùng thông tin khách hàng để bán hoặc spam.",
+    "content_hash": "e7abe980a78a9dd07d2cbf3864d8c76fc4bc193432b0504ee5422731a4f6e7f9",
+    "metadata": {
+      "url": "https://mimadigi.com/lien-he",
+      "title": "Liên hệ MIMA",
+      "type": "faq",
+      "updated_at": "2026-08-07"
+    }
+  },
+  {
     "chunk_id": "836ff8c2-a803-497e-a2e9-509955b8e134",
     "tenant_id": "mima_internal",
     "content": "Dịch vụ thiết kế website tại MIMA cung cấp giao diện hiện đại, tối ưu trải nghiệm người dùng, tốc độ tải trang nhanh, chuẩn SEO Google, thiết kế riêng theo từng ngành nghề, đảm bảo tính bản quyền - độc quyền và tương thích trên mọi thiết bị (PC, tablet, điện thoại). Website tích hợp sẵn công nghệ AI Content SEO, giúp tự động sinh nội dung chuẩn SEO cho sản phẩm, dịch vụ, tin tức với năng suất cao hơn nhiều so với viết tay thủ công.",
@@ -164,6 +176,306 @@
       "url": "https://mimadigi.com/thiet-ke-website",
       "title": "FAQ thiết kế website chuẩn SEO Google",
       "type": "faq",
+      "updated_at": "2026-08-07"
+    }
+  },
+  {
+    "chunk_id": "32db37a2-cc77-408a-85c5-2cef43679630",
+    "tenant_id": "mima_internal",
+    "content": "Ý nghĩa logo MIMA: vòng tròn trong logo tượng trưng cho thế giới số, chữ M ở trung tâm đại diện cho sự minh mẫn và ba trụ cột Marketing - AI - Media, đồng thời gợi tinh thần một 'người hùng thầm lặng' không phô trương nhưng luôn xuất hiện đúng lúc bằng trí tuệ và công nghệ. Ánh sáng trên chữ M là khoảnh khắc khai mở khi doanh nghiệp nhìn rõ con đường cần đi; đường lượn sóng dưới tên miền tượng trưng cho dòng chảy công nghệ bền bỉ, nâng đỡ tăng trưởng dài hạn.",
+    "content_hash": "e06ad0f48e4543547a33c3e9198090c6236dec36ca62491f01b488fe213d4a6b",
+    "metadata": {
+      "url": "https://mimadigi.com/gioi-thieu",
+      "title": "Ý nghĩa thương hiệu logo MIMA",
+      "type": "blog",
+      "updated_at": "2026-08-07"
+    }
+  },
+  {
+    "chunk_id": "7d1f831c-9880-44be-bd27-e820445bcf8c",
+    "tenant_id": "mima_internal",
+    "content": "6 giá trị cốt lõi của MIMA Digi: (1) Khách hàng là trung tâm - thấu hiểu nhu cầu, lắng nghe phản hồi; (2) Sáng tạo - khác biệt trong từng sản phẩm dịch vụ; (3) Tận tâm - chuyên nghiệp, đặt lợi ích khách hàng lên hàng đầu; (4) Đổi mới & công nghệ tiên phong, liên tục cập nhật xu hướng mới; (5) Chất lượng - hiệu quả thực tế, cam kết đạt chuẩn cao nhất; (6) Hỗ trợ & đồng hành dài hạn, không chỉ bàn giao mà còn bảo trì, nâng cấp sau bán.",
+    "content_hash": "e381c8b2b402a8d9dd52dab314a466511e9808da1704ccf33dd9f32b550457b4",
+    "metadata": {
+      "url": "https://mimadigi.com/gioi-thieu",
+      "title": "Giá trị cốt lõi MIMA Digi",
+      "type": "blog",
+      "updated_at": "2026-08-07"
+    }
+  },
+  {
+    "chunk_id": "07504f71-edf6-4fff-b8e1-2c4f59a78cdb",
+    "tenant_id": "mima_internal",
+    "content": "Tầm nhìn của MIMA Digi: dẫn đầu chuyển đổi số, nâng tầm thương hiệu Việt, trở thành thương hiệu công nghệ số và marketing toàn diện hàng đầu Việt Nam, giúp doanh nghiệp Việt vươn tầm quốc tế. Sứ mệnh: kiến tạo giải pháp số toàn diện - không chỉ thiết kế website mà còn giúp doanh nghiệp vận hành, quảng bá, kinh doanh hiệu quả trên môi trường trực tuyến bằng dịch vụ chuẩn SEO, marketing thông minh và hạ tầng số ổn định.",
+    "content_hash": "9747b7377cb4b6a542daab22398fe917bcaa061368b4501223c96e9af7d63f3b",
+    "metadata": {
+      "url": "https://mimadigi.com/gioi-thieu",
+      "title": "Tầm nhìn và sứ mệnh MIMA Digi",
+      "type": "blog",
+      "updated_at": "2026-08-07"
+    }
+  },
+  {
+    "chunk_id": "dc36cb69-e579-4ad1-b859-de67f084cf98",
+    "tenant_id": "mima_internal",
+    "content": "Quan điểm kinh doanh của MIMA: 'Thành công của khách hàng chính là thành công của MIMA' - chỉ khi khách hàng phát triển, MIMA mới thật sự lớn mạnh. 10 nhóm dịch vụ nổi bật của MIMA gồm: Thiết kế website, Thiết kế app, Cung cấp hosting, Tên miền, SEO website/fanpage/maps, Chăm sóc web và fanpage, Tạo profile và Google Maps, Chạy quảng cáo, Email hosting, và sản xuất video giới thiệu.",
+    "content_hash": "b3438a2f7643c155db0c0905cabd600b6dd480a497ff2ef512736b68c3c62cd1",
+    "metadata": {
+      "url": "https://mimadigi.com/gioi-thieu",
+      "title": "Quan điểm kinh doanh và dịch vụ nổi bật MIMA",
+      "type": "blog",
+      "updated_at": "2026-08-07"
+    }
+  },
+  {
+    "chunk_id": "93f0690b-563f-4679-83bd-5b48aed3287f",
+    "tenant_id": "mima_internal",
+    "content": "4 ưu điểm nổi bật của dịch vụ Marketing Website tại MIMA: (1) Chi phí hợp lý - giải pháp linh hoạt theo ngân sách, không phát sinh chi phí ẩn; (2) Tiến độ chặt chẽ - cam kết đúng thời gian, đúng kế hoạch, kiểm soát tiến độ rõ ràng; (3) Chất lượng vượt trội - website chuẩn SEO/Google, giao diện hiện đại, tốc độ tải nhanh, bảo mật cao; (4) Hỗ trợ vận hành - hỗ trợ kỹ thuật lâu dài, xử lý nhanh, tư vấn tận tâm sau dự án.",
+    "content_hash": "c4a67ae586dd8114a05d005c49aef096dd84729e936f0e3db95eb1b541fe776b",
+    "metadata": {
+      "url": "https://mimadigi.com/",
+      "title": "Ưu điểm nổi bật của dịch vụ Marketing Website tại MIMA",
+      "type": "blog",
+      "updated_at": "2026-08-07"
+    }
+  },
+  {
+    "chunk_id": "091c0ef2-49a5-4caf-99b2-4167bbef4a8a",
+    "tenant_id": "mima_internal",
+    "content": "MIMA thiết kế website chuẩn Google cho khách hàng tại tất cả các tỉnh thành Việt Nam (từ An Giang, Hà Nội, TP. Hồ Chí Minh, Đà Nẵng, Cần Thơ... đến các tỉnh khác) và còn nhận thiết kế website cho khách hàng nước ngoài theo các châu lục: Châu Mỹ, Châu Đại Dương, Châu Á, Châu Phi, Châu Âu, Châu Úc.",
+    "content_hash": "050cfbdf519050f0f2d595d0bfb928f784d3025726b1abdda89a05cc718d4ac4",
+    "metadata": {
+      "url": "https://mimadigi.com/thiet-ke-website",
+      "title": "Phạm vi phục vụ thiết kế website của MIMA",
+      "type": "faq",
+      "updated_at": "2026-08-07"
+    }
+  },
+  {
+    "chunk_id": "546acf9e-0b46-4e36-b567-c52e4f65a728",
+    "tenant_id": "mima_internal",
+    "content": "MIMA lập trình website trên nhiều nền tảng công nghệ: CMS (hệ thống quản lý nội dung dựa trên PHP, nhiều chủ đề và plugin tùy chỉnh), công cụ quản lý source code và tiến độ dự án (lên kế hoạch, ghi chú, timeline, đồng bộ dữ liệu), ngôn ngữ lập trình để tạo trang web động (xử lý sự kiện, kiểm tra dữ liệu nhập, tạo game/ứng dụng web), và Framework để xây dựng ứng dụng web phức tạp, kết hợp các thư viện như Redux, React Router, Axios, Material-UI.",
+    "content_hash": "6f707596b5bc3945ceb007bab79d01540f0bdce42db034f81152efe5bace12a1",
+    "metadata": {
+      "url": "https://mimadigi.com/thiet-ke-website",
+      "title": "Công nghệ lập trình website tại MIMA",
+      "type": "service",
+      "updated_at": "2026-08-07"
+    }
+  },
+  {
+    "chunk_id": "86153d46-fd72-4d1c-86f7-fd4907ca343d",
+    "tenant_id": "mima_internal",
+    "content": "FAQ: 'Công ty thiết kế web nào tốt nhất?' — MIMA DIGI có website chuẩn SEO với cấu trúc URL ngắn gọn, tối ưu tốc độ tải trang, các yếu tố onpage (Heading, Meta Title, Meta Description) được tối ưu chuẩn SEO, tích hợp đầy đủ công cụ SEO và bảo mật SSL, tỷ lệ chuyển đổi cao nhờ UX/UI tối ưu. 'Thiết kế website theo yêu cầu có được chỉnh sửa giao diện không?' — Có, khách hàng được duyệt giao diện trước khi lập trình và được chỉnh sửa màu sắc, bố cục phù hợp nhận diện thương hiệu.",
+    "content_hash": "53b3902da9e3963894c8d4fccfe897c07168d84be28f66c7f15352490aa7da15",
+    "metadata": {
+      "url": "https://mimadigi.com/thiet-ke-website",
+      "title": "FAQ chọn công ty thiết kế web và chỉnh sửa giao diện",
+      "type": "faq",
+      "updated_at": "2026-08-07"
+    }
+  },
+  {
+    "chunk_id": "ba15da31-cafd-431a-bae8-58b14e59f2b5",
+    "tenant_id": "mima_internal",
+    "content": "Dịch vụ quảng cáo Google của MIMA xây dựng chiến lược tiếp thị tương tác, mở rộng phạm vi tiếp cận khách hàng, giúp chuyển đổi đơn ngay khi chạy chiến dịch, bao gồm tư vấn Google Ads, Facebook Ads, Video Youtube, quảng cáo Maps. 9 lợi ích của quảng cáo trực tuyến: chi phí thấp hiệu quả cao; không phụ thuộc ngân sách nhiều hay ít; dễ tiếp cận khách hàng tiềm năng trên phạm vi rộng; dễ phân khúc và nhắm khách hàng mục tiêu; quản lý ngân sách và hiệu quả theo thời gian thực; chỉ trả tiền cho click hoặc chuyển đổi thành lead; triển khai nhanh trong 8-12h; tùy chỉnh linh hoạt (khởi động, tạm dừng, chỉnh sửa bất cứ lúc nào); có trên 20 hình thức quảng cáo phù hợp mọi lĩnh vực.",
+    "content_hash": "ba2d53be7032dcbb688b1132d66b69d9cbe3d37e12c8aefa24bb7c71b23a72f3",
+    "metadata": {
+      "url": "https://mimadigi.com/dich-vu-quang-cao",
+      "title": "Dịch vụ quảng cáo Google và lợi ích quảng cáo trực tuyến",
+      "type": "service",
+      "updated_at": "2026-08-07"
+    }
+  },
+  {
+    "chunk_id": "bccd65d3-afb1-44d1-b2c5-4f206486adfa",
+    "tenant_id": "mima_internal",
+    "content": "Quy trình thực hiện quảng cáo tại MIMA gồm 4 bước: (1) Phân tích - phân tích sản phẩm dịch vụ website cần quảng cáo, tư vấn tối ưu website, xác định dạng quảng cáo (từ khóa, Banner Google, Youtube Ads, Maps, Shopping, Fanpage); (2) Lên kế hoạch - xây chiến lược quảng cáo, báo giá, phân tích bộ từ khóa theo nhóm sản phẩm, đề xuất giá thầu, viết mẫu quảng cáo; (3) Tối ưu chuyên sâu - thiết lập tiện ích miễn phí (địa điểm, cuộc gọi, link mở rộng), test A/B cho ngành khó/nhiều click tặc; (4) Báo cáo theo tiến độ - báo cáo hàng ngày/tuần/tháng theo chiến dịch, nhóm quảng cáo, từ khóa, khu vực địa lý.",
+    "content_hash": "98de4709f7016c7533dd7bc0c9194821f8d702063568d826077a3030d1de1f96",
+    "metadata": {
+      "url": "https://mimadigi.com/dich-vu-quang-cao",
+      "title": "Quy trình thực hiện quảng cáo tại MIMA",
+      "type": "service",
+      "updated_at": "2026-08-07"
+    }
+  },
+  {
+    "chunk_id": "173559bc-c45a-494e-acd1-60e7cc6cce1f",
+    "tenant_id": "mima_internal",
+    "content": "Bảng giá dịch vụ quảng cáo của MIMA có 4 gói theo mục tiêu kinh doanh, báo giá cụ thể tùy nhu cầu qua hotline 0909 035 333: Gói 1 Google Ads - phù hợp khách hàng vừa xây dựng website, cần cập nhật thông tin chuyên nghiệp, tính phí theo từ khoá và khu vực chạy. Gói 4 Google Shopping - phù hợp khách hàng có website bán hàng, yêu cầu sản phẩm phải có giá và thông tin đầy đủ, tính phí theo từ khoá, khu vực và số lượng sản phẩm.",
+    "content_hash": "d990afe8403a0ffc68a60b7fa7d106f4a3648b08b77dfdc74dd7939313f75cd0",
+    "metadata": {
+      "url": "https://mimadigi.com/dich-vu-quang-cao",
+      "title": "Bảng giá quảng cáo - Gói Google Ads và Google Shopping",
+      "type": "pricing",
+      "updated_at": "2026-08-07"
+    }
+  },
+  {
+    "chunk_id": "685b608e-cd33-4336-80f0-1e2bf85ef731",
+    "tenant_id": "mima_internal",
+    "content": "Bảng giá dịch vụ quảng cáo của MIMA (tiếp): Gói 2 Fanpage - phù hợp khách hàng vừa xây dựng Fanpage, muốn tiếp cận khách hàng ngay, tính phí theo đối tượng nhắm đến và khu vực/bán kính chạy. Gói 3 Google Maps - phù hợp khách hàng xây dựng Maps, muốn tiếp cận khách hàng local, tính phí theo từ khoá và bán kính tiếp cận. Cả 4 gói đều báo giá dựa trên khả năng tài chính và mục tiêu tiếp cận (độ tuổi, bán lẻ/bán sỉ, khách du lịch), liên hệ hotline 0909 035 333 để nhận báo giá chi tiết.",
+    "content_hash": "00f1c1996c352b367157947b84b5912909d0f8e819b9a0c557657925a537eda0",
+    "metadata": {
+      "url": "https://mimadigi.com/dich-vu-quang-cao",
+      "title": "Bảng giá quảng cáo - Gói Fanpage và Google Maps",
+      "type": "pricing",
+      "updated_at": "2026-08-07"
+    }
+  },
+  {
+    "chunk_id": "a8e64e94-9217-4d26-a7d0-f607cfb4efc7",
+    "tenant_id": "mima_internal",
+    "content": "FAQ quảng cáo: MIMA triển khai các hình thức quảng cáo Facebook Ads (tăng tương tác, bán hàng, remarketing), Google Ads (tìm kiếm, GDN, YouTube), Google Shopping, TikTok Ads (video ngắn, livestream). Google Shopping là hình thức quảng cáo hiển thị hình ảnh sản phẩm, giá bán và tên shop ngay trên kết quả tìm kiếm Google, giúp tăng tỷ lệ click và bán hàng. Để chạy Google Shopping cần: website có tích hợp thanh toán/giỏ hàng, tài khoản Google Merchant Center, danh mục sản phẩm chuẩn SEO (title, mô tả, ảnh, giá) — MIMA hỗ trợ đăng ký, thiết lập Merchant và kết nối website.",
+    "content_hash": "55b9ceea6aa66cf03b72cac345d117436f3978fe1a7a036e4a3ba464905e04fc",
+    "metadata": {
+      "url": "https://mimadigi.com/dich-vu-quang-cao",
+      "title": "FAQ quảng cáo - hình thức quảng cáo và Google Shopping",
+      "type": "faq",
+      "updated_at": "2026-08-07"
+    }
+  },
+  {
+    "chunk_id": "ea8c65f1-0286-40d7-a3ae-a893489e1ed7",
+    "tenant_id": "mima_internal",
+    "content": "FAQ quảng cáo: Ngân sách quảng cáo tối thiểu MIMA khuyến nghị - Google Ads từ 3.000.000đ/tháng, Facebook Ads từ 2.000.000đ/tháng, Google Shopping từ 3.000.000đ/tháng. Nên chạy quảng cáo định kỳ theo giai đoạn (khởi động thương hiệu - tăng doanh thu - remarketing - chăm sóc khách cũ) để duy trì độ phủ. Hiệu quả có thể thấy sau 3-7 ngày chạy, nên duy trì ít nhất 1 tháng để có đủ dữ liệu tối ưu. MIMA không cam kết 100% đơn hàng nhưng cam kết quảng cáo đúng đối tượng mục tiêu, tối ưu tỷ lệ chuyển đổi (CRO) và báo cáo minh bạch.",
+    "content_hash": "77037a3d59a1340df7c1d537d978154164d099f29c9716224886b72fc28f47f9",
+    "metadata": {
+      "url": "https://mimadigi.com/dich-vu-quang-cao",
+      "title": "FAQ quảng cáo - ngân sách tối thiểu và cam kết hiệu quả",
+      "type": "faq",
+      "updated_at": "2026-08-07"
+    }
+  },
+  {
+    "chunk_id": "c6192a56-d724-4d56-84a1-3a614dcd4af6",
+    "tenant_id": "mima_internal",
+    "content": "MIMA Digi cung cấp dịch vụ Zalo OA - Zalo Mini App trọn gói, giúp doanh nghiệp sở hữu kênh Zalo Official Account (OA) - trung tâm vận hành quản lý tin nhắn, chăm sóc khách hàng, gửi broadcast, tích hợp chatbot AI tự động 24/7, và Zalo Mini App - ứng dụng thu nhỏ cho phép khách đặt lịch, đặt bàn, đăng ký dịch vụ, thanh toán chỉ trong vài thao tác mà không cần tải app riêng. Zalo hiện có khoảng 75 triệu người dùng tại Việt Nam.",
+    "content_hash": "ef7428b2541833fa99e2061a84eafe5778496c3b615a4d3b4c11637610bb8ade",
+    "metadata": {
+      "url": "https://mimadigi.com/zalo-oa-mini-app",
+      "title": "Giới thiệu dịch vụ Zalo OA - Zalo Mini App",
+      "type": "service",
+      "updated_at": "2026-08-07"
+    }
+  },
+  {
+    "chunk_id": "07f8d522-a4e8-4043-8ab5-500227595062",
+    "tenant_id": "mima_internal",
+    "content": "4 lợi ích của Zalo OA - Mini App tại MIMA: (1) Tăng khả năng tiếp cận khách hàng - gửi broadcast tỉ lệ mở cao, mua sắm/thanh toán ngay trong Zalo không cần tải app; (2) Tối ưu quy trình bán hàng và chăm sóc khách hàng - chatbot AI tự động hóa tư vấn, đặt lịch, quản lý đơn hàng, giảm nhân lực; (3) Xây dựng thương hiệu uy tín - giao diện chuẩn UX/UI, tăng khả năng tìm kiếm tự nhiên trên Zalo; (4) Tăng doanh thu và tỷ lệ chuyển đổi - Mini App theo dõi hành vi khách hàng, hỗ trợ minigame, voucher, đặt hàng nhanh.",
+    "content_hash": "e860b6ab0fdbb6627b52892578ef503019cc6f3c800ab8fd08a16208f96f862b",
+    "metadata": {
+      "url": "https://mimadigi.com/zalo-oa-mini-app",
+      "title": "Lợi ích của Zalo OA - Mini App",
+      "type": "service",
+      "updated_at": "2026-08-07"
+    }
+  },
+  {
+    "chunk_id": "bd6881f6-08b4-41c9-b422-ec67113b1362",
+    "tenant_id": "mima_internal",
+    "content": "Gói Zalo OA - Mini App của MIMA triển khai theo 8 bước: đăng ký Zalo OA (chuẩn hóa thông tin doanh nghiệp, logo, mô tả); thiết kế giao diện OA chuẩn UX/UI; tạo Mini App tích hợp trong Zalo; tích hợp tính năng đặt lịch/đặt hàng; tích hợp chatbot AI tư vấn tự động 24/7; quản lý tin nhắn và bình luận tập trung; cấu hình khuyến mãi/voucher/minigame; và tối ưu trải nghiệm cùng báo cáo hiệu quả theo dõi hành vi người dùng.",
+    "content_hash": "17fb4db228627796dcbd967d637f8e952ad15e593a6a0ab79043efb206b8d0be",
+    "metadata": {
+      "url": "https://mimadigi.com/zalo-oa-mini-app",
+      "title": "Quy trình 8 bước triển khai Zalo OA - Mini App",
+      "type": "service",
+      "updated_at": "2026-08-07"
+    }
+  },
+  {
+    "chunk_id": "80385a1a-55bc-49c8-b118-9563e66cf92d",
+    "tenant_id": "mima_internal",
+    "content": "Gói OA-MINIAPP1 giá 4.320.000đ (đã gồm VAT): soạn hồ sơ đăng ký Zalo OA, xây tick vàng OA, thiết kế ảnh đại diện + ảnh bìa, hướng dẫn tạo bài viết, tạo và quản lý 2 nhãn chat, viết 7 bài kèm hình ảnh, thiết lập 3 menu OA, 3 truy vấn nhanh, triển khai 3 chatbox tự động theo từ khoá, gửi 50 tin nhắn chăm sóc, chưa gửi broadcast.",
+    "content_hash": "d44c358d5eb3f15cdd0c6adc9bb58099dc5a6c8fc4c7f44037723c0835f12f6c",
+    "metadata": {
+      "url": "https://mimadigi.com/zalo-oa-mini-app",
+      "title": "Bảng giá Zalo OA - Mini App - Gói 1",
+      "type": "pricing",
+      "updated_at": "2026-08-07"
+    }
+  },
+  {
+    "chunk_id": "5e9160ae-264b-44ac-bb48-5ae5e244c254",
+    "tenant_id": "mima_internal",
+    "content": "Gói OA_MINIAPP2 giá 6.480.000đ (đã gồm VAT): soạn hồ sơ và xây tick vàng, thiết kế ảnh đại diện + ảnh bìa, hướng dẫn tạo bài viết, quản lý 3 nhãn chat, viết 10 bài kèm hình ảnh, thiết lập 4 menu OA, 4 truy vấn nhanh, triển khai 4 chatbox tự động, 2 mẫu tin chăm sóc chủ động, gửi 80 tin chăm sóc, gửi 1 broadcast.",
+    "content_hash": "8d2926110978f4d5575b301aec8b02cd57badc48517fc61e9007428112f9c3ab",
+    "metadata": {
+      "url": "https://mimadigi.com/zalo-oa-mini-app",
+      "title": "Bảng giá Zalo OA - Mini App - Gói 2",
+      "type": "pricing",
+      "updated_at": "2026-08-07"
+    }
+  },
+  {
+    "chunk_id": "c9ca2b77-874d-45f4-b410-766914bd862f",
+    "tenant_id": "mima_internal",
+    "content": "Gói OA-MINIAPP3 giá 10.800.000đ (đã gồm VAT): soạn hồ sơ và tick vàng, thiết kế ảnh đại diện + ảnh bìa, hướng dẫn tạo bài viết, quản lý 4 nhãn chat, viết 30 bài kèm hình ảnh, thiết lập 7 menu OA, 7 truy vấn nhanh, triển khai 7 chatbox tự động, 5 mẫu tin chăm sóc, gửi 200 tin chăm sóc, gửi 4 broadcast cho khách hàng OA quan tâm. Đây là gói cao nhất trong 3 gói Zalo OA - Mini App của MIMA.",
+    "content_hash": "bdabd39c60294052bb25c33fdabc4a0697b1a6c41e0eaa7874324d6ae3df8d94",
+    "metadata": {
+      "url": "https://mimadigi.com/zalo-oa-mini-app",
+      "title": "Bảng giá Zalo OA - Mini App - Gói 3",
+      "type": "pricing",
+      "updated_at": "2026-08-07"
+    }
+  },
+  {
+    "chunk_id": "c53a5973-b90b-453c-9b8e-ce4a8d517d0a",
+    "tenant_id": "mima_internal",
+    "content": "FAQ Zalo OA - Mini App: Zalo Official Account (OA) là tài khoản chính thức của doanh nghiệp trên Zalo, giúp quản lý tin nhắn, gửi broadcast, xây dựng thương hiệu uy tín. Mini App là ứng dụng thu nhỏ chạy trực tiếp trong Zalo, không cần cài đặt, cho phép đặt lịch, mua hàng, thanh toán ngay. Điều kiện đăng ký Zalo OA: doanh nghiệp cần giấy phép đăng ký kinh doanh, logo, thông tin liên hệ đầy đủ, địa chỉ email, số điện thoại và thông tin sản phẩm/dịch vụ.",
+    "content_hash": "10de372b9bbbd87e2792594c524e7ae702046bc1ce8cf66dac1a634033756d6e",
+    "metadata": {
+      "url": "https://mimadigi.com/zalo-oa-mini-app",
+      "title": "FAQ Zalo OA - Mini App: khái niệm và điều kiện đăng ký",
+      "type": "faq",
+      "updated_at": "2026-08-07"
+    }
+  },
+  {
+    "chunk_id": "b5a460ab-20cf-4aa2-b23e-c1627eba192e",
+    "tenant_id": "mima_internal",
+    "content": "FAQ Zalo OA - Mini App: Chatbot AI của MIMA trả lời tự động, tư vấn khách hàng 24/7, xử lý đơn hàng, hướng dẫn đặt lịch, giúp giảm tải nhân sự. Mini App tích hợp đầy đủ tính năng đặt lịch hẹn, đặt bàn, đăng ký dịch vụ, đặt hàng trực tuyến, thanh toán nhanh. MIMA triển khai hệ thống tổng hợp và phân loại tin nhắn/bình luận từ OA và Mini App để phản hồi kịp thời. Mini App được tối ưu chạy trên cả Android, iOS và nền tảng web trong Zalo.",
+    "content_hash": "bbbeb45e2b42c6ea55c0adfa8f0b2a472e19217cf500f85cd17f42a8797d254a",
+    "metadata": {
+      "url": "https://mimadigi.com/zalo-oa-mini-app",
+      "title": "FAQ Zalo OA - Mini App: chatbot, tính năng đặt lịch và đa nền tảng",
+      "type": "faq",
+      "updated_at": "2026-08-07"
+    }
+  },
+  {
+    "chunk_id": "61332930-0433-4a00-9db5-16c06e8f0351",
+    "tenant_id": "mima_internal",
+    "content": "Chính sách bảo mật MIMA - mục đích và phạm vi thu thập thông tin: MIMA thu thập thông tin cá nhân (họ tên, số điện thoại, email, địa chỉ công ty, thông tin yêu cầu dịch vụ, dữ liệu hành vi truy cập website như cookies/IP/trình duyệt) nhằm hỗ trợ tư vấn dịch vụ thiết kế website/SEO/quảng cáo, cung cấp báo giá - hợp đồng - chăm sóc khách hàng, và cập nhật chương trình khuyến mãi.",
+    "content_hash": "efc4373b0c60c2d2790f9e249dd4fa3b85923b6656b2abe441dcf925092308e4",
+    "metadata": {
+      "url": "https://mimadigi.com/chinh-sach-bao-mat",
+      "title": "Chính sách bảo mật - Mục đích và phạm vi thu thập thông tin",
+      "type": "policy",
+      "updated_at": "2026-08-07"
+    }
+  },
+  {
+    "chunk_id": "5b1d0367-886c-4ce9-bdf7-13f28685b381",
+    "tenant_id": "mima_internal",
+    "content": "Chính sách bảo mật MIMA - sử dụng và bảo vệ thông tin: MIMA chỉ dùng thông tin khách hàng nội bộ để xác nhận tư vấn, gửi báo giá/hợp đồng/hóa đơn và cải thiện trải nghiệm website; cam kết không bán, chia sẻ hay trao đổi thông tin khách hàng với bên thứ ba trừ khi có yêu cầu từ cơ quan pháp luật. Website dùng giao thức SSL để mã hóa dữ liệu, lưu trữ trên máy chủ bảo mật cao. Khách hàng có quyền yêu cầu cập nhật, chỉnh sửa hoặc xóa thông tin cá nhân, hoặc ngưng nhận thông báo marketing, qua email info.mimadigi@gmail.com hoặc hotline 0909 035 333.",
+    "content_hash": "0096c1ccd96c1361243fc2615dfb369a451040efa2de218ba56d16c44cd1abd7",
+    "metadata": {
+      "url": "https://mimadigi.com/chinh-sach-bao-mat",
+      "title": "Chính sách bảo mật - Sử dụng, bảo vệ thông tin và quyền khách hàng",
+      "type": "policy",
+      "updated_at": "2026-08-07"
+    }
+  },
+  {
+    "chunk_id": "bea2d039-c2c7-4f65-97a8-18200bb64350",
+    "tenant_id": "mima_internal",
+    "content": "MIMA có phòng R&D chuyên nghiên cứu hành vi khách hàng theo từng ngành nghề (hơn 200 ngành nghề dịch vụ, sản phẩm khác nhau) để xây dựng giao diện website tối ưu trải nghiệm người dùng, thân thiện, dễ thao tác và thúc đẩy chuyển đổi đơn cao. Một website chuyển đổi tốt giúp tự động hóa quy trình bán hàng, tiết kiệm thời gian chăm sóc khách hàng nhờ phễu bán hàng thông minh, tối ưu nguồn lực nhân sự, biến website thành nhân viên kinh doanh phục vụ khách hàng 24/7.",
+    "content_hash": "bd4a74a46adbe05f99e3f7dcee57958c52fc75b2de5f46b051af549bd90d32a9",
+    "metadata": {
+      "url": "https://mimadigi.com/thiet-ke-website",
+      "title": "Nghiên cứu hành vi khách hàng theo ngành và giá trị website chuyển đổi cao",
+      "type": "service",
       "updated_at": "2026-08-07"
     }
   }

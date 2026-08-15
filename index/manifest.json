@@ -3,7 +3,7 @@
   "provider": "gemini",
   "model": "gemini-embedding-001",
   "dimension": 3072,
-  "record_count": 14,
+  "record_count": 40,
   "tenants": [
     "mima_internal"
   ]
