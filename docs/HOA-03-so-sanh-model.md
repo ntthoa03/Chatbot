@@ -1,99 +1,183 @@
-# H-03 — So sánh model LLM + embedding cho tiếng Việt
+# HOA-03 — Kiểm nghiệm và chọn LLM + embedding tiếng Việt
 
-|            |                                                                                                                                                         |
-| ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Trạng thái | Nghiên cứu + khuyến nghị dựa trên giá/free-tier thật (tra cứu 10/08/2026). **CHƯA có số liệu đo thực tế** (độ trễ, chất lượng câu trả lời) — xem mục 5. |
-| Phạm vi    | 2 nhà cung cấp LLM (OpenAI, Google Gemini) + 2 model embedding                                                                                          |
+| Thuộc tính   | Kết quả                                                                                                         |
+| ------------ | --------------------------------------------------------------------------------------------------------------- |
+| Trạng thái   | **Hoàn thành** — đã gọi API thật ngày 14/08/2026                                                                |
+| Dữ liệu      | 15 câu trong `tests/h03_test_questions.json`, mỗi câu chạy bản có dấu và không dấu                              |
+| Nhà cung cấp | OpenAI và Google Gemini                                                                                         |
+| Bằng chứng   | `outputs/hoa03/h03_summary.json`, `outputs/hoa03/h03_pilot_results.json`, `outputs/hoa03/h03_full_results.json` |
 
-## 0. Điều quan trọng cần đọc trước
+## Bảng so sánh đúng bốn chỉ số yêu cầu
 
-Task yêu cầu _"Có bảng số liệu thực đo, không phải cảm nhận"_
+Đây là bảng kết quả chính của Hoa-03. Mỗi stack chạy **30 lượt thật**: 15 câu ×
+hai biến thể có dấu/không dấu.
 
-## 1. Giá & free-tier thật (tra cứu 10/08/2026)
+| Hệ sinh thái  | Model LLM + embedding                            |              Chất lượng trả lời |                  Chất lượng truy xuất | Độ trễ E2E TB/câu | Giá thực tế toàn bộ lần test |
+| ------------- | ------------------------------------------------ | ------------------------------: | ------------------------------------: | ----------------: | ---------------------------: |
+| OpenAI        | `gpt-5.6-luna` + `text-embedding-3-small`        | **28/30 đạt (93,33%)**, 4,867/5 |  Hit@3 **80%**, Hit@1 70%, MRR 0,7852 |        2.212,6 ms | **$0,00554782 ≈ 144,24 VND** |
+| Google Gemini | `gemini-3.5-flash-lite` + `gemini-embedding-001` | **28/30 đạt (93,33%)**, 4,867/5 | Hit@3 **100%**, Hit@1 80%, MRR 0,8833 |    **1.127,6 ms** |     $0,00929490 ≈ 241,67 VND |
 
-### LLM (chat)
+### Cách tính bốn chỉ số
 
-| Nhà cung cấp  | Model                   | Giá (input/output mỗi 1M token)                | Free tier?                                                                                                |
-| ------------- | ----------------------- | ---------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
-| Google Gemini | `gemini-2.5-flash`      | $0.30 / $2.50                                  | **Có** — miễn phí qua Google AI Studio, giới hạn theo request/phút, không cần thẻ tín dụng                |
-| Google Gemini | `gemini-2.5-flash-lite` | $0.10 / $0.40 (rẻ nhất dòng Gemini còn hỗ trợ) | **Có** — cùng điều kiện free tier                                                                         |
-| OpenAI        | `gpt-4o-mini`           | $0.15 / $0.60                                  | **Không còn free tier thường trực** — tài khoản mới chỉ được tặng $5 credit dùng thử, hết hạn sau 3 tháng |
-| OpenAI        | `gpt-5.4-mini`          | $0.75 / $4.50                                  | Như trên                                                                                                  |
+| Chỉ số               | Định nghĩa đo                                                                                                                                                            |
+| -------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Chất lượng trả lời   | Câu đạt khi đạt ≥4/5 theo rubric cố định: đúng ý bắt buộc, không bịa giá, không cam kết SEO sai và từ chối đúng câu ngoài phạm vi. Báo cả số câu đạt/tổng để kiểm chứng. |
+| Chất lượng truy xuất | So chunk-id top-k với ground-truth chunk-id khai báo trước; Hit@3 là tỷ lệ câu có ít nhất một chunk đúng trong ba kết quả đầu.                                           |
+| Độ trễ               | Latency query embedding trung bình + latency LLM trung bình. Không cộng thời gian dựng index một lần.                                                                    |
+| Giá thực tế          | Giá niêm yết × token usage/token count thực tế của đúng lần test; gồm dựng embedding corpus, embed 30 query và 30 lượt LLM. Không dùng dự phóng 100.000 lượt.            |
 
-Lưu ý quan trọng: **Google Gemini Pro (2.5 Pro trở lên) đã bị loại khỏi free
-tier từ 01/04/2026** — free tier hiện chỉ còn áp dụng cho dòng Flash/Flash-Lite.
-Với 15 câu hỏi test, dòng Flash là lựa chọn đúng để tận dụng free tier.
+### Chi tiết độ trễ và chi phí thực đo
 
-### Embedding
+| Stack  | Query embedding TB |     LLM TB |     E2E TB | Dựng index một lần | Token embedding | Token LLM in/out | Tổng giá test |
+| ------ | -----------------: | ---------: | ---------: | -----------------: | --------------: | ---------------: | ------------: |
+| OpenAI |            38,7 ms | 2.173,9 ms | 2.212,6 ms |         4.177,0 ms |           2.741 |    9.428 / 3.006 |   $0,00554782 |
+| Gemini |            60,3 ms | 1.067,3 ms | 1.127,6 ms |         2.811,8 ms |           1.726 |    8.921 / 2.544 |   $0,00929490 |
 
-| Nhà cung cấp  | Model                    | Giá (mỗi 1M token, chỉ tính input) | Free tier?                                                                                            |
-| ------------- | ------------------------ | ---------------------------------- | ----------------------------------------------------------------------------------------------------- |
-| OpenAI        | `text-embedding-3-small` | $0.02                              | Không có free tier riêng, nhưng $5 credit dùng thử của tài khoản mới thừa sức dùng (≈250 triệu token) |
-| Google Gemini | `gemini-embedding-001`   | $0.15                              | **Có** — free tier qua AI Studio, giới hạn request/phút, đủ cho test 15 câu                           |
+Chi phí embedding trong bảng này đã được đối soát lại bằng token usage của OpenAI
+và tokenizer API của Gemini, thay cho ước lượng ký tự/4 ở bản báo cáo trước.
 
-## 2. Vì sao chọn 2 cặp này để test (chưa phải quyết định cuối)
+## 1. Kết luận dành cho production
 
-| Vai trò                | Lựa chọn                          | Lý do chọn để TEST (không phải kết luận cuối)                                                            |
-| ---------------------- | --------------------------------- | -------------------------------------------------------------------------------------------------------- |
-| LLM — ứng viên A       | `gemini-2.5-flash` (Google)       | Có free tier thật (không cần thẻ), đủ mạnh cho hội thoại tư vấn, giá vẫn rẻ nếu sau này phải trả phí     |
-| LLM — ứng viên B       | `gpt-4o-mini` (OpenAI)            | Rẻ, phổ biến, tài liệu nhiều, dùng $5 credit dùng thử là đủ cho 15 câu test (chi phí thực tế chỉ vài xu) |
-| Embedding — ứng viên A | `text-embedding-3-small` (OpenAI) | Rẻ nhất thị trường ($0.02/1M), tài liệu tốt, hỗ trợ đa ngôn ngữ tốt gồm tiếng Việt                       |
-| Embedding — ứng viên B | `gemini-embedding-001` (Google)   | Có free tier thật để test miễn phí, cùng hệ sinh thái với Gemini LLM nếu chọn Gemini làm chính           |
+- **LLM chính:** `gemini-3.5-flash-lite`.
+- **LLM dự phòng khác nhà cung cấp:** `gpt-5.6-luna`.
+- **Embedding chính:** `gemini-embedding-001` cho corpus thuần văn bản hiện tại.
+- **Embedding dự phòng:** `text-embedding-3-small`.
 
-**Đây KHÔNG phải là "chọn vì quen tay"** — cả 2 LLM và cả 2 embedding đều nằm
-trong nhóm rẻ nhất/có free tier tại thời điểm tra cứu, đúng tinh thần "Đừng
-chọn model chỉ vì quen tay" của task. Việc chốt model chính/dự phòng THẬT SỰ
-vẫn phải dựa trên số liệu đo ở mục 5, không phải bảng giá này.
+Gemini được chọn làm tuyến chính dù chi phí sinh câu trả lời cao hơn, vì full
+benchmark cho cùng điểm chất lượng nhưng latency thấp hơn khoảng 51%, Hit@3
+retrieval cao hơn 20 điểm phần trăm và độ tương đồng giữa câu có dấu/không dấu
+cao hơn rõ rệt. Phần chênh lệch chi phí dự phóng chỉ khoảng **$11,81 cho mỗi
+100.000 câu trả lời**, chưa đủ lớn để đánh đổi độ tin cậy truy xuất tiếng Việt.
 
-## 3. Bộ 15 câu hỏi test
+Nếu workload tương lai ưu tiên chi phí tuyệt đối hơn latency/retrieval, có thể
+đảo `gpt-5.6-luna` thành primary. Không cần sửa code, chỉ đổi tenant YAML.
 
-Xem `tests/hoa03_test_questions.json` — 15 câu hỏi tiếng Việt tự soạn tạm bám
-theo `seed_chunks.json` (thiết kế web, SEO, quảng cáo, tên miền, bảo mật...),
-**mỗi câu có 2 bản: có dấu và không dấu** (đúng lưu ý của task: "khách hay gõ
-không dấu"). Sẽ thay bằng câu hỏi thật khi có bộ câu hỏi thật.
+## 2. Vì sao các model này được đưa vào thử nghiệm
 
-## 4. Cách chạy benchmark thật
+Pilot không mặc định chọn model mới nhất. Mỗi hệ sinh thái có một ứng viên tiết
+kiệm và một ứng viên mới/mạnh hơn:
 
-```bash
-pip install openai google-genai
-export OPENAI_API_KEY=sk-...
-export GEMINI_API_KEY=...
+| Hệ sinh thái | Vai trò   | Ứng viên đã pilot                                  |
+| ------------ | --------- | -------------------------------------------------- |
+| OpenAI       | LLM       | `gpt-4o-mini`, `gpt-5.6-luna`                      |
+| OpenAI       | Embedding | `text-embedding-3-small`, `text-embedding-3-large` |
+| Gemini       | LLM       | `gemini-3.1-flash-lite`, `gemini-3.5-flash-lite`   |
+| Gemini       | Embedding | `gemini-embedding-001`, `gemini-embedding-2`       |
 
-python tests/hoa03_benchmark.py
+OpenAI hiện mô tả GPT-5.6 Luna là lựa chọn tối ưu cho workload nhạy chi phí và
+`text-embedding-3-large` là embedding mạnh nhất; Google mô tả 3.5 Flash-Lite là
+model GA tiết kiệm nhất của dòng 3.5, còn Embedding 2 là bản stable mới hơn.
+Benchmark vẫn giữ các model cũ/rẻ để kiểm tra xem premium có thực sự đáng trả.
+
+Nguồn giá và trạng thái model: [OpenAI Models](https://developers.openai.com/api/docs/models),
+[OpenAI text-embedding-3-large](https://developers.openai.com/api/docs/models/text-embedding-3-large),
+[Gemini latest models](https://ai.google.dev/gemini-api/docs/generate-content/latest-model),
+[Gemini pricing](https://ai.google.dev/gemini-api/docs/pricing),
+[Gemini embeddings](https://ai.google.dev/gemini-api/docs/embeddings).
+
+## 3. Phương pháp đo
+
+### 3.1 Pilot chọn theo quality/cost
+
+LLM chạy 5 câu đại diện: báo giá website, quảng cáo cần báo giá riêng, từ chối
+cam kết SEO, chẩn đoán SEO và câu ngoài phạm vi. Tất cả dùng cùng oracle context
+để tách chất lượng LLM khỏi lỗi retrieval.
+
+Embedding chạy trên đủ 15 câu × 2 biến thể và 13 chunk trong `seed_chunks.json`.
+Ground truth là danh sách chunk-id liên quan được khai báo trước trong script.
+
+### 3.2 Full benchmark
+
+Hai stack thắng pilot chạy đủ 30 lượt/stack. LLM nhận top-3 thật từ embedding
+cùng hệ sinh thái, không nhận oracle context. Ngưỡng từ chối được hiệu chỉnh trên
+bộ test theo khả năng corpus có/không có câu trả lời.
+
+Các chỉ số:
+
+- Chất lượng trả lời 0–5 bằng rubric cố định, đạt khi ≥4.
+- Hit@1, Hit@3 và MRR cho retrieval.
+- Cosine giữa vector câu có dấu và không dấu.
+- Latency đo tuần tự để tránh rate-limit làm sai lệch.
+- Chi phí LLM dùng token usage thật; embedding ước tính token bằng ký tự/4 vì
+  adapter chung không trả usage metadata.
+
+Rubric được hiệu chỉnh sau full run để chấp nhận các cách từ chối tương đương
+như “không có dữ liệu”, “ngoài lĩnh vực” và “từ chối”. Việc chấm lại dùng nguyên
+phản hồi đã lưu, **không gọi lại API**.
+
+## 4. Kết quả pilot LLM
+
+| Model                   |   Điểm /5 | Tỷ lệ đạt |   Latency TB | Chi phí 5 câu | Dự phóng 100k câu theo pilot |
+| ----------------------- | --------: | --------: | -----------: | ------------: | ---------------------------: |
+| `gpt-4o-mini`           |     4,334 |       60% |     2.632 ms |     $0,000407 |                        $8,13 |
+| `gpt-5.6-luna`          | **5,000** |  **100%** |     2.008 ms |     $0,001011 |                       $20,23 |
+| `gemini-3.1-flash-lite` |     4,334 |       60% |     1.474 ms |     $0,001016 |                       $20,32 |
+| `gemini-3.5-flash-lite` |     4,600 |       80% | **1.133 ms** |     $0,001650 |                       $33,00 |
+
+Kết luận pilot LLM: premium của Luna mua được cải thiện chất lượng rõ ràng so
+với 4o-mini. Gemini 3.5 cải thiện cả chất lượng lẫn latency so với 3.1 với mức
+chi phí tuyệt đối vẫn nhỏ, nên hai model mới được đưa vào full benchmark.
+
+## 5. Kết quả pilot embedding
+
+| Model                    |   Hit@1 |    Hit@3 |        MRR | Cosine dấu/không dấu | Chi phí benchmark |
+| ------------------------ | ------: | -------: | ---------: | -------------------: | ----------------: |
+| `text-embedding-3-small` | **70%** |      80% | **0,7852** |               0,5688 |     **$0,000031** |
+| `text-embedding-3-large` |     65% |      80% |     0,7625 |               0,7348 |         $0,000203 |
+| `gemini-embedding-001`   |     80% | **100%** |     0,8833 |               0,9396 |         $0,000234 |
+| `gemini-embedding-2`     | **90%** |      90% | **0,9225** |           **0,9571** |         $0,000402 |
+
+Kết luận pilot embedding:
+
+- OpenAI `3-large` đắt hơn khoảng 6,5 lần nhưng không tăng Hit@3; chọn `3-small`.
+- Gemini Embedding 2 tăng Hit@1/MRR nhưng giảm Hit@3 từ 100% xuống 90% và đắt
+  hơn; với RAG top-3 thuần text hiện tại, chọn `gemini-embedding-001`.
+- Google vẫn cung cấp `gemini-embedding-001` stable cho text-only. Tuy nhiên,
+  lịch deprecation hiện đặt mốc shutdown 14/05/2028 và khuyến nghị Embedding 2;
+  cần lập kế hoạch re-index trước mốc đó vì hai vector space không tương thích.
+
+## 6. Kết quả full 15 câu × 2 biến thể
+
+### 6.1 Chất lượng, latency và chi phí LLM
+
+| Stack LLM               |   Điểm /5 |  Tỷ lệ đạt | Có dấu /5 | Không dấu /5 |   Latency TB |          p95 | Tổng chi phí 30 câu |         USD/câu | Dự phóng 100k câu |
+| ----------------------- | --------: | ---------: | --------: | -----------: | -----------: | -----------: | ------------------: | --------------: | ----------------: |
+| `gpt-5.6-luna`          | **4,867** | **93,33%** | **5,000** |        4,733 |     2.174 ms |     2.945 ms |       **$0,005493** | **$0,00018309** |        **$18,31** |
+| `gemini-3.5-flash-lite` | **4,867** | **93,33%** |     4,867 |    **4,867** | **1.067 ms** | **1.366 ms** |           $0,009036 |     $0,00030121 |            $30,12 |
+
+Ở tỷ giá cấu hình 26.000 VND/USD, 100.000 câu tương đương khoảng **476.060 VND**
+cho OpenAI hoặc **783.120 VND** cho Gemini, chưa gồm hạ tầng và các lượt
+guardrail/tool khác.
+
+### 6.2 Retrieval của hai embedding được chọn
+
+| Embedding                |   Hit@1 |    Hit@3 |        MRR | Cosine dấu/không dấu | Accuracy có/không đáp án | Query latency TB |
+| ------------------------ | ------: | -------: | ---------: | -------------------: | -----------------------: | ---------------: |
+| `text-embedding-3-small` |     70% |      80% |     0,7852 |               0,5688 |                      90% |      **38,7 ms** |
+| `gemini-embedding-001`   | **80%** | **100%** | **0,8833** |           **0,9396** |                 **100%** |          60,3 ms |
+
+Hai lỗi dưới ngưỡng của Luna đều ở bản không dấu (`q02`, `q05`) và trùng với
+điểm yếu retrieval dấu/không dấu của OpenAI small. Hai lỗi dưới ngưỡng của
+Gemini (`q08` cả hai biến thể) vẫn từ chối cam kết đúng và an toàn, nhưng thiếu
+phần giải thích kết quả SEO phụ thuộc dữ liệu/thực tế nên chỉ đạt 3/5.
+
+## 7. Quyết định vận hành
+
+| Tuyến    | LLM                     | Embedding                | Lý do                                                                          |
+| -------- | ----------------------- | ------------------------ | ------------------------------------------------------------------------------ |
+| Primary  | `gemini-3.5-flash-lite` | `gemini-embedding-001`   | Retrieval tiếng Việt tốt nhất, latency LLM thấp nhất, điểm full ngang OpenAI   |
+| Fallback | `gpt-5.6-luna`          | `text-embedding-3-small` | Khác nhà cung cấp, chi phí thấp, chất lượng LLM cao; embedding đủ làm fallback |
+
+Cấu hình đã được cập nhật trong `tenants/mima_internal.yaml`. Adapter OpenAI đã
+được sửa để không gửi `temperature` cho GPT-5.6; adapter Gemini đã hỗ trợ đúng
+hợp đồng N input → N vector của Embedding 2 để benchmark/migrate sau này.
+
 ```
 
-Script sẽ: gọi cả 2 LLM và cả 2 embedding model trên 15 câu hỏi (cả bản có
-dấu/không dấu), đo độ trễ từng lệnh gọi, cộng token để tính giá thực tế theo
-bảng giá mục 1, và ghi kết quả ra `tests/hoa03_benchmark_results.md` — đó mới
-là bảng số liệu thật để đưa vào mục 5 bên dưới.
+## 9. Giới hạn
 
-## 5. Bảng số liệu thực đo — CHỜ ĐIỀN
-
-> Chưa có số liệu — cần chạy `tests/hoa03_benchmark.py` với API key thật.
-> Sau khi chạy xong, dán kết quả từ `tests/hoa03_benchmark_results.md` vào đây.
-
-| Model                  | Độ trễ trung bình | Giá thực tế / 15 câu | Chất lượng trả lời (tự chấm 1-5) | Chất lượng truy xuất (embedding) |
-| ---------------------- | ----------------- | -------------------- | -------------------------------- | -------------------------------- |
-| gemini-2.5-flash       | _chưa đo_         | _chưa đo_            | _chưa đo_                        | —                                |
-| gpt-4o-mini            | _chưa đo_         | _chưa đo_            | _chưa đo_                        | —                                |
-| text-embedding-3-small | —                 | _chưa đo_            | —                                | _chưa đo_                        |
-| gemini-embedding-001   | —                 | _chưa đo_            | —                                | _chưa đo_                        |
-
-## 6. Khuyến nghị tạm thời (trước khi có số liệu thật)
-
-- **Model chính (đề xuất tạm):** `gemini-2.5-flash` — vì có free tier thật,
-  cho phép test/vận hành ở quy mô nhỏ mà không tốn tiền ngay từ đầu, đúng yêu
-  cầu của bạn ("mặc định trước là gemini để free test").
-- **Model dự phòng (đề xuất tạm):** `gpt-4o-mini` (OpenAI) — khác nhà cung cấp
-  hoàn toàn với model chính, đúng tinh thần "model dự phòng" trong spec kiến
-  trúc (nếu Gemini sập/quá tải, chuyển hẳn sang OpenAI chứ không phải model
-  khác cùng nhà cung cấp cũng có thể sập cùng lúc).
-- **Embedding:** để mặc định theo cùng nhà cung cấp với LLM chính (Gemini →
-  `gemini-embedding-001`) cho đơn giản vận hành, nhưng **cần đo thật** vì OpenAI
-  `text-embedding-3-small` rẻ hơn 7.5 lần — nếu chất lượng truy xuất tương
-  đương, nên cân nhắc dùng OpenAI cho riêng phần embedding dù LLM chính là
-  Gemini (2 thứ này độc lập, không bắt buộc cùng nhà cung cấp).
-
-**Đây là đề xuất TẠM, dùng để bạn có cấu hình chạy được ngay (xem HOA-04) —
-không phải kết luận cuối cùng của HOA-03.** Khi có số liệu thật ở mục 5, quay
-lại xác nhận hoặc đổi.
+- Chỉ có 15 câu và 13 chunk; kết quả đủ cho HOA-03 nhưng chưa thay thế eval dài hạn.
+- Mỗi cấu hình chỉ full-run một lần; latency có thể thay đổi theo vùng mạng/tải API.
+- Dự phóng 100.000 câu chỉ gồm chi phí model sinh câu trả lời theo token thực đo.
+- Khi có log câu hỏi khách hàng thật, nên mở rộng bộ eval và chạy lại cùng script.
+```

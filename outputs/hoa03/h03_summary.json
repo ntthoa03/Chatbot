@@ -1,0 +1,80 @@
+{
+  "schema": "hoa-03.summary.v1",
+  "run_date": "2026-08-14",
+  "questions": 15,
+  "variants_per_question": 2,
+  "answers_per_stack": 30,
+  "usd_to_vnd": 26000,
+  "metrics": [
+    {
+      "ecosystem": "OpenAI",
+      "llm": "gpt-5.6-luna",
+      "embedding": "text-embedding-3-small",
+      "answer_quality": {
+        "passed": 28,
+        "total": 30,
+        "pass_rate": 0.9333,
+        "mean_score_out_of_5": 4.867
+      },
+      "retrieval_quality": {
+        "hit_at_1": 0.70,
+        "hit_at_3": 0.80,
+        "mrr": 0.7852
+      },
+      "latency_ms": {
+        "query_embedding_mean": 38.7,
+        "llm_mean": 2173.9,
+        "end_to_end_mean": 2212.6,
+        "index_build_once": 4177.0
+      },
+      "actual_test_cost": {
+        "llm_input_tokens": 9428,
+        "llm_output_tokens": 3006,
+        "embedding_document_tokens": 2277,
+        "embedding_query_tokens": 464,
+        "llm_usd": 0.005493,
+        "embedding_usd": 0.00005482,
+        "total_usd": 0.00554782,
+        "total_vnd": 144.24
+      }
+    },
+    {
+      "ecosystem": "Google Gemini",
+      "llm": "gemini-3.5-flash-lite",
+      "embedding": "gemini-embedding-001",
+      "answer_quality": {
+        "passed": 28,
+        "total": 30,
+        "pass_rate": 0.9333,
+        "mean_score_out_of_5": 4.867
+      },
+      "retrieval_quality": {
+        "hit_at_1": 0.80,
+        "hit_at_3": 1.00,
+        "mrr": 0.8833
+      },
+      "latency_ms": {
+        "query_embedding_mean": 60.3,
+        "llm_mean": 1067.3,
+        "end_to_end_mean": 1127.6,
+        "index_build_once": 2811.8
+      },
+      "actual_test_cost": {
+        "llm_input_tokens": 8921,
+        "llm_output_tokens": 2544,
+        "embedding_document_tokens": 1410,
+        "embedding_query_tokens": 316,
+        "llm_usd": 0.009036,
+        "embedding_usd": 0.00025890,
+        "total_usd": 0.00929490,
+        "total_vnd": 241.67
+      }
+    }
+  ],
+  "definitions": {
+    "answer_quality": "Câu đạt khi điểm rubric cố định >= 4/5.",
+    "retrieval_quality": "So top-k chunk-id với ground-truth chunk-id khai báo trước.",
+    "end_to_end_latency": "Query embedding trung bình cộng latency LLM trung bình; không gồm dựng index một lần.",
+    "actual_test_cost": "Giá niêm yết nhân token usage/token count thực tế của lần kiểm nghiệm; không phải dự phóng 100.000 lượt."
+  }
+}

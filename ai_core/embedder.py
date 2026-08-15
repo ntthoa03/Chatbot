@@ -143,13 +143,29 @@ def _embed_gemini(texts: list[str], model: str, task_type: str | None) -> list[l
     if not api_key:
         raise EmbedderError("Thiếu biến môi trường GEMINI_API_KEY.")
     try:
+        is_embedding_2 = model.removeprefix("models/") == "gemini-embedding-2"
+        if is_embedding_2 and task_type:
+            raise EmbedderError(
+                "gemini-embedding-2 không hỗ trợ task_type; hãy thêm tiền tố tác vụ "
+                "trực tiếp vào từng văn bản."
+            )
         config = types.EmbedContentConfig(task_type=task_type) if task_type else None
+        # Embedding 2 gộp một list[str] thành một vector đa phương thức. Bọc từng
+        # chuỗi thành Content riêng để giữ hợp đồng N văn bản -> N vector.
+        contents: list[str] | list[types.Content]
+        if is_embedding_2:
+            contents = [
+                types.Content(role="user", parts=[types.Part.from_text(text=text)])
+                for text in texts
+            ]
+        else:
+            contents = texts
         # Giữ strong reference tới client trong suốt request. Nếu gọi trực tiếp trên
         # object tạm, garbage collector có thể đóng HTTP client giữa lúc SDK retry.
         client = genai.Client(api_key=api_key)
         response = client.models.embed_content(
             model=model,
-            contents=texts,
+            contents=contents,
             config=config,
         )
         embeddings = response.embeddings or []

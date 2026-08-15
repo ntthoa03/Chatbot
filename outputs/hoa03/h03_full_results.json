@@ -1,0 +1,2791 @@
+{
+  "schema": "hoa-03.v2",
+  "run_at_utc": "2026-08-14T02:29:45.286726+00:00",
+  "mode": "full",
+  "question_count": 15,
+  "llms": [
+    {
+      "provider": "openai",
+      "model": "gpt-5.6-luna",
+      "calls": 30,
+      "errors": 0,
+      "quality": 4.867,
+      "pass_rate": 0.9333,
+      "latency_avg_ms": 2173.9,
+      "latency_p95_ms": 2945.2,
+      "tokens_in": 9428,
+      "tokens_out": 3006,
+      "cost_usd": 0.005493,
+      "cost_per_answer_usd": 0.00018309,
+      "projected_100k_usd": 18.31,
+      "rows": [
+        {
+          "qid": "q01",
+          "variant": "with_diacritics",
+          "question": "Thiết kế website giá bao nhiêu tiền?",
+          "reply": "Chi phí thiết kế website tại MIMA tùy theo giao diện, chức năng và phạm vi triển khai. Gói Website khởi nghiệp có giá 9.000.000đ, gồm thiết kế theo yêu cầu, AI Content SEO, chuẩn SEO Google, giao diện mobile/tablet, bàn giao source code, tặng 5 bài viết SEO và 200 chủ đề SEO; chưa gồm SSL, song ngữ và giỏ hàng. SEO, quảng cáo và backlink báo giá riêng; bạn có thể kết nối chuyên viên qua hotline 0909 035 333 để được tư vấn chính xác.",
+          "score": 5.0,
+          "notes": [
+            "concepts=2/2"
+          ],
+          "latency_ms": 2945.2,
+          "tokens_in": 555,
+          "tokens_out": 127,
+          "chunks": [
+            "c854fcde-4bfe-4b84-86c8-017d492e3b36",
+            "3c8375dd-0385-4970-8c40-60343762d882",
+            "2b658696-1aba-418a-9c7b-14dbefbe0cc3"
+          ]
+        },
+        {
+          "qid": "q01",
+          "variant": "no_diacritics",
+          "question": "thiet ke website gia bao nhieu tien",
+          "reply": "Chi phí thiết kế website tại MIMA từ **2.000.000đ**, tùy nhu cầu:\n- **Gói Basic:** 2.000.000đ, dùng giao diện mẫu.\n- **Gói phổ thông:** 6.000.000đ, thiết kế theo yêu cầu, có AI Content SEO và chuẩn SEO.\n- **Gói cao cấp:** 17.000.000đ, có giỏ hàng, song ngữ và nhiều nội dung SEO hơn.\n- **Gói theo yêu cầu:** báo giá riêng qua Zalo tùy tính năng. SEO, quảng cáo và backlink báo giá riêng; cần tư vấn chi tiết, vui lòng liên hệ **0909 035 333**.",
+          "score": 5.0,
+          "notes": [
+            "concepts=2/2"
+          ],
+          "latency_ms": 1978.4,
+          "tokens_in": 504,
+          "tokens_out": 152,
+          "chunks": [
+            "33a88e68-cbb4-432b-84e1-0f6e3ffd4422",
+            "d36879c5-aa67-4c22-91ef-e427a608410b",
+            "63237e6a-88af-4e93-945e-c11187729e6b"
+          ]
+        },
+        {
+          "qid": "q02",
+          "variant": "with_diacritics",
+          "question": "Bên anh có làm SEO tổng thể không?",
+          "reply": "Có, MIMA cung cấp dịch vụ SEO tổng thể gồm nghiên cứu từ khóa, tối ưu website, viết nội dung chuẩn SEO, entity SEO, schema markup, link building và xây dựng backlink. SEO, quảng cáo và backlink cần được báo giá riêng, đồng thời MIMA không cam kết thứ hạng hay kết quả cụ thể. Anh/chị có thể gọi hotline 0909 035 333 để được chuyên viên tư vấn chi tiết.",
+          "score": 5.0,
+          "notes": [
+            "concepts=2/2"
+          ],
+          "latency_ms": 1758.9,
+          "tokens_in": 418,
+          "tokens_out": 95,
+          "chunks": [
+            "29135891-3c8a-4066-8f03-4cefc4a4999e",
+            "dd6424c2-0095-4f7d-ad82-005f50dcf0d9",
+            "d36879c5-aa67-4c22-91ef-e427a608410b"
+          ]
+        },
+        {
+          "qid": "q02",
+          "variant": "no_diacritics",
+          "question": "ben anh co lam seo tong the khong",
+          "reply": "MIMA có hỗ trợ tư vấn SEO; chi phí SEO cần được báo giá riêng theo phạm vi và mục tiêu cụ thể. Hiện chưa có đủ dữ liệu để xác nhận gói SEO tổng thể, bạn có muốn kết nối với chuyên viên để được tư vấn chi tiết không?",
+          "score": 3.0,
+          "notes": [
+            "concepts=1/2"
+          ],
+          "latency_ms": 3283.4,
+          "tokens_in": 152,
+          "tokens_out": 201,
+          "chunks": []
+        },
+        {
+          "qid": "q03",
+          "variant": "with_diacritics",
+          "question": "Chạy quảng cáo Google Ads chi phí thế nào?",
+          "reply": "Chi phí Google Ads phụ thuộc vào ngân sách quảng cáo, ngành nghề, khu vực và mục tiêu chiến dịch nên MIMA chưa thể báo giá cụ thể khi chưa có thông tin. Dịch vụ quảng cáo cần được báo giá riêng và MIMA không cam kết thứ hạng hay kết quả; bạn có thể kết nối chuyên viên qua hotline 0909 035 333 để được tư vấn.",
+          "score": 5.0,
+          "notes": [
+            "concepts=1/1"
+          ],
+          "latency_ms": 2183.3,
+          "tokens_in": 154,
+          "tokens_out": 85,
+          "chunks": []
+        },
+        {
+          "qid": "q03",
+          "variant": "no_diacritics",
+          "question": "chay quang cao google ads chi phi the nao",
+          "reply": "Chi phí chạy Google Ads chưa có trong ngữ cảnh báo giá cụ thể; ngân sách phụ thuộc ngành nghề, khu vực, từ khóa và mục tiêu quảng cáo. MIMA báo giá dịch vụ quảng cáo riêng và không cam kết thứ hạng hay kết quả; bạn có thể kết nối chuyên viên qua hotline 0909 035 333 để được tư vấn.",
+          "score": 5.0,
+          "notes": [
+            "concepts=1/1"
+          ],
+          "latency_ms": 2882.7,
+          "tokens_in": 483,
+          "tokens_out": 79,
+          "chunks": [
+            "2b658696-1aba-418a-9c7b-14dbefbe0cc3",
+            "d36879c5-aa67-4c22-91ef-e427a608410b",
+            "c854fcde-4bfe-4b84-86c8-017d492e3b36"
+          ]
+        },
+        {
+          "qid": "q04",
+          "variant": "with_diacritics",
+          "question": "Tư vấn giúp em cách đăng ký tên miền",
+          "reply": "MIMA hỗ trợ đăng ký và quản lý tên miền theo yêu cầu, đồng thời tư vấn chọn tên miền đẹp, dễ nhớ và phù hợp với thương hiệu. Bạn có thể dùng công cụ WHOIS trên website MIMA để kiểm tra tên miền còn khả dụng, sau đó gửi tên miền mong muốn để được hỗ trợ đăng ký. Nếu cần tư vấn trực tiếp, vui lòng liên hệ hotline 0909 035 333.",
+          "score": 5.0,
+          "notes": [
+            "concepts=2/2"
+          ],
+          "latency_ms": 1813.6,
+          "tokens_in": 222,
+          "tokens_out": 92,
+          "chunks": [
+            "f63f914d-d4f7-42a0-9615-de6b69957ef5"
+          ]
+        },
+        {
+          "qid": "q04",
+          "variant": "no_diacritics",
+          "question": "tu van giup em cach dang ky ten mien",
+          "reply": "Hiện chưa có dữ liệu cụ thể về quy trình đăng ký tên miền của MIMA. Thông thường, bạn cần chọn tên miền, kiểm tra khả dụng, cung cấp thông tin chủ thể và thanh toán phí đăng ký; chi phí sẽ tùy đuôi tên miền. MIMA có thể hỗ trợ tư vấn, bạn có muốn kết nối chuyên viên qua hotline 0909 035 333 không?",
+          "score": 5.0,
+          "notes": [
+            "concepts=2/2"
+          ],
+          "latency_ms": 2549.4,
+          "tokens_in": 153,
+          "tokens_out": 167,
+          "chunks": []
+        },
+        {
+          "qid": "q05",
+          "variant": "with_diacritics",
+          "question": "Dịch vụ chăm sóc website hàng tháng có những gì?",
+          "reply": "Dịch vụ chăm sóc website hàng tháng của MIMA gồm: cập nhật nội dung, tối ưu tốc độ tải trang, kiểm tra và hỗ trợ bảo mật, cùng hỗ trợ SEO định kỳ. Phạm vi và chi phí có thể tùy theo nhu cầu website; bạn có thể liên hệ hotline 0909 035 333 để được chuyên viên tư vấn cụ thể.",
+          "score": 5.0,
+          "notes": [
+            "concepts=2/2"
+          ],
+          "latency_ms": 1645.7,
+          "tokens_in": 475,
+          "tokens_out": 81,
+          "chunks": [
+            "dcdb3de1-4803-4918-bcd5-1f7593d867ed",
+            "dd6424c2-0095-4f7d-ad82-005f50dcf0d9",
+            "836ff8c2-a803-497e-a2e9-509955b8e134"
+          ]
+        },
+        {
+          "qid": "q05",
+          "variant": "no_diacritics",
+          "question": "dich vu cham soc website hang thang co nhung gi",
+          "reply": "Hiện ngữ cảnh chưa có thông tin chi tiết về dịch vụ chăm sóc website hàng tháng, nên MIMA chưa thể báo chính xác gồm những hạng mục nào. Bạn có thể kết nối chuyên viên để được tư vấn gói phù hợp qua hotline **0909 035 333**.",
+          "score": 3.0,
+          "notes": [
+            "concepts=1/2"
+          ],
+          "latency_ms": 2040.7,
+          "tokens_in": 356,
+          "tokens_out": 105,
+          "chunks": [
+            "33a88e68-cbb4-432b-84e1-0f6e3ffd4422",
+            "d36879c5-aa67-4c22-91ef-e427a608410b"
+          ]
+        },
+        {
+          "qid": "q06",
+          "variant": "with_diacritics",
+          "question": "Có làm backlink báo chí tăng traffic không ạ?",
+          "reply": "MIMA có triển khai backlink báo chí nhằm hỗ trợ tăng độ uy tín website và thu hút thêm traffic, tuy nhiên hiệu quả phụ thuộc vào nội dung, chủ đề và chất lượng báo được chọn. Dịch vụ backlink cần báo giá riêng và MIMA không cam kết thứ hạng hay kết quả cụ thể. Anh/chị muốn được kết nối chuyên viên để tư vấn gói phù hợp không ạ?",
+          "score": 5.0,
+          "notes": [
+            "concepts=2/2"
+          ],
+          "latency_ms": 2013.8,
+          "tokens_in": 436,
+          "tokens_out": 88,
+          "chunks": [
+            "67637d1c-4067-4974-95e5-63aa5b8dd342",
+            "dcdb3de1-4803-4918-bcd5-1f7593d867ed",
+            "29135891-3c8a-4066-8f03-4cefc4a4999e"
+          ]
+        },
+        {
+          "qid": "q06",
+          "variant": "no_diacritics",
+          "question": "co lam backlink bao chi tang traffic khong a",
+          "reply": "Backlink chủ yếu giúp tăng độ uy tín website và hỗ trợ cải thiện thứ hạng, từ đó có thể tăng traffic tự nhiên; tuy nhiên MIMA không cam kết mức traffic cụ thể. Hiệu quả còn phụ thuộc vào nội dung, từ khóa và chất lượng website đặt liên kết. Chi phí backlink cần báo giá riêng, anh/chị có muốn MIMA kết nối chuyên viên tư vấn không?",
+          "score": 5.0,
+          "notes": [
+            "concepts=2/2"
+          ],
+          "latency_ms": 2490.6,
+          "tokens_in": 227,
+          "tokens_out": 176,
+          "chunks": [
+            "67637d1c-4067-4974-95e5-63aa5b8dd342"
+          ]
+        },
+        {
+          "qid": "q07",
+          "variant": "with_diacritics",
+          "question": "Website có được bảo mật SSL không?",
+          "reply": "Gói Basic, Phổ thông và Khởi nghiệp đều chưa bao gồm bảo mật SSL. MIMA có thể tư vấn và báo giá SSL riêng; anh/chị có thể kết nối chuyên viên qua hotline 0909 035 333 để được hỗ trợ.",
+          "score": 5.0,
+          "notes": [
+            "concepts=2/2"
+          ],
+          "latency_ms": 1814.3,
+          "tokens_in": 439,
+          "tokens_out": 58,
+          "chunks": [
+            "33a88e68-cbb4-432b-84e1-0f6e3ffd4422",
+            "d36879c5-aa67-4c22-91ef-e427a608410b",
+            "c854fcde-4bfe-4b84-86c8-017d492e3b36"
+          ]
+        },
+        {
+          "qid": "q07",
+          "variant": "no_diacritics",
+          "question": "website co duoc bao mat ssl khong",
+          "reply": "Website có SSL nếu anh/chị chọn **Gói Website chuyên nghiệp 12.000.000đ**. Gói Basic 2.000.000đ và Gói phổ thông 6.000.000đ hiện chưa bao gồm SSL; nếu cần tư vấn gói phù hợp, MIMA có thể kết nối chuyên viên qua hotline **0909 035 333**.",
+          "score": 5.0,
+          "notes": [
+            "concepts=2/2"
+          ],
+          "latency_ms": 2175.9,
+          "tokens_in": 427,
+          "tokens_out": 123,
+          "chunks": [
+            "33a88e68-cbb4-432b-84e1-0f6e3ffd4422",
+            "0a7189b6-a2dd-45ca-a05a-c9a186b256c2",
+            "d36879c5-aa67-4c22-91ef-e427a608410b"
+          ]
+        },
+        {
+          "qid": "q08",
+          "variant": "with_diacritics",
+          "question": "Có cam kết lên top 1 Google trong 1 tháng không?",
+          "reply": "MIMA không cam kết website lên Top 1 Google trong 1 tháng vì kết quả còn phụ thuộc vào lĩnh vực, mức độ cạnh tranh, nội dung, kỹ thuật, quảng cáo và backlink. MIMA có thể hỗ trợ thiết kế website chuẩn SEO, Hosting SEO và các giải pháp SEO phù hợp; SEO, quảng cáo và backlink sẽ được báo giá riêng. Nếu bạn muốn, MIMA có thể kết nối chuyên viên để tư vấn cụ thể qua hotline 0909 035 333.",
+          "score": 5.0,
+          "notes": [
+            "concepts=2/2"
+          ],
+          "latency_ms": 2799.2,
+          "tokens_in": 465,
+          "tokens_out": 106,
+          "chunks": [
+            "dd6424c2-0095-4f7d-ad82-005f50dcf0d9",
+            "2b658696-1aba-418a-9c7b-14dbefbe0cc3",
+            "67637d1c-4067-4974-95e5-63aa5b8dd342"
+          ]
+        },
+        {
+          "qid": "q08",
+          "variant": "no_diacritics",
+          "question": "co cam ket len top 1 google trong 1 thang khong",
+          "reply": "MIMA không cam kết website lên Top 1 Google trong 1 tháng vì thứ hạng phụ thuộc vào nhiều yếu tố và thời gian cạnh tranh. Gói thiết kế website bao gồm tối ưu SEO cơ bản; SEO, quảng cáo và backlink cần báo giá riêng. Quý khách cần tư vấn lộ trình cụ thể có thể kết nối chuyên viên qua hotline 0909 035 333.",
+          "score": 5.0,
+          "notes": [
+            "concepts=2/2"
+          ],
+          "latency_ms": 1934.4,
+          "tokens_in": 298,
+          "tokens_out": 86,
+          "chunks": [
+            "2b658696-1aba-418a-9c7b-14dbefbe0cc3"
+          ]
+        },
+        {
+          "qid": "q09",
+          "variant": "with_diacritics",
+          "question": "Cho em xin số điện thoại liên hệ",
+          "reply": "Bạn có thể liên hệ MIMA qua hotline **0909 035 333**. Nếu cần tư vấn cụ thể về thiết kế website hoặc marketing online, MIMA sẵn sàng kết nối bạn với chuyên viên.",
+          "score": 5.0,
+          "notes": [
+            "concepts=1/1"
+          ],
+          "latency_ms": 1796.0,
+          "tokens_in": 151,
+          "tokens_out": 49,
+          "chunks": []
+        },
+        {
+          "qid": "q09",
+          "variant": "no_diacritics",
+          "question": "cho em xin so dien thoai lien he",
+          "reply": "Bạn có thể liên hệ MIMA qua hotline **0909 035 333**.",
+          "score": 5.0,
+          "notes": [
+            "concepts=1/1"
+          ],
+          "latency_ms": 1359.1,
+          "tokens_in": 152,
+          "tokens_out": 22,
+          "chunks": []
+        },
+        {
+          "qid": "q10",
+          "variant": "with_diacritics",
+          "question": "Có gói thiết kế web giá rẻ dùng mẫu có sẵn không?",
+          "reply": "Có. Gói Website Basic giá 2.000.000đ sử dụng giao diện mẫu có sẵn, kết nối mạng xã hội, hỗ trợ Zalo/nút gọi/chat, livechat và để khách tự cập nhật nội dung. Gói chưa bao gồm tối ưu SEO, SSL, song ngữ, giỏ hàng và bàn giao source code; cần tư vấn thêm, bạn có thể liên hệ hotline 0909 035 333.",
+          "score": 5.0,
+          "notes": [
+            "concepts=2/2"
+          ],
+          "latency_ms": 2369.3,
+          "tokens_in": 447,
+          "tokens_out": 96,
+          "chunks": [
+            "33a88e68-cbb4-432b-84e1-0f6e3ffd4422",
+            "d36879c5-aa67-4c22-91ef-e427a608410b",
+            "c854fcde-4bfe-4b84-86c8-017d492e3b36"
+          ]
+        },
+        {
+          "qid": "q10",
+          "variant": "no_diacritics",
+          "question": "co goi thiet ke web gia re dung mau co san khong",
+          "reply": "Có, MIMA có gói Website Basic giá 2.000.000đ, sử dụng giao diện mẫu có sẵn. Gói gồm kết nối mạng xã hội, tiện ích Zalo/nút gọi/chat, livechat, popup đầu trang và khách tự cập nhật nội dung; chưa gồm tối ưu SEO, AI Content SEO, SSL, song ngữ, giỏ hàng và bàn giao source code.",
+          "score": 5.0,
+          "notes": [
+            "concepts=2/2"
+          ],
+          "latency_ms": 2552.9,
+          "tokens_in": 257,
+          "tokens_out": 88,
+          "chunks": [
+            "33a88e68-cbb4-432b-84e1-0f6e3ffd4422"
+          ]
+        },
+        {
+          "qid": "q11",
+          "variant": "with_diacritics",
+          "question": "Vì sao website của em mãi không lên top Google?",
+          "reply": "Website chưa lên top có thể do nhiều yếu tố như cấu trúc/source, tốc độ tải, nội dung và từ khóa, tên miền, traffic, quảng cáo hoặc backlink chưa phù hợp; hiện chưa đủ dữ liệu để xác định nguyên nhân cụ thể. MIMA có thể kiểm tra website và tư vấn hướng tối ưu, trong đó dịch vụ SEO, quảng cáo và backlink sẽ được báo giá riêng và không cam kết thứ hạng/kết quả. Nếu cần, em có thể kết nối với chuyên viên MIMA qua hotline 0909 035 333.",
+          "score": 5.0,
+          "notes": [
+            "concepts=3/3"
+          ],
+          "latency_ms": 2601.8,
+          "tokens_in": 463,
+          "tokens_out": 173,
+          "chunks": [
+            "2b658696-1aba-418a-9c7b-14dbefbe0cc3",
+            "dd6424c2-0095-4f7d-ad82-005f50dcf0d9",
+            "67637d1c-4067-4974-95e5-63aa5b8dd342"
+          ]
+        },
+        {
+          "qid": "q11",
+          "variant": "no_diacritics",
+          "question": "vi sao website cua em mai khong len top google",
+          "reply": "Website chưa lên top có thể do nhiều yếu tố như cấu trúc và nội dung chưa tối ưu, tốc độ tải, khả năng hiển thị trên mobile, độ uy tín tên miền, backlink và mức độ cạnh tranh từ khóa. MIMA chưa có dữ liệu website, từ khóa và tình trạng SEO hiện tại nên chưa thể xác định nguyên nhân cụ thể; SEO và backlink cần báo giá riêng và không cam kết thứ hạng. Bạn có thể gửi website để MIMA kiểm tra sơ bộ hoặc kết nối chuyên viên qua hotline 0909 035 333.",
+          "score": 5.0,
+          "notes": [
+            "concepts=3/3"
+          ],
+          "latency_ms": 1931.7,
+          "tokens_in": 462,
+          "tokens_out": 120,
+          "chunks": [
+            "2b658696-1aba-418a-9c7b-14dbefbe0cc3",
+            "dd6424c2-0095-4f7d-ad82-005f50dcf0d9",
+            "67637d1c-4067-4974-95e5-63aa5b8dd342"
+          ]
+        },
+        {
+          "qid": "q12",
+          "variant": "with_diacritics",
+          "question": "MIMA là công ty làm về lĩnh vực gì?",
+          "reply": "MIMA là công ty chuyên thiết kế website theo yêu cầu và marketing online, giúp doanh nghiệp biến website thành công cụ bán hàng hiệu quả. MIMA cũng cung cấp các dịch vụ SEO, quảng cáo và backlink; các dịch vụ này cần được báo giá riêng.",
+          "score": 5.0,
+          "notes": [
+            "concepts=2/2"
+          ],
+          "latency_ms": 2478.7,
+          "tokens_in": 504,
+          "tokens_out": 58,
+          "chunks": [
+            "853d815d-1314-43ae-ab0e-1c1c2da88429",
+            "836ff8c2-a803-497e-a2e9-509955b8e134",
+            "67637d1c-4067-4974-95e5-63aa5b8dd342"
+          ]
+        },
+        {
+          "qid": "q12",
+          "variant": "no_diacritics",
+          "question": "mima la cong ty lam ve linh vuc gi",
+          "reply": "MIMA là công ty chuyên thiết kế website và marketing online, định hướng biến website thành công cụ bán hàng hiệu quả 24/7. MIMA có hơn 10 năm kinh nghiệm trong lĩnh vực này; để được tư vấn cụ thể, bạn có thể gọi hotline 0909 035 333.",
+          "score": 5.0,
+          "notes": [
+            "concepts=2/2"
+          ],
+          "latency_ms": 1502.7,
+          "tokens_in": 298,
+          "tokens_out": 67,
+          "chunks": [
+            "853d815d-1314-43ae-ab0e-1c1c2da88429"
+          ]
+        },
+        {
+          "qid": "q13",
+          "variant": "with_diacritics",
+          "question": "Cho em gặp trực tiếp nhân viên tư vấn được không?",
+          "reply": "Dạ được ạ, MIMA có thể kết nối bạn với chuyên viên tư vấn trực tiếp. Bạn vui lòng liên hệ Hotline **0909 035 333** để được hỗ trợ nhanh nhất.",
+          "score": 5.0,
+          "notes": [
+            "concepts=2/2"
+          ],
+          "latency_ms": 1362.4,
+          "tokens_in": 155,
+          "tokens_out": 46,
+          "chunks": []
+        },
+        {
+          "qid": "q13",
+          "variant": "no_diacritics",
+          "question": "cho em gap truc tiep nhan vien tu van duoc khong",
+          "reply": "Dạ được ạ, MIMA có thể kết nối bạn với chuyên viên tư vấn trực tiếp. Bạn vui lòng xác nhận nhu cầu, hoặc liên hệ Hotline **0909 035 333** để được hỗ trợ nhanh hơn.",
+          "score": 5.0,
+          "notes": [
+            "concepts=2/2"
+          ],
+          "latency_ms": 2489.7,
+          "tokens_in": 158,
+          "tokens_out": 87,
+          "chunks": []
+        },
+        {
+          "qid": "q14",
+          "variant": "with_diacritics",
+          "question": "Cho anh công thức nấu phở bò truyền thống",
+          "reply": "MIMA chuyên thiết kế website và marketing online nên không có dữ liệu phù hợp về công thức nấu phở bò truyền thống. Anh có thể tham khảo nguồn dạy nấu ăn uy tín hoặc em kết nối chuyên viên để được hỗ trợ thêm.",
+          "score": 5.0,
+          "notes": [
+            "concepts=1/1"
+          ],
+          "latency_ms": 1685.4,
+          "tokens_in": 154,
+          "tokens_out": 56,
+          "chunks": []
+        },
+        {
+          "qid": "q14",
+          "variant": "no_diacritics",
+          "question": "cho anh cong thuc nau pho bo truyen thong",
+          "reply": "MIMA hiện không có dữ liệu phù hợp và không chuyên về công thức nấu phở bò truyền thống. MIMA chuyên thiết kế website và marketing online; anh có thể hỏi đầu bếp hoặc chuyên trang ẩm thực để được hướng dẫn chính xác.",
+          "score": 5.0,
+          "notes": [
+            "concepts=1/1"
+          ],
+          "latency_ms": 2734.0,
+          "tokens_in": 154,
+          "tokens_out": 136,
+          "chunks": []
+        },
+        {
+          "qid": "q15",
+          "variant": "with_diacritics",
+          "question": "Dự báo thời tiết Hà Nội ngày mai thế nào?",
+          "reply": "Hiện chưa có dữ liệu thời tiết phù hợp để dự báo Hà Nội ngày mai. Bạn vui lòng kiểm tra ứng dụng thời tiết uy tín hoặc kết nối chuyên viên để được hỗ trợ thêm.",
+          "score": 5.0,
+          "notes": [
+            "concepts=1/1"
+          ],
+          "latency_ms": 1514.9,
+          "tokens_in": 155,
+          "tokens_out": 44,
+          "chunks": []
+        },
+        {
+          "qid": "q15",
+          "variant": "no_diacritics",
+          "question": "du bao thoi tiet ha noi ngay mai the nao",
+          "reply": "MIMA không có dữ liệu dự báo thời tiết Hà Nội ngày mai và lĩnh vực này ngoài phạm vi hỗ trợ của chúng tôi. Bạn vui lòng kiểm tra Trung tâm Dự báo Khí tượng Thủy văn Quốc gia hoặc ứng dụng thời tiết trên điện thoại.",
+          "score": 5.0,
+          "notes": [
+            "concepts=1/1"
+          ],
+          "latency_ms": 2528.3,
+          "tokens_in": 154,
+          "tokens_out": 143,
+          "chunks": []
+        }
+      ],
+      "accented_quality": 5.0,
+      "unaccented_quality": 4.733
+    },
+    {
+      "provider": "gemini",
+      "model": "gemini-3.5-flash-lite",
+      "calls": 30,
+      "errors": 0,
+      "quality": 4.867,
+      "pass_rate": 0.9333,
+      "latency_avg_ms": 1067.3,
+      "latency_p95_ms": 1365.5,
+      "tokens_in": 8921,
+      "tokens_out": 2544,
+      "cost_usd": 0.009036,
+      "cost_per_answer_usd": 0.00030121,
+      "projected_100k_usd": 30.12,
+      "rows": [
+        {
+          "qid": "q01",
+          "variant": "with_diacritics",
+          "question": "Thiết kế website giá bao nhiêu tiền?",
+          "reply": "MIMA cung cấp các gói thiết kế website với mức giá như sau: Gói phổ thông giá 6.000.000đ, Gói khởi nghiệp giá 9.000.000đ, Gói cao cấp giá 17.000.000đ, còn Gói theo yêu cầu sẽ được báo giá riêng. Để biết thêm chi tiết và nhận tư vấn phù hợp, bạn vui lòng liên hệ Hotline 0909 035 333 hoặc kết nối với chuyên viên của chúng tôi.",
+          "score": 5.0,
+          "notes": [
+            "concepts=2/2"
+          ],
+          "latency_ms": 1365.5,
+          "tokens_in": 496,
+          "tokens_out": 120,
+          "chunks": [
+            "c854fcde-4bfe-4b84-86c8-017d492e3b36",
+            "d36879c5-aa67-4c22-91ef-e427a608410b",
+            "63237e6a-88af-4e93-945e-c11187729e6b"
+          ]
+        },
+        {
+          "qid": "q01",
+          "variant": "no_diacritics",
+          "question": "thiet ke website gia bao nhieu tien",
+          "reply": "MIMA cung cấp các gói thiết kế website với mức giá cụ thể gồm: Gói phổ thông giá 6.000.000đ, Gói khởi nghiệp giá 9.000.000đ, và Gói cao cấp giá 17.000.000đ. Riêng gói thiết kế theo yêu cầu sẽ có mức giá được báo riêng qua Zalo. Nếu bạn cần tư vấn chi tiết hơn, tôi xin phép kết nối chuyên viên hỗ trợ qua hotline 0909 035 333 nhé!",
+          "score": 5.0,
+          "notes": [
+            "concepts=2/2"
+          ],
+          "latency_ms": 1368.3,
+          "tokens_in": 497,
+          "tokens_out": 123,
+          "chunks": [
+            "c854fcde-4bfe-4b84-86c8-017d492e3b36",
+            "d36879c5-aa67-4c22-91ef-e427a608410b",
+            "63237e6a-88af-4e93-945e-c11187729e6b"
+          ]
+        },
+        {
+          "qid": "q02",
+          "variant": "with_diacritics",
+          "question": "Bên anh có làm SEO tổng thể không?",
+          "reply": "MIMA có cung cấp dịch vụ SEO tổng thể với chiến lược toàn diện như nghiên cứu từ khóa, tối ưu cấu trúc website, viết bài chuẩn SEO và xây dựng backlink. Dịch vụ này giúp tăng thứ hạng từ khóa và tạo nền tảng tăng trưởng dài hạn cho doanh nghiệp. Do dịch vụ SEO, quảng cáo và backlink cần báo giá riêng, bạn có muốn kết nối với chuyên viên của MIMA để được tư vấn chi tiết không? Hotline: 0909 035 333.",
+          "score": 5.0,
+          "notes": [
+            "concepts=2/2"
+          ],
+          "latency_ms": 1318.9,
+          "tokens_in": 428,
+          "tokens_out": 110,
+          "chunks": [
+            "29135891-3c8a-4066-8f03-4cefc4a4999e",
+            "d36879c5-aa67-4c22-91ef-e427a608410b",
+            "c854fcde-4bfe-4b84-86c8-017d492e3b36"
+          ]
+        },
+        {
+          "qid": "q02",
+          "variant": "no_diacritics",
+          "question": "ben anh co lam seo tong the khong",
+          "reply": "MIMA có cung cấp dịch vụ SEO tổng thể với chiến lược toàn diện như nghiên cứu từ khóa, tối ưu cấu trúc website, viết bài chuẩn SEO và xây dựng backlink. MIMA không cam kết về thứ hạng hay kết quả cụ thể. Riêng dịch vụ SEO cần có báo giá riêng, bạn vui lòng liên hệ hotline 0909 035 333 hoặc cho phép tôi kết nối với chuyên viên để được hỗ trợ chi tiết nhé.",
+          "score": 5.0,
+          "notes": [
+            "concepts=2/2"
+          ],
+          "latency_ms": 982.0,
+          "tokens_in": 227,
+          "tokens_out": 98,
+          "chunks": [
+            "29135891-3c8a-4066-8f03-4cefc4a4999e"
+          ]
+        },
+        {
+          "qid": "q03",
+          "variant": "with_diacritics",
+          "question": "Chạy quảng cáo Google Ads chi phí thế nào?",
+          "reply": "MIMA cung cấp dịch vụ thiết kế website và marketing online, trong đó chi phí chạy quảng cáo Google Ads cần được báo giá riêng tùy theo nhu cầu thực tế của bạn. Vui lòng liên hệ hotline 0909 035 333 để MIMA kết nối chuyên viên tư vấn chi tiết hơn cho bạn nhé.",
+          "score": 5.0,
+          "notes": [
+            "concepts=1/1"
+          ],
+          "latency_ms": 958.2,
+          "tokens_in": 151,
+          "tokens_out": 71,
+          "chunks": []
+        },
+        {
+          "qid": "q03",
+          "variant": "no_diacritics",
+          "question": "chay quang cao google ads chi phi the nao",
+          "reply": "Hiện tại tôi không có sẵn dữ liệu chi tiết về chi phí chạy quảng cáo Google Ads. Vui lòng liên hệ hotline 0909 035 333 để nhận báo giá cụ thể cho dịch vụ quảng cáo. Tôi rất sẵn lòng kết nối bạn với chuyên viên của MIMA để được hỗ trợ tốt nhất!",
+          "score": 5.0,
+          "notes": [
+            "concepts=1/1"
+          ],
+          "latency_ms": 949.1,
+          "tokens_in": 149,
+          "tokens_out": 70,
+          "chunks": []
+        },
+        {
+          "qid": "q04",
+          "variant": "with_diacritics",
+          "question": "Tư vấn giúp em cách đăng ký tên miền",
+          "reply": "Dịch vụ tên miền của MIMA hỗ trợ đăng ký và quản lý tên miền theo yêu cầu, đồng thời tư vấn chọn tên miền đẹp, dễ nhớ và phù hợp với chiến lược thương hiệu của bạn. Bạn có thể sử dụng công cụ kiểm tra tên miền (WHOIS) ngay trên trang chủ của chúng tôi để tự tra cứu tình trạng tên miền mong muốn. Nếu bạn cần người thật hỗ trợ chi tiết hơn, MIMA rất sẵn lòng kết nối chuyên viên để tư vấn trực tiếp cho bạn qua Hotline 0909 035 333.",
+          "score": 5.0,
+          "notes": [
+            "concepts=2/2"
+          ],
+          "latency_ms": 1188.5,
+          "tokens_in": 218,
+          "tokens_out": 119,
+          "chunks": [
+            "f63f914d-d4f7-42a0-9615-de6b69957ef5"
+          ]
+        },
+        {
+          "qid": "q04",
+          "variant": "no_diacritics",
+          "question": "tu van giup em cach dang ky ten mien",
+          "reply": "MIMA hỗ trợ đăng ký và quản lý tên miền theo yêu cầu, đồng thời tư vấn chọn tên miền đẹp, dễ nhớ và phù hợp với chiến lược thương hiệu của bạn. Bạn có thể sử dụng công cụ kiểm tra tên miền (WHOIS) ngay trên trang chủ của chúng tôi để tự tra cứu tình trạng tên miền mong muốn. Nếu bạn cần người thật hỗ trợ chi tiết hơn, MIMA rất sẵn lòng kết nối chuyên viên để tư vấn trực tiếp cho bạn qua hotline 0909 035 333 nhé.",
+          "score": 5.0,
+          "notes": [
+            "concepts=2/2"
+          ],
+          "latency_ms": 1150.7,
+          "tokens_in": 220,
+          "tokens_out": 114,
+          "chunks": [
+            "f63f914d-d4f7-42a0-9615-de6b69957ef5"
+          ]
+        },
+        {
+          "qid": "q05",
+          "variant": "with_diacritics",
+          "question": "Dịch vụ chăm sóc website hàng tháng có những gì?",
+          "reply": "Dịch vụ chăm sóc website của MIMA bao gồm việc cập nhật nội dung, tối ưu tốc độ, bảo mật và hỗ trợ SEO định kỳ. Hotline hỗ trợ: 0909 035 333. Bạn có muốn kết nối với chuyên viên của chúng tôi để được tư vấn chi tiết hơn không?",
+          "score": 5.0,
+          "notes": [
+            "concepts=2/2"
+          ],
+          "latency_ms": 931.2,
+          "tokens_in": 263,
+          "tokens_out": 69,
+          "chunks": [
+            "dcdb3de1-4803-4918-bcd5-1f7593d867ed"
+          ]
+        },
+        {
+          "qid": "q05",
+          "variant": "no_diacritics",
+          "question": "dich vu cham soc website hang thang co nhung gi",
+          "reply": "Dịch vụ Chăm sóc website của MIMA bao gồm cập nhật nội dung, tối ưu tốc độ, bảo mật và hỗ trợ SEO định kỳ. \n\nNếu anh/chị cần thêm chi tiết hoặc trao đổi trực tiếp, tôi xin phép kết nối chuyên viên hỗ trợ qua Hotline 0909 035 333 nhé.",
+          "score": 5.0,
+          "notes": [
+            "concepts=2/2"
+          ],
+          "latency_ms": 1227.9,
+          "tokens_in": 510,
+          "tokens_out": 74,
+          "chunks": [
+            "63237e6a-88af-4e93-945e-c11187729e6b",
+            "dcdb3de1-4803-4918-bcd5-1f7593d867ed",
+            "c854fcde-4bfe-4b84-86c8-017d492e3b36"
+          ]
+        },
+        {
+          "qid": "q06",
+          "variant": "with_diacritics",
+          "question": "Có làm backlink báo chí tăng traffic không ạ?",
+          "reply": "Dạ, dịch vụ Backlink của MIMA giúp xây dựng liên kết từ các website khác trỏ về website của bạn, giúp tăng uy tín với Google và hỗ trợ SEO bền vững. Tuy nhiên, giá dịch vụ backlink cần được báo giá riêng và MIMA không cam kết về thứ hạng hay kết quả cụ thể. Nếu bạn cần trao đổi chi tiết hơn, tôi xin phép kết nối bạn với chuyên viên của MIMA qua hotline 0909 035 333 nhé!",
+          "score": 5.0,
+          "notes": [
+            "concepts=2/2"
+          ],
+          "latency_ms": 1304.9,
+          "tokens_in": 221,
+          "tokens_out": 105,
+          "chunks": [
+            "67637d1c-4067-4974-95e5-63aa5b8dd342"
+          ]
+        },
+        {
+          "qid": "q06",
+          "variant": "no_diacritics",
+          "question": "co lam backlink bao chi tang traffic khong a",
+          "reply": "Dịch vụ Backlink của MIMA xây dựng liên kết từ các website khác trỏ về website khách hàng, giúp tăng uy tín với Google, cải thiện thứ hạng từ khoá và hỗ trợ SEO bền vững. MIMA không cam kết thứ hạng hoặc kết quả cụ thể. Đối với báo giá chi tiết, các dịch vụ SEO, quảng cáo và backlink cần được báo giá riêng. \n\nBạn có cần kết nối với chuyên viên của MIMA qua hotline 0909 035 333 để được tư vấn trực tiếp không?",
+          "score": 5.0,
+          "notes": [
+            "concepts=2/2"
+          ],
+          "latency_ms": 1178.1,
+          "tokens_in": 309,
+          "tokens_out": 116,
+          "chunks": [
+            "67637d1c-4067-4974-95e5-63aa5b8dd342",
+            "29135891-3c8a-4066-8f03-4cefc4a4999e"
+          ]
+        },
+        {
+          "qid": "q07",
+          "variant": "with_diacritics",
+          "question": "Website có được bảo mật SSL không?",
+          "reply": "Dạ, theo ngữ cảnh, gói Website chuyên nghiệp có giá 12.000.000đ đã bao gồm việc tích hợp chứng chỉ số SSL. Nếu anh/chị cần thêm thông tin chi tiết hoặc hỗ trợ, em xin phép kết nối với chuyên viên tư vấn ạ. Hotline liên hệ: 0909 035 333.",
+          "score": 5.0,
+          "notes": [
+            "concepts=2/2"
+          ],
+          "latency_ms": 958.1,
+          "tokens_in": 219,
+          "tokens_out": 81,
+          "chunks": [
+            "0a7189b6-a2dd-45ca-a05a-c9a186b256c2"
+          ]
+        },
+        {
+          "qid": "q07",
+          "variant": "no_diacritics",
+          "question": "website co duoc bao mat ssl khong",
+          "reply": "Chào bạn, gói Website chuyên nghiệp giá 12.000.000đ đã được tích hợp sẵn chứng chỉ số SSL để bảo mật. MIMA chuyên thiết kế website và marketing online, vui lòng gọi hotline 0909 035 333 nếu bạn cần hỗ trợ thêm.",
+          "score": 5.0,
+          "notes": [
+            "concepts=2/2"
+          ],
+          "latency_ms": 1279.1,
+          "tokens_in": 220,
+          "tokens_out": 67,
+          "chunks": [
+            "0a7189b6-a2dd-45ca-a05a-c9a186b256c2"
+          ]
+        },
+        {
+          "qid": "q08",
+          "variant": "with_diacritics",
+          "question": "Có cam kết lên top 1 Google trong 1 tháng không?",
+          "reply": "MIMA không cam kết thứ hạng hoặc kết quả cụ thể đối với các dịch vụ SEO. Mời bạn kết nối với chuyên viên qua hotline 0909 035 333 để được tư vấn chi tiết hơn. Bạn có đồng ý kết nối với người thật không?",
+          "score": 3.0,
+          "notes": [
+            "concepts=1/2"
+          ],
+          "latency_ms": 1200.9,
+          "tokens_in": 312,
+          "tokens_out": 61,
+          "chunks": [
+            "dd6424c2-0095-4f7d-ad82-005f50dcf0d9",
+            "67637d1c-4067-4974-95e5-63aa5b8dd342"
+          ]
+        },
+        {
+          "qid": "q08",
+          "variant": "no_diacritics",
+          "question": "co cam ket len top 1 google trong 1 thang khong",
+          "reply": "MIMA không cam kết thứ hạng hoặc kết quả cụ thể đối với các dịch vụ SEO. Với các yêu cầu về SEO, quảng cáo và backlink, chúng tôi cần báo giá riêng cho từng dự án. Nếu bạn cần trao đổi chi tiết hơn với người thật, vui lòng liên hệ hotline 0909 035 333 để MIMA kết nối chuyên viên hỗ trợ.",
+          "score": 3.0,
+          "notes": [
+            "concepts=1/2"
+          ],
+          "latency_ms": 1009.0,
+          "tokens_in": 400,
+          "tokens_out": 83,
+          "chunks": [
+            "dd6424c2-0095-4f7d-ad82-005f50dcf0d9",
+            "67637d1c-4067-4974-95e5-63aa5b8dd342",
+            "29135891-3c8a-4066-8f03-4cefc4a4999e"
+          ]
+        },
+        {
+          "qid": "q09",
+          "variant": "with_diacritics",
+          "question": "Cho em xin số điện thoại liên hệ",
+          "reply": "Dạ, bạn có thể liên hệ với MIMA qua hotline 0909 035 333 để được tư vấn chi tiết. Nếu bạn cần trao đổi trực tiếp với chuyên viên, tôi rất sẵn lòng kết nối ngay cho bạn.",
+          "score": 5.0,
+          "notes": [
+            "concepts=1/1"
+          ],
+          "latency_ms": 870.4,
+          "tokens_in": 148,
+          "tokens_out": 54,
+          "chunks": []
+        },
+        {
+          "qid": "q09",
+          "variant": "no_diacritics",
+          "question": "cho em xin so dien thoai lien he",
+          "reply": "MIMA là đơn vị chuyên thiết kế website và marketing online. Số điện thoại hotline liên hệ của MIMA là 0909 035 333. Bạn có muốn kết nối với chuyên viên để được tư vấn trực tiếp không?",
+          "score": 5.0,
+          "notes": [
+            "concepts=1/1"
+          ],
+          "latency_ms": 940.8,
+          "tokens_in": 149,
+          "tokens_out": 53,
+          "chunks": []
+        },
+        {
+          "qid": "q10",
+          "variant": "with_diacritics",
+          "question": "Có gói thiết kế web giá rẻ dùng mẫu có sẵn không?",
+          "reply": "Chào bạn, MIMA có gói Website Basic giá 2.000.000đ sử dụng giao diện mẫu có sẵn (copy) rất phù hợp với nhu cầu của bạn. Tuy nhiên, gói này chưa bao gồm SEO, SSL, song ngữ và giỏ hàng. \n\nNếu bạn cần tư vấn chi tiết hơn, vui lòng liên hệ hotline 0909 035 333 hoặc cho phép tôi kết nối bạn với chuyên viên nhé!",
+          "score": 5.0,
+          "notes": [
+            "concepts=2/2"
+          ],
+          "latency_ms": 1083.5,
+          "tokens_in": 458,
+          "tokens_out": 100,
+          "chunks": [
+            "33a88e68-cbb4-432b-84e1-0f6e3ffd4422",
+            "d36879c5-aa67-4c22-91ef-e427a608410b",
+            "c854fcde-4bfe-4b84-86c8-017d492e3b36"
+          ]
+        },
+        {
+          "qid": "q10",
+          "variant": "no_diacritics",
+          "question": "co goi thiet ke web gia re dung mau co san khong",
+          "reply": "MIMA có gói Website Basic giá 2.000.000đ dùng giao diện mẫu có sẵn (copy) rất phù hợp với nhu cầu của bạn. Gói này bao gồm kết nối mạng xã hội, livechat, chống copy và các tiện ích liên hệ. Bạn có muốn kết nối với chuyên viên để được tư vấn chi tiết hơn qua Hotline 0909 035 333 không?",
+          "score": 5.0,
+          "notes": [
+            "concepts=2/2"
+          ],
+          "latency_ms": 1236.1,
+          "tokens_in": 459,
+          "tokens_out": 91,
+          "chunks": [
+            "d36879c5-aa67-4c22-91ef-e427a608410b",
+            "33a88e68-cbb4-432b-84e1-0f6e3ffd4422",
+            "c854fcde-4bfe-4b84-86c8-017d492e3b36"
+          ]
+        },
+        {
+          "qid": "q11",
+          "variant": "with_diacritics",
+          "question": "Vì sao website của em mãi không lên top Google?",
+          "reply": "Website chưa lên top Google có thể do thiếu các yếu tố kỹ thuật quan trọng như hosting SEO tốc độ cao, source chuẩn, tên miền đẹp, nội dung chuẩn SEO, quảng cáo, backlink và traffic. MIMA không cam kết thứ hạng hay kết quả cụ thể. Bạn vui lòng liên hệ hotline 0909 035 333 hoặc cho phép MIMA kết nối chuyên viên để được hỗ trợ chi tiết nhé!",
+          "score": 5.0,
+          "notes": [
+            "concepts=3/3"
+          ],
+          "latency_ms": 921.9,
+          "tokens_in": 456,
+          "tokens_out": 92,
+          "chunks": [
+            "dd6424c2-0095-4f7d-ad82-005f50dcf0d9",
+            "67637d1c-4067-4974-95e5-63aa5b8dd342",
+            "2b658696-1aba-418a-9c7b-14dbefbe0cc3"
+          ]
+        },
+        {
+          "qid": "q11",
+          "variant": "no_diacritics",
+          "question": "vi sao website cua em mai khong len top google",
+          "reply": "Việc website mãi không lên top Google có thể do thiếu các yếu tố kỹ thuật quan trọng như cấu trúc website chưa chuẩn, tốc độ tải chậm, thiếu tối ưu SEO cơ bản hoặc chưa có dịch vụ Hosting SEO và backlink hỗ trợ. MIMA không cam kết thứ hạng hoặc kết quả cụ thể khi làm SEO. Bạn có muốn kết nối với chuyên viên để được tư vấn chi tiết hơn không?",
+          "score": 5.0,
+          "notes": [
+            "concepts=3/3"
+          ],
+          "latency_ms": 983.5,
+          "tokens_in": 456,
+          "tokens_out": 83,
+          "chunks": [
+            "dd6424c2-0095-4f7d-ad82-005f50dcf0d9",
+            "67637d1c-4067-4974-95e5-63aa5b8dd342",
+            "2b658696-1aba-418a-9c7b-14dbefbe0cc3"
+          ]
+        },
+        {
+          "qid": "q12",
+          "variant": "with_diacritics",
+          "question": "MIMA là công ty làm về lĩnh vực gì?",
+          "reply": "MIMA là công ty hoạt động trong lĩnh vực thiết kế website và marketing online với định hướng \"giải cứu website\" — biến website thành công cụ bán hàng thực sự. Công ty có hơn 10 năm kinh nghiệm với các dịch vụ như thiết kế website theo yêu cầu chuẩn SEO, traffic user thật và dịch vụ chăm sóc website, fanpage. Quý khách có cần kết nối với chuyên viên để được tư vấn chi tiết hơn không ạ?",
+          "score": 5.0,
+          "notes": [
+            "concepts=2/2"
+          ],
+          "latency_ms": 950.9,
+          "tokens_in": 544,
+          "tokens_out": 93,
+          "chunks": [
+            "853d815d-1314-43ae-ab0e-1c1c2da88429",
+            "dcdb3de1-4803-4918-bcd5-1f7593d867ed",
+            "836ff8c2-a803-497e-a2e9-509955b8e134"
+          ]
+        },
+        {
+          "qid": "q12",
+          "variant": "no_diacritics",
+          "question": "mima la cong ty lam ve linh vuc gi",
+          "reply": "MIMA hoạt động trong lĩnh vực thiết kế website và marketing online với định hướng \"giải cứu website\" để biến website thành công cụ bán hàng thực sự. Công ty có hơn 10 năm kinh nghiệm và đã thực hiện trên 2000 dự án cho hơn 1700 khách hàng.",
+          "score": 5.0,
+          "notes": [
+            "concepts=2/2"
+          ],
+          "latency_ms": 1001.8,
+          "tokens_in": 500,
+          "tokens_out": 65,
+          "chunks": [
+            "853d815d-1314-43ae-ab0e-1c1c2da88429",
+            "dcdb3de1-4803-4918-bcd5-1f7593d867ed",
+            "f63f914d-d4f7-42a0-9615-de6b69957ef5"
+          ]
+        },
+        {
+          "qid": "q13",
+          "variant": "with_diacritics",
+          "question": "Cho em gặp trực tiếp nhân viên tư vấn được không?",
+          "reply": "MIMA rất sẵn lòng kết nối bạn với chuyên viên tư vấn để hỗ trợ trực tiếp. Hotline của MIMA là 0909 035 333, bạn có thể gọi ngay hoặc để lại số điện thoại để chuyên viên liên hệ với bạn nhé!",
+          "score": 5.0,
+          "notes": [
+            "concepts=2/2"
+          ],
+          "latency_ms": 859.5,
+          "tokens_in": 152,
+          "tokens_out": 58,
+          "chunks": []
+        },
+        {
+          "qid": "q13",
+          "variant": "no_diacritics",
+          "question": "cho em gap truc tiep nhan vien tu van duoc khong",
+          "reply": "Dạ được chứ ạ, MIMA rất đồng ý kết nối khi bạn cần gặp người thật để trao đổi chi tiết. Xin vui lòng liên hệ trực tiếp qua Hotline 0909 035 333 để được nhân viên tư vấn hỗ trợ ngay nhé!",
+          "score": 5.0,
+          "notes": [
+            "concepts=2/2"
+          ],
+          "latency_ms": 896.2,
+          "tokens_in": 155,
+          "tokens_out": 58,
+          "chunks": []
+        },
+        {
+          "qid": "q14",
+          "variant": "with_diacritics",
+          "question": "Cho anh công thức nấu phở bò truyền thống",
+          "reply": "Dữ liệu hiện tại không có thông tin về công thức nấu phở bò truyền thống vì MIMA chuyên cung cấp dịch vụ thiết kế website và marketing online. MIMA xin từ chối câu hỏi ngoài lĩnh vực này. Nếu anh cần tư vấn về các dịch vụ của MIMA, vui lòng liên hệ hotline 0909 035 333.",
+          "score": 5.0,
+          "notes": [
+            "concepts=1/1"
+          ],
+          "latency_ms": 820.1,
+          "tokens_in": 150,
+          "tokens_out": 78,
+          "chunks": []
+        },
+        {
+          "qid": "q14",
+          "variant": "no_diacritics",
+          "question": "cho anh cong thuc nau pho bo truyen thong",
+          "reply": "MIMA chuyên cung cấp dịch vụ thiết kế website và marketing online, hiện tại tôi không có dữ liệu về công thức nấu phở bò truyền thống. Xin lỗi vì không thể hỗ trợ anh câu hỏi ngoài lĩnh vực này. Anh có cần tôi kết nối với chuyên viên để hỗ trợ thêm các vấn đề về website hoặc marketing không ạ?",
+          "score": 5.0,
+          "notes": [
+            "concepts=1/1"
+          ],
+          "latency_ms": 1105.4,
+          "tokens_in": 152,
+          "tokens_out": 69,
+          "chunks": []
+        },
+        {
+          "qid": "q15",
+          "variant": "with_diacritics",
+          "question": "Dự báo thời tiết Hà Nội ngày mai thế nào?",
+          "reply": "Hiện tại tôi không có dữ liệu về dự báo thời tiết Hà Nội ngày mai trong ngữ cảnh. MIMA là đơn vị chuyên thiết kế website và marketing online (Hotline: 0909 035 333), không hỗ trợ thông tin ngoài lĩnh vực này. Nếu bạn cần tư vấn về dịch vụ của chúng tôi, tôi xin phép kết nối bạn với chuyên viên.",
+          "score": 5.0,
+          "notes": [
+            "concepts=1/1"
+          ],
+          "latency_ms": 981.6,
+          "tokens_in": 151,
+          "tokens_out": 82,
+          "chunks": []
+        },
+        {
+          "qid": "q15",
+          "variant": "no_diacritics",
+          "question": "du bao thoi tiet ha noi ngay mai the nao",
+          "reply": "Rất tiếc, hiện tại tôi không có dữ liệu về dự báo thời tiết Hà Nội ngày mai vì câu hỏi này nằm ngoài lĩnh vực thiết kế website và marketing online của MIMA. Nếu anh/chị cần tư vấn về dịch vụ của MIMA, vui lòng liên hệ hotline 0909 035 333 hoặc để lại thông tin để tôi kết nối chuyên viên hỗ trợ nhé.",
+          "score": 5.0,
+          "notes": [
+            "concepts=1/1"
+          ],
+          "latency_ms": 996.0,
+          "tokens_in": 151,
+          "tokens_out": 87,
+          "chunks": []
+        }
+      ],
+      "accented_quality": 4.867,
+      "unaccented_quality": 4.867
+    }
+  ],
+  "embeddings": [
+    {
+      "provider": "openai",
+      "model": "text-embedding-3-small",
+      "dimension": 1536,
+      "hit1": 0.7,
+      "hit3": 0.8,
+      "mrr": 0.7852,
+      "accent_cosine": 0.5688,
+      "index_ms": 4177.0,
+      "query_ms_each": 38.7,
+      "threshold": 0.437301,
+      "answerability_accuracy": 0.9,
+      "tokens_est": 1563,
+      "cost_usd": 3.1e-05,
+      "rows": [
+        {
+          "qid": "q01",
+          "variant": "with_diacritics",
+          "question": "Thiết kế website giá bao nhiêu tiền?",
+          "top_score": 0.611879,
+          "top_chunks": [
+            {
+              "chunk_id": "c854fcde-4bfe-4b84-86c8-017d492e3b36",
+              "title": "Bảng giá thiết kế website - Gói khởi nghiệp",
+              "content": "Gói Website khởi nghiệp giá 9.000.000đ: thiết kế giao diện theo yêu cầu, tích hợp AI Content SEO, chuẩn SEO Google, có phiên bản mobile - tablet, bàn giao source code, tặng 5 bài viết chuẩn SEO và 200 chủ đề SEO. Chưa bao gồm SSL, song ngữ, giỏ hàng.",
+              "score": 0.611879
+            },
+            {
+              "chunk_id": "3c8375dd-0385-4970-8c40-60343762d882",
+              "title": "Quy trình thiết kế website tại MIMA",
+              "content": "Quy trình thiết kế website tại MIMA gồm 5 bước: (1) Lấy ý tưởng — tiếp nhận yêu cầu, tư vấn định hướng nội dung/giao diện/chức năng và từ khoá SEO chính; (2) Thiết kế UX/UI — dựng giao diện chuẩn, tương thích di động, hài hoà màu sắc thương hiệu; (3) Lập trình code bằng HTML5, CSS3, PHP hoặc Laravel, tích hợp biểu mẫu liên hệ, sản phẩm, giỏ hàng; (4) Viết nội dung chuẩn SEO — tối ưu tiêu đề, mô tả, heading, URL, ảnh có ALT, cài Google Analytics/Search Console; (5) Bàn giao và đào tạo — chuyển giao quyền quản trị, hướng dẫn CMS và SEO cơ bản.",
+              "score": 0.575924
+            },
+            {
+              "chunk_id": "2b658696-1aba-418a-9c7b-14dbefbe0cc3",
+              "title": "FAQ thiết kế website chuẩn SEO Google",
+              "content": "Câu hỏi thường gặp: 'Thiết kế website chuẩn Google là gì?' — Là xây dựng website theo tiêu chí và thuật toán của Google để dễ được lập chỉ mục (index), cấu trúc/từ khoá/nội dung rõ ràng, tốc độ tải nhanh, tương thích mobile và dễ lên top từ khoá tìm kiếm. Thiết kế website trọn gói tại MIMA bao gồm: tư vấn cấu trúc - giao diện - chức năng, thiết kế giao diện, lập trình, đăng ký tên miền và hosting, tối ưu SEO cơ bản, đăng bài demo, bàn giao hướng dẫn sử dụng, cùng bảo trì và hỗ trợ kỹ thuật sau bàn giao.",
+              "score": 0.571244
+            }
+          ],
+          "rr": 1.0,
+          "hit1": true,
+          "hit3": true
+        },
+        {
+          "qid": "q01",
+          "variant": "no_diacritics",
+          "question": "thiet ke website gia bao nhieu tien",
+          "top_score": 0.555166,
+          "top_chunks": [
+            {
+              "chunk_id": "33a88e68-cbb4-432b-84e1-0f6e3ffd4422",
+              "title": "Bảng giá thiết kế website - Gói Basic",
+              "content": "Gói Website Basic giá 2.000.000đ: dùng giao diện mẫu có sẵn (copy), kết nối mạng xã hội, khách tự cập nhật nội dung, có tiện ích Zalo/nút gọi/chat ngay, kèm livechat, chống copy nội dung, đóng dấu sản phẩm, popup đầu trang. Gói này CHƯA có: AI Content SEO, tối ưu SEO, bàn giao source code, SSL, song ngữ, giỏ hàng.",
+              "score": 0.555166
+            },
+            {
+              "chunk_id": "d36879c5-aa67-4c22-91ef-e427a608410b",
+              "title": "Bảng giá thiết kế website - Gói phổ thông",
+              "content": "Gói Website phổ thông giá 6.000.000đ: thiết kế giao diện theo yêu cầu, tích hợp AI Content SEO, chuẩn SEO theo tiêu chuẩn Google, tiện ích Zalo/nút gọi/chat ngay, bàn giao source code, tặng kèm 5 bài viết chuẩn SEO và 200 chủ đề SEO. Gói này chưa có bản mobile/tablet riêng, chưa có SSL, song ngữ hay giỏ hàng.",
+              "score": 0.537966
+            },
+            {
+              "chunk_id": "63237e6a-88af-4e93-945e-c11187729e6b",
+              "title": "Bảng giá thiết kế website - Gói cao cấp và theo yêu cầu",
+              "content": "Gói Website cao cấp giá 17.000.000đ: đầy đủ tính năng như gói chuyên nghiệp, cộng thêm giỏ hàng và hỗ trợ song ngữ, tặng 30 bài viết chuẩn SEO và 500 chủ đề SEO. Gói Website theo yêu cầu (cao cấp nhất) có thêm phân quyền quản trị, đăng ký/đăng nhập, thanh toán online, bình luận, đánh giá và so sánh sản phẩm, voucher giảm giá, phí vận chuyển, trang Flash Sale, khoá học trực tuyến, đăng tin miễn phí — giá của gói này được báo riêng qua Zalo, không niêm yết cố định.",
+              "score": 0.533155
+            }
+          ],
+          "rr": 1.0,
+          "hit1": true,
+          "hit3": true
+        },
+        {
+          "qid": "q02",
+          "variant": "with_diacritics",
+          "question": "Bên anh có làm SEO tổng thể không?",
+          "top_score": 0.587682,
+          "top_chunks": [
+            {
+              "chunk_id": "29135891-3c8a-4066-8f03-4cefc4a4999e",
+              "title": "Dịch vụ SEO tổng thể",
+              "content": "Dịch vụ SEO của MIMA triển khai chiến lược SEO toàn diện: nghiên cứu từ khoá, tối ưu cấu trúc website, viết bài chuẩn SEO, link building, entity SEO, schema markup, tăng traffic người dùng thật và xây dựng backlink — nhằm tăng thứ hạng từ khoá, thu hút traffic tự nhiên và tạo nền tảng tăng trưởng dài hạn cho doanh nghiệp.",
+              "score": 0.587682
+            },
+            {
+              "chunk_id": "dd6424c2-0095-4f7d-ad82-005f50dcf0d9",
+              "title": "Dịch vụ Hosting SEO",
+              "content": "Dịch vụ Hosting SEO của MIMA cung cấp lưu trữ web tốc độ cao, uptime 99.9%, được tối ưu riêng để hỗ trợ website tăng thứ hạng trên Google. Đây là một trong các yếu tố kỹ thuật quan trọng (cùng với source chuẩn, tên miền đẹp, nội dung chuẩn SEO, quảng cáo, backlink và traffic) để website lên top nhanh.",
+              "score": 0.564002
+            },
+            {
+              "chunk_id": "d36879c5-aa67-4c22-91ef-e427a608410b",
+              "title": "Bảng giá thiết kế website - Gói phổ thông",
+              "content": "Gói Website phổ thông giá 6.000.000đ: thiết kế giao diện theo yêu cầu, tích hợp AI Content SEO, chuẩn SEO theo tiêu chuẩn Google, tiện ích Zalo/nút gọi/chat ngay, bàn giao source code, tặng kèm 5 bài viết chuẩn SEO và 200 chủ đề SEO. Gói này chưa có bản mobile/tablet riêng, chưa có SSL, song ngữ hay giỏ hàng.",
+              "score": 0.545196
+            }
+          ],
+          "rr": 1.0,
+          "hit1": true,
+          "hit3": true
+        },
+        {
+          "qid": "q02",
+          "variant": "no_diacritics",
+          "question": "ben anh co lam seo tong the khong",
+          "top_score": 0.367497,
+          "top_chunks": [
+            {
+              "chunk_id": "0a7189b6-a2dd-45ca-a05a-c9a186b256c2",
+              "title": "Bảng giá thiết kế website - Gói chuyên nghiệp",
+              "content": "Gói Website chuyên nghiệp giá 12.000.000đ: đầy đủ như gói khởi nghiệp, cộng thêm tích hợp chứng chỉ số SSL, tặng 20 bài viết chuẩn SEO và 500 chủ đề SEO. Gói này vẫn chưa hỗ trợ song ngữ và giỏ hàng.",
+              "score": 0.367497
+            },
+            {
+              "chunk_id": "d36879c5-aa67-4c22-91ef-e427a608410b",
+              "title": "Bảng giá thiết kế website - Gói phổ thông",
+              "content": "Gói Website phổ thông giá 6.000.000đ: thiết kế giao diện theo yêu cầu, tích hợp AI Content SEO, chuẩn SEO theo tiêu chuẩn Google, tiện ích Zalo/nút gọi/chat ngay, bàn giao source code, tặng kèm 5 bài viết chuẩn SEO và 200 chủ đề SEO. Gói này chưa có bản mobile/tablet riêng, chưa có SSL, song ngữ hay giỏ hàng.",
+              "score": 0.347105
+            },
+            {
+              "chunk_id": "c854fcde-4bfe-4b84-86c8-017d492e3b36",
+              "title": "Bảng giá thiết kế website - Gói khởi nghiệp",
+              "content": "Gói Website khởi nghiệp giá 9.000.000đ: thiết kế giao diện theo yêu cầu, tích hợp AI Content SEO, chuẩn SEO Google, có phiên bản mobile - tablet, bàn giao source code, tặng 5 bài viết chuẩn SEO và 200 chủ đề SEO. Chưa bao gồm SSL, song ngữ, giỏ hàng.",
+              "score": 0.343813
+            }
+          ],
+          "rr": 0.2,
+          "hit1": false,
+          "hit3": false
+        },
+        {
+          "qid": "q03",
+          "variant": "with_diacritics",
+          "question": "Chạy quảng cáo Google Ads chi phí thế nào?",
+          "top_score": 0.430701,
+          "top_chunks": [
+            {
+              "chunk_id": "d36879c5-aa67-4c22-91ef-e427a608410b",
+              "title": "Bảng giá thiết kế website - Gói phổ thông",
+              "content": "Gói Website phổ thông giá 6.000.000đ: thiết kế giao diện theo yêu cầu, tích hợp AI Content SEO, chuẩn SEO theo tiêu chuẩn Google, tiện ích Zalo/nút gọi/chat ngay, bàn giao source code, tặng kèm 5 bài viết chuẩn SEO và 200 chủ đề SEO. Gói này chưa có bản mobile/tablet riêng, chưa có SSL, song ngữ hay giỏ hàng.",
+              "score": 0.430701
+            },
+            {
+              "chunk_id": "2b658696-1aba-418a-9c7b-14dbefbe0cc3",
+              "title": "FAQ thiết kế website chuẩn SEO Google",
+              "content": "Câu hỏi thường gặp: 'Thiết kế website chuẩn Google là gì?' — Là xây dựng website theo tiêu chí và thuật toán của Google để dễ được lập chỉ mục (index), cấu trúc/từ khoá/nội dung rõ ràng, tốc độ tải nhanh, tương thích mobile và dễ lên top từ khoá tìm kiếm. Thiết kế website trọn gói tại MIMA bao gồm: tư vấn cấu trúc - giao diện - chức năng, thiết kế giao diện, lập trình, đăng ký tên miền và hosting, tối ưu SEO cơ bản, đăng bài demo, bàn giao hướng dẫn sử dụng, cùng bảo trì và hỗ trợ kỹ thuật sau bàn giao.",
+              "score": 0.425946
+            },
+            {
+              "chunk_id": "63237e6a-88af-4e93-945e-c11187729e6b",
+              "title": "Bảng giá thiết kế website - Gói cao cấp và theo yêu cầu",
+              "content": "Gói Website cao cấp giá 17.000.000đ: đầy đủ tính năng như gói chuyên nghiệp, cộng thêm giỏ hàng và hỗ trợ song ngữ, tặng 30 bài viết chuẩn SEO và 500 chủ đề SEO. Gói Website theo yêu cầu (cao cấp nhất) có thêm phân quyền quản trị, đăng ký/đăng nhập, thanh toán online, bình luận, đánh giá và so sánh sản phẩm, voucher giảm giá, phí vận chuyển, trang Flash Sale, khoá học trực tuyến, đăng tin miễn phí — giá của gói này được báo riêng qua Zalo, không niêm yết cố định.",
+              "score": 0.418013
+            }
+          ],
+          "rr": 0.0,
+          "hit1": false,
+          "hit3": false
+        },
+        {
+          "qid": "q03",
+          "variant": "no_diacritics",
+          "question": "chay quang cao google ads chi phi the nao",
+          "top_score": 0.465586,
+          "top_chunks": [
+            {
+              "chunk_id": "2b658696-1aba-418a-9c7b-14dbefbe0cc3",
+              "title": "FAQ thiết kế website chuẩn SEO Google",
+              "content": "Câu hỏi thường gặp: 'Thiết kế website chuẩn Google là gì?' — Là xây dựng website theo tiêu chí và thuật toán của Google để dễ được lập chỉ mục (index), cấu trúc/từ khoá/nội dung rõ ràng, tốc độ tải nhanh, tương thích mobile và dễ lên top từ khoá tìm kiếm. Thiết kế website trọn gói tại MIMA bao gồm: tư vấn cấu trúc - giao diện - chức năng, thiết kế giao diện, lập trình, đăng ký tên miền và hosting, tối ưu SEO cơ bản, đăng bài demo, bàn giao hướng dẫn sử dụng, cùng bảo trì và hỗ trợ kỹ thuật sau bàn giao.",
+              "score": 0.465586
+            },
+            {
+              "chunk_id": "d36879c5-aa67-4c22-91ef-e427a608410b",
+              "title": "Bảng giá thiết kế website - Gói phổ thông",
+              "content": "Gói Website phổ thông giá 6.000.000đ: thiết kế giao diện theo yêu cầu, tích hợp AI Content SEO, chuẩn SEO theo tiêu chuẩn Google, tiện ích Zalo/nút gọi/chat ngay, bàn giao source code, tặng kèm 5 bài viết chuẩn SEO và 200 chủ đề SEO. Gói này chưa có bản mobile/tablet riêng, chưa có SSL, song ngữ hay giỏ hàng.",
+              "score": 0.462031
+            },
+            {
+              "chunk_id": "c854fcde-4bfe-4b84-86c8-017d492e3b36",
+              "title": "Bảng giá thiết kế website - Gói khởi nghiệp",
+              "content": "Gói Website khởi nghiệp giá 9.000.000đ: thiết kế giao diện theo yêu cầu, tích hợp AI Content SEO, chuẩn SEO Google, có phiên bản mobile - tablet, bàn giao source code, tặng 5 bài viết chuẩn SEO và 200 chủ đề SEO. Chưa bao gồm SSL, song ngữ, giỏ hàng.",
+              "score": 0.438321
+            }
+          ],
+          "rr": 0.0,
+          "hit1": false,
+          "hit3": false
+        },
+        {
+          "qid": "q04",
+          "variant": "with_diacritics",
+          "question": "Tư vấn giúp em cách đăng ký tên miền",
+          "top_score": 0.672824,
+          "top_chunks": [
+            {
+              "chunk_id": "f63f914d-d4f7-42a0-9615-de6b69957ef5",
+              "title": "Dịch vụ tên miền",
+              "content": "Dịch vụ tên miền của MIMA hỗ trợ đăng ký và quản lý tên miền theo yêu cầu, tư vấn chọn tên miền đẹp, dễ nhớ, phù hợp chiến lược thương hiệu của khách hàng. Trang chủ có sẵn công cụ kiểm tra tên miền (WHOIS) ngay trên website để khách tự tra cứu tình trạng tên miền mong muốn.",
+              "score": 0.672824
+            },
+            {
+              "chunk_id": "dd6424c2-0095-4f7d-ad82-005f50dcf0d9",
+              "title": "Dịch vụ Hosting SEO",
+              "content": "Dịch vụ Hosting SEO của MIMA cung cấp lưu trữ web tốc độ cao, uptime 99.9%, được tối ưu riêng để hỗ trợ website tăng thứ hạng trên Google. Đây là một trong các yếu tố kỹ thuật quan trọng (cùng với source chuẩn, tên miền đẹp, nội dung chuẩn SEO, quảng cáo, backlink và traffic) để website lên top nhanh.",
+              "score": 0.368467
+            },
+            {
+              "chunk_id": "3c8375dd-0385-4970-8c40-60343762d882",
+              "title": "Quy trình thiết kế website tại MIMA",
+              "content": "Quy trình thiết kế website tại MIMA gồm 5 bước: (1) Lấy ý tưởng — tiếp nhận yêu cầu, tư vấn định hướng nội dung/giao diện/chức năng và từ khoá SEO chính; (2) Thiết kế UX/UI — dựng giao diện chuẩn, tương thích di động, hài hoà màu sắc thương hiệu; (3) Lập trình code bằng HTML5, CSS3, PHP hoặc Laravel, tích hợp biểu mẫu liên hệ, sản phẩm, giỏ hàng; (4) Viết nội dung chuẩn SEO — tối ưu tiêu đề, mô tả, heading, URL, ảnh có ALT, cài Google Analytics/Search Console; (5) Bàn giao và đào tạo — chuyển giao quyền quản trị, hướng dẫn CMS và SEO cơ bản.",
+              "score": 0.352368
+            }
+          ],
+          "rr": 1.0,
+          "hit1": true,
+          "hit3": true
+        },
+        {
+          "qid": "q04",
+          "variant": "no_diacritics",
+          "question": "tu van giup em cach dang ky ten mien",
+          "top_score": 0.317515,
+          "top_chunks": [
+            {
+              "chunk_id": "f63f914d-d4f7-42a0-9615-de6b69957ef5",
+              "title": "Dịch vụ tên miền",
+              "content": "Dịch vụ tên miền của MIMA hỗ trợ đăng ký và quản lý tên miền theo yêu cầu, tư vấn chọn tên miền đẹp, dễ nhớ, phù hợp chiến lược thương hiệu của khách hàng. Trang chủ có sẵn công cụ kiểm tra tên miền (WHOIS) ngay trên website để khách tự tra cứu tình trạng tên miền mong muốn.",
+              "score": 0.317515
+            },
+            {
+              "chunk_id": "3c8375dd-0385-4970-8c40-60343762d882",
+              "title": "Quy trình thiết kế website tại MIMA",
+              "content": "Quy trình thiết kế website tại MIMA gồm 5 bước: (1) Lấy ý tưởng — tiếp nhận yêu cầu, tư vấn định hướng nội dung/giao diện/chức năng và từ khoá SEO chính; (2) Thiết kế UX/UI — dựng giao diện chuẩn, tương thích di động, hài hoà màu sắc thương hiệu; (3) Lập trình code bằng HTML5, CSS3, PHP hoặc Laravel, tích hợp biểu mẫu liên hệ, sản phẩm, giỏ hàng; (4) Viết nội dung chuẩn SEO — tối ưu tiêu đề, mô tả, heading, URL, ảnh có ALT, cài Google Analytics/Search Console; (5) Bàn giao và đào tạo — chuyển giao quyền quản trị, hướng dẫn CMS và SEO cơ bản.",
+              "score": 0.312767
+            },
+            {
+              "chunk_id": "33a88e68-cbb4-432b-84e1-0f6e3ffd4422",
+              "title": "Bảng giá thiết kế website - Gói Basic",
+              "content": "Gói Website Basic giá 2.000.000đ: dùng giao diện mẫu có sẵn (copy), kết nối mạng xã hội, khách tự cập nhật nội dung, có tiện ích Zalo/nút gọi/chat ngay, kèm livechat, chống copy nội dung, đóng dấu sản phẩm, popup đầu trang. Gói này CHƯA có: AI Content SEO, tối ưu SEO, bàn giao source code, SSL, song ngữ, giỏ hàng.",
+              "score": 0.303859
+            }
+          ],
+          "rr": 1.0,
+          "hit1": true,
+          "hit3": true
+        },
+        {
+          "qid": "q05",
+          "variant": "with_diacritics",
+          "question": "Dịch vụ chăm sóc website hàng tháng có những gì?",
+          "top_score": 0.569284,
+          "top_chunks": [
+            {
+              "chunk_id": "dcdb3de1-4803-4918-bcd5-1f7593d867ed",
+              "title": "Traffic User Thật và các dịch vụ chăm sóc đi kèm",
+              "content": "Dịch vụ Traffic User Thật của MIMA cung cấp lượng truy cập từ người dùng thật 100%, tự tìm kiếm - tự click - tương tác tự nhiên theo đúng chuẩn thuật toán Google, khác với traffic ảo/bot. MIMA cũng có dịch vụ Chăm sóc website (cập nhật nội dung, tối ưu tốc độ, bảo mật, hỗ trợ SEO định kỳ) và Chăm sóc fanpage (trọn gói, không phát sinh phí, giúp tiếp cận hàng ngàn khách hàng).",
+              "score": 0.569284
+            },
+            {
+              "chunk_id": "dd6424c2-0095-4f7d-ad82-005f50dcf0d9",
+              "title": "Dịch vụ Hosting SEO",
+              "content": "Dịch vụ Hosting SEO của MIMA cung cấp lưu trữ web tốc độ cao, uptime 99.9%, được tối ưu riêng để hỗ trợ website tăng thứ hạng trên Google. Đây là một trong các yếu tố kỹ thuật quan trọng (cùng với source chuẩn, tên miền đẹp, nội dung chuẩn SEO, quảng cáo, backlink và traffic) để website lên top nhanh.",
+              "score": 0.557586
+            },
+            {
+              "chunk_id": "836ff8c2-a803-497e-a2e9-509955b8e134",
+              "title": "Công Ty Thiết Kế Website Theo Yêu Cầu Chuẩn SEO Google",
+              "content": "Dịch vụ thiết kế website tại MIMA cung cấp giao diện hiện đại, tối ưu trải nghiệm người dùng, tốc độ tải trang nhanh, chuẩn SEO Google, thiết kế riêng theo từng ngành nghề, đảm bảo tính bản quyền - độc quyền và tương thích trên mọi thiết bị (PC, tablet, điện thoại). Website tích hợp sẵn công nghệ AI Content SEO, giúp tự động sinh nội dung chuẩn SEO cho sản phẩm, dịch vụ, tin tức với năng suất cao hơn nhiều so với viết tay thủ công.",
+              "score": 0.553737
+            }
+          ],
+          "rr": 1.0,
+          "hit1": true,
+          "hit3": true
+        },
+        {
+          "qid": "q05",
+          "variant": "no_diacritics",
+          "question": "dich vu cham soc website hang thang co nhung gi",
+          "top_score": 0.485488,
+          "top_chunks": [
+            {
+              "chunk_id": "33a88e68-cbb4-432b-84e1-0f6e3ffd4422",
+              "title": "Bảng giá thiết kế website - Gói Basic",
+              "content": "Gói Website Basic giá 2.000.000đ: dùng giao diện mẫu có sẵn (copy), kết nối mạng xã hội, khách tự cập nhật nội dung, có tiện ích Zalo/nút gọi/chat ngay, kèm livechat, chống copy nội dung, đóng dấu sản phẩm, popup đầu trang. Gói này CHƯA có: AI Content SEO, tối ưu SEO, bàn giao source code, SSL, song ngữ, giỏ hàng.",
+              "score": 0.485488
+            },
+            {
+              "chunk_id": "d36879c5-aa67-4c22-91ef-e427a608410b",
+              "title": "Bảng giá thiết kế website - Gói phổ thông",
+              "content": "Gói Website phổ thông giá 6.000.000đ: thiết kế giao diện theo yêu cầu, tích hợp AI Content SEO, chuẩn SEO theo tiêu chuẩn Google, tiện ích Zalo/nút gọi/chat ngay, bàn giao source code, tặng kèm 5 bài viết chuẩn SEO và 200 chủ đề SEO. Gói này chưa có bản mobile/tablet riêng, chưa có SSL, song ngữ hay giỏ hàng.",
+              "score": 0.440482
+            },
+            {
+              "chunk_id": "c854fcde-4bfe-4b84-86c8-017d492e3b36",
+              "title": "Bảng giá thiết kế website - Gói khởi nghiệp",
+              "content": "Gói Website khởi nghiệp giá 9.000.000đ: thiết kế giao diện theo yêu cầu, tích hợp AI Content SEO, chuẩn SEO Google, có phiên bản mobile - tablet, bàn giao source code, tặng 5 bài viết chuẩn SEO và 200 chủ đề SEO. Chưa bao gồm SSL, song ngữ, giỏ hàng.",
+              "score": 0.432445
+            }
+          ],
+          "rr": 0.25,
+          "hit1": false,
+          "hit3": false
+        },
+        {
+          "qid": "q06",
+          "variant": "with_diacritics",
+          "question": "Có làm backlink báo chí tăng traffic không ạ?",
+          "top_score": 0.536065,
+          "top_chunks": [
+            {
+              "chunk_id": "67637d1c-4067-4974-95e5-63aa5b8dd342",
+              "title": "Dịch vụ Backlink Website",
+              "content": "Dịch vụ Backlink của MIMA xây dựng liên kết từ các website khác trỏ về website khách hàng, giúp tăng uy tín (trust) với Google, cải thiện thứ hạng từ khoá và hỗ trợ SEO bền vững. MIMA nhấn mạnh đây là yếu tố giúp lên top ổn định lâu dài, không chỉ tăng hạng nhất thời.",
+              "score": 0.536065
+            },
+            {
+              "chunk_id": "dcdb3de1-4803-4918-bcd5-1f7593d867ed",
+              "title": "Traffic User Thật và các dịch vụ chăm sóc đi kèm",
+              "content": "Dịch vụ Traffic User Thật của MIMA cung cấp lượng truy cập từ người dùng thật 100%, tự tìm kiếm - tự click - tương tác tự nhiên theo đúng chuẩn thuật toán Google, khác với traffic ảo/bot. MIMA cũng có dịch vụ Chăm sóc website (cập nhật nội dung, tối ưu tốc độ, bảo mật, hỗ trợ SEO định kỳ) và Chăm sóc fanpage (trọn gói, không phát sinh phí, giúp tiếp cận hàng ngàn khách hàng).",
+              "score": 0.471287
+            },
+            {
+              "chunk_id": "29135891-3c8a-4066-8f03-4cefc4a4999e",
+              "title": "Dịch vụ SEO tổng thể",
+              "content": "Dịch vụ SEO của MIMA triển khai chiến lược SEO toàn diện: nghiên cứu từ khoá, tối ưu cấu trúc website, viết bài chuẩn SEO, link building, entity SEO, schema markup, tăng traffic người dùng thật và xây dựng backlink — nhằm tăng thứ hạng từ khoá, thu hút traffic tự nhiên và tạo nền tảng tăng trưởng dài hạn cho doanh nghiệp.",
+              "score": 0.440163
+            }
+          ],
+          "rr": 1.0,
+          "hit1": true,
+          "hit3": true
+        },
+        {
+          "qid": "q06",
+          "variant": "no_diacritics",
+          "question": "co lam backlink bao chi tang traffic khong a",
+          "top_score": 0.479595,
+          "top_chunks": [
+            {
+              "chunk_id": "67637d1c-4067-4974-95e5-63aa5b8dd342",
+              "title": "Dịch vụ Backlink Website",
+              "content": "Dịch vụ Backlink của MIMA xây dựng liên kết từ các website khác trỏ về website khách hàng, giúp tăng uy tín (trust) với Google, cải thiện thứ hạng từ khoá và hỗ trợ SEO bền vững. MIMA nhấn mạnh đây là yếu tố giúp lên top ổn định lâu dài, không chỉ tăng hạng nhất thời.",
+              "score": 0.479595
+            },
+            {
+              "chunk_id": "dcdb3de1-4803-4918-bcd5-1f7593d867ed",
+              "title": "Traffic User Thật và các dịch vụ chăm sóc đi kèm",
+              "content": "Dịch vụ Traffic User Thật của MIMA cung cấp lượng truy cập từ người dùng thật 100%, tự tìm kiếm - tự click - tương tác tự nhiên theo đúng chuẩn thuật toán Google, khác với traffic ảo/bot. MIMA cũng có dịch vụ Chăm sóc website (cập nhật nội dung, tối ưu tốc độ, bảo mật, hỗ trợ SEO định kỳ) và Chăm sóc fanpage (trọn gói, không phát sinh phí, giúp tiếp cận hàng ngàn khách hàng).",
+              "score": 0.435406
+            },
+            {
+              "chunk_id": "33a88e68-cbb4-432b-84e1-0f6e3ffd4422",
+              "title": "Bảng giá thiết kế website - Gói Basic",
+              "content": "Gói Website Basic giá 2.000.000đ: dùng giao diện mẫu có sẵn (copy), kết nối mạng xã hội, khách tự cập nhật nội dung, có tiện ích Zalo/nút gọi/chat ngay, kèm livechat, chống copy nội dung, đóng dấu sản phẩm, popup đầu trang. Gói này CHƯA có: AI Content SEO, tối ưu SEO, bàn giao source code, SSL, song ngữ, giỏ hàng.",
+              "score": 0.431696
+            }
+          ],
+          "rr": 1.0,
+          "hit1": true,
+          "hit3": true
+        },
+        {
+          "qid": "q07",
+          "variant": "with_diacritics",
+          "question": "Website có được bảo mật SSL không?",
+          "top_score": 0.527759,
+          "top_chunks": [
+            {
+              "chunk_id": "33a88e68-cbb4-432b-84e1-0f6e3ffd4422",
+              "title": "Bảng giá thiết kế website - Gói Basic",
+              "content": "Gói Website Basic giá 2.000.000đ: dùng giao diện mẫu có sẵn (copy), kết nối mạng xã hội, khách tự cập nhật nội dung, có tiện ích Zalo/nút gọi/chat ngay, kèm livechat, chống copy nội dung, đóng dấu sản phẩm, popup đầu trang. Gói này CHƯA có: AI Content SEO, tối ưu SEO, bàn giao source code, SSL, song ngữ, giỏ hàng.",
+              "score": 0.527759
+            },
+            {
+              "chunk_id": "d36879c5-aa67-4c22-91ef-e427a608410b",
+              "title": "Bảng giá thiết kế website - Gói phổ thông",
+              "content": "Gói Website phổ thông giá 6.000.000đ: thiết kế giao diện theo yêu cầu, tích hợp AI Content SEO, chuẩn SEO theo tiêu chuẩn Google, tiện ích Zalo/nút gọi/chat ngay, bàn giao source code, tặng kèm 5 bài viết chuẩn SEO và 200 chủ đề SEO. Gói này chưa có bản mobile/tablet riêng, chưa có SSL, song ngữ hay giỏ hàng.",
+              "score": 0.496422
+            },
+            {
+              "chunk_id": "c854fcde-4bfe-4b84-86c8-017d492e3b36",
+              "title": "Bảng giá thiết kế website - Gói khởi nghiệp",
+              "content": "Gói Website khởi nghiệp giá 9.000.000đ: thiết kế giao diện theo yêu cầu, tích hợp AI Content SEO, chuẩn SEO Google, có phiên bản mobile - tablet, bàn giao source code, tặng 5 bài viết chuẩn SEO và 200 chủ đề SEO. Chưa bao gồm SSL, song ngữ, giỏ hàng.",
+              "score": 0.495864
+            }
+          ],
+          "rr": 1.0,
+          "hit1": true,
+          "hit3": true
+        },
+        {
+          "qid": "q07",
+          "variant": "no_diacritics",
+          "question": "website co duoc bao mat ssl khong",
+          "top_score": 0.490471,
+          "top_chunks": [
+            {
+              "chunk_id": "33a88e68-cbb4-432b-84e1-0f6e3ffd4422",
+              "title": "Bảng giá thiết kế website - Gói Basic",
+              "content": "Gói Website Basic giá 2.000.000đ: dùng giao diện mẫu có sẵn (copy), kết nối mạng xã hội, khách tự cập nhật nội dung, có tiện ích Zalo/nút gọi/chat ngay, kèm livechat, chống copy nội dung, đóng dấu sản phẩm, popup đầu trang. Gói này CHƯA có: AI Content SEO, tối ưu SEO, bàn giao source code, SSL, song ngữ, giỏ hàng.",
+              "score": 0.490471
+            },
+            {
+              "chunk_id": "0a7189b6-a2dd-45ca-a05a-c9a186b256c2",
+              "title": "Bảng giá thiết kế website - Gói chuyên nghiệp",
+              "content": "Gói Website chuyên nghiệp giá 12.000.000đ: đầy đủ như gói khởi nghiệp, cộng thêm tích hợp chứng chỉ số SSL, tặng 20 bài viết chuẩn SEO và 500 chủ đề SEO. Gói này vẫn chưa hỗ trợ song ngữ và giỏ hàng.",
+              "score": 0.461468
+            },
+            {
+              "chunk_id": "d36879c5-aa67-4c22-91ef-e427a608410b",
+              "title": "Bảng giá thiết kế website - Gói phổ thông",
+              "content": "Gói Website phổ thông giá 6.000.000đ: thiết kế giao diện theo yêu cầu, tích hợp AI Content SEO, chuẩn SEO theo tiêu chuẩn Google, tiện ích Zalo/nút gọi/chat ngay, bàn giao source code, tặng kèm 5 bài viết chuẩn SEO và 200 chủ đề SEO. Gói này chưa có bản mobile/tablet riêng, chưa có SSL, song ngữ hay giỏ hàng.",
+              "score": 0.460575
+            }
+          ],
+          "rr": 1.0,
+          "hit1": true,
+          "hit3": true
+        },
+        {
+          "qid": "q08",
+          "variant": "with_diacritics",
+          "question": "Có cam kết lên top 1 Google trong 1 tháng không?",
+          "top_score": 0.498129,
+          "top_chunks": [
+            {
+              "chunk_id": "dd6424c2-0095-4f7d-ad82-005f50dcf0d9",
+              "title": "Dịch vụ Hosting SEO",
+              "content": "Dịch vụ Hosting SEO của MIMA cung cấp lưu trữ web tốc độ cao, uptime 99.9%, được tối ưu riêng để hỗ trợ website tăng thứ hạng trên Google. Đây là một trong các yếu tố kỹ thuật quan trọng (cùng với source chuẩn, tên miền đẹp, nội dung chuẩn SEO, quảng cáo, backlink và traffic) để website lên top nhanh.",
+              "score": 0.498129
+            },
+            {
+              "chunk_id": "2b658696-1aba-418a-9c7b-14dbefbe0cc3",
+              "title": "FAQ thiết kế website chuẩn SEO Google",
+              "content": "Câu hỏi thường gặp: 'Thiết kế website chuẩn Google là gì?' — Là xây dựng website theo tiêu chí và thuật toán của Google để dễ được lập chỉ mục (index), cấu trúc/từ khoá/nội dung rõ ràng, tốc độ tải nhanh, tương thích mobile và dễ lên top từ khoá tìm kiếm. Thiết kế website trọn gói tại MIMA bao gồm: tư vấn cấu trúc - giao diện - chức năng, thiết kế giao diện, lập trình, đăng ký tên miền và hosting, tối ưu SEO cơ bản, đăng bài demo, bàn giao hướng dẫn sử dụng, cùng bảo trì và hỗ trợ kỹ thuật sau bàn giao.",
+              "score": 0.457041
+            },
+            {
+              "chunk_id": "67637d1c-4067-4974-95e5-63aa5b8dd342",
+              "title": "Dịch vụ Backlink Website",
+              "content": "Dịch vụ Backlink của MIMA xây dựng liên kết từ các website khác trỏ về website khách hàng, giúp tăng uy tín (trust) với Google, cải thiện thứ hạng từ khoá và hỗ trợ SEO bền vững. MIMA nhấn mạnh đây là yếu tố giúp lên top ổn định lâu dài, không chỉ tăng hạng nhất thời.",
+              "score": 0.443488
+            }
+          ],
+          "rr": 0.14285714285714285,
+          "hit1": false,
+          "hit3": false
+        },
+        {
+          "qid": "q08",
+          "variant": "no_diacritics",
+          "question": "co cam ket len top 1 google trong 1 thang khong",
+          "top_score": 0.437301,
+          "top_chunks": [
+            {
+              "chunk_id": "2b658696-1aba-418a-9c7b-14dbefbe0cc3",
+              "title": "FAQ thiết kế website chuẩn SEO Google",
+              "content": "Câu hỏi thường gặp: 'Thiết kế website chuẩn Google là gì?' — Là xây dựng website theo tiêu chí và thuật toán của Google để dễ được lập chỉ mục (index), cấu trúc/từ khoá/nội dung rõ ràng, tốc độ tải nhanh, tương thích mobile và dễ lên top từ khoá tìm kiếm. Thiết kế website trọn gói tại MIMA bao gồm: tư vấn cấu trúc - giao diện - chức năng, thiết kế giao diện, lập trình, đăng ký tên miền và hosting, tối ưu SEO cơ bản, đăng bài demo, bàn giao hướng dẫn sử dụng, cùng bảo trì và hỗ trợ kỹ thuật sau bàn giao.",
+              "score": 0.437301
+            },
+            {
+              "chunk_id": "dd6424c2-0095-4f7d-ad82-005f50dcf0d9",
+              "title": "Dịch vụ Hosting SEO",
+              "content": "Dịch vụ Hosting SEO của MIMA cung cấp lưu trữ web tốc độ cao, uptime 99.9%, được tối ưu riêng để hỗ trợ website tăng thứ hạng trên Google. Đây là một trong các yếu tố kỹ thuật quan trọng (cùng với source chuẩn, tên miền đẹp, nội dung chuẩn SEO, quảng cáo, backlink và traffic) để website lên top nhanh.",
+              "score": 0.411095
+            },
+            {
+              "chunk_id": "67637d1c-4067-4974-95e5-63aa5b8dd342",
+              "title": "Dịch vụ Backlink Website",
+              "content": "Dịch vụ Backlink của MIMA xây dựng liên kết từ các website khác trỏ về website khách hàng, giúp tăng uy tín (trust) với Google, cải thiện thứ hạng từ khoá và hỗ trợ SEO bền vững. MIMA nhấn mạnh đây là yếu tố giúp lên top ổn định lâu dài, không chỉ tăng hạng nhất thời.",
+              "score": 0.383577
+            }
+          ],
+          "rr": 0.1111111111111111,
+          "hit1": false,
+          "hit3": false
+        },
+        {
+          "qid": "q09",
+          "variant": "with_diacritics",
+          "question": "Cho em xin số điện thoại liên hệ",
+          "top_score": 0.334474,
+          "top_chunks": [
+            {
+              "chunk_id": "853d815d-1314-43ae-ab0e-1c1c2da88429",
+              "title": "MIMA Giải Cứu Website - Biến Web Thành 1000 Nhân Viên Bán Hàng",
+              "content": "MIMA là tên viết tắt của Công ty TNHH Thương Mại Dịch Vụ MIMA, hoạt động trong lĩnh vực thiết kế website và marketing online với định hướng 'giải cứu website' — biến website từ một tấm danh thiếp điện tử thành công cụ bán hàng thực sự, hoạt động như hàng ngàn nhân viên kinh doanh 24/7. Công ty có hơn 10 năm kinh nghiệm, đã thực hiện trên 2000 dự án cho hơn 1700 khách hàng hài lòng, với đội ngũ hơn 50 nhân viên phục vụ khách hàng ở hơn 33 tỉnh thành.",
+              "score": 0.334474
+            },
+            {
+              "chunk_id": "33a88e68-cbb4-432b-84e1-0f6e3ffd4422",
+              "title": "Bảng giá thiết kế website - Gói Basic",
+              "content": "Gói Website Basic giá 2.000.000đ: dùng giao diện mẫu có sẵn (copy), kết nối mạng xã hội, khách tự cập nhật nội dung, có tiện ích Zalo/nút gọi/chat ngay, kèm livechat, chống copy nội dung, đóng dấu sản phẩm, popup đầu trang. Gói này CHƯA có: AI Content SEO, tối ưu SEO, bàn giao source code, SSL, song ngữ, giỏ hàng.",
+              "score": 0.318855
+            },
+            {
+              "chunk_id": "d36879c5-aa67-4c22-91ef-e427a608410b",
+              "title": "Bảng giá thiết kế website - Gói phổ thông",
+              "content": "Gói Website phổ thông giá 6.000.000đ: thiết kế giao diện theo yêu cầu, tích hợp AI Content SEO, chuẩn SEO theo tiêu chuẩn Google, tiện ích Zalo/nút gọi/chat ngay, bàn giao source code, tặng kèm 5 bài viết chuẩn SEO và 200 chủ đề SEO. Gói này chưa có bản mobile/tablet riêng, chưa có SSL, song ngữ hay giỏ hàng.",
+              "score": 0.310583
+            }
+          ],
+          "rr": 0.0,
+          "hit1": false,
+          "hit3": false
+        },
+        {
+          "qid": "q09",
+          "variant": "no_diacritics",
+          "question": "cho em xin so dien thoai lien he",
+          "top_score": 0.324978,
+          "top_chunks": [
+            {
+              "chunk_id": "d36879c5-aa67-4c22-91ef-e427a608410b",
+              "title": "Bảng giá thiết kế website - Gói phổ thông",
+              "content": "Gói Website phổ thông giá 6.000.000đ: thiết kế giao diện theo yêu cầu, tích hợp AI Content SEO, chuẩn SEO theo tiêu chuẩn Google, tiện ích Zalo/nút gọi/chat ngay, bàn giao source code, tặng kèm 5 bài viết chuẩn SEO và 200 chủ đề SEO. Gói này chưa có bản mobile/tablet riêng, chưa có SSL, song ngữ hay giỏ hàng.",
+              "score": 0.324978
+            },
+            {
+              "chunk_id": "33a88e68-cbb4-432b-84e1-0f6e3ffd4422",
+              "title": "Bảng giá thiết kế website - Gói Basic",
+              "content": "Gói Website Basic giá 2.000.000đ: dùng giao diện mẫu có sẵn (copy), kết nối mạng xã hội, khách tự cập nhật nội dung, có tiện ích Zalo/nút gọi/chat ngay, kèm livechat, chống copy nội dung, đóng dấu sản phẩm, popup đầu trang. Gói này CHƯA có: AI Content SEO, tối ưu SEO, bàn giao source code, SSL, song ngữ, giỏ hàng.",
+              "score": 0.303205
+            },
+            {
+              "chunk_id": "f63f914d-d4f7-42a0-9615-de6b69957ef5",
+              "title": "Dịch vụ tên miền",
+              "content": "Dịch vụ tên miền của MIMA hỗ trợ đăng ký và quản lý tên miền theo yêu cầu, tư vấn chọn tên miền đẹp, dễ nhớ, phù hợp chiến lược thương hiệu của khách hàng. Trang chủ có sẵn công cụ kiểm tra tên miền (WHOIS) ngay trên website để khách tự tra cứu tình trạng tên miền mong muốn.",
+              "score": 0.269866
+            }
+          ],
+          "rr": 0.0,
+          "hit1": false,
+          "hit3": false
+        },
+        {
+          "qid": "q10",
+          "variant": "with_diacritics",
+          "question": "Có gói thiết kế web giá rẻ dùng mẫu có sẵn không?",
+          "top_score": 0.610077,
+          "top_chunks": [
+            {
+              "chunk_id": "33a88e68-cbb4-432b-84e1-0f6e3ffd4422",
+              "title": "Bảng giá thiết kế website - Gói Basic",
+              "content": "Gói Website Basic giá 2.000.000đ: dùng giao diện mẫu có sẵn (copy), kết nối mạng xã hội, khách tự cập nhật nội dung, có tiện ích Zalo/nút gọi/chat ngay, kèm livechat, chống copy nội dung, đóng dấu sản phẩm, popup đầu trang. Gói này CHƯA có: AI Content SEO, tối ưu SEO, bàn giao source code, SSL, song ngữ, giỏ hàng.",
+              "score": 0.610077
+            },
+            {
+              "chunk_id": "d36879c5-aa67-4c22-91ef-e427a608410b",
+              "title": "Bảng giá thiết kế website - Gói phổ thông",
+              "content": "Gói Website phổ thông giá 6.000.000đ: thiết kế giao diện theo yêu cầu, tích hợp AI Content SEO, chuẩn SEO theo tiêu chuẩn Google, tiện ích Zalo/nút gọi/chat ngay, bàn giao source code, tặng kèm 5 bài viết chuẩn SEO và 200 chủ đề SEO. Gói này chưa có bản mobile/tablet riêng, chưa có SSL, song ngữ hay giỏ hàng.",
+              "score": 0.598501
+            },
+            {
+              "chunk_id": "c854fcde-4bfe-4b84-86c8-017d492e3b36",
+              "title": "Bảng giá thiết kế website - Gói khởi nghiệp",
+              "content": "Gói Website khởi nghiệp giá 9.000.000đ: thiết kế giao diện theo yêu cầu, tích hợp AI Content SEO, chuẩn SEO Google, có phiên bản mobile - tablet, bàn giao source code, tặng 5 bài viết chuẩn SEO và 200 chủ đề SEO. Chưa bao gồm SSL, song ngữ, giỏ hàng.",
+              "score": 0.584686
+            }
+          ],
+          "rr": 1.0,
+          "hit1": true,
+          "hit3": true
+        },
+        {
+          "qid": "q10",
+          "variant": "no_diacritics",
+          "question": "co goi thiet ke web gia re dung mau co san khong",
+          "top_score": 0.452879,
+          "top_chunks": [
+            {
+              "chunk_id": "33a88e68-cbb4-432b-84e1-0f6e3ffd4422",
+              "title": "Bảng giá thiết kế website - Gói Basic",
+              "content": "Gói Website Basic giá 2.000.000đ: dùng giao diện mẫu có sẵn (copy), kết nối mạng xã hội, khách tự cập nhật nội dung, có tiện ích Zalo/nút gọi/chat ngay, kèm livechat, chống copy nội dung, đóng dấu sản phẩm, popup đầu trang. Gói này CHƯA có: AI Content SEO, tối ưu SEO, bàn giao source code, SSL, song ngữ, giỏ hàng.",
+              "score": 0.452879
+            },
+            {
+              "chunk_id": "3c8375dd-0385-4970-8c40-60343762d882",
+              "title": "Quy trình thiết kế website tại MIMA",
+              "content": "Quy trình thiết kế website tại MIMA gồm 5 bước: (1) Lấy ý tưởng — tiếp nhận yêu cầu, tư vấn định hướng nội dung/giao diện/chức năng và từ khoá SEO chính; (2) Thiết kế UX/UI — dựng giao diện chuẩn, tương thích di động, hài hoà màu sắc thương hiệu; (3) Lập trình code bằng HTML5, CSS3, PHP hoặc Laravel, tích hợp biểu mẫu liên hệ, sản phẩm, giỏ hàng; (4) Viết nội dung chuẩn SEO — tối ưu tiêu đề, mô tả, heading, URL, ảnh có ALT, cài Google Analytics/Search Console; (5) Bàn giao và đào tạo — chuyển giao quyền quản trị, hướng dẫn CMS và SEO cơ bản.",
+              "score": 0.42712
+            },
+            {
+              "chunk_id": "63237e6a-88af-4e93-945e-c11187729e6b",
+              "title": "Bảng giá thiết kế website - Gói cao cấp và theo yêu cầu",
+              "content": "Gói Website cao cấp giá 17.000.000đ: đầy đủ tính năng như gói chuyên nghiệp, cộng thêm giỏ hàng và hỗ trợ song ngữ, tặng 30 bài viết chuẩn SEO và 500 chủ đề SEO. Gói Website theo yêu cầu (cao cấp nhất) có thêm phân quyền quản trị, đăng ký/đăng nhập, thanh toán online, bình luận, đánh giá và so sánh sản phẩm, voucher giảm giá, phí vận chuyển, trang Flash Sale, khoá học trực tuyến, đăng tin miễn phí — giá của gói này được báo riêng qua Zalo, không niêm yết cố định.",
+              "score": 0.414381
+            }
+          ],
+          "rr": 1.0,
+          "hit1": true,
+          "hit3": true
+        },
+        {
+          "qid": "q11",
+          "variant": "with_diacritics",
+          "question": "Vì sao website của em mãi không lên top Google?",
+          "top_score": 0.554849,
+          "top_chunks": [
+            {
+              "chunk_id": "2b658696-1aba-418a-9c7b-14dbefbe0cc3",
+              "title": "FAQ thiết kế website chuẩn SEO Google",
+              "content": "Câu hỏi thường gặp: 'Thiết kế website chuẩn Google là gì?' — Là xây dựng website theo tiêu chí và thuật toán của Google để dễ được lập chỉ mục (index), cấu trúc/từ khoá/nội dung rõ ràng, tốc độ tải nhanh, tương thích mobile và dễ lên top từ khoá tìm kiếm. Thiết kế website trọn gói tại MIMA bao gồm: tư vấn cấu trúc - giao diện - chức năng, thiết kế giao diện, lập trình, đăng ký tên miền và hosting, tối ưu SEO cơ bản, đăng bài demo, bàn giao hướng dẫn sử dụng, cùng bảo trì và hỗ trợ kỹ thuật sau bàn giao.",
+              "score": 0.554849
+            },
+            {
+              "chunk_id": "dd6424c2-0095-4f7d-ad82-005f50dcf0d9",
+              "title": "Dịch vụ Hosting SEO",
+              "content": "Dịch vụ Hosting SEO của MIMA cung cấp lưu trữ web tốc độ cao, uptime 99.9%, được tối ưu riêng để hỗ trợ website tăng thứ hạng trên Google. Đây là một trong các yếu tố kỹ thuật quan trọng (cùng với source chuẩn, tên miền đẹp, nội dung chuẩn SEO, quảng cáo, backlink và traffic) để website lên top nhanh.",
+              "score": 0.548178
+            },
+            {
+              "chunk_id": "67637d1c-4067-4974-95e5-63aa5b8dd342",
+              "title": "Dịch vụ Backlink Website",
+              "content": "Dịch vụ Backlink của MIMA xây dựng liên kết từ các website khác trỏ về website khách hàng, giúp tăng uy tín (trust) với Google, cải thiện thứ hạng từ khoá và hỗ trợ SEO bền vững. MIMA nhấn mạnh đây là yếu tố giúp lên top ổn định lâu dài, không chỉ tăng hạng nhất thời.",
+              "score": 0.510908
+            }
+          ],
+          "rr": 0.5,
+          "hit1": false,
+          "hit3": true
+        },
+        {
+          "qid": "q11",
+          "variant": "no_diacritics",
+          "question": "vi sao website cua em mai khong len top google",
+          "top_score": 0.551843,
+          "top_chunks": [
+            {
+              "chunk_id": "2b658696-1aba-418a-9c7b-14dbefbe0cc3",
+              "title": "FAQ thiết kế website chuẩn SEO Google",
+              "content": "Câu hỏi thường gặp: 'Thiết kế website chuẩn Google là gì?' — Là xây dựng website theo tiêu chí và thuật toán của Google để dễ được lập chỉ mục (index), cấu trúc/từ khoá/nội dung rõ ràng, tốc độ tải nhanh, tương thích mobile và dễ lên top từ khoá tìm kiếm. Thiết kế website trọn gói tại MIMA bao gồm: tư vấn cấu trúc - giao diện - chức năng, thiết kế giao diện, lập trình, đăng ký tên miền và hosting, tối ưu SEO cơ bản, đăng bài demo, bàn giao hướng dẫn sử dụng, cùng bảo trì và hỗ trợ kỹ thuật sau bàn giao.",
+              "score": 0.551843
+            },
+            {
+              "chunk_id": "dd6424c2-0095-4f7d-ad82-005f50dcf0d9",
+              "title": "Dịch vụ Hosting SEO",
+              "content": "Dịch vụ Hosting SEO của MIMA cung cấp lưu trữ web tốc độ cao, uptime 99.9%, được tối ưu riêng để hỗ trợ website tăng thứ hạng trên Google. Đây là một trong các yếu tố kỹ thuật quan trọng (cùng với source chuẩn, tên miền đẹp, nội dung chuẩn SEO, quảng cáo, backlink và traffic) để website lên top nhanh.",
+              "score": 0.522887
+            },
+            {
+              "chunk_id": "67637d1c-4067-4974-95e5-63aa5b8dd342",
+              "title": "Dịch vụ Backlink Website",
+              "content": "Dịch vụ Backlink của MIMA xây dựng liên kết từ các website khác trỏ về website khách hàng, giúp tăng uy tín (trust) với Google, cải thiện thứ hạng từ khoá và hỗ trợ SEO bền vững. MIMA nhấn mạnh đây là yếu tố giúp lên top ổn định lâu dài, không chỉ tăng hạng nhất thời.",
+              "score": 0.495475
+            }
+          ],
+          "rr": 0.5,
+          "hit1": false,
+          "hit3": true
+        },
+        {
+          "qid": "q12",
+          "variant": "with_diacritics",
+          "question": "MIMA là công ty làm về lĩnh vực gì?",
+          "top_score": 0.715587,
+          "top_chunks": [
+            {
+              "chunk_id": "853d815d-1314-43ae-ab0e-1c1c2da88429",
+              "title": "MIMA Giải Cứu Website - Biến Web Thành 1000 Nhân Viên Bán Hàng",
+              "content": "MIMA là tên viết tắt của Công ty TNHH Thương Mại Dịch Vụ MIMA, hoạt động trong lĩnh vực thiết kế website và marketing online với định hướng 'giải cứu website' — biến website từ một tấm danh thiếp điện tử thành công cụ bán hàng thực sự, hoạt động như hàng ngàn nhân viên kinh doanh 24/7. Công ty có hơn 10 năm kinh nghiệm, đã thực hiện trên 2000 dự án cho hơn 1700 khách hàng hài lòng, với đội ngũ hơn 50 nhân viên phục vụ khách hàng ở hơn 33 tỉnh thành.",
+              "score": 0.715587
+            },
+            {
+              "chunk_id": "836ff8c2-a803-497e-a2e9-509955b8e134",
+              "title": "Công Ty Thiết Kế Website Theo Yêu Cầu Chuẩn SEO Google",
+              "content": "Dịch vụ thiết kế website tại MIMA cung cấp giao diện hiện đại, tối ưu trải nghiệm người dùng, tốc độ tải trang nhanh, chuẩn SEO Google, thiết kế riêng theo từng ngành nghề, đảm bảo tính bản quyền - độc quyền và tương thích trên mọi thiết bị (PC, tablet, điện thoại). Website tích hợp sẵn công nghệ AI Content SEO, giúp tự động sinh nội dung chuẩn SEO cho sản phẩm, dịch vụ, tin tức với năng suất cao hơn nhiều so với viết tay thủ công.",
+              "score": 0.533418
+            },
+            {
+              "chunk_id": "67637d1c-4067-4974-95e5-63aa5b8dd342",
+              "title": "Dịch vụ Backlink Website",
+              "content": "Dịch vụ Backlink của MIMA xây dựng liên kết từ các website khác trỏ về website khách hàng, giúp tăng uy tín (trust) với Google, cải thiện thứ hạng từ khoá và hỗ trợ SEO bền vững. MIMA nhấn mạnh đây là yếu tố giúp lên top ổn định lâu dài, không chỉ tăng hạng nhất thời.",
+              "score": 0.520636
+            }
+          ],
+          "rr": 1.0,
+          "hit1": true,
+          "hit3": true
+        },
+        {
+          "qid": "q12",
+          "variant": "no_diacritics",
+          "question": "mima la cong ty lam ve linh vuc gi",
+          "top_score": 0.490215,
+          "top_chunks": [
+            {
+              "chunk_id": "853d815d-1314-43ae-ab0e-1c1c2da88429",
+              "title": "MIMA Giải Cứu Website - Biến Web Thành 1000 Nhân Viên Bán Hàng",
+              "content": "MIMA là tên viết tắt của Công ty TNHH Thương Mại Dịch Vụ MIMA, hoạt động trong lĩnh vực thiết kế website và marketing online với định hướng 'giải cứu website' — biến website từ một tấm danh thiếp điện tử thành công cụ bán hàng thực sự, hoạt động như hàng ngàn nhân viên kinh doanh 24/7. Công ty có hơn 10 năm kinh nghiệm, đã thực hiện trên 2000 dự án cho hơn 1700 khách hàng hài lòng, với đội ngũ hơn 50 nhân viên phục vụ khách hàng ở hơn 33 tỉnh thành.",
+              "score": 0.490215
+            },
+            {
+              "chunk_id": "f63f914d-d4f7-42a0-9615-de6b69957ef5",
+              "title": "Dịch vụ tên miền",
+              "content": "Dịch vụ tên miền của MIMA hỗ trợ đăng ký và quản lý tên miền theo yêu cầu, tư vấn chọn tên miền đẹp, dễ nhớ, phù hợp chiến lược thương hiệu của khách hàng. Trang chủ có sẵn công cụ kiểm tra tên miền (WHOIS) ngay trên website để khách tự tra cứu tình trạng tên miền mong muốn.",
+              "score": 0.401716
+            },
+            {
+              "chunk_id": "836ff8c2-a803-497e-a2e9-509955b8e134",
+              "title": "Công Ty Thiết Kế Website Theo Yêu Cầu Chuẩn SEO Google",
+              "content": "Dịch vụ thiết kế website tại MIMA cung cấp giao diện hiện đại, tối ưu trải nghiệm người dùng, tốc độ tải trang nhanh, chuẩn SEO Google, thiết kế riêng theo từng ngành nghề, đảm bảo tính bản quyền - độc quyền và tương thích trên mọi thiết bị (PC, tablet, điện thoại). Website tích hợp sẵn công nghệ AI Content SEO, giúp tự động sinh nội dung chuẩn SEO cho sản phẩm, dịch vụ, tin tức với năng suất cao hơn nhiều so với viết tay thủ công.",
+              "score": 0.400862
+            }
+          ],
+          "rr": 1.0,
+          "hit1": true,
+          "hit3": true
+        },
+        {
+          "qid": "q13",
+          "variant": "with_diacritics",
+          "question": "Cho em gặp trực tiếp nhân viên tư vấn được không?",
+          "top_score": 0.340716,
+          "top_chunks": [
+            {
+              "chunk_id": "853d815d-1314-43ae-ab0e-1c1c2da88429",
+              "title": "MIMA Giải Cứu Website - Biến Web Thành 1000 Nhân Viên Bán Hàng",
+              "content": "MIMA là tên viết tắt của Công ty TNHH Thương Mại Dịch Vụ MIMA, hoạt động trong lĩnh vực thiết kế website và marketing online với định hướng 'giải cứu website' — biến website từ một tấm danh thiếp điện tử thành công cụ bán hàng thực sự, hoạt động như hàng ngàn nhân viên kinh doanh 24/7. Công ty có hơn 10 năm kinh nghiệm, đã thực hiện trên 2000 dự án cho hơn 1700 khách hàng hài lòng, với đội ngũ hơn 50 nhân viên phục vụ khách hàng ở hơn 33 tỉnh thành.",
+              "score": 0.340716
+            },
+            {
+              "chunk_id": "f63f914d-d4f7-42a0-9615-de6b69957ef5",
+              "title": "Dịch vụ tên miền",
+              "content": "Dịch vụ tên miền của MIMA hỗ trợ đăng ký và quản lý tên miền theo yêu cầu, tư vấn chọn tên miền đẹp, dễ nhớ, phù hợp chiến lược thương hiệu của khách hàng. Trang chủ có sẵn công cụ kiểm tra tên miền (WHOIS) ngay trên website để khách tự tra cứu tình trạng tên miền mong muốn.",
+              "score": 0.338151
+            },
+            {
+              "chunk_id": "dcdb3de1-4803-4918-bcd5-1f7593d867ed",
+              "title": "Traffic User Thật và các dịch vụ chăm sóc đi kèm",
+              "content": "Dịch vụ Traffic User Thật của MIMA cung cấp lượng truy cập từ người dùng thật 100%, tự tìm kiếm - tự click - tương tác tự nhiên theo đúng chuẩn thuật toán Google, khác với traffic ảo/bot. MIMA cũng có dịch vụ Chăm sóc website (cập nhật nội dung, tối ưu tốc độ, bảo mật, hỗ trợ SEO định kỳ) và Chăm sóc fanpage (trọn gói, không phát sinh phí, giúp tiếp cận hàng ngàn khách hàng).",
+              "score": 0.313935
+            }
+          ],
+          "rr": 0.0,
+          "hit1": false,
+          "hit3": false
+        },
+        {
+          "qid": "q13",
+          "variant": "no_diacritics",
+          "question": "cho em gap truc tiep nhan vien tu van duoc khong",
+          "top_score": 0.274108,
+          "top_chunks": [
+            {
+              "chunk_id": "0a7189b6-a2dd-45ca-a05a-c9a186b256c2",
+              "title": "Bảng giá thiết kế website - Gói chuyên nghiệp",
+              "content": "Gói Website chuyên nghiệp giá 12.000.000đ: đầy đủ như gói khởi nghiệp, cộng thêm tích hợp chứng chỉ số SSL, tặng 20 bài viết chuẩn SEO và 500 chủ đề SEO. Gói này vẫn chưa hỗ trợ song ngữ và giỏ hàng.",
+              "score": 0.274108
+            },
+            {
+              "chunk_id": "33a88e68-cbb4-432b-84e1-0f6e3ffd4422",
+              "title": "Bảng giá thiết kế website - Gói Basic",
+              "content": "Gói Website Basic giá 2.000.000đ: dùng giao diện mẫu có sẵn (copy), kết nối mạng xã hội, khách tự cập nhật nội dung, có tiện ích Zalo/nút gọi/chat ngay, kèm livechat, chống copy nội dung, đóng dấu sản phẩm, popup đầu trang. Gói này CHƯA có: AI Content SEO, tối ưu SEO, bàn giao source code, SSL, song ngữ, giỏ hàng.",
+              "score": 0.266949
+            },
+            {
+              "chunk_id": "63237e6a-88af-4e93-945e-c11187729e6b",
+              "title": "Bảng giá thiết kế website - Gói cao cấp và theo yêu cầu",
+              "content": "Gói Website cao cấp giá 17.000.000đ: đầy đủ tính năng như gói chuyên nghiệp, cộng thêm giỏ hàng và hỗ trợ song ngữ, tặng 30 bài viết chuẩn SEO và 500 chủ đề SEO. Gói Website theo yêu cầu (cao cấp nhất) có thêm phân quyền quản trị, đăng ký/đăng nhập, thanh toán online, bình luận, đánh giá và so sánh sản phẩm, voucher giảm giá, phí vận chuyển, trang Flash Sale, khoá học trực tuyến, đăng tin miễn phí — giá của gói này được báo riêng qua Zalo, không niêm yết cố định.",
+              "score": 0.255693
+            }
+          ],
+          "rr": 0.0,
+          "hit1": false,
+          "hit3": false
+        },
+        {
+          "qid": "q14",
+          "variant": "with_diacritics",
+          "question": "Cho anh công thức nấu phở bò truyền thống",
+          "top_score": 0.313201,
+          "top_chunks": [
+            {
+              "chunk_id": "33a88e68-cbb4-432b-84e1-0f6e3ffd4422",
+              "title": "Bảng giá thiết kế website - Gói Basic",
+              "content": "Gói Website Basic giá 2.000.000đ: dùng giao diện mẫu có sẵn (copy), kết nối mạng xã hội, khách tự cập nhật nội dung, có tiện ích Zalo/nút gọi/chat ngay, kèm livechat, chống copy nội dung, đóng dấu sản phẩm, popup đầu trang. Gói này CHƯA có: AI Content SEO, tối ưu SEO, bàn giao source code, SSL, song ngữ, giỏ hàng.",
+              "score": 0.313201
+            },
+            {
+              "chunk_id": "d36879c5-aa67-4c22-91ef-e427a608410b",
+              "title": "Bảng giá thiết kế website - Gói phổ thông",
+              "content": "Gói Website phổ thông giá 6.000.000đ: thiết kế giao diện theo yêu cầu, tích hợp AI Content SEO, chuẩn SEO theo tiêu chuẩn Google, tiện ích Zalo/nút gọi/chat ngay, bàn giao source code, tặng kèm 5 bài viết chuẩn SEO và 200 chủ đề SEO. Gói này chưa có bản mobile/tablet riêng, chưa có SSL, song ngữ hay giỏ hàng.",
+              "score": 0.275747
+            },
+            {
+              "chunk_id": "0a7189b6-a2dd-45ca-a05a-c9a186b256c2",
+              "title": "Bảng giá thiết kế website - Gói chuyên nghiệp",
+              "content": "Gói Website chuyên nghiệp giá 12.000.000đ: đầy đủ như gói khởi nghiệp, cộng thêm tích hợp chứng chỉ số SSL, tặng 20 bài viết chuẩn SEO và 500 chủ đề SEO. Gói này vẫn chưa hỗ trợ song ngữ và giỏ hàng.",
+              "score": 0.272261
+            }
+          ],
+          "rr": 0.0,
+          "hit1": false,
+          "hit3": false
+        },
+        {
+          "qid": "q14",
+          "variant": "no_diacritics",
+          "question": "cho anh cong thuc nau pho bo truyen thong",
+          "top_score": 0.250621,
+          "top_chunks": [
+            {
+              "chunk_id": "c854fcde-4bfe-4b84-86c8-017d492e3b36",
+              "title": "Bảng giá thiết kế website - Gói khởi nghiệp",
+              "content": "Gói Website khởi nghiệp giá 9.000.000đ: thiết kế giao diện theo yêu cầu, tích hợp AI Content SEO, chuẩn SEO Google, có phiên bản mobile - tablet, bàn giao source code, tặng 5 bài viết chuẩn SEO và 200 chủ đề SEO. Chưa bao gồm SSL, song ngữ, giỏ hàng.",
+              "score": 0.250621
+            },
+            {
+              "chunk_id": "d36879c5-aa67-4c22-91ef-e427a608410b",
+              "title": "Bảng giá thiết kế website - Gói phổ thông",
+              "content": "Gói Website phổ thông giá 6.000.000đ: thiết kế giao diện theo yêu cầu, tích hợp AI Content SEO, chuẩn SEO theo tiêu chuẩn Google, tiện ích Zalo/nút gọi/chat ngay, bàn giao source code, tặng kèm 5 bài viết chuẩn SEO và 200 chủ đề SEO. Gói này chưa có bản mobile/tablet riêng, chưa có SSL, song ngữ hay giỏ hàng.",
+              "score": 0.248567
+            },
+            {
+              "chunk_id": "63237e6a-88af-4e93-945e-c11187729e6b",
+              "title": "Bảng giá thiết kế website - Gói cao cấp và theo yêu cầu",
+              "content": "Gói Website cao cấp giá 17.000.000đ: đầy đủ tính năng như gói chuyên nghiệp, cộng thêm giỏ hàng và hỗ trợ song ngữ, tặng 30 bài viết chuẩn SEO và 500 chủ đề SEO. Gói Website theo yêu cầu (cao cấp nhất) có thêm phân quyền quản trị, đăng ký/đăng nhập, thanh toán online, bình luận, đánh giá và so sánh sản phẩm, voucher giảm giá, phí vận chuyển, trang Flash Sale, khoá học trực tuyến, đăng tin miễn phí — giá của gói này được báo riêng qua Zalo, không niêm yết cố định.",
+              "score": 0.246981
+            }
+          ],
+          "rr": 0.0,
+          "hit1": false,
+          "hit3": false
+        },
+        {
+          "qid": "q15",
+          "variant": "with_diacritics",
+          "question": "Dự báo thời tiết Hà Nội ngày mai thế nào?",
+          "top_score": 0.202615,
+          "top_chunks": [
+            {
+              "chunk_id": "3c8375dd-0385-4970-8c40-60343762d882",
+              "title": "Quy trình thiết kế website tại MIMA",
+              "content": "Quy trình thiết kế website tại MIMA gồm 5 bước: (1) Lấy ý tưởng — tiếp nhận yêu cầu, tư vấn định hướng nội dung/giao diện/chức năng và từ khoá SEO chính; (2) Thiết kế UX/UI — dựng giao diện chuẩn, tương thích di động, hài hoà màu sắc thương hiệu; (3) Lập trình code bằng HTML5, CSS3, PHP hoặc Laravel, tích hợp biểu mẫu liên hệ, sản phẩm, giỏ hàng; (4) Viết nội dung chuẩn SEO — tối ưu tiêu đề, mô tả, heading, URL, ảnh có ALT, cài Google Analytics/Search Console; (5) Bàn giao và đào tạo — chuyển giao quyền quản trị, hướng dẫn CMS và SEO cơ bản.",
+              "score": 0.202615
+            },
+            {
+              "chunk_id": "dd6424c2-0095-4f7d-ad82-005f50dcf0d9",
+              "title": "Dịch vụ Hosting SEO",
+              "content": "Dịch vụ Hosting SEO của MIMA cung cấp lưu trữ web tốc độ cao, uptime 99.9%, được tối ưu riêng để hỗ trợ website tăng thứ hạng trên Google. Đây là một trong các yếu tố kỹ thuật quan trọng (cùng với source chuẩn, tên miền đẹp, nội dung chuẩn SEO, quảng cáo, backlink và traffic) để website lên top nhanh.",
+              "score": 0.190064
+            },
+            {
+              "chunk_id": "836ff8c2-a803-497e-a2e9-509955b8e134",
+              "title": "Công Ty Thiết Kế Website Theo Yêu Cầu Chuẩn SEO Google",
+              "content": "Dịch vụ thiết kế website tại MIMA cung cấp giao diện hiện đại, tối ưu trải nghiệm người dùng, tốc độ tải trang nhanh, chuẩn SEO Google, thiết kế riêng theo từng ngành nghề, đảm bảo tính bản quyền - độc quyền và tương thích trên mọi thiết bị (PC, tablet, điện thoại). Website tích hợp sẵn công nghệ AI Content SEO, giúp tự động sinh nội dung chuẩn SEO cho sản phẩm, dịch vụ, tin tức với năng suất cao hơn nhiều so với viết tay thủ công.",
+              "score": 0.183735
+            }
+          ],
+          "rr": 0.0,
+          "hit1": false,
+          "hit3": false
+        },
+        {
+          "qid": "q15",
+          "variant": "no_diacritics",
+          "question": "du bao thoi tiet ha noi ngay mai the nao",
+          "top_score": 0.3169,
+          "top_chunks": [
+            {
+              "chunk_id": "836ff8c2-a803-497e-a2e9-509955b8e134",
+              "title": "Công Ty Thiết Kế Website Theo Yêu Cầu Chuẩn SEO Google",
+              "content": "Dịch vụ thiết kế website tại MIMA cung cấp giao diện hiện đại, tối ưu trải nghiệm người dùng, tốc độ tải trang nhanh, chuẩn SEO Google, thiết kế riêng theo từng ngành nghề, đảm bảo tính bản quyền - độc quyền và tương thích trên mọi thiết bị (PC, tablet, điện thoại). Website tích hợp sẵn công nghệ AI Content SEO, giúp tự động sinh nội dung chuẩn SEO cho sản phẩm, dịch vụ, tin tức với năng suất cao hơn nhiều so với viết tay thủ công.",
+              "score": 0.3169
+            },
+            {
+              "chunk_id": "d36879c5-aa67-4c22-91ef-e427a608410b",
+              "title": "Bảng giá thiết kế website - Gói phổ thông",
+              "content": "Gói Website phổ thông giá 6.000.000đ: thiết kế giao diện theo yêu cầu, tích hợp AI Content SEO, chuẩn SEO theo tiêu chuẩn Google, tiện ích Zalo/nút gọi/chat ngay, bàn giao source code, tặng kèm 5 bài viết chuẩn SEO và 200 chủ đề SEO. Gói này chưa có bản mobile/tablet riêng, chưa có SSL, song ngữ hay giỏ hàng.",
+              "score": 0.312074
+            },
+            {
+              "chunk_id": "3c8375dd-0385-4970-8c40-60343762d882",
+              "title": "Quy trình thiết kế website tại MIMA",
+              "content": "Quy trình thiết kế website tại MIMA gồm 5 bước: (1) Lấy ý tưởng — tiếp nhận yêu cầu, tư vấn định hướng nội dung/giao diện/chức năng và từ khoá SEO chính; (2) Thiết kế UX/UI — dựng giao diện chuẩn, tương thích di động, hài hoà màu sắc thương hiệu; (3) Lập trình code bằng HTML5, CSS3, PHP hoặc Laravel, tích hợp biểu mẫu liên hệ, sản phẩm, giỏ hàng; (4) Viết nội dung chuẩn SEO — tối ưu tiêu đề, mô tả, heading, URL, ảnh có ALT, cài Google Analytics/Search Console; (5) Bàn giao và đào tạo — chuyển giao quyền quản trị, hướng dẫn CMS và SEO cơ bản.",
+              "score": 0.297897
+            }
+          ],
+          "rr": 0.0,
+          "hit1": false,
+          "hit3": false
+        }
+      ]
+    },
+    {
+      "provider": "gemini",
+      "model": "gemini-embedding-001",
+      "dimension": 3072,
+      "hit1": 0.8,
+      "hit3": 1,
+      "mrr": 0.8833,
+      "accent_cosine": 0.9396,
+      "index_ms": 2811.8,
+      "query_ms_each": 60.3,
+      "threshold": 0.702558,
+      "answerability_accuracy": 1,
+      "tokens_est": 1563,
+      "cost_usd": 0.000234,
+      "rows": [
+        {
+          "qid": "q01",
+          "variant": "with_diacritics",
+          "question": "Thiết kế website giá bao nhiêu tiền?",
+          "top_score": 0.768011,
+          "top_chunks": [
+            {
+              "chunk_id": "c854fcde-4bfe-4b84-86c8-017d492e3b36",
+              "title": "Bảng giá thiết kế website - Gói khởi nghiệp",
+              "content": "Gói Website khởi nghiệp giá 9.000.000đ: thiết kế giao diện theo yêu cầu, tích hợp AI Content SEO, chuẩn SEO Google, có phiên bản mobile - tablet, bàn giao source code, tặng 5 bài viết chuẩn SEO và 200 chủ đề SEO. Chưa bao gồm SSL, song ngữ, giỏ hàng.",
+              "score": 0.768011
+            },
+            {
+              "chunk_id": "d36879c5-aa67-4c22-91ef-e427a608410b",
+              "title": "Bảng giá thiết kế website - Gói phổ thông",
+              "content": "Gói Website phổ thông giá 6.000.000đ: thiết kế giao diện theo yêu cầu, tích hợp AI Content SEO, chuẩn SEO theo tiêu chuẩn Google, tiện ích Zalo/nút gọi/chat ngay, bàn giao source code, tặng kèm 5 bài viết chuẩn SEO và 200 chủ đề SEO. Gói này chưa có bản mobile/tablet riêng, chưa có SSL, song ngữ hay giỏ hàng.",
+              "score": 0.761507
+            },
+            {
+              "chunk_id": "63237e6a-88af-4e93-945e-c11187729e6b",
+              "title": "Bảng giá thiết kế website - Gói cao cấp và theo yêu cầu",
+              "content": "Gói Website cao cấp giá 17.000.000đ: đầy đủ tính năng như gói chuyên nghiệp, cộng thêm giỏ hàng và hỗ trợ song ngữ, tặng 30 bài viết chuẩn SEO và 500 chủ đề SEO. Gói Website theo yêu cầu (cao cấp nhất) có thêm phân quyền quản trị, đăng ký/đăng nhập, thanh toán online, bình luận, đánh giá và so sánh sản phẩm, voucher giảm giá, phí vận chuyển, trang Flash Sale, khoá học trực tuyến, đăng tin miễn phí — giá của gói này được báo riêng qua Zalo, không niêm yết cố định.",
+              "score": 0.75223
+            }
+          ],
+          "rr": 1.0,
+          "hit1": true,
+          "hit3": true
+        },
+        {
+          "qid": "q01",
+          "variant": "no_diacritics",
+          "question": "thiet ke website gia bao nhieu tien",
+          "top_score": 0.769977,
+          "top_chunks": [
+            {
+              "chunk_id": "c854fcde-4bfe-4b84-86c8-017d492e3b36",
+              "title": "Bảng giá thiết kế website - Gói khởi nghiệp",
+              "content": "Gói Website khởi nghiệp giá 9.000.000đ: thiết kế giao diện theo yêu cầu, tích hợp AI Content SEO, chuẩn SEO Google, có phiên bản mobile - tablet, bàn giao source code, tặng 5 bài viết chuẩn SEO và 200 chủ đề SEO. Chưa bao gồm SSL, song ngữ, giỏ hàng.",
+              "score": 0.769977
+            },
+            {
+              "chunk_id": "d36879c5-aa67-4c22-91ef-e427a608410b",
+              "title": "Bảng giá thiết kế website - Gói phổ thông",
+              "content": "Gói Website phổ thông giá 6.000.000đ: thiết kế giao diện theo yêu cầu, tích hợp AI Content SEO, chuẩn SEO theo tiêu chuẩn Google, tiện ích Zalo/nút gọi/chat ngay, bàn giao source code, tặng kèm 5 bài viết chuẩn SEO và 200 chủ đề SEO. Gói này chưa có bản mobile/tablet riêng, chưa có SSL, song ngữ hay giỏ hàng.",
+              "score": 0.761916
+            },
+            {
+              "chunk_id": "63237e6a-88af-4e93-945e-c11187729e6b",
+              "title": "Bảng giá thiết kế website - Gói cao cấp và theo yêu cầu",
+              "content": "Gói Website cao cấp giá 17.000.000đ: đầy đủ tính năng như gói chuyên nghiệp, cộng thêm giỏ hàng và hỗ trợ song ngữ, tặng 30 bài viết chuẩn SEO và 500 chủ đề SEO. Gói Website theo yêu cầu (cao cấp nhất) có thêm phân quyền quản trị, đăng ký/đăng nhập, thanh toán online, bình luận, đánh giá và so sánh sản phẩm, voucher giảm giá, phí vận chuyển, trang Flash Sale, khoá học trực tuyến, đăng tin miễn phí — giá của gói này được báo riêng qua Zalo, không niêm yết cố định.",
+              "score": 0.753698
+            }
+          ],
+          "rr": 1.0,
+          "hit1": true,
+          "hit3": true
+        },
+        {
+          "qid": "q02",
+          "variant": "with_diacritics",
+          "question": "Bên anh có làm SEO tổng thể không?",
+          "top_score": 0.756526,
+          "top_chunks": [
+            {
+              "chunk_id": "29135891-3c8a-4066-8f03-4cefc4a4999e",
+              "title": "Dịch vụ SEO tổng thể",
+              "content": "Dịch vụ SEO của MIMA triển khai chiến lược SEO toàn diện: nghiên cứu từ khoá, tối ưu cấu trúc website, viết bài chuẩn SEO, link building, entity SEO, schema markup, tăng traffic người dùng thật và xây dựng backlink — nhằm tăng thứ hạng từ khoá, thu hút traffic tự nhiên và tạo nền tảng tăng trưởng dài hạn cho doanh nghiệp.",
+              "score": 0.756526
+            },
+            {
+              "chunk_id": "d36879c5-aa67-4c22-91ef-e427a608410b",
+              "title": "Bảng giá thiết kế website - Gói phổ thông",
+              "content": "Gói Website phổ thông giá 6.000.000đ: thiết kế giao diện theo yêu cầu, tích hợp AI Content SEO, chuẩn SEO theo tiêu chuẩn Google, tiện ích Zalo/nút gọi/chat ngay, bàn giao source code, tặng kèm 5 bài viết chuẩn SEO và 200 chủ đề SEO. Gói này chưa có bản mobile/tablet riêng, chưa có SSL, song ngữ hay giỏ hàng.",
+              "score": 0.718027
+            },
+            {
+              "chunk_id": "c854fcde-4bfe-4b84-86c8-017d492e3b36",
+              "title": "Bảng giá thiết kế website - Gói khởi nghiệp",
+              "content": "Gói Website khởi nghiệp giá 9.000.000đ: thiết kế giao diện theo yêu cầu, tích hợp AI Content SEO, chuẩn SEO Google, có phiên bản mobile - tablet, bàn giao source code, tặng 5 bài viết chuẩn SEO và 200 chủ đề SEO. Chưa bao gồm SSL, song ngữ, giỏ hàng.",
+              "score": 0.715482
+            }
+          ],
+          "rr": 1.0,
+          "hit1": true,
+          "hit3": true
+        },
+        {
+          "qid": "q02",
+          "variant": "no_diacritics",
+          "question": "ben anh co lam seo tong the khong",
+          "top_score": 0.702558,
+          "top_chunks": [
+            {
+              "chunk_id": "29135891-3c8a-4066-8f03-4cefc4a4999e",
+              "title": "Dịch vụ SEO tổng thể",
+              "content": "Dịch vụ SEO của MIMA triển khai chiến lược SEO toàn diện: nghiên cứu từ khoá, tối ưu cấu trúc website, viết bài chuẩn SEO, link building, entity SEO, schema markup, tăng traffic người dùng thật và xây dựng backlink — nhằm tăng thứ hạng từ khoá, thu hút traffic tự nhiên và tạo nền tảng tăng trưởng dài hạn cho doanh nghiệp.",
+              "score": 0.702558
+            },
+            {
+              "chunk_id": "67637d1c-4067-4974-95e5-63aa5b8dd342",
+              "title": "Dịch vụ Backlink Website",
+              "content": "Dịch vụ Backlink của MIMA xây dựng liên kết từ các website khác trỏ về website khách hàng, giúp tăng uy tín (trust) với Google, cải thiện thứ hạng từ khoá và hỗ trợ SEO bền vững. MIMA nhấn mạnh đây là yếu tố giúp lên top ổn định lâu dài, không chỉ tăng hạng nhất thời.",
+              "score": 0.675382
+            },
+            {
+              "chunk_id": "dd6424c2-0095-4f7d-ad82-005f50dcf0d9",
+              "title": "Dịch vụ Hosting SEO",
+              "content": "Dịch vụ Hosting SEO của MIMA cung cấp lưu trữ web tốc độ cao, uptime 99.9%, được tối ưu riêng để hỗ trợ website tăng thứ hạng trên Google. Đây là một trong các yếu tố kỹ thuật quan trọng (cùng với source chuẩn, tên miền đẹp, nội dung chuẩn SEO, quảng cáo, backlink và traffic) để website lên top nhanh.",
+              "score": 0.671516
+            }
+          ],
+          "rr": 1.0,
+          "hit1": true,
+          "hit3": true
+        },
+        {
+          "qid": "q03",
+          "variant": "with_diacritics",
+          "question": "Chạy quảng cáo Google Ads chi phí thế nào?",
+          "top_score": 0.667268,
+          "top_chunks": [
+            {
+              "chunk_id": "c854fcde-4bfe-4b84-86c8-017d492e3b36",
+              "title": "Bảng giá thiết kế website - Gói khởi nghiệp",
+              "content": "Gói Website khởi nghiệp giá 9.000.000đ: thiết kế giao diện theo yêu cầu, tích hợp AI Content SEO, chuẩn SEO Google, có phiên bản mobile - tablet, bàn giao source code, tặng 5 bài viết chuẩn SEO và 200 chủ đề SEO. Chưa bao gồm SSL, song ngữ, giỏ hàng.",
+              "score": 0.667268
+            },
+            {
+              "chunk_id": "2b658696-1aba-418a-9c7b-14dbefbe0cc3",
+              "title": "FAQ thiết kế website chuẩn SEO Google",
+              "content": "Câu hỏi thường gặp: 'Thiết kế website chuẩn Google là gì?' — Là xây dựng website theo tiêu chí và thuật toán của Google để dễ được lập chỉ mục (index), cấu trúc/từ khoá/nội dung rõ ràng, tốc độ tải nhanh, tương thích mobile và dễ lên top từ khoá tìm kiếm. Thiết kế website trọn gói tại MIMA bao gồm: tư vấn cấu trúc - giao diện - chức năng, thiết kế giao diện, lập trình, đăng ký tên miền và hosting, tối ưu SEO cơ bản, đăng bài demo, bàn giao hướng dẫn sử dụng, cùng bảo trì và hỗ trợ kỹ thuật sau bàn giao.",
+              "score": 0.653407
+            },
+            {
+              "chunk_id": "d36879c5-aa67-4c22-91ef-e427a608410b",
+              "title": "Bảng giá thiết kế website - Gói phổ thông",
+              "content": "Gói Website phổ thông giá 6.000.000đ: thiết kế giao diện theo yêu cầu, tích hợp AI Content SEO, chuẩn SEO theo tiêu chuẩn Google, tiện ích Zalo/nút gọi/chat ngay, bàn giao source code, tặng kèm 5 bài viết chuẩn SEO và 200 chủ đề SEO. Gói này chưa có bản mobile/tablet riêng, chưa có SSL, song ngữ hay giỏ hàng.",
+              "score": 0.651688
+            }
+          ],
+          "rr": 0.0,
+          "hit1": false,
+          "hit3": false
+        },
+        {
+          "qid": "q03",
+          "variant": "no_diacritics",
+          "question": "chay quang cao google ads chi phi the nao",
+          "top_score": 0.686488,
+          "top_chunks": [
+            {
+              "chunk_id": "c854fcde-4bfe-4b84-86c8-017d492e3b36",
+              "title": "Bảng giá thiết kế website - Gói khởi nghiệp",
+              "content": "Gói Website khởi nghiệp giá 9.000.000đ: thiết kế giao diện theo yêu cầu, tích hợp AI Content SEO, chuẩn SEO Google, có phiên bản mobile - tablet, bàn giao source code, tặng 5 bài viết chuẩn SEO và 200 chủ đề SEO. Chưa bao gồm SSL, song ngữ, giỏ hàng.",
+              "score": 0.686488
+            },
+            {
+              "chunk_id": "63237e6a-88af-4e93-945e-c11187729e6b",
+              "title": "Bảng giá thiết kế website - Gói cao cấp và theo yêu cầu",
+              "content": "Gói Website cao cấp giá 17.000.000đ: đầy đủ tính năng như gói chuyên nghiệp, cộng thêm giỏ hàng và hỗ trợ song ngữ, tặng 30 bài viết chuẩn SEO và 500 chủ đề SEO. Gói Website theo yêu cầu (cao cấp nhất) có thêm phân quyền quản trị, đăng ký/đăng nhập, thanh toán online, bình luận, đánh giá và so sánh sản phẩm, voucher giảm giá, phí vận chuyển, trang Flash Sale, khoá học trực tuyến, đăng tin miễn phí — giá của gói này được báo riêng qua Zalo, không niêm yết cố định.",
+              "score": 0.667087
+            },
+            {
+              "chunk_id": "d36879c5-aa67-4c22-91ef-e427a608410b",
+              "title": "Bảng giá thiết kế website - Gói phổ thông",
+              "content": "Gói Website phổ thông giá 6.000.000đ: thiết kế giao diện theo yêu cầu, tích hợp AI Content SEO, chuẩn SEO theo tiêu chuẩn Google, tiện ích Zalo/nút gọi/chat ngay, bàn giao source code, tặng kèm 5 bài viết chuẩn SEO và 200 chủ đề SEO. Gói này chưa có bản mobile/tablet riêng, chưa có SSL, song ngữ hay giỏ hàng.",
+              "score": 0.666823
+            }
+          ],
+          "rr": 0.0,
+          "hit1": false,
+          "hit3": false
+        },
+        {
+          "qid": "q04",
+          "variant": "with_diacritics",
+          "question": "Tư vấn giúp em cách đăng ký tên miền",
+          "top_score": 0.740184,
+          "top_chunks": [
+            {
+              "chunk_id": "f63f914d-d4f7-42a0-9615-de6b69957ef5",
+              "title": "Dịch vụ tên miền",
+              "content": "Dịch vụ tên miền của MIMA hỗ trợ đăng ký và quản lý tên miền theo yêu cầu, tư vấn chọn tên miền đẹp, dễ nhớ, phù hợp chiến lược thương hiệu của khách hàng. Trang chủ có sẵn công cụ kiểm tra tên miền (WHOIS) ngay trên website để khách tự tra cứu tình trạng tên miền mong muốn.",
+              "score": 0.740184
+            },
+            {
+              "chunk_id": "2b658696-1aba-418a-9c7b-14dbefbe0cc3",
+              "title": "FAQ thiết kế website chuẩn SEO Google",
+              "content": "Câu hỏi thường gặp: 'Thiết kế website chuẩn Google là gì?' — Là xây dựng website theo tiêu chí và thuật toán của Google để dễ được lập chỉ mục (index), cấu trúc/từ khoá/nội dung rõ ràng, tốc độ tải nhanh, tương thích mobile và dễ lên top từ khoá tìm kiếm. Thiết kế website trọn gói tại MIMA bao gồm: tư vấn cấu trúc - giao diện - chức năng, thiết kế giao diện, lập trình, đăng ký tên miền và hosting, tối ưu SEO cơ bản, đăng bài demo, bàn giao hướng dẫn sử dụng, cùng bảo trì và hỗ trợ kỹ thuật sau bàn giao.",
+              "score": 0.668135
+            },
+            {
+              "chunk_id": "c854fcde-4bfe-4b84-86c8-017d492e3b36",
+              "title": "Bảng giá thiết kế website - Gói khởi nghiệp",
+              "content": "Gói Website khởi nghiệp giá 9.000.000đ: thiết kế giao diện theo yêu cầu, tích hợp AI Content SEO, chuẩn SEO Google, có phiên bản mobile - tablet, bàn giao source code, tặng 5 bài viết chuẩn SEO và 200 chủ đề SEO. Chưa bao gồm SSL, song ngữ, giỏ hàng.",
+              "score": 0.653958
+            }
+          ],
+          "rr": 1.0,
+          "hit1": true,
+          "hit3": true
+        },
+        {
+          "qid": "q04",
+          "variant": "no_diacritics",
+          "question": "tu van giup em cach dang ky ten mien",
+          "top_score": 0.736704,
+          "top_chunks": [
+            {
+              "chunk_id": "f63f914d-d4f7-42a0-9615-de6b69957ef5",
+              "title": "Dịch vụ tên miền",
+              "content": "Dịch vụ tên miền của MIMA hỗ trợ đăng ký và quản lý tên miền theo yêu cầu, tư vấn chọn tên miền đẹp, dễ nhớ, phù hợp chiến lược thương hiệu của khách hàng. Trang chủ có sẵn công cụ kiểm tra tên miền (WHOIS) ngay trên website để khách tự tra cứu tình trạng tên miền mong muốn.",
+              "score": 0.736704
+            },
+            {
+              "chunk_id": "2b658696-1aba-418a-9c7b-14dbefbe0cc3",
+              "title": "FAQ thiết kế website chuẩn SEO Google",
+              "content": "Câu hỏi thường gặp: 'Thiết kế website chuẩn Google là gì?' — Là xây dựng website theo tiêu chí và thuật toán của Google để dễ được lập chỉ mục (index), cấu trúc/từ khoá/nội dung rõ ràng, tốc độ tải nhanh, tương thích mobile và dễ lên top từ khoá tìm kiếm. Thiết kế website trọn gói tại MIMA bao gồm: tư vấn cấu trúc - giao diện - chức năng, thiết kế giao diện, lập trình, đăng ký tên miền và hosting, tối ưu SEO cơ bản, đăng bài demo, bàn giao hướng dẫn sử dụng, cùng bảo trì và hỗ trợ kỹ thuật sau bàn giao.",
+              "score": 0.659975
+            },
+            {
+              "chunk_id": "33a88e68-cbb4-432b-84e1-0f6e3ffd4422",
+              "title": "Bảng giá thiết kế website - Gói Basic",
+              "content": "Gói Website Basic giá 2.000.000đ: dùng giao diện mẫu có sẵn (copy), kết nối mạng xã hội, khách tự cập nhật nội dung, có tiện ích Zalo/nút gọi/chat ngay, kèm livechat, chống copy nội dung, đóng dấu sản phẩm, popup đầu trang. Gói này CHƯA có: AI Content SEO, tối ưu SEO, bàn giao source code, SSL, song ngữ, giỏ hàng.",
+              "score": 0.651171
+            }
+          ],
+          "rr": 1.0,
+          "hit1": true,
+          "hit3": true
+        },
+        {
+          "qid": "q05",
+          "variant": "with_diacritics",
+          "question": "Dịch vụ chăm sóc website hàng tháng có những gì?",
+          "top_score": 0.710814,
+          "top_chunks": [
+            {
+              "chunk_id": "dcdb3de1-4803-4918-bcd5-1f7593d867ed",
+              "title": "Traffic User Thật và các dịch vụ chăm sóc đi kèm",
+              "content": "Dịch vụ Traffic User Thật của MIMA cung cấp lượng truy cập từ người dùng thật 100%, tự tìm kiếm - tự click - tương tác tự nhiên theo đúng chuẩn thuật toán Google, khác với traffic ảo/bot. MIMA cũng có dịch vụ Chăm sóc website (cập nhật nội dung, tối ưu tốc độ, bảo mật, hỗ trợ SEO định kỳ) và Chăm sóc fanpage (trọn gói, không phát sinh phí, giúp tiếp cận hàng ngàn khách hàng).",
+              "score": 0.710814
+            },
+            {
+              "chunk_id": "63237e6a-88af-4e93-945e-c11187729e6b",
+              "title": "Bảng giá thiết kế website - Gói cao cấp và theo yêu cầu",
+              "content": "Gói Website cao cấp giá 17.000.000đ: đầy đủ tính năng như gói chuyên nghiệp, cộng thêm giỏ hàng và hỗ trợ song ngữ, tặng 30 bài viết chuẩn SEO và 500 chủ đề SEO. Gói Website theo yêu cầu (cao cấp nhất) có thêm phân quyền quản trị, đăng ký/đăng nhập, thanh toán online, bình luận, đánh giá và so sánh sản phẩm, voucher giảm giá, phí vận chuyển, trang Flash Sale, khoá học trực tuyến, đăng tin miễn phí — giá của gói này được báo riêng qua Zalo, không niêm yết cố định.",
+              "score": 0.701653
+            },
+            {
+              "chunk_id": "c854fcde-4bfe-4b84-86c8-017d492e3b36",
+              "title": "Bảng giá thiết kế website - Gói khởi nghiệp",
+              "content": "Gói Website khởi nghiệp giá 9.000.000đ: thiết kế giao diện theo yêu cầu, tích hợp AI Content SEO, chuẩn SEO Google, có phiên bản mobile - tablet, bàn giao source code, tặng 5 bài viết chuẩn SEO và 200 chủ đề SEO. Chưa bao gồm SSL, song ngữ, giỏ hàng.",
+              "score": 0.692729
+            }
+          ],
+          "rr": 1.0,
+          "hit1": true,
+          "hit3": true
+        },
+        {
+          "qid": "q05",
+          "variant": "no_diacritics",
+          "question": "dich vu cham soc website hang thang co nhung gi",
+          "top_score": 0.719862,
+          "top_chunks": [
+            {
+              "chunk_id": "63237e6a-88af-4e93-945e-c11187729e6b",
+              "title": "Bảng giá thiết kế website - Gói cao cấp và theo yêu cầu",
+              "content": "Gói Website cao cấp giá 17.000.000đ: đầy đủ tính năng như gói chuyên nghiệp, cộng thêm giỏ hàng và hỗ trợ song ngữ, tặng 30 bài viết chuẩn SEO và 500 chủ đề SEO. Gói Website theo yêu cầu (cao cấp nhất) có thêm phân quyền quản trị, đăng ký/đăng nhập, thanh toán online, bình luận, đánh giá và so sánh sản phẩm, voucher giảm giá, phí vận chuyển, trang Flash Sale, khoá học trực tuyến, đăng tin miễn phí — giá của gói này được báo riêng qua Zalo, không niêm yết cố định.",
+              "score": 0.719862
+            },
+            {
+              "chunk_id": "dcdb3de1-4803-4918-bcd5-1f7593d867ed",
+              "title": "Traffic User Thật và các dịch vụ chăm sóc đi kèm",
+              "content": "Dịch vụ Traffic User Thật của MIMA cung cấp lượng truy cập từ người dùng thật 100%, tự tìm kiếm - tự click - tương tác tự nhiên theo đúng chuẩn thuật toán Google, khác với traffic ảo/bot. MIMA cũng có dịch vụ Chăm sóc website (cập nhật nội dung, tối ưu tốc độ, bảo mật, hỗ trợ SEO định kỳ) và Chăm sóc fanpage (trọn gói, không phát sinh phí, giúp tiếp cận hàng ngàn khách hàng).",
+              "score": 0.719172
+            },
+            {
+              "chunk_id": "c854fcde-4bfe-4b84-86c8-017d492e3b36",
+              "title": "Bảng giá thiết kế website - Gói khởi nghiệp",
+              "content": "Gói Website khởi nghiệp giá 9.000.000đ: thiết kế giao diện theo yêu cầu, tích hợp AI Content SEO, chuẩn SEO Google, có phiên bản mobile - tablet, bàn giao source code, tặng 5 bài viết chuẩn SEO và 200 chủ đề SEO. Chưa bao gồm SSL, song ngữ, giỏ hàng.",
+              "score": 0.714039
+            }
+          ],
+          "rr": 0.5,
+          "hit1": false,
+          "hit3": true
+        },
+        {
+          "qid": "q06",
+          "variant": "with_diacritics",
+          "question": "Có làm backlink báo chí tăng traffic không ạ?",
+          "top_score": 0.720444,
+          "top_chunks": [
+            {
+              "chunk_id": "67637d1c-4067-4974-95e5-63aa5b8dd342",
+              "title": "Dịch vụ Backlink Website",
+              "content": "Dịch vụ Backlink của MIMA xây dựng liên kết từ các website khác trỏ về website khách hàng, giúp tăng uy tín (trust) với Google, cải thiện thứ hạng từ khoá và hỗ trợ SEO bền vững. MIMA nhấn mạnh đây là yếu tố giúp lên top ổn định lâu dài, không chỉ tăng hạng nhất thời.",
+              "score": 0.720444
+            },
+            {
+              "chunk_id": "29135891-3c8a-4066-8f03-4cefc4a4999e",
+              "title": "Dịch vụ SEO tổng thể",
+              "content": "Dịch vụ SEO của MIMA triển khai chiến lược SEO toàn diện: nghiên cứu từ khoá, tối ưu cấu trúc website, viết bài chuẩn SEO, link building, entity SEO, schema markup, tăng traffic người dùng thật và xây dựng backlink — nhằm tăng thứ hạng từ khoá, thu hút traffic tự nhiên và tạo nền tảng tăng trưởng dài hạn cho doanh nghiệp.",
+              "score": 0.696481
+            },
+            {
+              "chunk_id": "dcdb3de1-4803-4918-bcd5-1f7593d867ed",
+              "title": "Traffic User Thật và các dịch vụ chăm sóc đi kèm",
+              "content": "Dịch vụ Traffic User Thật của MIMA cung cấp lượng truy cập từ người dùng thật 100%, tự tìm kiếm - tự click - tương tác tự nhiên theo đúng chuẩn thuật toán Google, khác với traffic ảo/bot. MIMA cũng có dịch vụ Chăm sóc website (cập nhật nội dung, tối ưu tốc độ, bảo mật, hỗ trợ SEO định kỳ) và Chăm sóc fanpage (trọn gói, không phát sinh phí, giúp tiếp cận hàng ngàn khách hàng).",
+              "score": 0.656797
+            }
+          ],
+          "rr": 1.0,
+          "hit1": true,
+          "hit3": true
+        },
+        {
+          "qid": "q06",
+          "variant": "no_diacritics",
+          "question": "co lam backlink bao chi tang traffic khong a",
+          "top_score": 0.732063,
+          "top_chunks": [
+            {
+              "chunk_id": "67637d1c-4067-4974-95e5-63aa5b8dd342",
+              "title": "Dịch vụ Backlink Website",
+              "content": "Dịch vụ Backlink của MIMA xây dựng liên kết từ các website khác trỏ về website khách hàng, giúp tăng uy tín (trust) với Google, cải thiện thứ hạng từ khoá và hỗ trợ SEO bền vững. MIMA nhấn mạnh đây là yếu tố giúp lên top ổn định lâu dài, không chỉ tăng hạng nhất thời.",
+              "score": 0.732063
+            },
+            {
+              "chunk_id": "29135891-3c8a-4066-8f03-4cefc4a4999e",
+              "title": "Dịch vụ SEO tổng thể",
+              "content": "Dịch vụ SEO của MIMA triển khai chiến lược SEO toàn diện: nghiên cứu từ khoá, tối ưu cấu trúc website, viết bài chuẩn SEO, link building, entity SEO, schema markup, tăng traffic người dùng thật và xây dựng backlink — nhằm tăng thứ hạng từ khoá, thu hút traffic tự nhiên và tạo nền tảng tăng trưởng dài hạn cho doanh nghiệp.",
+              "score": 0.710594
+            },
+            {
+              "chunk_id": "dcdb3de1-4803-4918-bcd5-1f7593d867ed",
+              "title": "Traffic User Thật và các dịch vụ chăm sóc đi kèm",
+              "content": "Dịch vụ Traffic User Thật của MIMA cung cấp lượng truy cập từ người dùng thật 100%, tự tìm kiếm - tự click - tương tác tự nhiên theo đúng chuẩn thuật toán Google, khác với traffic ảo/bot. MIMA cũng có dịch vụ Chăm sóc website (cập nhật nội dung, tối ưu tốc độ, bảo mật, hỗ trợ SEO định kỳ) và Chăm sóc fanpage (trọn gói, không phát sinh phí, giúp tiếp cận hàng ngàn khách hàng).",
+              "score": 0.685033
+            }
+          ],
+          "rr": 1.0,
+          "hit1": true,
+          "hit3": true
+        },
+        {
+          "qid": "q07",
+          "variant": "with_diacritics",
+          "question": "Website có được bảo mật SSL không?",
+          "top_score": 0.719071,
+          "top_chunks": [
+            {
+              "chunk_id": "0a7189b6-a2dd-45ca-a05a-c9a186b256c2",
+              "title": "Bảng giá thiết kế website - Gói chuyên nghiệp",
+              "content": "Gói Website chuyên nghiệp giá 12.000.000đ: đầy đủ như gói khởi nghiệp, cộng thêm tích hợp chứng chỉ số SSL, tặng 20 bài viết chuẩn SEO và 500 chủ đề SEO. Gói này vẫn chưa hỗ trợ song ngữ và giỏ hàng.",
+              "score": 0.719071
+            },
+            {
+              "chunk_id": "63237e6a-88af-4e93-945e-c11187729e6b",
+              "title": "Bảng giá thiết kế website - Gói cao cấp và theo yêu cầu",
+              "content": "Gói Website cao cấp giá 17.000.000đ: đầy đủ tính năng như gói chuyên nghiệp, cộng thêm giỏ hàng và hỗ trợ song ngữ, tặng 30 bài viết chuẩn SEO và 500 chủ đề SEO. Gói Website theo yêu cầu (cao cấp nhất) có thêm phân quyền quản trị, đăng ký/đăng nhập, thanh toán online, bình luận, đánh giá và so sánh sản phẩm, voucher giảm giá, phí vận chuyển, trang Flash Sale, khoá học trực tuyến, đăng tin miễn phí — giá của gói này được báo riêng qua Zalo, không niêm yết cố định.",
+              "score": 0.667491
+            },
+            {
+              "chunk_id": "c854fcde-4bfe-4b84-86c8-017d492e3b36",
+              "title": "Bảng giá thiết kế website - Gói khởi nghiệp",
+              "content": "Gói Website khởi nghiệp giá 9.000.000đ: thiết kế giao diện theo yêu cầu, tích hợp AI Content SEO, chuẩn SEO Google, có phiên bản mobile - tablet, bàn giao source code, tặng 5 bài viết chuẩn SEO và 200 chủ đề SEO. Chưa bao gồm SSL, song ngữ, giỏ hàng.",
+              "score": 0.667454
+            }
+          ],
+          "rr": 1.0,
+          "hit1": true,
+          "hit3": true
+        },
+        {
+          "qid": "q07",
+          "variant": "no_diacritics",
+          "question": "website co duoc bao mat ssl khong",
+          "top_score": 0.735283,
+          "top_chunks": [
+            {
+              "chunk_id": "0a7189b6-a2dd-45ca-a05a-c9a186b256c2",
+              "title": "Bảng giá thiết kế website - Gói chuyên nghiệp",
+              "content": "Gói Website chuyên nghiệp giá 12.000.000đ: đầy đủ như gói khởi nghiệp, cộng thêm tích hợp chứng chỉ số SSL, tặng 20 bài viết chuẩn SEO và 500 chủ đề SEO. Gói này vẫn chưa hỗ trợ song ngữ và giỏ hàng.",
+              "score": 0.735283
+            },
+            {
+              "chunk_id": "c854fcde-4bfe-4b84-86c8-017d492e3b36",
+              "title": "Bảng giá thiết kế website - Gói khởi nghiệp",
+              "content": "Gói Website khởi nghiệp giá 9.000.000đ: thiết kế giao diện theo yêu cầu, tích hợp AI Content SEO, chuẩn SEO Google, có phiên bản mobile - tablet, bàn giao source code, tặng 5 bài viết chuẩn SEO và 200 chủ đề SEO. Chưa bao gồm SSL, song ngữ, giỏ hàng.",
+              "score": 0.684553
+            },
+            {
+              "chunk_id": "d36879c5-aa67-4c22-91ef-e427a608410b",
+              "title": "Bảng giá thiết kế website - Gói phổ thông",
+              "content": "Gói Website phổ thông giá 6.000.000đ: thiết kế giao diện theo yêu cầu, tích hợp AI Content SEO, chuẩn SEO theo tiêu chuẩn Google, tiện ích Zalo/nút gọi/chat ngay, bàn giao source code, tặng kèm 5 bài viết chuẩn SEO và 200 chủ đề SEO. Gói này chưa có bản mobile/tablet riêng, chưa có SSL, song ngữ hay giỏ hàng.",
+              "score": 0.682275
+            }
+          ],
+          "rr": 1.0,
+          "hit1": true,
+          "hit3": true
+        },
+        {
+          "qid": "q08",
+          "variant": "with_diacritics",
+          "question": "Có cam kết lên top 1 Google trong 1 tháng không?",
+          "top_score": 0.720013,
+          "top_chunks": [
+            {
+              "chunk_id": "dd6424c2-0095-4f7d-ad82-005f50dcf0d9",
+              "title": "Dịch vụ Hosting SEO",
+              "content": "Dịch vụ Hosting SEO của MIMA cung cấp lưu trữ web tốc độ cao, uptime 99.9%, được tối ưu riêng để hỗ trợ website tăng thứ hạng trên Google. Đây là một trong các yếu tố kỹ thuật quan trọng (cùng với source chuẩn, tên miền đẹp, nội dung chuẩn SEO, quảng cáo, backlink và traffic) để website lên top nhanh.",
+              "score": 0.720013
+            },
+            {
+              "chunk_id": "67637d1c-4067-4974-95e5-63aa5b8dd342",
+              "title": "Dịch vụ Backlink Website",
+              "content": "Dịch vụ Backlink của MIMA xây dựng liên kết từ các website khác trỏ về website khách hàng, giúp tăng uy tín (trust) với Google, cải thiện thứ hạng từ khoá và hỗ trợ SEO bền vững. MIMA nhấn mạnh đây là yếu tố giúp lên top ổn định lâu dài, không chỉ tăng hạng nhất thời.",
+              "score": 0.711545
+            },
+            {
+              "chunk_id": "29135891-3c8a-4066-8f03-4cefc4a4999e",
+              "title": "Dịch vụ SEO tổng thể",
+              "content": "Dịch vụ SEO của MIMA triển khai chiến lược SEO toàn diện: nghiên cứu từ khoá, tối ưu cấu trúc website, viết bài chuẩn SEO, link building, entity SEO, schema markup, tăng traffic người dùng thật và xây dựng backlink — nhằm tăng thứ hạng từ khoá, thu hút traffic tự nhiên và tạo nền tảng tăng trưởng dài hạn cho doanh nghiệp.",
+              "score": 0.693764
+            }
+          ],
+          "rr": 0.3333333333333333,
+          "hit1": false,
+          "hit3": true
+        },
+        {
+          "qid": "q08",
+          "variant": "no_diacritics",
+          "question": "co cam ket len top 1 google trong 1 thang khong",
+          "top_score": 0.728405,
+          "top_chunks": [
+            {
+              "chunk_id": "dd6424c2-0095-4f7d-ad82-005f50dcf0d9",
+              "title": "Dịch vụ Hosting SEO",
+              "content": "Dịch vụ Hosting SEO của MIMA cung cấp lưu trữ web tốc độ cao, uptime 99.9%, được tối ưu riêng để hỗ trợ website tăng thứ hạng trên Google. Đây là một trong các yếu tố kỹ thuật quan trọng (cùng với source chuẩn, tên miền đẹp, nội dung chuẩn SEO, quảng cáo, backlink và traffic) để website lên top nhanh.",
+              "score": 0.728405
+            },
+            {
+              "chunk_id": "67637d1c-4067-4974-95e5-63aa5b8dd342",
+              "title": "Dịch vụ Backlink Website",
+              "content": "Dịch vụ Backlink của MIMA xây dựng liên kết từ các website khác trỏ về website khách hàng, giúp tăng uy tín (trust) với Google, cải thiện thứ hạng từ khoá và hỗ trợ SEO bền vững. MIMA nhấn mạnh đây là yếu tố giúp lên top ổn định lâu dài, không chỉ tăng hạng nhất thời.",
+              "score": 0.721622
+            },
+            {
+              "chunk_id": "29135891-3c8a-4066-8f03-4cefc4a4999e",
+              "title": "Dịch vụ SEO tổng thể",
+              "content": "Dịch vụ SEO của MIMA triển khai chiến lược SEO toàn diện: nghiên cứu từ khoá, tối ưu cấu trúc website, viết bài chuẩn SEO, link building, entity SEO, schema markup, tăng traffic người dùng thật và xây dựng backlink — nhằm tăng thứ hạng từ khoá, thu hút traffic tự nhiên và tạo nền tảng tăng trưởng dài hạn cho doanh nghiệp.",
+              "score": 0.705559
+            }
+          ],
+          "rr": 0.3333333333333333,
+          "hit1": false,
+          "hit3": true
+        },
+        {
+          "qid": "q09",
+          "variant": "with_diacritics",
+          "question": "Cho em xin số điện thoại liên hệ",
+          "top_score": 0.6565,
+          "top_chunks": [
+            {
+              "chunk_id": "33a88e68-cbb4-432b-84e1-0f6e3ffd4422",
+              "title": "Bảng giá thiết kế website - Gói Basic",
+              "content": "Gói Website Basic giá 2.000.000đ: dùng giao diện mẫu có sẵn (copy), kết nối mạng xã hội, khách tự cập nhật nội dung, có tiện ích Zalo/nút gọi/chat ngay, kèm livechat, chống copy nội dung, đóng dấu sản phẩm, popup đầu trang. Gói này CHƯA có: AI Content SEO, tối ưu SEO, bàn giao source code, SSL, song ngữ, giỏ hàng.",
+              "score": 0.6565
+            },
+            {
+              "chunk_id": "63237e6a-88af-4e93-945e-c11187729e6b",
+              "title": "Bảng giá thiết kế website - Gói cao cấp và theo yêu cầu",
+              "content": "Gói Website cao cấp giá 17.000.000đ: đầy đủ tính năng như gói chuyên nghiệp, cộng thêm giỏ hàng và hỗ trợ song ngữ, tặng 30 bài viết chuẩn SEO và 500 chủ đề SEO. Gói Website theo yêu cầu (cao cấp nhất) có thêm phân quyền quản trị, đăng ký/đăng nhập, thanh toán online, bình luận, đánh giá và so sánh sản phẩm, voucher giảm giá, phí vận chuyển, trang Flash Sale, khoá học trực tuyến, đăng tin miễn phí — giá của gói này được báo riêng qua Zalo, không niêm yết cố định.",
+              "score": 0.645856
+            },
+            {
+              "chunk_id": "d36879c5-aa67-4c22-91ef-e427a608410b",
+              "title": "Bảng giá thiết kế website - Gói phổ thông",
+              "content": "Gói Website phổ thông giá 6.000.000đ: thiết kế giao diện theo yêu cầu, tích hợp AI Content SEO, chuẩn SEO theo tiêu chuẩn Google, tiện ích Zalo/nút gọi/chat ngay, bàn giao source code, tặng kèm 5 bài viết chuẩn SEO và 200 chủ đề SEO. Gói này chưa có bản mobile/tablet riêng, chưa có SSL, song ngữ hay giỏ hàng.",
+              "score": 0.645224
+            }
+          ],
+          "rr": 0.0,
+          "hit1": false,
+          "hit3": false
+        },
+        {
+          "qid": "q09",
+          "variant": "no_diacritics",
+          "question": "cho em xin so dien thoai lien he",
+          "top_score": 0.651686,
+          "top_chunks": [
+            {
+              "chunk_id": "33a88e68-cbb4-432b-84e1-0f6e3ffd4422",
+              "title": "Bảng giá thiết kế website - Gói Basic",
+              "content": "Gói Website Basic giá 2.000.000đ: dùng giao diện mẫu có sẵn (copy), kết nối mạng xã hội, khách tự cập nhật nội dung, có tiện ích Zalo/nút gọi/chat ngay, kèm livechat, chống copy nội dung, đóng dấu sản phẩm, popup đầu trang. Gói này CHƯA có: AI Content SEO, tối ưu SEO, bàn giao source code, SSL, song ngữ, giỏ hàng.",
+              "score": 0.651686
+            },
+            {
+              "chunk_id": "d36879c5-aa67-4c22-91ef-e427a608410b",
+              "title": "Bảng giá thiết kế website - Gói phổ thông",
+              "content": "Gói Website phổ thông giá 6.000.000đ: thiết kế giao diện theo yêu cầu, tích hợp AI Content SEO, chuẩn SEO theo tiêu chuẩn Google, tiện ích Zalo/nút gọi/chat ngay, bàn giao source code, tặng kèm 5 bài viết chuẩn SEO và 200 chủ đề SEO. Gói này chưa có bản mobile/tablet riêng, chưa có SSL, song ngữ hay giỏ hàng.",
+              "score": 0.641539
+            },
+            {
+              "chunk_id": "c854fcde-4bfe-4b84-86c8-017d492e3b36",
+              "title": "Bảng giá thiết kế website - Gói khởi nghiệp",
+              "content": "Gói Website khởi nghiệp giá 9.000.000đ: thiết kế giao diện theo yêu cầu, tích hợp AI Content SEO, chuẩn SEO Google, có phiên bản mobile - tablet, bàn giao source code, tặng 5 bài viết chuẩn SEO và 200 chủ đề SEO. Chưa bao gồm SSL, song ngữ, giỏ hàng.",
+              "score": 0.638363
+            }
+          ],
+          "rr": 0.0,
+          "hit1": false,
+          "hit3": false
+        },
+        {
+          "qid": "q10",
+          "variant": "with_diacritics",
+          "question": "Có gói thiết kế web giá rẻ dùng mẫu có sẵn không?",
+          "top_score": 0.732307,
+          "top_chunks": [
+            {
+              "chunk_id": "33a88e68-cbb4-432b-84e1-0f6e3ffd4422",
+              "title": "Bảng giá thiết kế website - Gói Basic",
+              "content": "Gói Website Basic giá 2.000.000đ: dùng giao diện mẫu có sẵn (copy), kết nối mạng xã hội, khách tự cập nhật nội dung, có tiện ích Zalo/nút gọi/chat ngay, kèm livechat, chống copy nội dung, đóng dấu sản phẩm, popup đầu trang. Gói này CHƯA có: AI Content SEO, tối ưu SEO, bàn giao source code, SSL, song ngữ, giỏ hàng.",
+              "score": 0.732307
+            },
+            {
+              "chunk_id": "d36879c5-aa67-4c22-91ef-e427a608410b",
+              "title": "Bảng giá thiết kế website - Gói phổ thông",
+              "content": "Gói Website phổ thông giá 6.000.000đ: thiết kế giao diện theo yêu cầu, tích hợp AI Content SEO, chuẩn SEO theo tiêu chuẩn Google, tiện ích Zalo/nút gọi/chat ngay, bàn giao source code, tặng kèm 5 bài viết chuẩn SEO và 200 chủ đề SEO. Gói này chưa có bản mobile/tablet riêng, chưa có SSL, song ngữ hay giỏ hàng.",
+              "score": 0.72366
+            },
+            {
+              "chunk_id": "c854fcde-4bfe-4b84-86c8-017d492e3b36",
+              "title": "Bảng giá thiết kế website - Gói khởi nghiệp",
+              "content": "Gói Website khởi nghiệp giá 9.000.000đ: thiết kế giao diện theo yêu cầu, tích hợp AI Content SEO, chuẩn SEO Google, có phiên bản mobile - tablet, bàn giao source code, tặng 5 bài viết chuẩn SEO và 200 chủ đề SEO. Chưa bao gồm SSL, song ngữ, giỏ hàng.",
+              "score": 0.713134
+            }
+          ],
+          "rr": 1.0,
+          "hit1": true,
+          "hit3": true
+        },
+        {
+          "qid": "q10",
+          "variant": "no_diacritics",
+          "question": "co goi thiet ke web gia re dung mau co san khong",
+          "top_score": 0.742954,
+          "top_chunks": [
+            {
+              "chunk_id": "d36879c5-aa67-4c22-91ef-e427a608410b",
+              "title": "Bảng giá thiết kế website - Gói phổ thông",
+              "content": "Gói Website phổ thông giá 6.000.000đ: thiết kế giao diện theo yêu cầu, tích hợp AI Content SEO, chuẩn SEO theo tiêu chuẩn Google, tiện ích Zalo/nút gọi/chat ngay, bàn giao source code, tặng kèm 5 bài viết chuẩn SEO và 200 chủ đề SEO. Gói này chưa có bản mobile/tablet riêng, chưa có SSL, song ngữ hay giỏ hàng.",
+              "score": 0.742954
+            },
+            {
+              "chunk_id": "33a88e68-cbb4-432b-84e1-0f6e3ffd4422",
+              "title": "Bảng giá thiết kế website - Gói Basic",
+              "content": "Gói Website Basic giá 2.000.000đ: dùng giao diện mẫu có sẵn (copy), kết nối mạng xã hội, khách tự cập nhật nội dung, có tiện ích Zalo/nút gọi/chat ngay, kèm livechat, chống copy nội dung, đóng dấu sản phẩm, popup đầu trang. Gói này CHƯA có: AI Content SEO, tối ưu SEO, bàn giao source code, SSL, song ngữ, giỏ hàng.",
+              "score": 0.736464
+            },
+            {
+              "chunk_id": "c854fcde-4bfe-4b84-86c8-017d492e3b36",
+              "title": "Bảng giá thiết kế website - Gói khởi nghiệp",
+              "content": "Gói Website khởi nghiệp giá 9.000.000đ: thiết kế giao diện theo yêu cầu, tích hợp AI Content SEO, chuẩn SEO Google, có phiên bản mobile - tablet, bàn giao source code, tặng 5 bài viết chuẩn SEO và 200 chủ đề SEO. Chưa bao gồm SSL, song ngữ, giỏ hàng.",
+              "score": 0.731995
+            }
+          ],
+          "rr": 0.5,
+          "hit1": false,
+          "hit3": true
+        },
+        {
+          "qid": "q11",
+          "variant": "with_diacritics",
+          "question": "Vì sao website của em mãi không lên top Google?",
+          "top_score": 0.716718,
+          "top_chunks": [
+            {
+              "chunk_id": "dd6424c2-0095-4f7d-ad82-005f50dcf0d9",
+              "title": "Dịch vụ Hosting SEO",
+              "content": "Dịch vụ Hosting SEO của MIMA cung cấp lưu trữ web tốc độ cao, uptime 99.9%, được tối ưu riêng để hỗ trợ website tăng thứ hạng trên Google. Đây là một trong các yếu tố kỹ thuật quan trọng (cùng với source chuẩn, tên miền đẹp, nội dung chuẩn SEO, quảng cáo, backlink và traffic) để website lên top nhanh.",
+              "score": 0.716718
+            },
+            {
+              "chunk_id": "67637d1c-4067-4974-95e5-63aa5b8dd342",
+              "title": "Dịch vụ Backlink Website",
+              "content": "Dịch vụ Backlink của MIMA xây dựng liên kết từ các website khác trỏ về website khách hàng, giúp tăng uy tín (trust) với Google, cải thiện thứ hạng từ khoá và hỗ trợ SEO bền vững. MIMA nhấn mạnh đây là yếu tố giúp lên top ổn định lâu dài, không chỉ tăng hạng nhất thời.",
+              "score": 0.704971
+            },
+            {
+              "chunk_id": "2b658696-1aba-418a-9c7b-14dbefbe0cc3",
+              "title": "FAQ thiết kế website chuẩn SEO Google",
+              "content": "Câu hỏi thường gặp: 'Thiết kế website chuẩn Google là gì?' — Là xây dựng website theo tiêu chí và thuật toán của Google để dễ được lập chỉ mục (index), cấu trúc/từ khoá/nội dung rõ ràng, tốc độ tải nhanh, tương thích mobile và dễ lên top từ khoá tìm kiếm. Thiết kế website trọn gói tại MIMA bao gồm: tư vấn cấu trúc - giao diện - chức năng, thiết kế giao diện, lập trình, đăng ký tên miền và hosting, tối ưu SEO cơ bản, đăng bài demo, bàn giao hướng dẫn sử dụng, cùng bảo trì và hỗ trợ kỹ thuật sau bàn giao.",
+              "score": 0.703658
+            }
+          ],
+          "rr": 1.0,
+          "hit1": true,
+          "hit3": true
+        },
+        {
+          "qid": "q11",
+          "variant": "no_diacritics",
+          "question": "vi sao website cua em mai khong len top google",
+          "top_score": 0.73251,
+          "top_chunks": [
+            {
+              "chunk_id": "dd6424c2-0095-4f7d-ad82-005f50dcf0d9",
+              "title": "Dịch vụ Hosting SEO",
+              "content": "Dịch vụ Hosting SEO của MIMA cung cấp lưu trữ web tốc độ cao, uptime 99.9%, được tối ưu riêng để hỗ trợ website tăng thứ hạng trên Google. Đây là một trong các yếu tố kỹ thuật quan trọng (cùng với source chuẩn, tên miền đẹp, nội dung chuẩn SEO, quảng cáo, backlink và traffic) để website lên top nhanh.",
+              "score": 0.73251
+            },
+            {
+              "chunk_id": "67637d1c-4067-4974-95e5-63aa5b8dd342",
+              "title": "Dịch vụ Backlink Website",
+              "content": "Dịch vụ Backlink của MIMA xây dựng liên kết từ các website khác trỏ về website khách hàng, giúp tăng uy tín (trust) với Google, cải thiện thứ hạng từ khoá và hỗ trợ SEO bền vững. MIMA nhấn mạnh đây là yếu tố giúp lên top ổn định lâu dài, không chỉ tăng hạng nhất thời.",
+              "score": 0.726052
+            },
+            {
+              "chunk_id": "2b658696-1aba-418a-9c7b-14dbefbe0cc3",
+              "title": "FAQ thiết kế website chuẩn SEO Google",
+              "content": "Câu hỏi thường gặp: 'Thiết kế website chuẩn Google là gì?' — Là xây dựng website theo tiêu chí và thuật toán của Google để dễ được lập chỉ mục (index), cấu trúc/từ khoá/nội dung rõ ràng, tốc độ tải nhanh, tương thích mobile và dễ lên top từ khoá tìm kiếm. Thiết kế website trọn gói tại MIMA bao gồm: tư vấn cấu trúc - giao diện - chức năng, thiết kế giao diện, lập trình, đăng ký tên miền và hosting, tối ưu SEO cơ bản, đăng bài demo, bàn giao hướng dẫn sử dụng, cùng bảo trì và hỗ trợ kỹ thuật sau bàn giao.",
+              "score": 0.722453
+            }
+          ],
+          "rr": 1.0,
+          "hit1": true,
+          "hit3": true
+        },
+        {
+          "qid": "q12",
+          "variant": "with_diacritics",
+          "question": "MIMA là công ty làm về lĩnh vực gì?",
+          "top_score": 0.807084,
+          "top_chunks": [
+            {
+              "chunk_id": "853d815d-1314-43ae-ab0e-1c1c2da88429",
+              "title": "MIMA Giải Cứu Website - Biến Web Thành 1000 Nhân Viên Bán Hàng",
+              "content": "MIMA là tên viết tắt của Công ty TNHH Thương Mại Dịch Vụ MIMA, hoạt động trong lĩnh vực thiết kế website và marketing online với định hướng 'giải cứu website' — biến website từ một tấm danh thiếp điện tử thành công cụ bán hàng thực sự, hoạt động như hàng ngàn nhân viên kinh doanh 24/7. Công ty có hơn 10 năm kinh nghiệm, đã thực hiện trên 2000 dự án cho hơn 1700 khách hàng hài lòng, với đội ngũ hơn 50 nhân viên phục vụ khách hàng ở hơn 33 tỉnh thành.",
+              "score": 0.807084
+            },
+            {
+              "chunk_id": "dcdb3de1-4803-4918-bcd5-1f7593d867ed",
+              "title": "Traffic User Thật và các dịch vụ chăm sóc đi kèm",
+              "content": "Dịch vụ Traffic User Thật của MIMA cung cấp lượng truy cập từ người dùng thật 100%, tự tìm kiếm - tự click - tương tác tự nhiên theo đúng chuẩn thuật toán Google, khác với traffic ảo/bot. MIMA cũng có dịch vụ Chăm sóc website (cập nhật nội dung, tối ưu tốc độ, bảo mật, hỗ trợ SEO định kỳ) và Chăm sóc fanpage (trọn gói, không phát sinh phí, giúp tiếp cận hàng ngàn khách hàng).",
+              "score": 0.77892
+            },
+            {
+              "chunk_id": "836ff8c2-a803-497e-a2e9-509955b8e134",
+              "title": "Công Ty Thiết Kế Website Theo Yêu Cầu Chuẩn SEO Google",
+              "content": "Dịch vụ thiết kế website tại MIMA cung cấp giao diện hiện đại, tối ưu trải nghiệm người dùng, tốc độ tải trang nhanh, chuẩn SEO Google, thiết kế riêng theo từng ngành nghề, đảm bảo tính bản quyền - độc quyền và tương thích trên mọi thiết bị (PC, tablet, điện thoại). Website tích hợp sẵn công nghệ AI Content SEO, giúp tự động sinh nội dung chuẩn SEO cho sản phẩm, dịch vụ, tin tức với năng suất cao hơn nhiều so với viết tay thủ công.",
+              "score": 0.769173
+            }
+          ],
+          "rr": 1.0,
+          "hit1": true,
+          "hit3": true
+        },
+        {
+          "qid": "q12",
+          "variant": "no_diacritics",
+          "question": "mima la cong ty lam ve linh vuc gi",
+          "top_score": 0.802574,
+          "top_chunks": [
+            {
+              "chunk_id": "853d815d-1314-43ae-ab0e-1c1c2da88429",
+              "title": "MIMA Giải Cứu Website - Biến Web Thành 1000 Nhân Viên Bán Hàng",
+              "content": "MIMA là tên viết tắt của Công ty TNHH Thương Mại Dịch Vụ MIMA, hoạt động trong lĩnh vực thiết kế website và marketing online với định hướng 'giải cứu website' — biến website từ một tấm danh thiếp điện tử thành công cụ bán hàng thực sự, hoạt động như hàng ngàn nhân viên kinh doanh 24/7. Công ty có hơn 10 năm kinh nghiệm, đã thực hiện trên 2000 dự án cho hơn 1700 khách hàng hài lòng, với đội ngũ hơn 50 nhân viên phục vụ khách hàng ở hơn 33 tỉnh thành.",
+              "score": 0.802574
+            },
+            {
+              "chunk_id": "dcdb3de1-4803-4918-bcd5-1f7593d867ed",
+              "title": "Traffic User Thật và các dịch vụ chăm sóc đi kèm",
+              "content": "Dịch vụ Traffic User Thật của MIMA cung cấp lượng truy cập từ người dùng thật 100%, tự tìm kiếm - tự click - tương tác tự nhiên theo đúng chuẩn thuật toán Google, khác với traffic ảo/bot. MIMA cũng có dịch vụ Chăm sóc website (cập nhật nội dung, tối ưu tốc độ, bảo mật, hỗ trợ SEO định kỳ) và Chăm sóc fanpage (trọn gói, không phát sinh phí, giúp tiếp cận hàng ngàn khách hàng).",
+              "score": 0.767342
+            },
+            {
+              "chunk_id": "f63f914d-d4f7-42a0-9615-de6b69957ef5",
+              "title": "Dịch vụ tên miền",
+              "content": "Dịch vụ tên miền của MIMA hỗ trợ đăng ký và quản lý tên miền theo yêu cầu, tư vấn chọn tên miền đẹp, dễ nhớ, phù hợp chiến lược thương hiệu của khách hàng. Trang chủ có sẵn công cụ kiểm tra tên miền (WHOIS) ngay trên website để khách tự tra cứu tình trạng tên miền mong muốn.",
+              "score": 0.76154
+            }
+          ],
+          "rr": 1.0,
+          "hit1": true,
+          "hit3": true
+        },
+        {
+          "qid": "q13",
+          "variant": "with_diacritics",
+          "question": "Cho em gặp trực tiếp nhân viên tư vấn được không?",
+          "top_score": 0.643171,
+          "top_chunks": [
+            {
+              "chunk_id": "dcdb3de1-4803-4918-bcd5-1f7593d867ed",
+              "title": "Traffic User Thật và các dịch vụ chăm sóc đi kèm",
+              "content": "Dịch vụ Traffic User Thật của MIMA cung cấp lượng truy cập từ người dùng thật 100%, tự tìm kiếm - tự click - tương tác tự nhiên theo đúng chuẩn thuật toán Google, khác với traffic ảo/bot. MIMA cũng có dịch vụ Chăm sóc website (cập nhật nội dung, tối ưu tốc độ, bảo mật, hỗ trợ SEO định kỳ) và Chăm sóc fanpage (trọn gói, không phát sinh phí, giúp tiếp cận hàng ngàn khách hàng).",
+              "score": 0.643171
+            },
+            {
+              "chunk_id": "853d815d-1314-43ae-ab0e-1c1c2da88429",
+              "title": "MIMA Giải Cứu Website - Biến Web Thành 1000 Nhân Viên Bán Hàng",
+              "content": "MIMA là tên viết tắt của Công ty TNHH Thương Mại Dịch Vụ MIMA, hoạt động trong lĩnh vực thiết kế website và marketing online với định hướng 'giải cứu website' — biến website từ một tấm danh thiếp điện tử thành công cụ bán hàng thực sự, hoạt động như hàng ngàn nhân viên kinh doanh 24/7. Công ty có hơn 10 năm kinh nghiệm, đã thực hiện trên 2000 dự án cho hơn 1700 khách hàng hài lòng, với đội ngũ hơn 50 nhân viên phục vụ khách hàng ở hơn 33 tỉnh thành.",
+              "score": 0.638015
+            },
+            {
+              "chunk_id": "33a88e68-cbb4-432b-84e1-0f6e3ffd4422",
+              "title": "Bảng giá thiết kế website - Gói Basic",
+              "content": "Gói Website Basic giá 2.000.000đ: dùng giao diện mẫu có sẵn (copy), kết nối mạng xã hội, khách tự cập nhật nội dung, có tiện ích Zalo/nút gọi/chat ngay, kèm livechat, chống copy nội dung, đóng dấu sản phẩm, popup đầu trang. Gói này CHƯA có: AI Content SEO, tối ưu SEO, bàn giao source code, SSL, song ngữ, giỏ hàng.",
+              "score": 0.632698
+            }
+          ],
+          "rr": 0.0,
+          "hit1": false,
+          "hit3": false
+        },
+        {
+          "qid": "q13",
+          "variant": "no_diacritics",
+          "question": "cho em gap truc tiep nhan vien tu van duoc khong",
+          "top_score": 0.662458,
+          "top_chunks": [
+            {
+              "chunk_id": "33a88e68-cbb4-432b-84e1-0f6e3ffd4422",
+              "title": "Bảng giá thiết kế website - Gói Basic",
+              "content": "Gói Website Basic giá 2.000.000đ: dùng giao diện mẫu có sẵn (copy), kết nối mạng xã hội, khách tự cập nhật nội dung, có tiện ích Zalo/nút gọi/chat ngay, kèm livechat, chống copy nội dung, đóng dấu sản phẩm, popup đầu trang. Gói này CHƯA có: AI Content SEO, tối ưu SEO, bàn giao source code, SSL, song ngữ, giỏ hàng.",
+              "score": 0.662458
+            },
+            {
+              "chunk_id": "dcdb3de1-4803-4918-bcd5-1f7593d867ed",
+              "title": "Traffic User Thật và các dịch vụ chăm sóc đi kèm",
+              "content": "Dịch vụ Traffic User Thật của MIMA cung cấp lượng truy cập từ người dùng thật 100%, tự tìm kiếm - tự click - tương tác tự nhiên theo đúng chuẩn thuật toán Google, khác với traffic ảo/bot. MIMA cũng có dịch vụ Chăm sóc website (cập nhật nội dung, tối ưu tốc độ, bảo mật, hỗ trợ SEO định kỳ) và Chăm sóc fanpage (trọn gói, không phát sinh phí, giúp tiếp cận hàng ngàn khách hàng).",
+              "score": 0.661603
+            },
+            {
+              "chunk_id": "f63f914d-d4f7-42a0-9615-de6b69957ef5",
+              "title": "Dịch vụ tên miền",
+              "content": "Dịch vụ tên miền của MIMA hỗ trợ đăng ký và quản lý tên miền theo yêu cầu, tư vấn chọn tên miền đẹp, dễ nhớ, phù hợp chiến lược thương hiệu của khách hàng. Trang chủ có sẵn công cụ kiểm tra tên miền (WHOIS) ngay trên website để khách tự tra cứu tình trạng tên miền mong muốn.",
+              "score": 0.65235
+            }
+          ],
+          "rr": 0.0,
+          "hit1": false,
+          "hit3": false
+        },
+        {
+          "qid": "q14",
+          "variant": "with_diacritics",
+          "question": "Cho anh công thức nấu phở bò truyền thống",
+          "top_score": 0.573692,
+          "top_chunks": [
+            {
+              "chunk_id": "3c8375dd-0385-4970-8c40-60343762d882",
+              "title": "Quy trình thiết kế website tại MIMA",
+              "content": "Quy trình thiết kế website tại MIMA gồm 5 bước: (1) Lấy ý tưởng — tiếp nhận yêu cầu, tư vấn định hướng nội dung/giao diện/chức năng và từ khoá SEO chính; (2) Thiết kế UX/UI — dựng giao diện chuẩn, tương thích di động, hài hoà màu sắc thương hiệu; (3) Lập trình code bằng HTML5, CSS3, PHP hoặc Laravel, tích hợp biểu mẫu liên hệ, sản phẩm, giỏ hàng; (4) Viết nội dung chuẩn SEO — tối ưu tiêu đề, mô tả, heading, URL, ảnh có ALT, cài Google Analytics/Search Console; (5) Bàn giao và đào tạo — chuyển giao quyền quản trị, hướng dẫn CMS và SEO cơ bản.",
+              "score": 0.573692
+            },
+            {
+              "chunk_id": "d36879c5-aa67-4c22-91ef-e427a608410b",
+              "title": "Bảng giá thiết kế website - Gói phổ thông",
+              "content": "Gói Website phổ thông giá 6.000.000đ: thiết kế giao diện theo yêu cầu, tích hợp AI Content SEO, chuẩn SEO theo tiêu chuẩn Google, tiện ích Zalo/nút gọi/chat ngay, bàn giao source code, tặng kèm 5 bài viết chuẩn SEO và 200 chủ đề SEO. Gói này chưa có bản mobile/tablet riêng, chưa có SSL, song ngữ hay giỏ hàng.",
+              "score": 0.569837
+            },
+            {
+              "chunk_id": "c854fcde-4bfe-4b84-86c8-017d492e3b36",
+              "title": "Bảng giá thiết kế website - Gói khởi nghiệp",
+              "content": "Gói Website khởi nghiệp giá 9.000.000đ: thiết kế giao diện theo yêu cầu, tích hợp AI Content SEO, chuẩn SEO Google, có phiên bản mobile - tablet, bàn giao source code, tặng 5 bài viết chuẩn SEO và 200 chủ đề SEO. Chưa bao gồm SSL, song ngữ, giỏ hàng.",
+              "score": 0.564498
+            }
+          ],
+          "rr": 0.0,
+          "hit1": false,
+          "hit3": false
+        },
+        {
+          "qid": "q14",
+          "variant": "no_diacritics",
+          "question": "cho anh cong thuc nau pho bo truyen thong",
+          "top_score": 0.60039,
+          "top_chunks": [
+            {
+              "chunk_id": "d36879c5-aa67-4c22-91ef-e427a608410b",
+              "title": "Bảng giá thiết kế website - Gói phổ thông",
+              "content": "Gói Website phổ thông giá 6.000.000đ: thiết kế giao diện theo yêu cầu, tích hợp AI Content SEO, chuẩn SEO theo tiêu chuẩn Google, tiện ích Zalo/nút gọi/chat ngay, bàn giao source code, tặng kèm 5 bài viết chuẩn SEO và 200 chủ đề SEO. Gói này chưa có bản mobile/tablet riêng, chưa có SSL, song ngữ hay giỏ hàng.",
+              "score": 0.60039
+            },
+            {
+              "chunk_id": "33a88e68-cbb4-432b-84e1-0f6e3ffd4422",
+              "title": "Bảng giá thiết kế website - Gói Basic",
+              "content": "Gói Website Basic giá 2.000.000đ: dùng giao diện mẫu có sẵn (copy), kết nối mạng xã hội, khách tự cập nhật nội dung, có tiện ích Zalo/nút gọi/chat ngay, kèm livechat, chống copy nội dung, đóng dấu sản phẩm, popup đầu trang. Gói này CHƯA có: AI Content SEO, tối ưu SEO, bàn giao source code, SSL, song ngữ, giỏ hàng.",
+              "score": 0.585218
+            },
+            {
+              "chunk_id": "c854fcde-4bfe-4b84-86c8-017d492e3b36",
+              "title": "Bảng giá thiết kế website - Gói khởi nghiệp",
+              "content": "Gói Website khởi nghiệp giá 9.000.000đ: thiết kế giao diện theo yêu cầu, tích hợp AI Content SEO, chuẩn SEO Google, có phiên bản mobile - tablet, bàn giao source code, tặng 5 bài viết chuẩn SEO và 200 chủ đề SEO. Chưa bao gồm SSL, song ngữ, giỏ hàng.",
+              "score": 0.582557
+            }
+          ],
+          "rr": 0.0,
+          "hit1": false,
+          "hit3": false
+        },
+        {
+          "qid": "q15",
+          "variant": "with_diacritics",
+          "question": "Dự báo thời tiết Hà Nội ngày mai thế nào?",
+          "top_score": 0.568921,
+          "top_chunks": [
+            {
+              "chunk_id": "c854fcde-4bfe-4b84-86c8-017d492e3b36",
+              "title": "Bảng giá thiết kế website - Gói khởi nghiệp",
+              "content": "Gói Website khởi nghiệp giá 9.000.000đ: thiết kế giao diện theo yêu cầu, tích hợp AI Content SEO, chuẩn SEO Google, có phiên bản mobile - tablet, bàn giao source code, tặng 5 bài viết chuẩn SEO và 200 chủ đề SEO. Chưa bao gồm SSL, song ngữ, giỏ hàng.",
+              "score": 0.568921
+            },
+            {
+              "chunk_id": "d36879c5-aa67-4c22-91ef-e427a608410b",
+              "title": "Bảng giá thiết kế website - Gói phổ thông",
+              "content": "Gói Website phổ thông giá 6.000.000đ: thiết kế giao diện theo yêu cầu, tích hợp AI Content SEO, chuẩn SEO theo tiêu chuẩn Google, tiện ích Zalo/nút gọi/chat ngay, bàn giao source code, tặng kèm 5 bài viết chuẩn SEO và 200 chủ đề SEO. Gói này chưa có bản mobile/tablet riêng, chưa có SSL, song ngữ hay giỏ hàng.",
+              "score": 0.564092
+            },
+            {
+              "chunk_id": "836ff8c2-a803-497e-a2e9-509955b8e134",
+              "title": "Công Ty Thiết Kế Website Theo Yêu Cầu Chuẩn SEO Google",
+              "content": "Dịch vụ thiết kế website tại MIMA cung cấp giao diện hiện đại, tối ưu trải nghiệm người dùng, tốc độ tải trang nhanh, chuẩn SEO Google, thiết kế riêng theo từng ngành nghề, đảm bảo tính bản quyền - độc quyền và tương thích trên mọi thiết bị (PC, tablet, điện thoại). Website tích hợp sẵn công nghệ AI Content SEO, giúp tự động sinh nội dung chuẩn SEO cho sản phẩm, dịch vụ, tin tức với năng suất cao hơn nhiều so với viết tay thủ công.",
+              "score": 0.557965
+            }
+          ],
+          "rr": 0.0,
+          "hit1": false,
+          "hit3": false
+        },
+        {
+          "qid": "q15",
+          "variant": "no_diacritics",
+          "question": "du bao thoi tiet ha noi ngay mai the nao",
+          "top_score": 0.580544,
+          "top_chunks": [
+            {
+              "chunk_id": "c854fcde-4bfe-4b84-86c8-017d492e3b36",
+              "title": "Bảng giá thiết kế website - Gói khởi nghiệp",
+              "content": "Gói Website khởi nghiệp giá 9.000.000đ: thiết kế giao diện theo yêu cầu, tích hợp AI Content SEO, chuẩn SEO Google, có phiên bản mobile - tablet, bàn giao source code, tặng 5 bài viết chuẩn SEO và 200 chủ đề SEO. Chưa bao gồm SSL, song ngữ, giỏ hàng.",
+              "score": 0.580544
+            },
+            {
+              "chunk_id": "d36879c5-aa67-4c22-91ef-e427a608410b",
+              "title": "Bảng giá thiết kế website - Gói phổ thông",
+              "content": "Gói Website phổ thông giá 6.000.000đ: thiết kế giao diện theo yêu cầu, tích hợp AI Content SEO, chuẩn SEO theo tiêu chuẩn Google, tiện ích Zalo/nút gọi/chat ngay, bàn giao source code, tặng kèm 5 bài viết chuẩn SEO và 200 chủ đề SEO. Gói này chưa có bản mobile/tablet riêng, chưa có SSL, song ngữ hay giỏ hàng.",
+              "score": 0.575487
+            },
+            {
+              "chunk_id": "33a88e68-cbb4-432b-84e1-0f6e3ffd4422",
+              "title": "Bảng giá thiết kế website - Gói Basic",
+              "content": "Gói Website Basic giá 2.000.000đ: dùng giao diện mẫu có sẵn (copy), kết nối mạng xã hội, khách tự cập nhật nội dung, có tiện ích Zalo/nút gọi/chat ngay, kèm livechat, chống copy nội dung, đóng dấu sản phẩm, popup đầu trang. Gói này CHƯA có: AI Content SEO, tối ưu SEO, bàn giao source code, SSL, song ngữ, giỏ hàng.",
+              "score": 0.568776
+            }
+          ],
+          "rr": 0.0,
+          "hit1": false,
+          "hit3": false
+        }
+      ]
+    }
+  ]
+}
