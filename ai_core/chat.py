@@ -25,12 +25,24 @@ from ai_core.config import AgentConfig, load_config
 from ai_core.embedder import EmbedderError
 from ai_core.guardrail.input import check_input
 from ai_core.guardrail.output import check_output, redact_output_for_trace
+from ai_core.lead import (
+    append_lead_request,
+    decide_lead,
+    previous_consecutive_misses,
+    should_request_lead,
+)
 from ai_core.models import ChatRequest, ChatResponse, GuardrailResult, Message, Source, ToolCall, Usage
 from ai_core.prompt import PROMPT_VERSION, build_system_prompt
 from ai_core.retriever import RetrieverError, retrieve
 from ai_core.router import decide_need_human
 from ai_core.trace import TRACE_SCHEMA_VERSION, TraceTimer, log_trace, new_trace_id
-from ai_core.tools import ToolError, execute_tool, get_tool_schemas, message_may_need_tools
+from ai_core.tools import (
+    ToolError,
+    execute_tool,
+    extract_domain,
+    get_tool_schemas,
+    message_may_need_tools,
+)
 
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
@@ -48,6 +60,24 @@ RECENT_TURNS = 6
 RETRIEVAL_HISTORY_TURNS = 3
 MAX_RETRIEVAL_QUERY_TOKENS = 500
 DEFAULT_STREAM_CHARS = 80
+
+
+def _select_model_role(
+    config: AgentConfig,
+    model_role: Literal["primary", "fallback"],
+) -> AgentConfig:
+    """Return a per-request model order without mutating tenant configuration."""
+
+    if model_role == "primary":
+        return config
+    if model_role != "fallback":
+        raise ValueError("model_role must be 'primary' or 'fallback'.")
+    return config.model_copy(update={
+        "model_policy": config.model_policy.model_copy(update={
+            "primary": config.model_fallback,
+            "fallback": config.model_primary,
+        })
+    })
 MAX_TOOL_ROUNDS = 3
 TRACE_STEPS = (
     "config_ms",
@@ -370,6 +400,65 @@ def _safe_tool_call(request: ModelToolRequest, enabled_tool_names: list[str]) ->
     return ToolCall(name=request.name, args=request.args, result=result)
 
 
+def _direct_domain_check(
+    message: str,
+    enabled_tool_names: list[str],
+) -> LLMResult | None:
+    """Run an explicit domain lookup locally instead of depending on an LLM round-trip."""
+
+    domain = extract_domain(message)
+    if domain is None or "check_domain" not in enabled_tool_names:
+        return None
+    started = time.perf_counter()
+    call = _safe_tool_call(
+        ModelToolRequest(
+            call_id="direct-domain-check",
+            name="check_domain",
+            args={"domain": domain},
+        ),
+        enabled_tool_names,
+    )
+    elapsed_ms = round(max(0.0, (time.perf_counter() - started) * 1000), 3)
+    result = call.result
+    if not result.get("ok", False):
+        text = (
+            f"Dạ, hiện em chưa thể kiểm tra tên miền {domain}. "
+            "Anh/chị vui lòng thử lại sau hoặc để em kết nối chuyên viên hỗ trợ ạ."
+        )
+    else:
+        available_text = "đang khả dụng để đăng ký" if result.get("available") else "hiện không khả dụng để đăng ký"
+        if result.get("authoritative", False):
+            text = f"Dạ, kết quả kiểm tra cho thấy tên miền {domain} {available_text} ạ."
+        else:
+            text = (
+                f"Dạ, kết quả kiểm tra thử cho thấy tên miền {domain} {available_text} ạ. "
+                "Đây là kết quả mô phỏng để kiểm thử, chưa phải dữ liệu WHOIS chính thức."
+            )
+        text += " Anh/chị có muốn em kiểm tra thêm tên miền khác không ạ?"
+    return LLMResult(
+        text=text,
+        model="tool:check_domain",
+        tokens_in=0,
+        tokens_out=0,
+        tool_calls=(call,),
+        tool_timings_ms=(elapsed_ms,),
+    )
+
+
+def _tool_evidence(call: ToolCall) -> str:
+    """Represent validated tool output as natural-language grounding evidence."""
+
+    result = call.result
+    if call.name == "check_domain" and result.get("ok", False):
+        availability = "khả dụng để đăng ký" if result.get("available") else "không khả dụng để đăng ký"
+        authority = "chính thức" if result.get("authoritative", False) else "mô phỏng, chưa phải WHOIS chính thức"
+        return (
+            f"Kết quả kiểm tra tên miền {result.get('domain', '')}: {availability}; "
+            f"nguồn {result.get('source', '')}; {authority}."
+        )
+    return json.dumps(result, ensure_ascii=False, sort_keys=True)
+
+
 ToolStep = Callable[
     [list[tuple[ModelToolRequest, ToolCall]], bool],
     ModelStep,
@@ -485,9 +574,12 @@ def _generate_openai(
                 "model": model,
                 "instructions": system_prompt,
                 "input": input_items,
-                "temperature": temperature,
                 "max_output_tokens": MAX_OUTPUT_TOKENS,
             }
+            # GPT-5.6 reasoning models reject sampling temperature. Older
+            # non-reasoning models (including gpt-4o-mini) still accept it.
+            if not model.startswith("gpt-5.6"):
+                kwargs["temperature"] = temperature
             if allow_tools and tool_specs:
                 kwargs["tools"] = tool_specs
                 kwargs["parallel_tool_calls"] = False
@@ -668,14 +760,16 @@ def _generate_openai_stream(
         api_key = os.getenv("OPENAI_API_KEY")
         if not api_key:
             raise ChatError("Thiếu biến môi trường OPENAI_API_KEY.")
-        stream = OpenAI(api_key=api_key).responses.create(
-            model=model,
-            instructions=system_prompt,
-            input=list(messages),
-            temperature=temperature,
-            max_output_tokens=MAX_OUTPUT_TOKENS,
-            stream=True,
-        )
+        kwargs: dict[str, Any] = {
+            "model": model,
+            "instructions": system_prompt,
+            "input": list(messages),
+            "max_output_tokens": MAX_OUTPUT_TOKENS,
+            "stream": True,
+        }
+        if not model.startswith("gpt-5.6"):
+            kwargs["temperature"] = temperature
+        stream = OpenAI(api_key=api_key).responses.create(**kwargs)
         parts: list[str] = []
         usage: Any = None
         for event in stream:
@@ -809,12 +903,14 @@ def _execute_chat(
     *,
     provider_stream: bool = False,
     temperature_override: float | None = None,
+    model_role: Literal["primary", "fallback"] = "primary",
 ) -> dict:
     request = ChatRequest(**payload)
     trace_id = new_trace_id()
     timer = TraceTimer()
     with timer.step("config_ms"):
         config = load_config(request.tenant_id, request.config_version)
+        config = _select_model_role(config, model_role)
         if temperature_override is not None:
             if not 0.0 <= temperature_override <= 2.0:
                 raise ValueError("temperature_override phải nằm trong [0, 2].")
@@ -824,12 +920,16 @@ def _execute_chat(
                 )
             })
 
+    tool_candidate = message_may_need_tools(request.message, config.enabled_tools)
+    explicit_domain = extract_domain(request.message) if tool_candidate else None
+
     with timer.step("input_guardrail_ms"):
         input_check = check_input(
             request.message,
             model=config.guardrails.input_model or config.model_primary,
             timeout_seconds=config.guardrails.input_model_timeout_seconds,
-            history=request.history,
+            # Rechecking the same explicit domain is a valid lookup, not cross-turn spam.
+            history=[] if explicit_domain else request.history,
             include_metadata=True,
         )
     if input_check["blocked"]:
@@ -878,12 +978,12 @@ def _execute_chat(
         )
         return response_dict
 
+    lead_decision = decide_lead(request.message, request.history)
     config_contact_answer = configured_contact_reply(request.message, config)
-    tool_candidate = message_may_need_tools(request.message, config.enabled_tools)
     retrieval_query = build_retrieval_query(request)
     retrieval_error: str | None = None
     with timer.step("retrieval_ms"):
-        if tool_candidate or config_contact_answer is not None:
+        if lead_decision.reply_override is not None or tool_candidate or config_contact_answer is not None:
             # Tool chuyên biệt là nguồn dữ liệu chính cho intent này. Model vẫn là
             # bên quyết định gọi tool hay hỏi lại khi thiếu tham số.
             raw_sources = []
@@ -902,29 +1002,49 @@ def _execute_chat(
     # Ngoài trường hợp đó, retriever rỗng vẫn là tín hiệu không có tri thức.
     llm_error: str | None = None
     model_called = False
+    consecutive_misses = 0
     with timer.step("model_ms"):
-        if config_contact_answer is not None:
+        if lead_decision.reply_override is not None:
+            generated = LLMResult(lead_decision.reply_override, config.model_primary, 0, 0)
+            reply_text = generated.text
+        elif config_contact_answer is not None:
             generated = LLMResult(config_contact_answer, config.model_primary, 0, 0)
             reply_text = generated.text
         elif prepared.sources or tool_candidate:
-            model_called = True
-            try:
-                generate = _generate_stream_with_fallback if provider_stream else _generate_with_fallback
-                generated = generate(config, prepared.system_prompt, prepared.messages)
+            direct_tool_result = (
+                _direct_domain_check(request.message, config.enabled_tools)
+                if explicit_domain else None
+            )
+            if direct_tool_result is not None:
+                generated = direct_tool_result
                 reply_text = generated.text
-            except ChatError as exc:
-                # Keep the public API contract intact when both providers are down.
-                # The safe configured message is preferable to leaking an SDK error.
-                llm_error = str(exc)
-                generated = LLMResult(
-                    config.refusal_message,
-                    config.model_fallback,
-                    prepared.estimated_tokens,
-                    0,
-                )
-                reply_text = generated.text
+            else:
+                model_called = True
+                try:
+                    generate = _generate_stream_with_fallback if provider_stream else _generate_with_fallback
+                    generated = generate(config, prepared.system_prompt, prepared.messages)
+                    reply_text = generated.text
+                except ChatError as exc:
+                    # Keep the public API contract intact when both providers are down.
+                    # The safe configured message is preferable to leaking an SDK error.
+                    llm_error = str(exc)
+                    generated = LLMResult(
+                        config.refusal_message,
+                        config.model_fallback,
+                        prepared.estimated_tokens,
+                        0,
+                    )
+                    reply_text = generated.text
         else:
-            generated = LLMResult(config.refusal_message, config.model_primary, prepared.estimated_tokens, 0)
+            consecutive_misses = 1 + previous_consecutive_misses(
+                request.history, config.lead.no_data_retry_message
+            )
+            miss_reply = (
+                config.refusal_message
+                if consecutive_misses >= 2
+                else config.lead.no_data_retry_message
+            )
+            generated = LLMResult(miss_reply, config.model_primary, prepared.estimated_tokens, 0)
             reply_text = generated.text
 
     tool_calls = list(generated.tool_calls)
@@ -940,22 +1060,50 @@ def _execute_chat(
     conversation_evidence = [request.message]
     conversation_evidence.extend(item.content for item in request.history if item.content.strip())
     output_evidence.extend(
-        json.dumps(call.result, ensure_ascii=False, sort_keys=True)
-        for call in tool_calls
-        if call.result.get("ok", False)
+        _tool_evidence(call) for call in tool_calls if call.result.get("ok", False)
     )
     with timer.step("output_guardrail_ms"):
-        output_check = check_output(
-            reply_text,
-            config,
-            evidence=output_evidence,
-            conversation_evidence=conversation_evidence,
-        )
+        if lead_decision.reply_override is not None:
+            # HOA-14 replies are fixed local templates built from validated input.
+            # Sending them through business-claim grounding can misread the submitted
+            # phone number as an unsupported company hotline.
+            output_check = {"blocked": False, "reason": None}
+        else:
+            output_check = check_output(
+                reply_text,
+                config,
+                evidence=output_evidence,
+                conversation_evidence=conversation_evidence,
+            )
     if output_check["blocked"]:
         blocked_output = redact_output_for_trace(reply_text)
         reply_text = config.refusal_message
     else:
         blocked_output = None
+
+    explicit_or_repeated_handoff = decide_need_human(
+        request.message,
+        consecutive_misses=consecutive_misses,
+    )
+    need_human = (
+        output_check["blocked"]
+        or tool_failed
+        or retrieval_error is not None
+        or llm_error is not None
+        or input_check.get("need_human", False)
+        or explicit_or_repeated_handoff
+    )
+    if (
+        lead_decision.reply_override is None
+        and not need_human
+        and should_request_lead(
+            request.history,
+            request.message,
+            ask_after_turns=config.lead.ask_after_turns,
+            max_requests=config.lead.max_requests,
+        )
+    ):
+        reply_text = append_lead_request(reply_text)
 
     tokens_in = (generated.tokens_in or prepared.estimated_tokens) if model_called else 0
     tokens_out = (generated.tokens_out or estimate_tokens(generated.text)) if model_called else 0
@@ -966,21 +1114,8 @@ def _execute_chat(
         reply=reply_text,
         sources=[Source(**source) for source in prepared.sources],
         tool_calls=tool_calls,
-        need_human=(
-            output_check["blocked"]
-            or (
-                not prepared.sources
-                and not tool_calls
-                and not tool_candidate
-                and config_contact_answer is None
-            )
-            or tool_failed
-            or retrieval_error is not None
-            or llm_error is not None
-            or input_check.get("need_human", False)
-            or decide_need_human(request.message)
-        ),
-        lead_captured=None,
+        need_human=need_human,
+        lead_captured=lead_decision.captured,
         guardrail=GuardrailResult(**output_check),
         usage=Usage(
             model=generated.model,
@@ -1066,12 +1201,17 @@ def _execute_chat(
     return response_dict
 
 
-def chat_stream(payload: dict, *, chunk_chars: int = DEFAULT_STREAM_CHARS) -> Iterator[dict]:
+def chat_stream(
+    payload: dict,
+    *,
+    chunk_chars: int = DEFAULT_STREAM_CHARS,
+    model_role: Literal["primary", "fallback"] = "primary",
+) -> Iterator[dict]:
     """Yield safe ``delta`` events followed by one ``done`` event with the contract response."""
 
     if not isinstance(chunk_chars, int) or isinstance(chunk_chars, bool) or chunk_chars <= 0:
         raise ValueError("chunk_chars phải là số nguyên dương.")
-    response = _execute_chat(payload, provider_stream=True)
+    response = _execute_chat(payload, provider_stream=True, model_role=model_role)
     reply = response["reply"]
     for start in range(0, len(reply), chunk_chars):
         yield {
@@ -1086,17 +1226,36 @@ stream_chat = chat_stream
 
 
 @overload
-def chat(payload: dict, *, stream: Literal[False] = False) -> dict: ...
+def chat(
+    payload: dict,
+    *,
+    stream: Literal[False] = False,
+    model_role: Literal["primary", "fallback"] = "primary",
+) -> dict: ...
 
 
 @overload
-def chat(payload: dict, *, stream: Literal[True]) -> Iterator[dict]: ...
+def chat(
+    payload: dict,
+    *,
+    stream: Literal[True],
+    model_role: Literal["primary", "fallback"] = "primary",
+) -> Iterator[dict]: ...
 
 
-def chat(payload: dict, *, stream: bool = False) -> dict | Iterator[dict]:
+def chat(
+    payload: dict,
+    *,
+    stream: bool = False,
+    model_role: Literal["primary", "fallback"] = "primary",
+) -> dict | Iterator[dict]:
     """Run one turn synchronously or return a safe streaming event iterator."""
 
-    return chat_stream(payload) if stream else _execute_chat(payload)
+    return (
+        chat_stream(payload, model_role=model_role)
+        if stream
+        else _execute_chat(payload, model_role=model_role)
+    )
 
 
 def chat_for_eval(payload: dict) -> dict:
