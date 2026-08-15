@@ -159,6 +159,12 @@ contact:
   hotline: "0909 035 333"
   zalo: "0902875586"
 
+# HOA-14: đổi số này nếu sau này muốn xin lead ở lượt 4, 5, 6...
+lead:
+  ask_after_turns: 3
+  max_requests: 2
+  no_data_retry_message: "Hiện em chưa có đủ dữ liệu để trả lời chính xác. Anh/chị có thể mô tả rõ hơn nhu cầu để em kiểm tra tiếp không ạ?"
+
 # ============================================================
 # ENABLED TOOLS
 # ============================================================
@@ -176,20 +182,12 @@ enabled_tools:
 # fallback:
 #   Model dự phòng khi model chính không khả dụng hoặc gặp lỗi.
 #
-# Đây là lựa chọn TẠM trước khi hoàn thành HOA-03.
-# HOA-03 sẽ benchmark tối thiểu 2 nhà cung cấp LLM và 2 model
-# embedding trên dữ liệu tiếng Việt thực tế để chốt chính thức.
-#
-# Hiện tại:
-#   primary  -> Gemini
-#   fallback -> OpenAI
-#
-# Sau khi HOA-03 hoàn thành, chỉ cần sửa các giá trị bên dưới,
-# không cần sửa code loader.
+# Cấu hình chốt từ benchmark API thật HOA-03 ngày 14/08/2026:
+# primary ưu tiên retrieval tiếng Việt + latency; fallback khác nhà cung cấp.
 
 model_policy:
   primary: gemini-3.5-flash-lite
-  fallback: gpt-4o-mini
+  fallback: gpt-5.6-luna
   temperature: 0.3
   # Ước tính theo paid list price để so sánh các lần eval, kể cả khi tài khoản
   # đang dùng free tier. Cập nhật tỷ giá/rate tại đây, không hardcode trong Python.
@@ -198,9 +196,9 @@ model_policy:
     - model: gemini-3.5-flash-lite
       input_usd_per_million: 0.30
       output_usd_per_million: 2.50
-    - model: gpt-4o-mini
-      input_usd_per_million: 0.15
-      output_usd_per_million: 0.60
+    - model: gpt-5.6-luna
+      input_usd_per_million: 0.20
+      output_usd_per_million: 1.20
 
 # Embedding phải dùng model chuyên dụng, không dùng model chat ở trên.
 # Index ghi lại model thực tế trong manifest để retriever dùng đúng vector space.

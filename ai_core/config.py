@@ -145,6 +145,22 @@ class ContactConfig(BaseModel):
     zalo: str | None = None
 
 
+class LeadConfig(BaseModel):
+    """Tenant-tunable lead capture policy (HOA-14)."""
+
+    model_config = ConfigDict(extra="forbid")
+
+    ask_after_turns: int = Field(default=3, ge=1)
+    max_requests: int = Field(default=2, ge=1)
+    no_data_retry_message: str = Field(
+        default=(
+            "Hiện em chưa có đủ dữ liệu để trả lời chính xác. "
+            "Anh/chị có thể mô tả rõ hơn nhu cầu để em kiểm tra tiếp không ạ?"
+        ),
+        min_length=1,
+    )
+
+
 class ModelCostConfig(BaseModel):
     """List-price estimate used for comparable eval cost reporting."""
 
@@ -219,6 +235,7 @@ class AgentConfig(BaseModel):
     guardrails: GuardrailsConfig
     pricing: PricingConfig = Field(default_factory=PricingConfig)
     contact: ContactConfig = Field(default_factory=ContactConfig)
+    lead: LeadConfig = Field(default_factory=LeadConfig)
     enabled_tools: list[str] = Field(default_factory=list)
     model_policy: ModelPolicyConfig
     embedding_policy: EmbeddingPolicyConfig

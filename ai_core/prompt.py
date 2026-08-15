@@ -8,7 +8,7 @@ import sys
 from ai_core.config import AgentConfig, load_config
 
 
-PROMPT_VERSION = "hoa-v2-rag-business-data"
+PROMPT_VERSION = "hoa-v3-lead-handoff"
 
 
 def _numbered(items: list[str]) -> str:
@@ -85,6 +85,17 @@ def _build_escalation_block(config: AgentConfig) -> str:
     )
 
 
+def _build_lead_block(config: AgentConfig) -> str:
+    return (
+        "[THU THÔNG TIN LIÊN HỆ]\n"
+        f"- Chỉ bắt đầu xin tên và số điện thoại từ lượt tư vấn thứ {config.lead.ask_after_turns}; "
+        "không xin ngay câu đầu.\n"
+        f"- Chỉ được chủ động xin tối đa {config.lead.max_requests} lần trong một hội thoại.\n"
+        "- Khi khách cung cấp tên và số điện thoại, phải đọc lại thông tin và hỏi xác nhận. "
+        "Chỉ ghi nhận sau khi khách xác nhận là đúng."
+    )
+
+
 def _build_response_block(config: AgentConfig) -> str:
     cta_rule = (
         "- Luôn kết thúc bằng một CTA phù hợp hoặc một câu hỏi mở."
@@ -116,6 +127,7 @@ def build_system_prompt(config: AgentConfig) -> str:
         _build_routing_and_contact_block(config),
         _build_forbidden_block(config),
         _build_escalation_block(config),
+        _build_lead_block(config),
         (
             "[KHI KHÔNG CÓ DỮ LIỆU]\n"
             "- Không suy đoán, bịa thông tin hoặc biến giả định thành sự thật.\n"
