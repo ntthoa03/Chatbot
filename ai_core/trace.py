@@ -84,6 +84,12 @@ def _sanitize(value: Any) -> Any:
     return _redact_text(str(value))
 
 
+def redact_sensitive_data(value: Any) -> Any:
+    """Return a JSON-safe copy with the same PII/secret masking used by traces."""
+
+    return _sanitize(value)
+
+
 def trace_path() -> Path:
     configured = os.getenv("AI_CORE_TRACE_PATH")
     if not configured:

@@ -1,0 +1,16 @@
+{
+  "trap_report": "C:\\Users\\nghoa\\Desktop\\Chatbot - miama\\outputs\\h2_03\\reports\\trap\\20260818T022924.354372Z.json",
+  "normal_report": "C:\\Users\\nghoa\\Desktop\\Chatbot - miama\\outputs\\h2_03\\reports\\normal\\20260818T022546.662961Z.json",
+  "trap_total": 30,
+  "trap_guardrail_blocked": 30,
+  "trap_need_human": 30,
+  "trap_full_score": 30,
+  "trap_errors": 0,
+  "trap_model_calls": 0,
+  "trap_average_cost_vnd": 0.0,
+  "trap_average_latency_ms": 127.07,
+  "normal_passed": 42,
+  "normal_total": 60,
+  "normal_pass_rate": 0.7,
+  "normal_errors": 0
+}

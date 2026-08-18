@@ -24,7 +24,11 @@ from dotenv import load_dotenv
 from ai_core.config import AgentConfig, load_config
 from ai_core.embedder import EmbedderError
 from ai_core.guardrail.input import check_input
-from ai_core.guardrail.output import check_output, redact_output_for_trace
+from ai_core.guardrail.output import (
+    check_forbidden_request,
+    check_output,
+    redact_output_for_trace,
+)
 from ai_core.lead import (
     append_lead_request,
     decide_lead,
@@ -932,6 +936,108 @@ def _execute_chat(
             history=[] if explicit_domain else request.history,
             include_metadata=True,
         )
+        request_policy = check_forbidden_request(request.message, config)
+    if request_policy["blocked"]:
+        timings = timer.snapshot(TRACE_STEPS)
+        response = ChatResponse(
+            reply=request_policy["safe_reply"],
+            need_human=True,
+            guardrail=GuardrailResult(
+                blocked=True,
+                reason=request_policy["reason"],
+            ),
+            usage=Usage(model=config.model_primary, latency_ms=round(timings["total_ms"])),
+            trace_id=trace_id,
+        )
+        response_dict = response.model_dump(mode="json")
+        output_policy = {
+            "blocked": True,
+            "reason": request_policy["reason"],
+        }
+        log_trace(
+            {
+                "schema_version": TRACE_SCHEMA_VERSION,
+                "trace_id": trace_id,
+                "stage": "blocked_output",
+                "prompt_version": PROMPT_VERSION,
+                "tenant_id": request.tenant_id,
+                "conversation_id": str(request.conversation_id),
+                "config_version": request.config_version,
+                "question": request.message,
+                "message": request.message,
+                "retrieval": {"query": None, "chunks": [], "error": None},
+                "sources": [],
+                "tool_calls": [],
+                "tool_execution": [],
+                "prompt": None,
+                "raw_response": None,
+                "guardrail": output_policy,
+                "guardrails": {"input": input_check, "output": output_policy},
+                "request_policy": request_policy,
+                "model": {
+                    "called": False,
+                    "name": config.model_primary,
+                    "tokens_in": 0,
+                    "tokens_out": 0,
+                    "cost_vnd": 0.0,
+                },
+                "usage": response_dict["usage"],
+                "latency_ms": timings,
+                "blocked_output": None,
+                "final_response": response_dict,
+            }
+        )
+        return response_dict
+    if input_check.get("reason") == "customer_upset" and input_check.get("need_human"):
+        timings = timer.snapshot(TRACE_STEPS)
+        output_policy = {"blocked": True, "reason": "customer_upset"}
+        response = ChatResponse(
+            reply=config.guardrails.customer_upset_message,
+            need_human=True,
+            guardrail=GuardrailResult(**output_policy),
+            usage=Usage(model=config.model_primary, latency_ms=round(timings["total_ms"])),
+            trace_id=trace_id,
+        )
+        response_dict = response.model_dump(mode="json")
+        log_trace(
+            {
+                "schema_version": TRACE_SCHEMA_VERSION,
+                "trace_id": trace_id,
+                "stage": "blocked_output",
+                "prompt_version": PROMPT_VERSION,
+                "tenant_id": request.tenant_id,
+                "conversation_id": str(request.conversation_id),
+                "config_version": request.config_version,
+                "question": request.message,
+                "message": request.message,
+                "retrieval": {"query": None, "chunks": [], "error": None},
+                "sources": [],
+                "tool_calls": [],
+                "tool_execution": [],
+                "prompt": None,
+                "raw_response": None,
+                "guardrail": output_policy,
+                "guardrails": {"input": input_check, "output": output_policy},
+                "request_policy": {
+                    "blocked": True,
+                    "reason": "customer_upset",
+                    "variant": "customer_upset",
+                    "safe_reply": config.guardrails.customer_upset_message,
+                },
+                "model": {
+                    "called": False,
+                    "name": config.model_primary,
+                    "tokens_in": 0,
+                    "tokens_out": 0,
+                    "cost_vnd": 0.0,
+                },
+                "usage": response_dict["usage"],
+                "latency_ms": timings,
+                "blocked_output": None,
+                "final_response": response_dict,
+            }
+        )
+        return response_dict
     if input_check["blocked"]:
         timings = timer.snapshot(TRACE_STEPS)
         response = ChatResponse(
@@ -1049,6 +1155,9 @@ def _execute_chat(
 
     tool_calls = list(generated.tool_calls)
     tool_failed = any(not call.result.get("ok", False) for call in tool_calls)
+    tool_requires_human = any(
+        call.result.get("requires_human", False) is True for call in tool_calls
+    )
 
     output_evidence = [
         str(source.get("content", ""))
@@ -1088,6 +1197,7 @@ def _execute_chat(
     need_human = (
         output_check["blocked"]
         or tool_failed
+        or tool_requires_human
         or retrieval_error is not None
         or llm_error is not None
         or input_check.get("need_human", False)

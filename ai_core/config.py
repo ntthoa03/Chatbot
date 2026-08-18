@@ -15,10 +15,24 @@ from pydantic import BaseModel, ConfigDict, Field, ValidationError, field_valida
 
 
 TENANTS_DIR = Path(__file__).resolve().parent.parent / "tenants"
+# Chỉ cho phép tenant ID an toàn trước khi dùng giá trị này để tạo đường dẫn file.
+TENANT_ID_PATTERN = re.compile(r"^[a-z0-9][a-z0-9_-]{0,63}$")
 
 
 class ConfigError(ValueError):
     """Lỗi khi config thiếu trường bắt buộc hoặc sai định dạng."""
+
+
+def validate_tenant_id(tenant_id: object) -> str:
+    """Validate a tenant identifier before it is used in a filesystem path."""
+
+    # Dùng allow-list thay vì chỉ cấm ".." để chặn cả path traversal và ID nhập sai.
+    if not isinstance(tenant_id, str) or not TENANT_ID_PATTERN.fullmatch(tenant_id):
+        raise ConfigError(
+            "tenant_id phải là chuỗi 1-64 ký tự gồm chữ thường, số, '_' hoặc '-', "
+            "bắt đầu bằng chữ/số."
+        )
+    return tenant_id
 
 
 # ============================================================
@@ -44,6 +58,26 @@ class SeoPhrasingExample(BaseModel):
     incorrect: str = Field(min_length=1)
 
 
+class RequestPolicyVariantConfig(BaseModel):
+    """Một biến thể câu hỏi vi phạm và câu trả lời an toàn xác định."""
+
+    model_config = ConfigDict(extra="forbid")
+
+    name: str = Field(min_length=1)
+    patterns: list[str] = Field(min_length=1)
+    safe_reply: str = Field(min_length=1)
+
+    @field_validator("patterns")
+    @classmethod
+    def validate_regexes(cls, values: list[str]) -> list[str]:
+        for value in values:
+            try:
+                re.compile(value)
+            except re.error as exc:
+                raise ValueError(f"regex không hợp lệ '{value}': {exc}") from exc
+        return values
+
+
 class OutputRuleConfig(BaseModel):
     """Một luật chặn đầu ra; pattern chạy trên văn bản viết thường, bỏ dấu."""
 
@@ -54,6 +88,7 @@ class OutputRuleConfig(BaseModel):
     enabled: bool = True
     patterns: list[str] = Field(min_length=1)
     allow_patterns: list[str] = Field(default_factory=list)
+    request_variants: list[RequestPolicyVariantConfig] = Field(default_factory=list)
 
     @field_validator("patterns", "allow_patterns")
     @classmethod
@@ -79,6 +114,7 @@ class GroundingConfig(BaseModel):
     ignore_patterns: list[str] = Field(default_factory=list)
     min_token_overlap: float = Field(default=0.35, ge=0.0, le=1.0)
     min_matching_tokens: int = Field(default=2, ge=1, le=20)
+    request_variants: list[RequestPolicyVariantConfig] = Field(default_factory=list)
 
     @field_validator("claim_patterns", "conversation_claim_patterns", "ignore_patterns")
     @classmethod
@@ -110,8 +146,16 @@ class GuardrailsConfig(BaseModel):
     model_config = ConfigDict(extra="forbid")
 
     refusal_message: str = Field(min_length=1)
+    customer_upset_message: str = Field(
+        default=(
+            "Dạ, em rất tiếc vì trải nghiệm vừa rồi đã khiến anh/chị không hài lòng. "
+            "Em ghi nhận phản ánh này và xin phép chuyển ngay anh/chị đến chuyên viên "
+            "phụ trách để hỗ trợ xử lý khiếu nại ạ."
+        ),
+        min_length=1,
+    )
     escalate_when: list[str] = Field(default_factory=list)
-    seo_phrasing_example: SeoPhrasingExample
+    seo_phrasing_example: SeoPhrasingExample | None = None
     input_model: str | None = Field(default=None, min_length=1)
     # Gemini API enforces a minimum manually configured deadline of 10 seconds.
     input_model_timeout_seconds: float = Field(default=10.0, ge=10.0, le=30.0)
@@ -225,6 +269,27 @@ class RetrievalPolicyConfig(BaseModel):
     relative_score_margin: float = Field(default=0.05, ge=0.0, le=1.0)
 
 
+class KnowledgeConfig(BaseModel):
+    """Tenant-owned local knowledge location.
+
+    Paths are repository-relative so a tenant YAML cannot silently point at an
+    arbitrary absolute directory outside the project.
+    """
+
+    model_config = ConfigDict(extra="forbid")
+
+    local_index_dir: str = Field(default="index", min_length=1)
+
+    @field_validator("local_index_dir")
+    @classmethod
+    def validate_local_index_dir(cls, value: str) -> str:
+        normalized = value.strip().replace("\\", "/")
+        path = Path(normalized)
+        if path.is_absolute() or ".." in path.parts:
+            raise ValueError("phải là đường dẫn tương đối trong project và không chứa '..'")
+        return normalized
+
+
 class AgentConfig(BaseModel):
     model_config = ConfigDict(extra="forbid")
 
@@ -240,6 +305,7 @@ class AgentConfig(BaseModel):
     model_policy: ModelPolicyConfig
     embedding_policy: EmbeddingPolicyConfig
     retrieval_policy: RetrievalPolicyConfig
+    knowledge: KnowledgeConfig = Field(default_factory=KnowledgeConfig)
 
     # --------------------------------------------------------
     # Convenience properties
@@ -270,6 +336,8 @@ class AgentConfig(BaseModel):
 def _load_yaml(tenant_id: str) -> dict:
     """Đọc file YAML của tenant."""
 
+    # Phải kiểm tra trước khi ghép tenant_id vào đường dẫn tenants/{tenant_id}.yaml.
+    tenant_id = validate_tenant_id(tenant_id)
     path = TENANTS_DIR / f"{tenant_id}.yaml"
 
     if not path.exists():

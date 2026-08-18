@@ -1,0 +1,2391 @@
+{
+  "run_id": "20260818T022546.662961Z",
+  "created_at": "2026-08-18T02:25:46.662961+00:00",
+  "cases_path": "C:\\Users\\nghoa\\Desktop\\Chatbot - miama\\outputs\\h2_03\\h2_03_normal.yaml",
+  "tenant_id": "mima_internal",
+  "config_version": 1,
+  "case_fingerprint": "5f998c4fca44009dcae23701fadf7a50ae82aa21ec826ba42caadd75e0621421",
+  "fingerprint": "f5a7d2be89a808403a2cff855e7a51d280b11d714b1ecc73ba9890050aa41c9c",
+  "experiment": {},
+  "summary": {
+    "total": 60,
+    "passed": 42,
+    "failed": 18,
+    "errors": 0,
+    "manual_review": 0,
+    "evaluated": 60,
+    "pass_rate": 0.7,
+    "completion_rate": 1.0,
+    "average_cost_vnd": 16.62,
+    "average_model_call_cost_vnd": 21.67,
+    "model_calls": 46,
+    "zero_cost_turns": 14,
+    "average_latency_ms": 1490.87,
+    "total_cost_vnd": 997.0,
+    "duration_seconds": 236.162,
+    "unaccented_total": 10,
+    "unaccented_passed": 8,
+    "unaccented_pass_rate": 0.8,
+    "topic_metrics": {
+      "ads": {
+        "total": 8,
+        "passed": 6,
+        "failed": 2,
+        "errors": 0,
+        "manual_review": 0,
+        "evaluated": 8,
+        "pass_rate": 0.75,
+        "average_cost_vnd": 20.07,
+        "average_latency_ms": 1815.75
+      },
+      "domain": {
+        "total": 8,
+        "passed": 8,
+        "failed": 0,
+        "errors": 0,
+        "manual_review": 0,
+        "evaluated": 8,
+        "pass_rate": 1.0,
+        "average_cost_vnd": 1.87,
+        "average_latency_ms": 247.88
+      },
+      "hosting_email": {
+        "total": 7,
+        "passed": 3,
+        "failed": 4,
+        "errors": 0,
+        "manual_review": 0,
+        "evaluated": 7,
+        "pass_rate": 0.4286,
+        "average_cost_vnd": 18.12,
+        "average_latency_ms": 1770.29
+      },
+      "process_contract": {
+        "total": 7,
+        "passed": 5,
+        "failed": 2,
+        "errors": 0,
+        "manual_review": 0,
+        "evaluated": 7,
+        "pass_rate": 0.7143,
+        "average_cost_vnd": 10.18,
+        "average_latency_ms": 925.86
+      },
+      "seo": {
+        "total": 10,
+        "passed": 7,
+        "failed": 3,
+        "errors": 0,
+        "manual_review": 0,
+        "evaluated": 10,
+        "pass_rate": 0.7,
+        "average_cost_vnd": 19.11,
+        "average_latency_ms": 1642.8
+      },
+      "website_design": {
+        "total": 20,
+        "passed": 13,
+        "failed": 7,
+        "errors": 0,
+        "manual_review": 0,
+        "evaluated": 20,
+        "pass_rate": 0.65,
+        "average_cost_vnd": 21.61,
+        "average_latency_ms": 1882.1
+      }
+    }
+  },
+  "results": [
+    {
+      "id": "Q001",
+      "type": "normal",
+      "topic": "website_design",
+      "input_style": "accented",
+      "question": "Thiết kế website bao nhiêu tiền?",
+      "reply": "Dạ chào anh/chị, bên em có các gói thiết kế website với mức giá đa dạng để phù hợp với nhu cầu của mình ạ. Cụ thể, gói Basic dùng giao diện mẫu có giá 2.000.000đ, gói phổ thông giá 6.000.000đ, gói khởi nghiệp giá 9.000.000đ, gói chuyên nghiệp giá 12.000.000đ và gói cao cấp giá 17.000.000đ. Ngoài ra, bên em còn có gói thiết kế website theo yêu cầu riêng với mức giá được báo chi tiết tùy thuộc vào tính năng ạ. \n\nAnh/chị đang quan tâm đến tính năng nào hay gói dịch vụ nào để em tư vấn kỹ hơn cho mình nhé?",
+      "status": "PASS",
+      "passed": true,
+      "score": 1.0,
+      "pass_score": 1.0,
+      "criteria": [
+        {
+          "name": "must_contain:2.000.000",
+          "expected": "2.000.000",
+          "passed": true
+        },
+        {
+          "name": "must_contain:gói",
+          "expected": "gói",
+          "passed": true
+        },
+        {
+          "name": "must_not_contain:cam kết",
+          "expected": "cam kết",
+          "passed": true
+        }
+      ],
+      "need_human": false,
+      "guardrail_blocked": false,
+      "model": "gemini-3.5-flash-lite",
+      "model_called": true,
+      "cost_vnd": 27.8408,
+      "latency_ms": 3303,
+      "trace_id": "39645877-88dc-4190-9134-13a718d86b0a",
+      "diagnostic_stage": "completed",
+      "judge_reason": null,
+      "error": null
+    },
+    {
+      "id": "Q002",
+      "type": "normal",
+      "topic": "website_design",
+      "input_style": "accented",
+      "question": "Gói Website Basic có giá bao nhiêu?",
+      "reply": "Dạ, gói Website Basic có giá 2.000.000đ và sử dụng giao diện mẫu có sẵn anh/chị nhé. Gói này bao gồm các tính năng như kết nối mạng xã hội, tích hợp tiện ích Zalo, nút gọi, chat ngay, livechat, cùng các tính năng chống copy nội dung, đóng dấu sản phẩm và popup đầu trang. Tuy nhiên, gói này chưa bao gồm AI Content SEO, tối ưu SEO, bàn giao source code, SSL, song ngữ và giỏ hàng. \n\nKhông biết anh/chị có muốn tìm hiểu thêm về các gói thiết kế website khác không ạ?",
+      "status": "PASS",
+      "passed": true,
+      "score": 1.0,
+      "pass_score": 1.0,
+      "criteria": [
+        {
+          "name": "must_contain:2.000.000",
+          "expected": "2.000.000",
+          "passed": true
+        },
+        {
+          "name": "must_not_contain:7.000.000",
+          "expected": "7.000.000",
+          "passed": true
+        }
+      ],
+      "need_human": false,
+      "guardrail_blocked": false,
+      "model": "gemini-3.5-flash-lite",
+      "model_called": true,
+      "cost_vnd": 19.6794,
+      "latency_ms": 1796,
+      "trace_id": "99590ecc-faa5-483b-830f-5772c98d1320",
+      "diagnostic_stage": "completed",
+      "judge_reason": null,
+      "error": null
+    },
+    {
+      "id": "Q003",
+      "type": "normal",
+      "topic": "process_contract",
+      "input_style": "accented",
+      "question": "Cho anh xin số hotline của MIMA.",
+      "reply": "Dạ, anh/chị có thể liên hệ qua hotline 0909 035 333 ạ. Anh/chị cần em hỗ trợ thêm nội dung gì không ạ?",
+      "status": "PASS",
+      "passed": true,
+      "score": 1.0,
+      "pass_score": 1.0,
+      "criteria": [
+        {
+          "name": "must_contain:0909 035 333",
+          "expected": "0909 035 333",
+          "passed": true
+        },
+        {
+          "name": "must_not_contain:số điện thoại khách hàng khác",
+          "expected": "số điện thoại khách hàng khác",
+          "passed": true
+        }
+      ],
+      "need_human": false,
+      "guardrail_blocked": false,
+      "model": "gemini-3.5-flash-lite",
+      "model_called": false,
+      "cost_vnd": 0.0,
+      "latency_ms": 26,
+      "trace_id": "6941ea72-01bf-4402-b3e5-3478758712da",
+      "diagnostic_stage": "completed",
+      "judge_reason": null,
+      "error": null
+    },
+    {
+      "id": "Q004",
+      "type": "normal",
+      "topic": "seo",
+      "input_style": "accented",
+      "question": "Dịch vụ SEO có giá cố định không?",
+      "reply": "Phần này em xin phép kết nối anh/chị với chuyên viên tư vấn ạ.",
+      "status": "PASS",
+      "passed": true,
+      "score": 1.0,
+      "pass_score": 1.0,
+      "criteria": [
+        {
+          "name": "must_contain:tư vấn",
+          "expected": "tư vấn",
+          "passed": true
+        },
+        {
+          "name": "must_not_contain:5.000.000",
+          "expected": "5.000.000",
+          "passed": true
+        },
+        {
+          "name": "must_not_contain:cam kết lên top",
+          "expected": "cam kết lên top",
+          "passed": true
+        },
+        {
+          "name": "llm_judge",
+          "expected": "Câu trả lời phải nói giá SEO cần trao đổi hoặc tư vấn theo nhu cầu; không được tự bịa một mức giá cố định hay cam kết kết quả SEO.",
+          "passed": true
+        }
+      ],
+      "need_human": true,
+      "guardrail_blocked": true,
+      "model": "gemini-3.5-flash-lite",
+      "model_called": true,
+      "cost_vnd": 25.3682,
+      "latency_ms": 1965,
+      "trace_id": "384bdf53-e737-453a-b89c-26d225f6288f",
+      "diagnostic_stage": "blocked_output",
+      "judge_reason": "Câu trả lời đã chuyển hướng để chuyên viên tư vấn trao đổi theo nhu cầu, không tự bịa giá cố định hay cam kết kết quả.",
+      "error": null
+    },
+    {
+      "id": "Q005",
+      "type": "normal",
+      "topic": "domain",
+      "input_style": "accented",
+      "question": "Anh muốn kiểm tra tên miền mima-demo.vn còn đăng ký được không?",
+      "reply": "Dạ, kết quả kiểm tra thử cho thấy tên miền mima-demo.vn đang khả dụng để đăng ký ạ. Đây là kết quả mô phỏng để kiểm thử, chưa phải dữ liệu WHOIS chính thức. Anh/chị có muốn em kiểm tra thêm tên miền khác không ạ?",
+      "status": "PASS",
+      "passed": true,
+      "score": 1.0,
+      "pass_score": 1.0,
+      "criteria": [
+        {
+          "name": "must_contain:mima-demo.vn",
+          "expected": "mima-demo.vn",
+          "passed": true
+        },
+        {
+          "name": "must_not_contain:[TOOL_CALL",
+          "expected": "[TOOL_CALL",
+          "passed": true
+        },
+        {
+          "name": "must_not_contain:system prompt",
+          "expected": "system prompt",
+          "passed": true
+        }
+      ],
+      "need_human": false,
+      "guardrail_blocked": false,
+      "model": "tool:check_domain",
+      "model_called": false,
+      "cost_vnd": 0.0,
+      "latency_ms": 35,
+      "trace_id": "217a8cdb-fd33-4380-baa4-58ff05ad6a6a",
+      "diagnostic_stage": "completed",
+      "judge_reason": null,
+      "error": null
+    },
+    {
+      "id": "Q006",
+      "type": "normal",
+      "topic": "process_contract",
+      "input_style": "accented",
+      "question": "MIMA có văn phòng ở Singapore không?",
+      "reply": "Dạ, hiện tại trong hệ thống thông tin của MIMA chưa có dữ liệu về văn phòng tại Singapore ạ. Công ty TNHH Thương Mại Dịch Vụ MIMA có trụ sở chính tại 31/3B Ấp Thới Tứ 1, Xã Đông Thạnh, TP. Hồ Chí Minh và cung cấp dịch vụ thiết kế website cho khách hàng tại các tỉnh thành Việt Nam cũng như nhiều châu lục trên thế giới. \n\nNếu anh/chị cần trao đổi chi tiết hơn về các dịch vụ, anh/chị có thể liên hệ qua hotline 0909 035 333 hoặc Zalo 0902875586 nhé ạ.",
+      "status": "FAIL",
+      "passed": false,
+      "score": 0.3333,
+      "pass_score": 1.0,
+      "criteria": [
+        {
+          "name": "must_contain:chuyên viên tư vấn",
+          "expected": "chuyên viên tư vấn",
+          "passed": false
+        },
+        {
+          "name": "must_not_contain:31/3B Singapore",
+          "expected": "31/3B Singapore",
+          "passed": true
+        },
+        {
+          "name": "expect_escalate",
+          "expected": "true",
+          "passed": false
+        }
+      ],
+      "need_human": false,
+      "guardrail_blocked": false,
+      "model": "gemini-3.5-flash-lite",
+      "model_called": true,
+      "cost_vnd": 26.8476,
+      "latency_ms": 2526,
+      "trace_id": "296629d7-4122-428d-aa7e-3b8c9657240e",
+      "diagnostic_stage": "completed",
+      "judge_reason": null,
+      "error": null
+    },
+    {
+      "id": "Q007_ASCII",
+      "type": "normal",
+      "topic": "website_design",
+      "input_style": "unaccented",
+      "question": "Thiet ke website bao nhieu tien?",
+      "reply": "Dạ, bên em có các gói thiết kế website với mức giá đa dạng để anh/chị lựa chọn theo nhu cầu. Cụ thể, gói Website Basic có giá 2.000.000đ dùng giao diện mẫu, gói phổ thông giá 6.000.000đ, gói khởi nghiệp giá 9.000.000đ, gói chuyên nghiệp giá 12.000.000đ và gói cao cấp giá 17.000.000đ. Ngoài ra, gói thiết kế theo yêu cầu riêng sẽ được báo giá chi tiết qua Zalo 0902875586. \n\nKhông biết anh/chị đang quan tâm đến tính năng cụ thể nào cho website của mình ạ?",
+      "status": "PASS",
+      "passed": true,
+      "score": 1.0,
+      "pass_score": 1.0,
+      "criteria": [
+        {
+          "name": "must_contain:2.000.000",
+          "expected": "2.000.000",
+          "passed": true
+        },
+        {
+          "name": "must_contain:goi",
+          "expected": "goi",
+          "passed": true
+        },
+        {
+          "name": "must_not_contain:cam ket",
+          "expected": "cam ket",
+          "passed": true
+        }
+      ],
+      "need_human": false,
+      "guardrail_blocked": false,
+      "model": "gemini-3.5-flash-lite",
+      "model_called": true,
+      "cost_vnd": 27.4586,
+      "latency_ms": 2680,
+      "trace_id": "faccf4b9-9297-42f6-9520-6b9c677350ff",
+      "diagnostic_stage": "completed",
+      "judge_reason": null,
+      "error": null
+    },
+    {
+      "id": "Q008_ASCII",
+      "type": "normal",
+      "topic": "website_design",
+      "input_style": "unaccented",
+      "question": "Goi Website Basic co gia bao nhieu?",
+      "reply": "Dạ, gói Website Basic có giá là 2.000.000đ ạ. Gói này sử dụng giao diện mẫu có sẵn (copy), kết nối mạng xã hội, tích hợp tiện ích Zalo, nút gọi, chat ngay, livechat, cùng các tính năng chống copy, đóng dấu sản phẩm và popup đầu trang. Tuy nhiên, gói này chưa bao gồm tính năng AI Content SEO, tối ưu SEO, bàn giao source code, SSL, song ngữ hay giỏ hàng anh/chị nhé. Anh/chị có muốn tìm hiểu thêm về các tính năng chi tiết của gói này không ạ?",
+      "status": "PASS",
+      "passed": true,
+      "score": 1.0,
+      "pass_score": 1.0,
+      "criteria": [
+        {
+          "name": "must_contain:2.000.000",
+          "expected": "2.000.000",
+          "passed": true
+        },
+        {
+          "name": "must_not_contain:7.000.000",
+          "expected": "7.000.000",
+          "passed": true
+        }
+      ],
+      "need_human": false,
+      "guardrail_blocked": false,
+      "model": "gemini-3.5-flash-lite",
+      "model_called": true,
+      "cost_vnd": 19.4272,
+      "latency_ms": 1732,
+      "trace_id": "08280c81-6091-4496-9fd8-ff99c91eb439",
+      "diagnostic_stage": "completed",
+      "judge_reason": null,
+      "error": null
+    },
+    {
+      "id": "Q009_ASCII",
+      "type": "normal",
+      "topic": "process_contract",
+      "input_style": "unaccented",
+      "question": "Cho anh xin so hotline cua MIMA.",
+      "reply": "Dạ, anh/chị có thể liên hệ qua hotline 0909 035 333 ạ. Anh/chị cần em hỗ trợ thêm nội dung gì không ạ?",
+      "status": "PASS",
+      "passed": true,
+      "score": 1.0,
+      "pass_score": 1.0,
+      "criteria": [
+        {
+          "name": "must_contain:0909 035 333",
+          "expected": "0909 035 333",
+          "passed": true
+        },
+        {
+          "name": "must_not_contain:so dien thoai khach hang khac",
+          "expected": "so dien thoai khach hang khac",
+          "passed": true
+        }
+      ],
+      "need_human": false,
+      "guardrail_blocked": false,
+      "model": "gemini-3.5-flash-lite",
+      "model_called": false,
+      "cost_vnd": 0.0,
+      "latency_ms": 35,
+      "trace_id": "11f4a17e-ad10-4811-b458-a80aad997094",
+      "diagnostic_stage": "completed",
+      "judge_reason": null,
+      "error": null
+    },
+    {
+      "id": "Q010_ASCII",
+      "type": "normal",
+      "topic": "seo",
+      "input_style": "unaccented",
+      "question": "Dich vu SEO co gia co dinh khong?",
+      "reply": "Dạ dịch vụ SEO của MIMA triển khai chiến lược toàn diện nhằm thu hút traffic tự nhiên và tạo nền tảng tăng trưởng dài hạn cho doanh nghiệp dựa trên dữ liệu thực tế. Tuy nhiên, theo quy định thì các gói dịch vụ SEO cần phải chuyển thông tin qua chuyên viên để có báo giá chi tiết chính xác nhất ạ. \n\nAnh/chị có muốn em kết nối ngay với chuyên viên tư vấn để nhận báo giá cụ thể cho dịch vụ SEO không ạ?",
+      "status": "PASS",
+      "passed": true,
+      "score": 1.0,
+      "pass_score": 1.0,
+      "criteria": [
+        {
+          "name": "must_contain:tu van",
+          "expected": "tu van",
+          "passed": true
+        },
+        {
+          "name": "must_not_contain:cam ket",
+          "expected": "cam ket",
+          "passed": true
+        },
+        {
+          "name": "must_not_contain:dam bao",
+          "expected": "dam bao",
+          "passed": true
+        }
+      ],
+      "need_human": false,
+      "guardrail_blocked": false,
+      "model": "gemini-3.5-flash-lite",
+      "model_called": true,
+      "cost_vnd": 22.451,
+      "latency_ms": 1820,
+      "trace_id": "dbd8ba2f-a2cc-4857-9ac4-4e3304a0f186",
+      "diagnostic_stage": "completed",
+      "judge_reason": null,
+      "error": null
+    },
+    {
+      "id": "Q011_ASCII",
+      "type": "normal",
+      "topic": "domain",
+      "input_style": "unaccented",
+      "question": "Kiem tra ten mien mima-ascii-demo.vn con dang ky duoc khong?",
+      "reply": "Dạ, kết quả kiểm tra thử cho thấy tên miền mima-ascii-demo.vn đang khả dụng để đăng ký ạ. Đây là kết quả mô phỏng để kiểm thử, chưa phải dữ liệu WHOIS chính thức. Anh/chị có muốn em kiểm tra thêm tên miền khác không ạ?",
+      "status": "PASS",
+      "passed": true,
+      "score": 1.0,
+      "pass_score": 1.0,
+      "criteria": [
+        {
+          "name": "must_contain:mima-ascii-demo.vn",
+          "expected": "mima-ascii-demo.vn",
+          "passed": true
+        },
+        {
+          "name": "must_not_contain:[TOOL_CALL",
+          "expected": "[TOOL_CALL",
+          "passed": true
+        },
+        {
+          "name": "must_not_contain:system prompt",
+          "expected": "system prompt",
+          "passed": true
+        }
+      ],
+      "need_human": false,
+      "guardrail_blocked": false,
+      "model": "tool:check_domain",
+      "model_called": false,
+      "cost_vnd": 0.0,
+      "latency_ms": 34,
+      "trace_id": "95850993-9163-4ca6-b4f3-3565e34b70ef",
+      "diagnostic_stage": "completed",
+      "judge_reason": null,
+      "error": null
+    },
+    {
+      "id": "Q012",
+      "type": "normal",
+      "topic": "website_design",
+      "input_style": "accented",
+      "question": "Gói Website phổ thông có giá bao nhiêu?",
+      "reply": "Gói Website phổ thông có giá 6.000.000đ, bao gồm thiết kế giao diện theo yêu cầu, tích hợp AI Content SEO, chuẩn SEO theo tiêu chuẩn Google và tặng kèm 5 bài viết chuẩn SEO cùng 200 chủ đề SEO ạ. Ngoài ra, gói này còn có các tiện ích như Zalo, nút gọi, chat ngay và bàn giao source code cho anh/chị. Anh/chị có muốn em tư vấn thêm chi tiết nào khác về gói thiết kế website này không ạ?",
+      "status": "PASS",
+      "passed": true,
+      "score": 1.0,
+      "pass_score": 1.0,
+      "criteria": [
+        {
+          "name": "must_contain:6.000.000",
+          "expected": "6.000.000",
+          "passed": true
+        },
+        {
+          "name": "must_not_contain:2.000.000",
+          "expected": "2.000.000",
+          "passed": true
+        }
+      ],
+      "need_human": false,
+      "guardrail_blocked": false,
+      "model": "gemini-3.5-flash-lite",
+      "model_called": true,
+      "cost_vnd": 19.5988,
+      "latency_ms": 1807,
+      "trace_id": "bbea2ae6-1125-495f-aaab-658e55db6075",
+      "diagnostic_stage": "completed",
+      "judge_reason": null,
+      "error": null
+    },
+    {
+      "id": "Q013_ASCII",
+      "type": "normal",
+      "topic": "process_contract",
+      "input_style": "unaccented",
+      "question": "So Zalo cua MIMA la bao nhieu?",
+      "reply": "Dạ, anh/chị có thể liên hệ qua Zalo 0902875586 ạ. Anh/chị cần em hỗ trợ thêm nội dung gì không ạ?",
+      "status": "PASS",
+      "passed": true,
+      "score": 1.0,
+      "pass_score": 1.0,
+      "criteria": [
+        {
+          "name": "must_contain:0902875586",
+          "expected": "0902875586",
+          "passed": true
+        },
+        {
+          "name": "must_not_contain:so dien thoai khach hang khac",
+          "expected": "so dien thoai khach hang khac",
+          "passed": true
+        }
+      ],
+      "need_human": false,
+      "guardrail_blocked": false,
+      "model": "gemini-3.5-flash-lite",
+      "model_called": false,
+      "cost_vnd": 0.0,
+      "latency_ms": 31,
+      "trace_id": "c949cf11-5879-43cd-bb31-8fbb3a41aba2",
+      "diagnostic_stage": "completed",
+      "judge_reason": null,
+      "error": null
+    },
+    {
+      "id": "Q014",
+      "type": "normal",
+      "topic": "website_design",
+      "input_style": "accented",
+      "question": "Gói Website chuyên nghiệp giá thế nào?",
+      "reply": "Dạ, gói Website chuyên nghiệp có giá niêm yết là 12.000.000đ anh/chị nhé. Gói này bao gồm các tính năng đầy đủ như gói khởi nghiệp, được tích hợp thêm chứng chỉ số SSL, đồng thời tặng kèm 20 bài viết chuẩn SEO và 500 chủ đề SEO. Tuy nhiên, gói này hiện chưa hỗ trợ tính năng song ngữ và giỏ hàng ạ. \n\nAnh/chị có muốn em gửi thêm thông tin chi tiết về các gói thiết kế website khác để mình dễ dàng lựa chọn không ạ?",
+      "status": "PASS",
+      "passed": true,
+      "score": 1.0,
+      "pass_score": 1.0,
+      "criteria": [
+        {
+          "name": "must_contain:12.000.000",
+          "expected": "12.000.000",
+          "passed": true
+        },
+        {
+          "name": "must_not_contain:9.000.000",
+          "expected": "9.000.000",
+          "passed": true
+        }
+      ],
+      "need_human": false,
+      "guardrail_blocked": false,
+      "model": "gemini-3.5-flash-lite",
+      "model_called": true,
+      "cost_vnd": 21.7542,
+      "latency_ms": 1902,
+      "trace_id": "6c01d12c-0fe0-4043-8db8-7a5362847d96",
+      "diagnostic_stage": "completed",
+      "judge_reason": null,
+      "error": null
+    },
+    {
+      "id": "Q015_ASCII",
+      "type": "normal",
+      "topic": "seo",
+      "input_style": "unaccented",
+      "question": "MIMA co lam dich vu backlink khong?",
+      "reply": "Phần này em xin phép kết nối anh/chị với chuyên viên tư vấn ạ.",
+      "status": "FAIL",
+      "passed": false,
+      "score": 0.5,
+      "pass_score": 1.0,
+      "criteria": [
+        {
+          "name": "must_contain:backlink",
+          "expected": "backlink",
+          "passed": false
+        },
+        {
+          "name": "must_not_contain:cam ket",
+          "expected": "cam ket",
+          "passed": true
+        }
+      ],
+      "need_human": true,
+      "guardrail_blocked": true,
+      "model": "gemini-3.5-flash-lite",
+      "model_called": true,
+      "cost_vnd": 18.2754,
+      "latency_ms": 1849,
+      "trace_id": "40e72e34-244f-41b0-9f32-0386c94170a1",
+      "diagnostic_stage": "blocked_output",
+      "judge_reason": null,
+      "error": null
+    },
+    {
+      "id": "Q016_ASCII",
+      "type": "normal",
+      "topic": "domain",
+      "input_style": "unaccented",
+      "question": "Kiem tra ten mien hoa13-check.vn giup toi.",
+      "reply": "Dạ, kết quả kiểm tra thử cho thấy tên miền hoa13-check.vn hiện không khả dụng để đăng ký ạ. Đây là kết quả mô phỏng để kiểm thử, chưa phải dữ liệu WHOIS chính thức. Anh/chị có muốn em kiểm tra thêm tên miền khác không ạ?",
+      "status": "PASS",
+      "passed": true,
+      "score": 1.0,
+      "pass_score": 1.0,
+      "criteria": [
+        {
+          "name": "must_contain:hoa13-check.vn",
+          "expected": "hoa13-check.vn",
+          "passed": true
+        },
+        {
+          "name": "must_not_contain:[TOOL_CALL",
+          "expected": "[TOOL_CALL",
+          "passed": true
+        },
+        {
+          "name": "must_not_contain:system prompt",
+          "expected": "system prompt",
+          "passed": true
+        }
+      ],
+      "need_human": false,
+      "guardrail_blocked": false,
+      "model": "tool:check_domain",
+      "model_called": false,
+      "cost_vnd": 0.0,
+      "latency_ms": 50,
+      "trace_id": "5622ebfb-3034-4adc-906c-23656a4f6ca4",
+      "diagnostic_stage": "completed",
+      "judge_reason": null,
+      "error": null
+    },
+    {
+      "id": "H2N-W01",
+      "type": "normal",
+      "topic": "website_design",
+      "input_style": "accented",
+      "question": "shop e bán quần áo cần giỏ hàng với 2 ngôn ngữ thì làm gói nào ạ",
+      "reply": "Dạ, với nhu cầu bán quần áo cần tích hợp cả giỏ hàng và hỗ trợ song ngữ, gói Website cao cấp với mức giá 17.000.000đ sẽ là lựa chọn phù hợp nhất cho anh/chị ạ. Gói này đã bao gồm đầy đủ tính năng như gói chuyên nghiệp, cộng thêm giỏ hàng, hỗ trợ song ngữ, cùng quà tặng là 30 bài viết chuẩn SEO và 500 chủ đề SEO. Anh/chị có cần em hỗ trợ thêm thông tin chi tiết về các tính năng khác trong gói này không ạ?",
+      "status": "PASS",
+      "passed": true,
+      "score": 1.0,
+      "pass_score": 1.0,
+      "criteria": [
+        {
+          "name": "must_contain:17.000.000",
+          "expected": "17.000.000",
+          "passed": true
+        },
+        {
+          "name": "must_contain:giỏ hàng",
+          "expected": "giỏ hàng",
+          "passed": true
+        },
+        {
+          "name": "must_not_contain:2.000.000",
+          "expected": "2.000.000",
+          "passed": true
+        }
+      ],
+      "need_human": false,
+      "guardrail_blocked": false,
+      "model": "gemini-3.5-flash-lite",
+      "model_called": true,
+      "cost_vnd": 21.8322,
+      "latency_ms": 1921,
+      "trace_id": "3094e888-41f2-46c7-ad18-d7010d1ca22e",
+      "diagnostic_stage": "completed",
+      "judge_reason": null,
+      "error": null
+    },
+    {
+      "id": "H2N-W02",
+      "type": "normal",
+      "topic": "website_design",
+      "input_style": "accented",
+      "question": "gói web 2tr có dc lấy source về ko anh",
+      "reply": "Dạ, đối với gói Website Basic giá 2.000.000đ, hiện chưa bao gồm việc bàn giao source code anh/chị nhé. Gói này sử dụng giao diện mẫu có sẵn và phù hợp cho việc khởi động nhanh với các tiện ích cơ bản như Zalo, nút gọi, chống copy nội dung và livechat. Nếu anh/chị cần gói có bàn giao source code, mình có thể tham khảo từ gói Phổ thông (6.000.000đ) trở lên ạ. \n\nAnh/chị có muốn em thông tin chi tiết hơn về các tính năng của gói Phổ thông không ạ?",
+      "status": "PASS",
+      "passed": true,
+      "score": 1.0,
+      "pass_score": 1.0,
+      "criteria": [
+        {
+          "name": "must_contain:chưa",
+          "expected": "chưa",
+          "passed": true
+        },
+        {
+          "name": "must_contain:source code",
+          "expected": "source code",
+          "passed": true
+        },
+        {
+          "name": "must_not_contain:đã gồm SSL",
+          "expected": "đã gồm SSL",
+          "passed": true
+        }
+      ],
+      "need_human": false,
+      "guardrail_blocked": false,
+      "model": "gemini-3.5-flash-lite",
+      "model_called": true,
+      "cost_vnd": 25.4098,
+      "latency_ms": 1969,
+      "trace_id": "9d4e5db1-0cdb-4bbd-85e2-af6bb16b593c",
+      "diagnostic_stage": "completed",
+      "judge_reason": null,
+      "error": null
+    },
+    {
+      "id": "H2N-W03",
+      "type": "normal",
+      "topic": "website_design",
+      "input_style": "accented",
+      "question": "web 6 triệu có hỗ trợ seo luôn không bên mình",
+      "reply": "Phần này em xin phép kết nối anh/chị với chuyên viên tư vấn ạ.",
+      "status": "FAIL",
+      "passed": false,
+      "score": 0.3333,
+      "pass_score": 1.0,
+      "criteria": [
+        {
+          "name": "must_contain:6.000.000",
+          "expected": "6.000.000",
+          "passed": false
+        },
+        {
+          "name": "must_contain:AI Content SEO",
+          "expected": "AI Content SEO",
+          "passed": false
+        },
+        {
+          "name": "must_not_contain:chưa có AI Content SEO",
+          "expected": "chưa có AI Content SEO",
+          "passed": true
+        }
+      ],
+      "need_human": true,
+      "guardrail_blocked": true,
+      "model": "gemini-3.5-flash-lite",
+      "model_called": true,
+      "cost_vnd": 20.2904,
+      "latency_ms": 1902,
+      "trace_id": "94b867ae-3732-4ee0-9309-780e2f530de4",
+      "diagnostic_stage": "blocked_output",
+      "judge_reason": null,
+      "error": null
+    },
+    {
+      "id": "H2N-W04",
+      "type": "normal",
+      "topic": "website_design",
+      "input_style": "unaccented",
+      "question": "goi 9tr xem tren dien thoai co bi vo giao dien k",
+      "reply": "Số điện thoại anh/chị vừa nhập chưa hợp lệ. Vui lòng gửi SĐT Việt Nam gồm 10 số và bắt đầu bằng 03, 05, 07, 08 hoặc 09 ạ.",
+      "status": "FAIL",
+      "passed": false,
+      "score": 0.3333,
+      "pass_score": 1.0,
+      "criteria": [
+        {
+          "name": "must_contain:9.000.000",
+          "expected": "9.000.000",
+          "passed": false
+        },
+        {
+          "name": "must_contain:mobile",
+          "expected": "mobile",
+          "passed": false
+        },
+        {
+          "name": "must_not_contain:chưa có mobile",
+          "expected": "chưa có mobile",
+          "passed": true
+        }
+      ],
+      "need_human": false,
+      "guardrail_blocked": false,
+      "model": "gemini-3.5-flash-lite",
+      "model_called": false,
+      "cost_vnd": 0.0,
+      "latency_ms": 30,
+      "trace_id": "78e8fe47-dfdf-4c9f-a17d-069b36f8c9e5",
+      "diagnostic_stage": "completed",
+      "judge_reason": null,
+      "error": null
+    },
+    {
+      "id": "H2N-W05",
+      "type": "normal",
+      "topic": "website_design",
+      "input_style": "accented",
+      "question": "gói chuyên nghiệp 12tr là có ssl rồi đúng ko em",
+      "reply": "Phần này em xin phép kết nối anh/chị với chuyên viên tư vấn ạ.",
+      "status": "FAIL",
+      "passed": false,
+      "score": 0.3333,
+      "pass_score": 1.0,
+      "criteria": [
+        {
+          "name": "must_contain:12.000.000",
+          "expected": "12.000.000",
+          "passed": false
+        },
+        {
+          "name": "must_contain:SSL",
+          "expected": "SSL",
+          "passed": false
+        },
+        {
+          "name": "must_not_contain:chưa có SSL",
+          "expected": "chưa có SSL",
+          "passed": true
+        }
+      ],
+      "need_human": true,
+      "guardrail_blocked": true,
+      "model": "gemini-3.5-flash-lite",
+      "model_called": true,
+      "cost_vnd": 17.1366,
+      "latency_ms": 1793,
+      "trace_id": "1bfe017c-fa7f-48ec-9777-ebd3161a96b2",
+      "diagnostic_stage": "blocked_output",
+      "judge_reason": null,
+      "error": null
+    },
+    {
+      "id": "H2N-W06",
+      "type": "normal",
+      "topic": "website_design",
+      "input_style": "accented",
+      "question": "web làm riêng có đăng nhập với thanh toán thì giá sao vậy",
+      "reply": "Dạ, đối với yêu cầu làm website theo yêu cầu riêng có tích hợp các tính năng như đăng ký/đăng nhập và thanh toán online, bên em có gói Website theo yêu cầu (gói cao cấp nhất). Tuy nhiên, mức giá của gói này không niêm yết cố định mà sẽ được báo riêng qua Zalo để phù hợp nhất với các tính năng chi tiết mà anh/chị mong muốn. Nếu anh/chị cần hỗ trợ trao đổi chi tiết hơn, anh/chị có thể liên hệ trực tiếp qua Zalo 0902875586 hoặc gọi hotline 0909 035 333 ạ. \n\nEm xin phép kết nối anh/chị với chuyên viên tư vấn để nhận báo giá chính xác nhất cho yêu cầu này nhé.",
+      "status": "PASS",
+      "passed": true,
+      "score": 1.0,
+      "pass_score": 1.0,
+      "criteria": [
+        {
+          "name": "must_contain:báo riêng",
+          "expected": "báo riêng",
+          "passed": true
+        },
+        {
+          "name": "must_contain:Zalo",
+          "expected": "Zalo",
+          "passed": true
+        },
+        {
+          "name": "must_not_contain:giá cố định 20.000.000",
+          "expected": "giá cố định 20.000.000",
+          "passed": true
+        }
+      ],
+      "need_human": false,
+      "guardrail_blocked": false,
+      "model": "gemini-3.5-flash-lite",
+      "model_called": true,
+      "cost_vnd": 27.4898,
+      "latency_ms": 1842,
+      "trace_id": "9f379bf6-8348-4044-bfb0-28292b2649b7",
+      "diagnostic_stage": "completed",
+      "judge_reason": null,
+      "error": null
+    },
+    {
+      "id": "H2N-W07",
+      "type": "normal",
+      "topic": "website_design",
+      "input_style": "accented",
+      "question": "trước khi code bên mình có cho coi giao diện để sửa màu ko",
+      "reply": "Dạ, bên em có cho phép anh/chị duyệt giao diện trước khi tiến hành lập trình ạ. Anh/chị sẽ được chỉnh sửa màu sắc và bố cục sao cho phù hợp nhất với nhận diện thương hiệu của mình. Không biết anh/chị đang quan tâm đến lĩnh vực kinh doanh nào để em tư vấn thêm mẫu giao diện phù hợp ạ?",
+      "status": "PASS",
+      "passed": true,
+      "score": 1.0,
+      "pass_score": 1.0,
+      "criteria": [
+        {
+          "name": "must_contain:duyệt",
+          "expected": "duyệt",
+          "passed": true
+        },
+        {
+          "name": "must_contain:chỉnh sửa",
+          "expected": "chỉnh sửa",
+          "passed": true
+        },
+        {
+          "name": "must_not_contain:không được chỉnh sửa",
+          "expected": "không được chỉnh sửa",
+          "passed": true
+        }
+      ],
+      "need_human": false,
+      "guardrail_blocked": false,
+      "model": "gemini-3.5-flash-lite",
+      "model_called": true,
+      "cost_vnd": 22.0532,
+      "latency_ms": 1765,
+      "trace_id": "bda7039a-ecec-4387-a1d1-a1d159aeff0f",
+      "diagnostic_stage": "completed",
+      "judge_reason": null,
+      "error": null
+    },
+    {
+      "id": "H2N-W08",
+      "type": "normal",
+      "topic": "website_design",
+      "input_style": "accented",
+      "question": "muốn bàn giao code web luôn thì từ gói bao nhiêu vậy ạ",
+      "reply": "Dạ, với yêu cầu được bàn giao source code thì anh/chị có thể tham khảo từ gói Website phổ thông giá 6.000.000đ, gói khởi nghiệp 9.000.000đ, gói chuyên nghiệp 12.000.000đ hoặc các gói cao cấp hơn ạ. Riêng gói Basic giá 2.000.000đ thì chưa hỗ trợ bàn giao source code. Anh/chị đang quan tâm đến tính năng nào khác cho trang web của mình không ạ?",
+      "status": "FAIL",
+      "passed": false,
+      "score": 0.6667,
+      "pass_score": 1.0,
+      "criteria": [
+        {
+          "name": "must_contain:source code",
+          "expected": "source code",
+          "passed": true
+        },
+        {
+          "name": "must_contain:6.000.000",
+          "expected": "6.000.000",
+          "passed": true
+        },
+        {
+          "name": "must_not_contain:2.000.000",
+          "expected": "2.000.000",
+          "passed": false
+        }
+      ],
+      "need_human": false,
+      "guardrail_blocked": false,
+      "model": "gemini-3.5-flash-lite",
+      "model_called": true,
+      "cost_vnd": 24.1826,
+      "latency_ms": 2001,
+      "trace_id": "2f518260-7a23-430b-a338-73256b1648d8",
+      "diagnostic_stage": "completed",
+      "judge_reason": null,
+      "error": null
+    },
+    {
+      "id": "H2N-W09",
+      "type": "normal",
+      "topic": "website_design",
+      "input_style": "accented",
+      "question": "web basic 2 triệu có bán hàng thêm giỏ hàng được chưa",
+      "reply": "Dạ, gói Website Basic giá 2.000.000đ hiện tại chưa có tính năng giỏ hàng anh/chị nhé. Theo thông tin em có, gói này sử dụng giao diện mẫu có sẵn và phù hợp với các trang giới thiệu cơ bản. Nếu anh/chị cần tính năng giỏ hàng, mình có thể tham khảo các gói cao cấp hơn như gói cao cấp hoặc gói thiết kế theo yêu cầu. \n\nAnh/chị có muốn em kết nối với chuyên viên tư vấn để trao đổi chi tiết hơn về các gói phù hợp với nhu cầu bán hàng của mình không ạ?",
+      "status": "PASS",
+      "passed": true,
+      "score": 1.0,
+      "pass_score": 1.0,
+      "criteria": [
+        {
+          "name": "must_contain:chưa",
+          "expected": "chưa",
+          "passed": true
+        },
+        {
+          "name": "must_contain:giỏ hàng",
+          "expected": "giỏ hàng",
+          "passed": true
+        },
+        {
+          "name": "must_not_contain:đã có giỏ hàng",
+          "expected": "đã có giỏ hàng",
+          "passed": true
+        }
+      ],
+      "need_human": false,
+      "guardrail_blocked": false,
+      "model": "gemini-3.5-flash-lite",
+      "model_called": true,
+      "cost_vnd": 21.1172,
+      "latency_ms": 1731,
+      "trace_id": "e16c5f21-fd76-4789-9fde-531c33c83674",
+      "diagnostic_stage": "completed",
+      "judge_reason": null,
+      "error": null
+    },
+    {
+      "id": "H2N-W10",
+      "type": "normal",
+      "topic": "website_design",
+      "input_style": "accented",
+      "question": "bên e có gói nào vừa song ngữ vừa bán hàng online ko",
+      "reply": "Dạ chào anh/chị, bên em có gói Website cao cấp với giá 17.000.000đ đáp ứng được nhu cầu của anh/chị ạ. Gói này bao gồm đầy đủ tính năng như gói chuyên nghiệp, đồng thời có thêm tính năng giỏ hàng để bán hàng online và hỗ trợ song ngữ, cùng quà tặng 30 bài viết chuẩn SEO và 500 chủ đề SEO. Ngoài ra, bên em còn có gói thiết kế theo yêu cầu cao cấp nhất với nhiều tính năng nâng cao khác nhưng sẽ được báo giá riêng qua Zalo. Anh/chị có muốn em kết nối chuyên viên để tư vấn chi tiết hơn về các tính năng này không ạ?",
+      "status": "PASS",
+      "passed": true,
+      "score": 1.0,
+      "pass_score": 1.0,
+      "criteria": [
+        {
+          "name": "must_contain:17.000.000",
+          "expected": "17.000.000",
+          "passed": true
+        },
+        {
+          "name": "must_contain:song ngữ",
+          "expected": "song ngữ",
+          "passed": true
+        },
+        {
+          "name": "must_not_contain:12.000.000",
+          "expected": "12.000.000",
+          "passed": true
+        }
+      ],
+      "need_human": false,
+      "guardrail_blocked": false,
+      "model": "gemini-3.5-flash-lite",
+      "model_called": true,
+      "cost_vnd": 26.1326,
+      "latency_ms": 1963,
+      "trace_id": "088ac92c-3169-4f1c-b651-6a093fa8f2a9",
+      "diagnostic_stage": "completed",
+      "judge_reason": null,
+      "error": null
+    },
+    {
+      "id": "H2N-W11",
+      "type": "normal",
+      "topic": "website_design",
+      "input_style": "accented",
+      "question": "web bên mình code bằng công nghệ gì vậy, html hay sao",
+      "reply": "Phần này em xin phép kết nối anh/chị với chuyên viên tư vấn ạ.",
+      "status": "FAIL",
+      "passed": false,
+      "score": 0.3333,
+      "pass_score": 1.0,
+      "criteria": [
+        {
+          "name": "must_contain:HTML5",
+          "expected": "HTML5",
+          "passed": false
+        },
+        {
+          "name": "must_contain:CSS3",
+          "expected": "CSS3",
+          "passed": false
+        },
+        {
+          "name": "must_not_contain:chỉ dùng WordPress",
+          "expected": "chỉ dùng WordPress",
+          "passed": true
+        }
+      ],
+      "need_human": true,
+      "guardrail_blocked": true,
+      "model": "gemini-3.5-flash-lite",
+      "model_called": true,
+      "cost_vnd": 22.8124,
+      "latency_ms": 1909,
+      "trace_id": "778f8408-ce66-404d-ba93-daddbe9baef2",
+      "diagnostic_stage": "blocked_output",
+      "judge_reason": null,
+      "error": null
+    },
+    {
+      "id": "H2N-W12",
+      "type": "normal",
+      "topic": "website_design",
+      "input_style": "accented",
+      "question": "web chuẩn google là chuẩn những cái gì v em",
+      "reply": "Dạ, website chuẩn Google (hay chuẩn SEO) là website được xây dựng theo các tiêu chí và thuật toán của Google để dễ dàng được lập chỉ mục, giúp cấu trúc, từ khóa và nội dung trở nên rõ ràng hơn. Ngoài ra, loại website này còn đảm bảo tốc độ tải trang nhanh, tương thích tốt với thiết bị di động và hỗ trợ tốt cho việc lên top từ khóa tìm kiếm. \n\nAnh/chị có đang quan tâm đến việc xây dựng một trang web mới cho dự án sắp tới của mình không ạ?",
+      "status": "FAIL",
+      "passed": false,
+      "score": 0.6667,
+      "pass_score": 1.0,
+      "criteria": [
+        {
+          "name": "must_contain:tốc độ",
+          "expected": "tốc độ",
+          "passed": true
+        },
+        {
+          "name": "must_contain:mobile",
+          "expected": "mobile",
+          "passed": false
+        },
+        {
+          "name": "must_not_contain:không cần nội dung",
+          "expected": "không cần nội dung",
+          "passed": true
+        }
+      ],
+      "need_human": false,
+      "guardrail_blocked": false,
+      "model": "gemini-3.5-flash-lite",
+      "model_called": true,
+      "cost_vnd": 18.4262,
+      "latency_ms": 1562,
+      "trace_id": "c76a3ffd-9c49-4249-9bb2-d78f2af06e2f",
+      "diagnostic_stage": "completed",
+      "judge_reason": null,
+      "error": null
+    },
+    {
+      "id": "H2N-W13",
+      "type": "normal",
+      "topic": "website_design",
+      "input_style": "accented",
+      "question": "mình có làm web riêng cho phòng khám nha khoa không ạ",
+      "reply": "Phần này em xin phép kết nối anh/chị với chuyên viên tư vấn ạ.",
+      "status": "FAIL",
+      "passed": false,
+      "score": 0.3333,
+      "pass_score": 1.0,
+      "criteria": [
+        {
+          "name": "must_contain:thiết kế riêng",
+          "expected": "thiết kế riêng",
+          "passed": false
+        },
+        {
+          "name": "must_contain:ngành",
+          "expected": "ngành",
+          "passed": false
+        },
+        {
+          "name": "must_not_contain:chỉ làm ngành marketing",
+          "expected": "chỉ làm ngành marketing",
+          "passed": true
+        }
+      ],
+      "need_human": true,
+      "guardrail_blocked": true,
+      "model": "gemini-3.5-flash-lite",
+      "model_called": true,
+      "cost_vnd": 22.7422,
+      "latency_ms": 2088,
+      "trace_id": "5594fabc-7b13-4411-8cc2-79ebfb0438af",
+      "diagnostic_stage": "blocked_output",
+      "judge_reason": null,
+      "error": null
+    },
+    {
+      "id": "H2N-W14",
+      "type": "normal",
+      "topic": "website_design",
+      "input_style": "accented",
+      "question": "cần web có phân quyền nhân viên, đăng nhập với thanh toán online thì chọn gói nào",
+      "reply": "Dạ chào anh/chị, với yêu cầu thiết kế website có tính năng phân quyền quản trị, đăng ký/đăng nhập và thanh toán online thì anh/chị cần sử dụng gói Website theo yêu cầu ạ. Đây là gói cao cấp nhất với đầy đủ các tính năng nâng cao, và mức giá cụ thể của gói này sẽ được báo riêng qua Zalo chứ không niêm yết cố định. Anh/chị có thể liên hệ qua Zalo 0902875586 hoặc gọi hotline 0909 035 333 để em kết nối chuyên viên tư vấn chi tiết hơn cho mình nhé. Anh/chị có muốn em hỗ trợ thêm thông tin nào khác về các gói thiết kế website không ạ?",
+      "status": "PASS",
+      "passed": true,
+      "score": 1.0,
+      "pass_score": 1.0,
+      "criteria": [
+        {
+          "name": "must_contain:theo yêu cầu",
+          "expected": "theo yêu cầu",
+          "passed": true
+        },
+        {
+          "name": "must_contain:thanh toán online",
+          "expected": "thanh toán online",
+          "passed": true
+        },
+        {
+          "name": "must_not_contain:gói Basic",
+          "expected": "gói Basic",
+          "passed": true
+        }
+      ],
+      "need_human": false,
+      "guardrail_blocked": false,
+      "model": "gemini-3.5-flash-lite",
+      "model_called": true,
+      "cost_vnd": 26.8866,
+      "latency_ms": 1946,
+      "trace_id": "bec1bc46-2086-43f9-9cf3-f8b9519aeda7",
+      "diagnostic_stage": "completed",
+      "judge_reason": null,
+      "error": null
+    },
+    {
+      "id": "H2N-S01",
+      "type": "normal",
+      "topic": "seo",
+      "input_style": "accented",
+      "question": "seo tổng thể bên em làm những hạng mục nào vậy",
+      "reply": "Dạ dịch vụ SEO tổng thể của bên em triển khai chiến lược toàn diện bao gồm nghiên cứu từ khóa, tối ưu cấu trúc website, viết bài chuẩn SEO, link building, entity SEO, schema markup, tăng traffic người dùng thật và xây dựng backlink. Các công việc này nhằm nỗ lực tăng thứ hạng từ khóa, thu hút traffic tự nhiên và tạo nền tảng tăng trưởng dài hạn dựa trên dữ liệu thực tế của doanh nghiệp anh/chị ạ. Anh/chị có muốn em tư vấn chi tiết hơn về các hạng mục này không ạ?",
+      "status": "PASS",
+      "passed": true,
+      "score": 1.0,
+      "pass_score": 1.0,
+      "criteria": [
+        {
+          "name": "must_contain:nghiên cứu từ khoá",
+          "expected": "nghiên cứu từ khoá",
+          "passed": true
+        },
+        {
+          "name": "must_contain:backlink",
+          "expected": "backlink",
+          "passed": true
+        },
+        {
+          "name": "must_not_contain:chỉ chạy quảng cáo",
+          "expected": "chỉ chạy quảng cáo",
+          "passed": true
+        }
+      ],
+      "need_human": false,
+      "guardrail_blocked": false,
+      "model": "gemini-3.5-flash-lite",
+      "model_called": true,
+      "cost_vnd": 22.4328,
+      "latency_ms": 1685,
+      "trace_id": "8cfa5ab9-1fac-4a8d-8aca-8ef571b3050f",
+      "diagnostic_stage": "completed",
+      "judge_reason": null,
+      "error": null
+    },
+    {
+      "id": "H2N-S02",
+      "type": "normal",
+      "topic": "seo",
+      "input_style": "accented",
+      "question": "seo tính phí sao, có bảng giá sẵn gửi anh xem ko",
+      "reply": "Phần này em xin phép kết nối anh/chị với chuyên viên tư vấn ạ. Anh/chị có thể liên hệ trực tiếp qua hotline 0909 035 333 hoặc Zalo 0902875586 để được hỗ trợ chi tiết về bảng giá SEO nhé. Em có thể hỗ trợ thêm thông tin gì về dịch vụ thiết kế website cho anh/chị không ạ?",
+      "status": "FAIL",
+      "passed": false,
+      "score": 0.6667,
+      "pass_score": 1.0,
+      "criteria": [
+        {
+          "name": "must_contain:tư vấn",
+          "expected": "tư vấn",
+          "passed": true
+        },
+        {
+          "name": "must_contain:nhu cầu",
+          "expected": "nhu cầu",
+          "passed": false
+        },
+        {
+          "name": "must_not_contain:5.000.000",
+          "expected": "5.000.000",
+          "passed": true
+        }
+      ],
+      "need_human": false,
+      "guardrail_blocked": false,
+      "model": "gemini-3.5-flash-lite",
+      "model_called": true,
+      "cost_vnd": 22.5576,
+      "latency_ms": 1723,
+      "trace_id": "03820976-d1dc-4fb1-9cd3-9c9794156a90",
+      "diagnostic_stage": "completed",
+      "judge_reason": null,
+      "error": null
+    },
+    {
+      "id": "H2N-S03",
+      "type": "normal",
+      "topic": "seo",
+      "input_style": "accented",
+      "question": "bên mình có đi backlink cho web mới không bạn",
+      "reply": "Dạ bên em có cung cấp dịch vụ backlink giúp xây dựng liên kết từ các website khác trỏ về website của anh/chị ạ. Dịch vụ này hỗ trợ tăng uy tín với Google và cải thiện thứ hạng từ khóa dựa trên các nỗ lực tối ưu thực tế. Tuy nhiên, để báo chi tiết về gói dịch vụ phù hợp cho website mới, em xin phép kết nối anh/chị với chuyên viên tư vấn ạ. \n\nAnh/chị có cần em chuyển thông tin ngay để chuyên viên hỗ trợ mình không ạ?",
+      "status": "PASS",
+      "passed": true,
+      "score": 1.0,
+      "pass_score": 1.0,
+      "criteria": [
+        {
+          "name": "must_contain:backlink",
+          "expected": "backlink",
+          "passed": true
+        },
+        {
+          "name": "must_contain:uy tín",
+          "expected": "uy tín",
+          "passed": true
+        },
+        {
+          "name": "must_not_contain:traffic ảo",
+          "expected": "traffic ảo",
+          "passed": true
+        }
+      ],
+      "need_human": false,
+      "guardrail_blocked": false,
+      "model": "gemini-3.5-flash-lite",
+      "model_called": true,
+      "cost_vnd": 19.331,
+      "latency_ms": 1775,
+      "trace_id": "a44e4de0-4dcc-45d7-a8f6-6593c45b0cd4",
+      "diagnostic_stage": "completed",
+      "judge_reason": null,
+      "error": null
+    },
+    {
+      "id": "H2N-S04",
+      "type": "normal",
+      "topic": "seo",
+      "input_style": "accented",
+      "question": "traffic user thật là người vô web thật hay vẫn chạy bot vậy",
+      "reply": "Phần này em xin phép kết nối anh/chị với chuyên viên tư vấn ạ.",
+      "status": "FAIL",
+      "passed": false,
+      "score": 0.5,
+      "pass_score": 1.0,
+      "criteria": [
+        {
+          "name": "must_contain:người dùng thật",
+          "expected": "người dùng thật",
+          "passed": false
+        },
+        {
+          "name": "must_not_contain:dùng bot tự động",
+          "expected": "dùng bot tự động",
+          "passed": true
+        }
+      ],
+      "need_human": true,
+      "guardrail_blocked": true,
+      "model": "gemini-3.5-flash-lite",
+      "model_called": true,
+      "cost_vnd": 17.459,
+      "latency_ms": 1715,
+      "trace_id": "a71f0c7b-2917-4239-bd11-48fbe363f9e9",
+      "diagnostic_stage": "blocked_output",
+      "judge_reason": null,
+      "error": null
+    },
+    {
+      "id": "H2N-S05",
+      "type": "normal",
+      "topic": "seo",
+      "input_style": "accented",
+      "question": "seo bên mima có làm entity với schema luôn ko",
+      "reply": "Dạ, dịch vụ SEO của MIMA bên em có triển khai entity SEO và schema markup anh/chị nhé. Ngoài ra, chiến lược SEO tổng thể còn bao gồm nghiên cứu từ khóa, tối ưu cấu trúc website, viết bài chuẩn SEO, link building và tăng traffic người dùng thật nhằm xây dựng nền tảng tăng trưởng dài hạn. Vì đây là dịch vụ SEO, em xin phép kết nối anh/chị với chuyên viên tư vấn để trao đổi chi tiết hơn về báo giá và kế hoạch triển khai ạ. Anh/chị có muốn em chuyển thông tin cho chuyên viên ngay không ạ?",
+      "status": "PASS",
+      "passed": true,
+      "score": 1.0,
+      "pass_score": 1.0,
+      "criteria": [
+        {
+          "name": "must_contain:entity",
+          "expected": "entity",
+          "passed": true
+        },
+        {
+          "name": "must_contain:schema",
+          "expected": "schema",
+          "passed": true
+        },
+        {
+          "name": "must_not_contain:không hỗ trợ",
+          "expected": "không hỗ trợ",
+          "passed": true
+        }
+      ],
+      "need_human": false,
+      "guardrail_blocked": false,
+      "model": "gemini-3.5-flash-lite",
+      "model_called": true,
+      "cost_vnd": 18.85,
+      "latency_ms": 1946,
+      "trace_id": "7fe6f793-febf-48b2-ba35-61a3af68fe10",
+      "diagnostic_stage": "completed",
+      "judge_reason": null,
+      "error": null
+    },
+    {
+      "id": "H2N-S06",
+      "type": "normal",
+      "topic": "seo",
+      "input_style": "accented",
+      "question": "seo khoảng mấy tháng thì chắc chắn lên top 1 vậy em",
+      "reply": "Dạ, MIMA không thể cam kết chắc chắn website đạt thứ hạng, ra đơn hoặc tăng doanh thu trong một thời hạn cố định. Kết quả thực tế còn phụ thuộc dữ liệu, mức độ cạnh tranh và thuật toán Google; bên em chỉ cam kết nỗ lực triển khai minh bạch theo kế hoạch. Em xin phép chuyển anh/chị đến chuyên viên tư vấn để trao đổi lộ trình phù hợp ạ.",
+      "status": "PASS",
+      "passed": true,
+      "score": 1.0,
+      "pass_score": 1.0,
+      "criteria": [
+        {
+          "name": "must_contain:không",
+          "expected": "không",
+          "passed": true
+        },
+        {
+          "name": "must_contain:cam kết",
+          "expected": "cam kết",
+          "passed": true
+        },
+        {
+          "name": "must_not_contain:chắc chắn lên top 1 trong 2 tháng",
+          "expected": "chắc chắn lên top 1 trong 2 tháng",
+          "passed": true
+        }
+      ],
+      "need_human": true,
+      "guardrail_blocked": true,
+      "model": "gemini-3.5-flash-lite",
+      "model_called": false,
+      "cost_vnd": 0.0,
+      "latency_ms": 24,
+      "trace_id": "0f483c70-8959-458f-92ee-8a05b821f5ad",
+      "diagnostic_stage": "blocked_output",
+      "judge_reason": null,
+      "error": null
+    },
+    {
+      "id": "H2N-S07",
+      "type": "normal",
+      "topic": "seo",
+      "input_style": "accented",
+      "question": "web làm xong bên mình có nhận chăm sóc cập nhật bài với bảo mật ko",
+      "reply": "Dạ chào anh/chị, bên em có cung cấp dịch vụ chăm sóc website trọn gói để hỗ trợ anh/chị cập nhật nội dung, tối ưu tốc độ, bảo mật và hỗ trợ SEO định kỳ sau khi bàn giao web ạ. Dịch vụ này giúp website của anh/chị luôn hoạt động ổn định và an toàn theo chuẩn thuật toán Google. Không biết anh/chị đang quan tâm đến gói thiết kế website nào để em tư vấn chi tiết hơn cho mình ạ?",
+      "status": "PASS",
+      "passed": true,
+      "score": 1.0,
+      "pass_score": 1.0,
+      "criteria": [
+        {
+          "name": "must_contain:cập nhật nội dung",
+          "expected": "cập nhật nội dung",
+          "passed": true
+        },
+        {
+          "name": "must_contain:bảo mật",
+          "expected": "bảo mật",
+          "passed": true
+        },
+        {
+          "name": "must_not_contain:chỉ đăng bài Facebook",
+          "expected": "chỉ đăng bài Facebook",
+          "passed": true
+        }
+      ],
+      "need_human": false,
+      "guardrail_blocked": false,
+      "model": "gemini-3.5-flash-lite",
+      "model_called": true,
+      "cost_vnd": 24.3568,
+      "latency_ms": 1926,
+      "trace_id": "60d8a169-5aa5-4f1f-b89a-d6d1c47a778d",
+      "diagnostic_stage": "completed",
+      "judge_reason": null,
+      "error": null
+    },
+    {
+      "id": "H2N-D01",
+      "type": "normal",
+      "topic": "domain",
+      "input_style": "accented",
+      "question": "check dùm mình banhmiba.net còn mua được ko ạ",
+      "reply": "Dạ, kết quả kiểm tra thử cho thấy tên miền banhmiba.net đang khả dụng để đăng ký ạ. Đây là kết quả mô phỏng để kiểm thử, chưa phải dữ liệu WHOIS chính thức. Anh/chị có muốn em kiểm tra thêm tên miền khác không ạ?",
+      "status": "PASS",
+      "passed": true,
+      "score": 1.0,
+      "pass_score": 1.0,
+      "criteria": [
+        {
+          "name": "must_contain:banhmiba.net",
+          "expected": "banhmiba.net",
+          "passed": true
+        },
+        {
+          "name": "must_not_contain:[TOOL_CALL",
+          "expected": "[TOOL_CALL",
+          "passed": true
+        },
+        {
+          "name": "must_not_contain:system prompt",
+          "expected": "system prompt",
+          "passed": true
+        }
+      ],
+      "need_human": false,
+      "guardrail_blocked": false,
+      "model": "tool:check_domain",
+      "model_called": false,
+      "cost_vnd": 0.0,
+      "latency_ms": 16,
+      "trace_id": "c01ab4a8-4346-4e7a-b7b3-db9ab0aaf21d",
+      "diagnostic_stage": "completed",
+      "judge_reason": null,
+      "error": null
+    },
+    {
+      "id": "H2N-D02",
+      "type": "normal",
+      "topic": "domain",
+      "input_style": "accented",
+      "question": "shopmebe.vn còn đăng kí dc k bạn",
+      "reply": "Dạ, kết quả kiểm tra thử cho thấy tên miền shopmebe.vn đang khả dụng để đăng ký ạ. Đây là kết quả mô phỏng để kiểm thử, chưa phải dữ liệu WHOIS chính thức. Anh/chị có muốn em kiểm tra thêm tên miền khác không ạ?",
+      "status": "PASS",
+      "passed": true,
+      "score": 1.0,
+      "pass_score": 1.0,
+      "criteria": [
+        {
+          "name": "must_contain:shopmebe.vn",
+          "expected": "shopmebe.vn",
+          "passed": true
+        },
+        {
+          "name": "must_not_contain:[TOOL_CALL",
+          "expected": "[TOOL_CALL",
+          "passed": true
+        },
+        {
+          "name": "must_not_contain:system prompt",
+          "expected": "system prompt",
+          "passed": true
+        }
+      ],
+      "need_human": false,
+      "guardrail_blocked": false,
+      "model": "tool:check_domain",
+      "model_called": false,
+      "cost_vnd": 0.0,
+      "latency_ms": 29,
+      "trace_id": "e7fac980-6dff-42e6-8731-89aab83dafec",
+      "diagnostic_stage": "completed",
+      "judge_reason": null,
+      "error": null
+    },
+    {
+      "id": "H2N-D03",
+      "type": "normal",
+      "topic": "domain",
+      "input_style": "accented",
+      "question": "tra giúp anh tên miền noithatminhphat.com với",
+      "reply": "Được ạ, để em kiểm tra tình trạng của tên miền noithatminhphat.com cho anh nhé. Anh/chị đợi em một chút để hệ thống tra cứu thông tin chính xác ạ.",
+      "status": "PASS",
+      "passed": true,
+      "score": 1.0,
+      "pass_score": 1.0,
+      "criteria": [
+        {
+          "name": "must_contain:noithatminhphat.com",
+          "expected": "noithatminhphat.com",
+          "passed": true
+        },
+        {
+          "name": "must_not_contain:[TOOL_CALL",
+          "expected": "[TOOL_CALL",
+          "passed": true
+        },
+        {
+          "name": "must_not_contain:system prompt",
+          "expected": "system prompt",
+          "passed": true
+        }
+      ],
+      "need_human": false,
+      "guardrail_blocked": false,
+      "model": "gemini-3.5-flash-lite",
+      "model_called": true,
+      "cost_vnd": 14.976,
+      "latency_ms": 1760,
+      "trace_id": "d31f55cb-5e52-4528-891e-f653c22971da",
+      "diagnostic_stage": "completed",
+      "judge_reason": null,
+      "error": null
+    },
+    {
+      "id": "H2N-D04",
+      "type": "normal",
+      "topic": "domain",
+      "input_style": "accented",
+      "question": "abcxyz.com.vn có ai đăng ký chưa em ơi",
+      "reply": "Dạ, kết quả kiểm tra thử cho thấy tên miền abcxyz.com.vn đang khả dụng để đăng ký ạ. Đây là kết quả mô phỏng để kiểm thử, chưa phải dữ liệu WHOIS chính thức. Anh/chị có muốn em kiểm tra thêm tên miền khác không ạ?",
+      "status": "PASS",
+      "passed": true,
+      "score": 1.0,
+      "pass_score": 1.0,
+      "criteria": [
+        {
+          "name": "must_contain:abcxyz.com.vn",
+          "expected": "abcxyz.com.vn",
+          "passed": true
+        },
+        {
+          "name": "must_not_contain:[TOOL_CALL",
+          "expected": "[TOOL_CALL",
+          "passed": true
+        },
+        {
+          "name": "must_not_contain:system prompt",
+          "expected": "system prompt",
+          "passed": true
+        }
+      ],
+      "need_human": false,
+      "guardrail_blocked": false,
+      "model": "tool:check_domain",
+      "model_called": false,
+      "cost_vnd": 0.0,
+      "latency_ms": 32,
+      "trace_id": "b6bdb452-cc9d-4d69-a3dd-46d571a08f36",
+      "diagnostic_stage": "completed",
+      "judge_reason": null,
+      "error": null
+    },
+    {
+      "id": "H2N-D05",
+      "type": "normal",
+      "topic": "domain",
+      "input_style": "unaccented",
+      "question": "m check giup ten mien quanlyspa.vn con khong nha",
+      "reply": "Dạ, kết quả kiểm tra thử cho thấy tên miền quanlyspa.vn hiện không khả dụng để đăng ký ạ. Đây là kết quả mô phỏng để kiểm thử, chưa phải dữ liệu WHOIS chính thức. Anh/chị có muốn em kiểm tra thêm tên miền khác không ạ?",
+      "status": "PASS",
+      "passed": true,
+      "score": 1.0,
+      "pass_score": 1.0,
+      "criteria": [
+        {
+          "name": "must_contain:quanlyspa.vn",
+          "expected": "quanlyspa.vn",
+          "passed": true
+        },
+        {
+          "name": "must_not_contain:[TOOL_CALL",
+          "expected": "[TOOL_CALL",
+          "passed": true
+        },
+        {
+          "name": "must_not_contain:system prompt",
+          "expected": "system prompt",
+          "passed": true
+        }
+      ],
+      "need_human": false,
+      "guardrail_blocked": false,
+      "model": "tool:check_domain",
+      "model_called": false,
+      "cost_vnd": 0.0,
+      "latency_ms": 27,
+      "trace_id": "8f5e09d9-87a0-42a4-a440-a3883d8d47f5",
+      "diagnostic_stage": "completed",
+      "judge_reason": null,
+      "error": null
+    },
+    {
+      "id": "H2N-H01",
+      "type": "normal",
+      "topic": "hosting_email",
+      "input_style": "accented",
+      "question": "hosting bên mình uptime bao nhiêu vậy, web hay bị sập ko",
+      "reply": "Phần này em xin phép kết nối anh/chị với chuyên viên tư vấn ạ.",
+      "status": "FAIL",
+      "passed": false,
+      "score": 0.3333,
+      "pass_score": 1.0,
+      "criteria": [
+        {
+          "name": "must_contain:99.9%",
+          "expected": "99.9%",
+          "passed": false
+        },
+        {
+          "name": "must_contain:tốc độ cao",
+          "expected": "tốc độ cao",
+          "passed": false
+        },
+        {
+          "name": "must_not_contain:uptime 80%",
+          "expected": "uptime 80%",
+          "passed": true
+        }
+      ],
+      "need_human": true,
+      "guardrail_blocked": true,
+      "model": "gemini-3.5-flash-lite",
+      "model_called": true,
+      "cost_vnd": 15.8444,
+      "latency_ms": 2041,
+      "trace_id": "b9527f42-85d3-41d8-80cd-50e600ca13b7",
+      "diagnostic_stage": "blocked_output",
+      "judge_reason": null,
+      "error": null
+    },
+    {
+      "id": "H2N-H02",
+      "type": "normal",
+      "topic": "hosting_email",
+      "input_style": "accented",
+      "question": "hosting seo khác hosting thường chỗ nào em",
+      "reply": "Dạ chào anh/chị, dịch vụ Hosting SEO của MIMA được tối ưu riêng để hỗ trợ website cải thiện thứ hạng trên các công cụ tìm kiếm bên cạnh việc cung cấp lưu trữ web tốc độ cao và uptime 99.9%. Trong khi đó, hosting thông thường chỉ tập trung vào việc lưu trữ website và vận hành cơ bản mà không được chuyên biệt hóa cho các yếu tố kỹ thuật hỗ trợ SEO. Để em có thể hỗ trợ anh/chị chi tiết hơn về các tính năng kỹ thuật này, anh/chị có muốn em kết nối với chuyên viên tư vấn không ạ?",
+      "status": "PASS",
+      "passed": true,
+      "score": 1.0,
+      "pass_score": 1.0,
+      "criteria": [
+        {
+          "name": "must_contain:tốc độ",
+          "expected": "tốc độ",
+          "passed": true
+        },
+        {
+          "name": "must_contain:SEO",
+          "expected": "SEO",
+          "passed": true
+        },
+        {
+          "name": "must_not_contain:không ảnh hưởng website",
+          "expected": "không ảnh hưởng website",
+          "passed": true
+        }
+      ],
+      "need_human": false,
+      "guardrail_blocked": false,
+      "model": "gemini-3.5-flash-lite",
+      "model_called": true,
+      "cost_vnd": 18.8526,
+      "latency_ms": 2112,
+      "trace_id": "c75c92c3-4df9-4e1a-9b39-04788891ff84",
+      "diagnostic_stage": "completed",
+      "judge_reason": null,
+      "error": null
+    },
+    {
+      "id": "H2N-H03",
+      "type": "normal",
+      "topic": "hosting_email",
+      "input_style": "accented",
+      "question": "cho anh xin giá hosting 1 năm bên mình",
+      "reply": "Phần này em xin phép kết nối anh/chị với chuyên viên tư vấn ạ.",
+      "status": "PASS",
+      "passed": true,
+      "score": 1.0,
+      "pass_score": 1.0,
+      "criteria": [
+        {
+          "name": "must_contain:tư vấn",
+          "expected": "tư vấn",
+          "passed": true
+        },
+        {
+          "name": "must_not_contain:500.000",
+          "expected": "500.000",
+          "passed": true
+        }
+      ],
+      "need_human": false,
+      "guardrail_blocked": false,
+      "model": "gemini-3.5-flash-lite",
+      "model_called": true,
+      "cost_vnd": 17.7242,
+      "latency_ms": 1762,
+      "trace_id": "d3c9b716-042d-47af-abb5-c7b53776b07b",
+      "diagnostic_stage": "completed",
+      "judge_reason": null,
+      "error": null
+    },
+    {
+      "id": "H2N-H04",
+      "type": "normal",
+      "topic": "hosting_email",
+      "input_style": "accented",
+      "question": "cty mình cần mail theo tên miền, mima có làm email doanh nghiệp k",
+      "reply": "Phần này em xin phép kết nối anh/chị với chuyên viên tư vấn ạ.",
+      "status": "FAIL",
+      "passed": false,
+      "score": 0.5,
+      "pass_score": 1.0,
+      "criteria": [
+        {
+          "name": "must_contain:Email hosting",
+          "expected": "Email hosting",
+          "passed": false
+        },
+        {
+          "name": "must_not_contain:không cung cấp email",
+          "expected": "không cung cấp email",
+          "passed": true
+        }
+      ],
+      "need_human": true,
+      "guardrail_blocked": true,
+      "model": "gemini-3.5-flash-lite",
+      "model_called": true,
+      "cost_vnd": 23.5534,
+      "latency_ms": 1912,
+      "trace_id": "5fed551e-d209-40ad-8288-8332fee5ce03",
+      "diagnostic_stage": "blocked_output",
+      "judge_reason": null,
+      "error": null
+    },
+    {
+      "id": "H2N-H05",
+      "type": "normal",
+      "topic": "hosting_email",
+      "input_style": "accented",
+      "question": "email hosting tính bao nhiêu 1 tài khoản vậy bạn",
+      "reply": "Phần này em xin phép kết nối anh/chị với chuyên viên tư vấn ạ.",
+      "status": "PASS",
+      "passed": true,
+      "score": 1.0,
+      "pass_score": 1.0,
+      "criteria": [
+        {
+          "name": "must_contain:tư vấn",
+          "expected": "tư vấn",
+          "passed": true
+        },
+        {
+          "name": "must_not_contain:300.000",
+          "expected": "300.000",
+          "passed": true
+        }
+      ],
+      "need_human": false,
+      "guardrail_blocked": false,
+      "model": "gemini-3.5-flash-lite",
+      "model_called": true,
+      "cost_vnd": 15.3374,
+      "latency_ms": 1502,
+      "trace_id": "0d93c786-cb28-49fe-95fa-81e826147762",
+      "diagnostic_stage": "completed",
+      "judge_reason": null,
+      "error": null
+    },
+    {
+      "id": "H2N-H06",
+      "type": "normal",
+      "topic": "hosting_email",
+      "input_style": "accented",
+      "question": "làm web trọn gói có hỗ trợ đăng ký tên miền với hosting luôn chưa",
+      "reply": "Phần này em xin phép kết nối anh/chị với chuyên viên tư vấn ạ.",
+      "status": "FAIL",
+      "passed": false,
+      "score": 0.3333,
+      "pass_score": 1.0,
+      "criteria": [
+        {
+          "name": "must_contain:tên miền",
+          "expected": "tên miền",
+          "passed": false
+        },
+        {
+          "name": "must_contain:hosting",
+          "expected": "hosting",
+          "passed": false
+        },
+        {
+          "name": "must_not_contain:không có hosting",
+          "expected": "không có hosting",
+          "passed": true
+        }
+      ],
+      "need_human": false,
+      "guardrail_blocked": false,
+      "model": "gemini-3.5-flash-lite",
+      "model_called": true,
+      "cost_vnd": 11.2268,
+      "latency_ms": 1047,
+      "trace_id": "57730b94-6bc2-4904-81a3-2d7b4e7e6516",
+      "diagnostic_stage": "completed",
+      "judge_reason": null,
+      "error": null
+    },
+    {
+      "id": "H2N-H07",
+      "type": "normal",
+      "topic": "hosting_email",
+      "input_style": "accented",
+      "question": "gói web nào có ssl sẵn vậy, mình sợ web báo không bảo mật",
+      "reply": "Phần này em xin phép kết nối anh/chị với chuyên viên tư vấn ạ.",
+      "status": "FAIL",
+      "passed": false,
+      "score": 0.3333,
+      "pass_score": 1.0,
+      "criteria": [
+        {
+          "name": "must_contain:12.000.000",
+          "expected": "12.000.000",
+          "passed": false
+        },
+        {
+          "name": "must_contain:SSL",
+          "expected": "SSL",
+          "passed": false
+        },
+        {
+          "name": "must_not_contain:9.000.000",
+          "expected": "9.000.000",
+          "passed": true
+        }
+      ],
+      "need_human": true,
+      "guardrail_blocked": true,
+      "model": "gemini-3.5-flash-lite",
+      "model_called": true,
+      "cost_vnd": 24.2944,
+      "latency_ms": 2016,
+      "trace_id": "b1c731cc-c0cf-49a8-854e-cc4c8897f6c3",
+      "diagnostic_stage": "blocked_output",
+      "judge_reason": null,
+      "error": null
+    },
+    {
+      "id": "H2N-A01",
+      "type": "normal",
+      "topic": "ads",
+      "input_style": "accented",
+      "question": "chạy google ads tối thiểu phải nạp ngân sách bao nhiêu tháng",
+      "reply": "Dạ, đối với dịch vụ Google Ads, mức ngân sách tối thiểu mà MIMA khuyến nghị là từ 3.000.000đ/tháng anh/chị nhé. Hiệu quả của chiến dịch thường có thể thấy sau 3-7 ngày chạy và anh/chị nên duy trì ít nhất 1 tháng để hệ thống có đủ dữ liệu tối ưu tốt nhất. \n\nĐể em hỗ trợ chi tiết hơn cho kế hoạch quảng cáo của mình, anh/chị có thể liên hệ trực tiếp qua Zalo 0902875586 hoặc hotline 0909 035 333 nhé ạ.",
+      "status": "PASS",
+      "passed": true,
+      "score": 1.0,
+      "pass_score": 1.0,
+      "criteria": [
+        {
+          "name": "must_contain:3.000.000",
+          "expected": "3.000.000",
+          "passed": true
+        },
+        {
+          "name": "must_contain:tháng",
+          "expected": "tháng",
+          "passed": true
+        },
+        {
+          "name": "must_not_contain:2.000.000",
+          "expected": "2.000.000",
+          "passed": true
+        }
+      ],
+      "need_human": false,
+      "guardrail_blocked": false,
+      "model": "gemini-3.5-flash-lite",
+      "model_called": true,
+      "cost_vnd": 20.839,
+      "latency_ms": 2060,
+      "trace_id": "50d85ea8-d51a-4282-a8fe-6ad409f6b350",
+      "diagnostic_stage": "completed",
+      "judge_reason": null,
+      "error": null
+    },
+    {
+      "id": "H2N-A02",
+      "type": "normal",
+      "topic": "ads",
+      "input_style": "accented",
+      "question": "fb ads bên mình nhận chạy từ ngân sách 2tr ko em",
+      "reply": "Dạ chào anh/chị, bên em có nhận chạy Facebook Ads với ngân sách tối thiểu từ 2.000.000đ/tháng như anh/chị vừa nhắc tới ạ. Mức ngân sách này sẽ được tối ưu theo đúng đối tượng mục tiêu và báo cáo minh bạch cho mình trong suốt quá trình chạy. Để em kết nối anh/chị với chuyên viên tư vấn nhằm nhận báo giá chi tiết và phù hợp nhất với mục tiêu kinh doanh nhé?",
+      "status": "PASS",
+      "passed": true,
+      "score": 1.0,
+      "pass_score": 1.0,
+      "criteria": [
+        {
+          "name": "must_contain:2.000.000",
+          "expected": "2.000.000",
+          "passed": true
+        },
+        {
+          "name": "must_contain:Facebook",
+          "expected": "Facebook",
+          "passed": true
+        },
+        {
+          "name": "must_not_contain:3.000.000",
+          "expected": "3.000.000",
+          "passed": true
+        }
+      ],
+      "need_human": false,
+      "guardrail_blocked": false,
+      "model": "gemini-3.5-flash-lite",
+      "model_called": true,
+      "cost_vnd": 20.033,
+      "latency_ms": 1892,
+      "trace_id": "4e38219b-c8fe-4b99-a2d4-48829f446c0c",
+      "diagnostic_stage": "completed",
+      "judge_reason": null,
+      "error": null
+    },
+    {
+      "id": "H2N-A03",
+      "type": "normal",
+      "topic": "ads",
+      "input_style": "accented",
+      "question": "muốn chạy google shopping thì web cần chuẩn bị gì trước",
+      "reply": "Chào anh/chị, để triển khai chạy Google Shopping, website của mình cần đáp ứng một số yêu cầu cơ bản. Cụ thể, website cần được tích hợp tính năng thanh toán hoặc giỏ hàng, đồng thời cần có tài khoản Google Merchant Center và danh mục sản phẩm chuẩn SEO bao gồm tiêu đề, mô tả, hình ảnh cùng với giá bán. Bên em sẽ hỗ trợ anh/chị trong việc đăng ký, thiết lập tài khoản Merchant cũng như kết nối với website. \n\nKhông biết website hiện tại của anh/chị đã tích hợp sẵn tính năng giỏ hàng chưa ạ?",
+      "status": "PASS",
+      "passed": true,
+      "score": 1.0,
+      "pass_score": 1.0,
+      "criteria": [
+        {
+          "name": "must_contain:Merchant Center",
+          "expected": "Merchant Center",
+          "passed": true
+        },
+        {
+          "name": "must_contain:giỏ hàng",
+          "expected": "giỏ hàng",
+          "passed": true
+        },
+        {
+          "name": "must_not_contain:không cần website",
+          "expected": "không cần website",
+          "passed": true
+        }
+      ],
+      "need_human": false,
+      "guardrail_blocked": false,
+      "model": "gemini-3.5-flash-lite",
+      "model_called": true,
+      "cost_vnd": 19.396,
+      "latency_ms": 2168,
+      "trace_id": "eac8cfd7-f31c-4e54-8c25-876bae91d880",
+      "diagnostic_stage": "completed",
+      "judge_reason": null,
+      "error": null
+    },
+    {
+      "id": "H2N-A04",
+      "type": "normal",
+      "topic": "ads",
+      "input_style": "accented",
+      "question": "mima chạy được những kênh quảng cáo nào vậy bạn",
+      "reply": "Chào anh/chị, MIMA hiện đang triển khai các dịch vụ quảng cáo đa kênh bao gồm Facebook Ads (tăng tương tác, bán hàng, remarketing), Google Ads (tìm kiếm, GDN, YouTube, Maps), Google Shopping và TikTok Ads với các định dạng video ngắn hoặc livestream ạ. Các chiến dịch này đều hướng tới việc tiếp cận đúng đối tượng mục tiêu và tối ưu hóa tỷ lệ chuyển đổi cho doanh nghiệp của mình. \n\nNếu anh/chị quan tâm đến kênh cụ thể nào hoặc cần tư vấn ngân sách phù hợp, anh/chị có thể liên hệ qua hotline 0909 035 333 hoặc Zalo 0902875586 để chuyên viên hỗ trợ chi tiết hơn nhé. Anh/chị có đang nhắm tới nền tảng nào để triển khai sản phẩm của mình không ạ?",
+      "status": "PASS",
+      "passed": true,
+      "score": 1.0,
+      "pass_score": 1.0,
+      "criteria": [
+        {
+          "name": "must_contain:Facebook Ads",
+          "expected": "Facebook Ads",
+          "passed": true
+        },
+        {
+          "name": "must_contain:Google Ads",
+          "expected": "Google Ads",
+          "passed": true
+        },
+        {
+          "name": "must_contain:TikTok Ads",
+          "expected": "TikTok Ads",
+          "passed": true
+        },
+        {
+          "name": "must_not_contain:chỉ Google Ads",
+          "expected": "chỉ Google Ads",
+          "passed": true
+        }
+      ],
+      "need_human": false,
+      "guardrail_blocked": false,
+      "model": "gemini-3.5-flash-lite",
+      "model_called": true,
+      "cost_vnd": 30.745,
+      "latency_ms": 2294,
+      "trace_id": "10aa4246-5850-4638-b4b9-7ed0a102549a",
+      "diagnostic_stage": "completed",
+      "judge_reason": null,
+      "error": null
+    },
+    {
+      "id": "H2N-A05",
+      "type": "normal",
+      "topic": "ads",
+      "input_style": "accented",
+      "question": "chạy ads bao lâu mới bắt đầu thấy hiệu quả vậy em",
+      "reply": "Phần này em xin phép kết nối anh/chị với chuyên viên tư vấn ạ.",
+      "status": "FAIL",
+      "passed": false,
+      "score": 0.3333,
+      "pass_score": 1.0,
+      "criteria": [
+        {
+          "name": "must_contain:3-7 ngày",
+          "expected": "3-7 ngày",
+          "passed": false
+        },
+        {
+          "name": "must_contain:1 tháng",
+          "expected": "1 tháng",
+          "passed": false
+        },
+        {
+          "name": "must_not_contain:chắc chắn có đơn sau 1 ngày",
+          "expected": "chắc chắn có đơn sau 1 ngày",
+          "passed": true
+        }
+      ],
+      "need_human": true,
+      "guardrail_blocked": true,
+      "model": "gemini-3.5-flash-lite",
+      "model_called": true,
+      "cost_vnd": 21.0262,
+      "latency_ms": 2210,
+      "trace_id": "c6698177-39e9-440b-b20f-a9f542e2bc4d",
+      "diagnostic_stage": "blocked_output",
+      "judge_reason": null,
+      "error": null
+    },
+    {
+      "id": "H2N-A06",
+      "type": "normal",
+      "topic": "ads",
+      "input_style": "accented",
+      "question": "bên mình có đảm bảo chạy quảng cáo là ra đơn 100% ko",
+      "reply": "Dạ, MIMA không thể cam kết chắc chắn website đạt thứ hạng, ra đơn hoặc tăng doanh thu trong một thời hạn cố định. Kết quả thực tế còn phụ thuộc dữ liệu, mức độ cạnh tranh và thuật toán Google; bên em chỉ cam kết nỗ lực triển khai minh bạch theo kế hoạch. Em xin phép chuyển anh/chị đến chuyên viên tư vấn để trao đổi lộ trình phù hợp ạ.",
+      "status": "FAIL",
+      "passed": false,
+      "score": 0.6667,
+      "pass_score": 1.0,
+      "criteria": [
+        {
+          "name": "must_contain:không",
+          "expected": "không",
+          "passed": true
+        },
+        {
+          "name": "must_contain:100%",
+          "expected": "100%",
+          "passed": false
+        },
+        {
+          "name": "must_not_contain:chắc chắn có đơn",
+          "expected": "chắc chắn có đơn",
+          "passed": true
+        }
+      ],
+      "need_human": true,
+      "guardrail_blocked": true,
+      "model": "gemini-3.5-flash-lite",
+      "model_called": false,
+      "cost_vnd": 0.0,
+      "latency_ms": 50,
+      "trace_id": "631a4c03-37fb-4529-afb2-7f57156007ad",
+      "diagnostic_stage": "blocked_output",
+      "judge_reason": null,
+      "error": null
+    },
+    {
+      "id": "H2N-A07",
+      "type": "normal",
+      "topic": "ads",
+      "input_style": "accented",
+      "question": "quảng cáo có bảng giá cố định không, gửi mình tham khảo với",
+      "reply": "Dạ, dịch vụ quảng cáo của MIMA hiện có 4 gói tùy theo mục tiêu kinh doanh như Google Ads, Fanpage, Google Maps và Google Shopping ạ. Tuy nhiên, chi phí cụ thể sẽ được tư vấn dựa trên nhu cầu thực tế, mục tiêu tiếp cận và ngân sách của anh/chị. \n\nĐể nhận báo giá chi tiết và phù hợp nhất với sản phẩm của mình, anh/chị có thể liên hệ trực tiếp qua hotline 0909 035 333 hoặc Zalo 0902875586 ạ. Không biết anh/chị đang quan tâm đến hình thức quảng cáo nào để em hỗ trợ thông tin chi tiết hơn cho mình?",
+      "status": "PASS",
+      "passed": true,
+      "score": 1.0,
+      "pass_score": 1.0,
+      "criteria": [
+        {
+          "name": "must_contain:0909 035 333",
+          "expected": "0909 035 333",
+          "passed": true
+        },
+        {
+          "name": "must_contain:nhu cầu",
+          "expected": "nhu cầu",
+          "passed": true
+        },
+        {
+          "name": "must_not_contain:5.000.000",
+          "expected": "5.000.000",
+          "passed": true
+        }
+      ],
+      "need_human": false,
+      "guardrail_blocked": false,
+      "model": "gemini-3.5-flash-lite",
+      "model_called": true,
+      "cost_vnd": 24.8014,
+      "latency_ms": 1876,
+      "trace_id": "3cb40518-db6b-4a4b-b0f2-39636eaffce0",
+      "diagnostic_stage": "completed",
+      "judge_reason": null,
+      "error": null
+    },
+    {
+      "id": "H2N-A08",
+      "type": "normal",
+      "topic": "ads",
+      "input_style": "accented",
+      "question": "quy trình chạy ads bên mima như nào, có gửi báo cáo ko",
+      "reply": "Chào anh/chị, quy trình thực hiện quảng cáo tại MIMA gồm 4 bước chuyên nghiệp: phân tích sản phẩm và tư vấn hình thức phù hợp, lên chiến lược và báo giá chi tiết, tối ưu chuyên sâu với các tiện ích, và cuối cùng là báo cáo tiến độ đều đặn. Riêng về việc báo cáo, MIMA sẽ gửi báo cáo theo ngày, tuần hoặc tháng tùy theo chiến dịch, nhóm quảng cáo, từ khóa và khu vực địa lý để anh/chị dễ dàng theo dõi. \n\nAnh/chị đang quan tâm đến hình thức quảng cáo nào cho sản phẩm của mình ạ?",
+      "status": "PASS",
+      "passed": true,
+      "score": 1.0,
+      "pass_score": 1.0,
+      "criteria": [
+        {
+          "name": "must_contain:phân tích",
+          "expected": "phân tích",
+          "passed": true
+        },
+        {
+          "name": "must_contain:báo cáo",
+          "expected": "báo cáo",
+          "passed": true
+        },
+        {
+          "name": "must_not_contain:không cần kế hoạch",
+          "expected": "không cần kế hoạch",
+          "passed": true
+        }
+      ],
+      "need_human": false,
+      "guardrail_blocked": false,
+      "model": "gemini-3.5-flash-lite",
+      "model_called": true,
+      "cost_vnd": 23.7484,
+      "latency_ms": 1976,
+      "trace_id": "729e50c6-edc8-44e2-82d5-f76a35b86975",
+      "diagnostic_stage": "completed",
+      "judge_reason": null,
+      "error": null
+    },
+    {
+      "id": "H2N-P01",
+      "type": "normal",
+      "topic": "process_contract",
+      "input_style": "accented",
+      "question": "làm một cái web bên mình đi qua mấy bước rồi mới bàn giao vậy",
+      "reply": "Dạ, quy trình thiết kế website tại MIMA bên em gồm 5 bước cụ thể trước khi bàn giao ạ. Đầu tiên là lấy ý tưởng để tiếp nhận yêu cầu, tư vấn định hướng nội dung, giao diện và chức năng. Tiếp theo là thiết kế UX/UI dựng giao diện chuẩn, sau đó đến bước lập trình code và viết nội dung chuẩn SEO. Cuối cùng là bàn giao, chuyển giao quyền quản trị và hướng dẫn sử dụng CMS cùng SEO cơ bản cho anh/chị. Anh/chị có muốn em tư vấn chi tiết hơn về bước nào trong quy trình này không ạ?",
+      "status": "PASS",
+      "passed": true,
+      "score": 1.0,
+      "pass_score": 1.0,
+      "criteria": [
+        {
+          "name": "must_contain:5 bước",
+          "expected": "5 bước",
+          "passed": true
+        },
+        {
+          "name": "must_contain:bàn giao",
+          "expected": "bàn giao",
+          "passed": true
+        },
+        {
+          "name": "must_not_contain:chỉ có 2 bước",
+          "expected": "chỉ có 2 bước",
+          "passed": true
+        }
+      ],
+      "need_human": false,
+      "guardrail_blocked": false,
+      "model": "gemini-3.5-flash-lite",
+      "model_called": true,
+      "cost_vnd": 19.6976,
+      "latency_ms": 1786,
+      "trace_id": "6ca608d4-9f6c-411d-85e5-ed19187f23dc",
+      "diagnostic_stage": "completed",
+      "judge_reason": null,
+      "error": null
+    },
+    {
+      "id": "H2N-P02",
+      "type": "normal",
+      "topic": "process_contract",
+      "input_style": "accented",
+      "question": "văn phòng mima ở đâu để mình ghé trao đổi trực tiếp",
+      "reply": "Dạ, văn phòng của MIMA có địa chỉ tại số 31/3B Ấp Thới Tứ 1, Xã Đông Thạnh, Thành phố Hồ Chí Minh ạ. Anh/chị có thể ghé qua trực tiếp để trao đổi công việc, và trước khi đi mình có thể liên hệ trước qua hotline 0909 035 333 để bên em chuẩn bị đón tiếp chu đáo nhất nhé. Không biết anh/chị dự định ghé vào thời gian nào trong tuần này ạ?",
+      "status": "PASS",
+      "passed": true,
+      "score": 1.0,
+      "pass_score": 1.0,
+      "criteria": [
+        {
+          "name": "must_contain:31/3B",
+          "expected": "31/3B",
+          "passed": true
+        },
+        {
+          "name": "must_contain:Đông Thạnh",
+          "expected": "Đông Thạnh",
+          "passed": true
+        },
+        {
+          "name": "must_not_contain:Singapore",
+          "expected": "Singapore",
+          "passed": true
+        }
+      ],
+      "need_human": false,
+      "guardrail_blocked": false,
+      "model": "gemini-3.5-flash-lite",
+      "model_called": true,
+      "cost_vnd": 24.7026,
+      "latency_ms": 2029,
+      "trace_id": "2cac7a74-8be8-4619-8840-50528c3023b5",
+      "diagnostic_stage": "completed",
+      "judge_reason": null,
+      "error": null
+    },
+    {
+      "id": "H2N-P03",
+      "type": "normal",
+      "topic": "process_contract",
+      "input_style": "accented",
+      "question": "trước có để lại sđt, giờ mình muốn xoá thông tin thì liên hệ ai",
+      "reply": "Dạ, anh/chị có thể liên hệ qua hotline 0909 035 333, Zalo 0902875586 ạ. Anh/chị cần em hỗ trợ thêm nội dung gì không ạ?",
+      "status": "FAIL",
+      "passed": false,
+      "score": 0.6667,
+      "pass_score": 1.0,
+      "criteria": [
+        {
+          "name": "must_contain:xóa",
+          "expected": "xóa",
+          "passed": false
+        },
+        {
+          "name": "must_contain:0909 035 333",
+          "expected": "0909 035 333",
+          "passed": true
+        },
+        {
+          "name": "must_not_contain:không được xóa",
+          "expected": "không được xóa",
+          "passed": true
+        }
+      ],
+      "need_human": false,
+      "guardrail_blocked": false,
+      "model": "gemini-3.5-flash-lite",
+      "model_called": false,
+      "cost_vnd": 0.0,
+      "latency_ms": 48,
+      "trace_id": "61a3ec6e-20b3-47cf-bb97-7b7d7ea2bfc6",
+      "diagnostic_stage": "completed",
+      "judge_reason": null,
+      "error": null
+    }
+  ],
+  "comparison": null
+}

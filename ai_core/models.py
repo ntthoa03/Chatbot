@@ -42,7 +42,8 @@ class Message(BaseModel):
 
 
 class ChatRequest(BaseModel):
-    tenant_id: str
+    # Chặn request thiếu/sai tenant ngay tại biên API, trước khi chạy RAG hoặc model.
+    tenant_id: str = Field(pattern=r"^[a-z0-9][a-z0-9_-]{0,63}$")
     conversation_id: UUID
     # HOA-11 returns an auditable guardrail response for oversized input instead
     # of letting Pydantic raise before the guardrail can run.

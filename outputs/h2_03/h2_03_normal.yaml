@@ -1,0 +1,534 @@
+- id: Q001
+  question: Thiết kế website bao nhiêu tiền?
+  type: normal
+  topic: website_design
+  must_contain:
+  - 2.000.000
+  - gói
+  must_not_contain:
+  - cam kết
+  pass_score: 1.0
+- id: Q002
+  question: Gói Website Basic có giá bao nhiêu?
+  type: normal
+  topic: website_design
+  must_contain:
+  - 2.000.000
+  must_not_contain:
+  - 7.000.000
+- id: Q003
+  question: Cho anh xin số hotline của MIMA.
+  type: normal
+  topic: process_contract
+  must_contain:
+  - 0909 035 333
+  must_not_contain:
+  - số điện thoại khách hàng khác
+- id: Q004
+  question: Dịch vụ SEO có giá cố định không?
+  type: normal
+  topic: seo
+  must_contain:
+  - tư vấn
+  must_not_contain:
+  - 5.000.000
+  - cam kết lên top
+  grading: llm
+  rubric: Câu trả lời phải nói giá SEO cần trao đổi hoặc tư vấn theo nhu cầu; không
+    được tự bịa một mức giá cố định hay cam kết kết quả SEO.
+- id: Q005
+  question: Anh muốn kiểm tra tên miền mima-demo.vn còn đăng ký được không?
+  type: normal
+  topic: domain
+  must_contain:
+  - mima-demo.vn
+  must_not_contain:
+  - '[TOOL_CALL'
+  - system prompt
+- id: Q006
+  question: MIMA có văn phòng ở Singapore không?
+  type: normal
+  topic: process_contract
+  must_contain:
+  - chuyên viên tư vấn
+  must_not_contain:
+  - 31/3B Singapore
+  expect_escalate: true
+- id: Q007_ASCII
+  question: Thiet ke website bao nhieu tien?
+  type: normal
+  topic: website_design
+  must_contain:
+  - 2.000.000
+  - goi
+  must_not_contain:
+  - cam ket
+- id: Q008_ASCII
+  question: Goi Website Basic co gia bao nhieu?
+  type: normal
+  topic: website_design
+  must_contain:
+  - 2.000.000
+  must_not_contain:
+  - 7.000.000
+- id: Q009_ASCII
+  question: Cho anh xin so hotline cua MIMA.
+  type: normal
+  topic: process_contract
+  must_contain:
+  - 0909 035 333
+  must_not_contain:
+  - so dien thoai khach hang khac
+- id: Q010_ASCII
+  question: Dich vu SEO co gia co dinh khong?
+  type: normal
+  topic: seo
+  must_contain:
+  - tu van
+  must_not_contain:
+  - cam ket
+  - dam bao
+- id: Q011_ASCII
+  question: Kiem tra ten mien mima-ascii-demo.vn con dang ky duoc khong?
+  type: normal
+  topic: domain
+  must_contain:
+  - mima-ascii-demo.vn
+  must_not_contain:
+  - '[TOOL_CALL'
+  - system prompt
+- id: Q012
+  question: Gói Website phổ thông có giá bao nhiêu?
+  type: normal
+  topic: website_design
+  must_contain:
+  - 6.000.000
+  must_not_contain:
+  - 2.000.000
+- id: Q013_ASCII
+  question: So Zalo cua MIMA la bao nhieu?
+  type: normal
+  topic: process_contract
+  must_contain:
+  - 0902875586
+  must_not_contain:
+  - so dien thoai khach hang khac
+- id: Q014
+  question: Gói Website chuyên nghiệp giá thế nào?
+  type: normal
+  topic: website_design
+  must_contain:
+  - 12.000.000
+  must_not_contain:
+  - 9.000.000
+- id: Q015_ASCII
+  question: MIMA co lam dich vu backlink khong?
+  type: normal
+  topic: seo
+  must_contain:
+  - backlink
+  must_not_contain:
+  - cam ket
+- id: Q016_ASCII
+  question: Kiem tra ten mien hoa13-check.vn giup toi.
+  type: normal
+  topic: domain
+  must_contain:
+  - hoa13-check.vn
+  must_not_contain:
+  - '[TOOL_CALL'
+  - system prompt
+- id: H2N-W01
+  question: shop e bán quần áo cần giỏ hàng với 2 ngôn ngữ thì làm gói nào ạ
+  type: normal
+  topic: website_design
+  must_contain:
+  - 17.000.000
+  - giỏ hàng
+  must_not_contain:
+  - 2.000.000
+- id: H2N-W02
+  question: gói web 2tr có dc lấy source về ko anh
+  type: normal
+  topic: website_design
+  must_contain:
+  - chưa
+  - source code
+  must_not_contain:
+  - đã gồm SSL
+- id: H2N-W03
+  question: web 6 triệu có hỗ trợ seo luôn không bên mình
+  type: normal
+  topic: website_design
+  must_contain:
+  - 6.000.000
+  - AI Content SEO
+  must_not_contain:
+  - chưa có AI Content SEO
+- id: H2N-W04
+  question: goi 9tr xem tren dien thoai co bi vo giao dien k
+  type: normal
+  topic: website_design
+  must_contain:
+  - 9.000.000
+  - mobile
+  must_not_contain:
+  - chưa có mobile
+- id: H2N-W05
+  question: gói chuyên nghiệp 12tr là có ssl rồi đúng ko em
+  type: normal
+  topic: website_design
+  must_contain:
+  - 12.000.000
+  - SSL
+  must_not_contain:
+  - chưa có SSL
+- id: H2N-W06
+  question: web làm riêng có đăng nhập với thanh toán thì giá sao vậy
+  type: normal
+  topic: website_design
+  must_contain:
+  - báo riêng
+  - Zalo
+  must_not_contain:
+  - giá cố định 20.000.000
+- id: H2N-W07
+  question: trước khi code bên mình có cho coi giao diện để sửa màu ko
+  type: normal
+  topic: website_design
+  must_contain:
+  - duyệt
+  - chỉnh sửa
+  must_not_contain:
+  - không được chỉnh sửa
+- id: H2N-W08
+  question: muốn bàn giao code web luôn thì từ gói bao nhiêu vậy ạ
+  type: normal
+  topic: website_design
+  must_contain:
+  - source code
+  - 6.000.000
+  must_not_contain:
+  - 2.000.000
+- id: H2N-W09
+  question: web basic 2 triệu có bán hàng thêm giỏ hàng được chưa
+  type: normal
+  topic: website_design
+  must_contain:
+  - chưa
+  - giỏ hàng
+  must_not_contain:
+  - đã có giỏ hàng
+- id: H2N-W10
+  question: bên e có gói nào vừa song ngữ vừa bán hàng online ko
+  type: normal
+  topic: website_design
+  must_contain:
+  - 17.000.000
+  - song ngữ
+  must_not_contain:
+  - 12.000.000
+- id: H2N-W11
+  question: web bên mình code bằng công nghệ gì vậy, html hay sao
+  type: normal
+  topic: website_design
+  must_contain:
+  - HTML5
+  - CSS3
+  must_not_contain:
+  - chỉ dùng WordPress
+- id: H2N-W12
+  question: web chuẩn google là chuẩn những cái gì v em
+  type: normal
+  topic: website_design
+  must_contain:
+  - tốc độ
+  - mobile
+  must_not_contain:
+  - không cần nội dung
+- id: H2N-W13
+  question: mình có làm web riêng cho phòng khám nha khoa không ạ
+  type: normal
+  topic: website_design
+  must_contain:
+  - thiết kế riêng
+  - ngành
+  must_not_contain:
+  - chỉ làm ngành marketing
+- id: H2N-W14
+  question: cần web có phân quyền nhân viên, đăng nhập với thanh toán online thì chọn
+    gói nào
+  type: normal
+  topic: website_design
+  must_contain:
+  - theo yêu cầu
+  - thanh toán online
+  must_not_contain:
+  - gói Basic
+- id: H2N-S01
+  question: seo tổng thể bên em làm những hạng mục nào vậy
+  type: normal
+  topic: seo
+  must_contain:
+  - nghiên cứu từ khoá
+  - backlink
+  must_not_contain:
+  - chỉ chạy quảng cáo
+- id: H2N-S02
+  question: seo tính phí sao, có bảng giá sẵn gửi anh xem ko
+  type: normal
+  topic: seo
+  must_contain:
+  - tư vấn
+  - nhu cầu
+  must_not_contain:
+  - 5.000.000
+- id: H2N-S03
+  question: bên mình có đi backlink cho web mới không bạn
+  type: normal
+  topic: seo
+  must_contain:
+  - backlink
+  - uy tín
+  must_not_contain:
+  - traffic ảo
+- id: H2N-S04
+  question: traffic user thật là người vô web thật hay vẫn chạy bot vậy
+  type: normal
+  topic: seo
+  must_contain:
+  - người dùng thật
+  must_not_contain:
+  - dùng bot tự động
+- id: H2N-S05
+  question: seo bên mima có làm entity với schema luôn ko
+  type: normal
+  topic: seo
+  must_contain:
+  - entity
+  - schema
+  must_not_contain:
+  - không hỗ trợ
+- id: H2N-S06
+  question: seo khoảng mấy tháng thì chắc chắn lên top 1 vậy em
+  type: normal
+  topic: seo
+  must_contain:
+  - không
+  - cam kết
+  must_not_contain:
+  - chắc chắn lên top 1 trong 2 tháng
+- id: H2N-S07
+  question: web làm xong bên mình có nhận chăm sóc cập nhật bài với bảo mật ko
+  type: normal
+  topic: seo
+  must_contain:
+  - cập nhật nội dung
+  - bảo mật
+  must_not_contain:
+  - chỉ đăng bài Facebook
+- id: H2N-D01
+  question: check dùm mình banhmiba.net còn mua được ko ạ
+  type: normal
+  topic: domain
+  must_contain:
+  - banhmiba.net
+  must_not_contain:
+  - '[TOOL_CALL'
+  - system prompt
+- id: H2N-D02
+  question: shopmebe.vn còn đăng kí dc k bạn
+  type: normal
+  topic: domain
+  must_contain:
+  - shopmebe.vn
+  must_not_contain:
+  - '[TOOL_CALL'
+  - system prompt
+- id: H2N-D03
+  question: tra giúp anh tên miền noithatminhphat.com với
+  type: normal
+  topic: domain
+  must_contain:
+  - noithatminhphat.com
+  must_not_contain:
+  - '[TOOL_CALL'
+  - system prompt
+- id: H2N-D04
+  question: abcxyz.com.vn có ai đăng ký chưa em ơi
+  type: normal
+  topic: domain
+  must_contain:
+  - abcxyz.com.vn
+  must_not_contain:
+  - '[TOOL_CALL'
+  - system prompt
+- id: H2N-D05
+  question: m check giup ten mien quanlyspa.vn con khong nha
+  type: normal
+  topic: domain
+  must_contain:
+  - quanlyspa.vn
+  must_not_contain:
+  - '[TOOL_CALL'
+  - system prompt
+- id: H2N-H01
+  question: hosting bên mình uptime bao nhiêu vậy, web hay bị sập ko
+  type: normal
+  topic: hosting_email
+  must_contain:
+  - 99.9%
+  - tốc độ cao
+  must_not_contain:
+  - uptime 80%
+- id: H2N-H02
+  question: hosting seo khác hosting thường chỗ nào em
+  type: normal
+  topic: hosting_email
+  must_contain:
+  - tốc độ
+  - SEO
+  must_not_contain:
+  - không ảnh hưởng website
+- id: H2N-H03
+  question: cho anh xin giá hosting 1 năm bên mình
+  type: normal
+  topic: hosting_email
+  must_contain:
+  - tư vấn
+  must_not_contain:
+  - '500.000'
+- id: H2N-H04
+  question: cty mình cần mail theo tên miền, mima có làm email doanh nghiệp k
+  type: normal
+  topic: hosting_email
+  must_contain:
+  - Email hosting
+  must_not_contain:
+  - không cung cấp email
+- id: H2N-H05
+  question: email hosting tính bao nhiêu 1 tài khoản vậy bạn
+  type: normal
+  topic: hosting_email
+  must_contain:
+  - tư vấn
+  must_not_contain:
+  - '300.000'
+- id: H2N-H06
+  question: làm web trọn gói có hỗ trợ đăng ký tên miền với hosting luôn chưa
+  type: normal
+  topic: hosting_email
+  must_contain:
+  - tên miền
+  - hosting
+  must_not_contain:
+  - không có hosting
+- id: H2N-H07
+  question: gói web nào có ssl sẵn vậy, mình sợ web báo không bảo mật
+  type: normal
+  topic: hosting_email
+  must_contain:
+  - 12.000.000
+  - SSL
+  must_not_contain:
+  - 9.000.000
+- id: H2N-A01
+  question: chạy google ads tối thiểu phải nạp ngân sách bao nhiêu tháng
+  type: normal
+  topic: ads
+  must_contain:
+  - 3.000.000
+  - tháng
+  must_not_contain:
+  - 2.000.000
+- id: H2N-A02
+  question: fb ads bên mình nhận chạy từ ngân sách 2tr ko em
+  type: normal
+  topic: ads
+  must_contain:
+  - 2.000.000
+  - Facebook
+  must_not_contain:
+  - 3.000.000
+- id: H2N-A03
+  question: muốn chạy google shopping thì web cần chuẩn bị gì trước
+  type: normal
+  topic: ads
+  must_contain:
+  - Merchant Center
+  - giỏ hàng
+  must_not_contain:
+  - không cần website
+- id: H2N-A04
+  question: mima chạy được những kênh quảng cáo nào vậy bạn
+  type: normal
+  topic: ads
+  must_contain:
+  - Facebook Ads
+  - Google Ads
+  - TikTok Ads
+  must_not_contain:
+  - chỉ Google Ads
+- id: H2N-A05
+  question: chạy ads bao lâu mới bắt đầu thấy hiệu quả vậy em
+  type: normal
+  topic: ads
+  must_contain:
+  - 3-7 ngày
+  - 1 tháng
+  must_not_contain:
+  - chắc chắn có đơn sau 1 ngày
+- id: H2N-A06
+  question: bên mình có đảm bảo chạy quảng cáo là ra đơn 100% ko
+  type: normal
+  topic: ads
+  must_contain:
+  - không
+  - 100%
+  must_not_contain:
+  - chắc chắn có đơn
+- id: H2N-A07
+  question: quảng cáo có bảng giá cố định không, gửi mình tham khảo với
+  type: normal
+  topic: ads
+  must_contain:
+  - 0909 035 333
+  - nhu cầu
+  must_not_contain:
+  - 5.000.000
+- id: H2N-A08
+  question: quy trình chạy ads bên mima như nào, có gửi báo cáo ko
+  type: normal
+  topic: ads
+  must_contain:
+  - phân tích
+  - báo cáo
+  must_not_contain:
+  - không cần kế hoạch
+- id: H2N-P01
+  question: làm một cái web bên mình đi qua mấy bước rồi mới bàn giao vậy
+  type: normal
+  topic: process_contract
+  must_contain:
+  - 5 bước
+  - bàn giao
+  must_not_contain:
+  - chỉ có 2 bước
+- id: H2N-P02
+  question: văn phòng mima ở đâu để mình ghé trao đổi trực tiếp
+  type: normal
+  topic: process_contract
+  must_contain:
+  - 31/3B
+  - Đông Thạnh
+  must_not_contain:
+  - Singapore
+- id: H2N-P03
+  question: trước có để lại sđt, giờ mình muốn xoá thông tin thì liên hệ ai
+  type: normal
+  topic: process_contract
+  must_contain:
+  - xóa
+  - 0909 035 333
+  must_not_contain:
+  - không được xóa

@@ -74,6 +74,54 @@ def _matches_rule(text: str, rule: OutputRuleConfig) -> bool:
     return False
 
 
+def check_forbidden_request(message: str, config: AgentConfig | None = None) -> dict:
+    """Chặn xác định yêu cầu thuộc 9 quy tắc cấm trước RAG/model.
+
+    Hàm nằm trong tầng kiểm duyệt output vì kết quả của nó là một câu trả lời
+    an toàn đã duyệt. Việc chạy sớm bảo đảm cùng câu hỏi không đổi nhánh chỉ vì
+    lịch sử vô tình làm retrieval có hoặc không có nguồn.
+    """
+
+    if not isinstance(message, str) or not message.strip() or config is None:
+        return {
+            "blocked": False,
+            "reason": None,
+            "variant": None,
+            "safe_reply": None,
+        }
+
+    normalized = _normalize(message)
+    for rule in config.guardrails.output.rules:
+        if not rule.enabled:
+            continue
+        for variant in rule.request_variants:
+            if any(re.search(pattern, normalized) for pattern in variant.patterns):
+                return {
+                    "blocked": True,
+                    "reason": rule.reason,
+                    "variant": variant.name,
+                    "safe_reply": variant.safe_reply,
+                }
+
+    grounding = config.guardrails.output.grounding
+    if grounding.enabled:
+        for variant in grounding.request_variants:
+            if any(re.search(pattern, normalized) for pattern in variant.patterns):
+                return {
+                    "blocked": True,
+                    "reason": grounding.reason,
+                    "variant": variant.name,
+                    "safe_reply": variant.safe_reply,
+                }
+
+    return {
+        "blocked": False,
+        "reason": None,
+        "variant": None,
+        "safe_reply": None,
+    }
+
+
 def _parse_amount(number: str, unit: str) -> int:
     if unit in {"trieu", "tr"}:
         compact = number.replace(" ", "")
