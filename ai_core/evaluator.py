@@ -62,6 +62,7 @@ class EvalCase(_FrozenEvalModel):
     id: str
     question: str
     type: CaseType
+    topic: str = "unclassified"
     must_contain: tuple[str, ...] = ()
     must_contain_any: tuple[str, ...] = ()
     must_not_contain: tuple[str, ...] = ()
@@ -97,6 +98,7 @@ class CriterionResult(_FrozenEvalModel):
 class CaseResult(_FrozenEvalModel):
     id: str
     type: CaseType
+    topic: str
     input_style: Literal["accented", "unaccented"]
     question: str
     reply: str
@@ -121,6 +123,18 @@ class CaseResult(_FrozenEvalModel):
         return "; ".join(item.name for item in self.criteria if not item.passed)
 
 
+class TopicSummary(_FrozenEvalModel):
+    total: int = Field(ge=0)
+    passed: int = Field(ge=0)
+    failed: int = Field(ge=0)
+    errors: int = Field(ge=0)
+    manual_review: int = Field(ge=0)
+    evaluated: int = Field(ge=0)
+    pass_rate: float = Field(ge=0.0, le=1.0)
+    average_cost_vnd: float = Field(ge=0.0)
+    average_latency_ms: float = Field(ge=0.0)
+
+
 class EvalSummary(_FrozenEvalModel):
     total: int = Field(ge=0)
     passed: int = Field(ge=0)
@@ -140,6 +154,7 @@ class EvalSummary(_FrozenEvalModel):
     unaccented_total: int = Field(ge=0)
     unaccented_passed: int = Field(ge=0)
     unaccented_pass_rate: float = Field(ge=0.0, le=1.0)
+    topic_metrics: dict[str, TopicSummary] = Field(default_factory=dict)
 
 
 class EvalReport(_FrozenEvalModel):
@@ -180,7 +195,7 @@ def load_cases(path: str | Path) -> list[EvalCase]:
     cases: list[EvalCase] = []
     seen: set[str] = set()
     allowed = {
-        "id", "question", "type", "must_contain", "must_contain_any", "must_not_contain",
+        "id", "question", "type", "topic", "must_contain", "must_contain_any", "must_not_contain",
         "expected_answer", "expect_escalate", "pass_score", "grading",
         "rubric", "manual_review_required",
     }
@@ -193,6 +208,7 @@ def load_cases(path: str | Path) -> list[EvalCase]:
         case_id = str(item.get("id", "")).strip()
         question = str(item.get("question", "")).strip()
         case_type = item.get("type")
+        topic = str(item.get("topic") or ("trap" if case_type == "trap" else "unclassified")).strip()
         if not case_id or case_id in seen:
             raise EvalConfigError(f"ID case trống hoặc trùng: {case_id!r}.")
         if not question:
@@ -216,6 +232,7 @@ def load_cases(path: str | Path) -> list[EvalCase]:
                 id=case_id,
                 question=question,
                 type=case_type,
+                topic=topic,
                 must_contain=_string_list(item.get("must_contain"), case_id=case_id, field_name="must_contain"),
                 must_contain_any=_string_list(
                     item.get("must_contain_any"), case_id=case_id,
@@ -358,6 +375,7 @@ def score_case(
     return CaseResult(
         id=case.id,
         type=case.type,
+        topic=case.topic,
         input_style="unaccented" if case.question.isascii() else "accented",
         question=case.question,
         reply=reply,
@@ -381,7 +399,7 @@ def score_case(
 
 def _error_result(case: EvalCase, exc: Exception, latency_ms: int = 0) -> CaseResult:
     return CaseResult(
-        id=case.id, type=case.type,
+        id=case.id, type=case.type, topic=case.topic,
         input_style="unaccented" if case.question.isascii() else "accented",
         question=case.question, reply="", status="ERROR", passed=False,
         score=0.0, pass_score=case.pass_score, criteria=(), need_human=False,
@@ -548,6 +566,25 @@ def run_eval(
     unaccented_evaluated = sum(
         item.status in {"PASS", "FAIL"} for item in unaccented_results
     )
+    topic_metrics: dict[str, TopicSummary] = {}
+    for topic in sorted({item.topic for item in results}):
+        topic_results = [item for item in results if item.topic == topic]
+        topic_passed = sum(item.status == "PASS" for item in topic_results)
+        topic_failed = sum(item.status == "FAIL" for item in topic_results)
+        topic_errors = sum(item.status == "ERROR" for item in topic_results)
+        topic_manual = sum(item.status == "MANUAL_REVIEW" for item in topic_results)
+        topic_evaluated = topic_passed + topic_failed
+        topic_metrics[topic] = TopicSummary(
+            total=len(topic_results),
+            passed=topic_passed,
+            failed=topic_failed,
+            errors=topic_errors,
+            manual_review=topic_manual,
+            evaluated=topic_evaluated,
+            pass_rate=round(topic_passed / topic_evaluated, 4) if topic_evaluated else 0.0,
+            average_cost_vnd=round(fmean(item.cost_vnd for item in topic_results), 2),
+            average_latency_ms=round(fmean(item.latency_ms for item in topic_results), 2),
+        )
     summary = EvalSummary(
         total=len(results), passed=passed, failed=failed, errors=errors,
         manual_review=manual_review, evaluated=evaluated,
@@ -566,6 +603,7 @@ def run_eval(
         unaccented_passed=unaccented_passed,
         unaccented_pass_rate=round(unaccented_passed / unaccented_evaluated, 4)
         if unaccented_evaluated else 0.0,
+        topic_metrics=topic_metrics,
     )
     now = datetime.now(timezone.utc)
     run_id = now.strftime("%Y%m%dT%H%M%S.%fZ")
@@ -594,7 +632,7 @@ def report_as_dict(report: EvalReport) -> dict[str, Any]:
 
 def save_report(
     report: EvalReport, report_dir: str | Path,
-) -> tuple[Path, Path, Path, Path, Path]:
+) -> tuple[Path, Path, Path, Path, Path, Path]:
     """Persist audit data plus detail, summary, scorecard and 4-column review CSVs."""
 
     destination = Path(report_dir)
@@ -604,10 +642,11 @@ def save_report(
     summary_path = destination / f"{report.run_id}.summary.csv"
     scorecard_path = destination / f"{report.run_id}.scorecard.csv"
     manual_review_path = destination / f"{report.run_id}.manual-review.csv"
+    topics_path = destination / f"{report.run_id}.topics.csv"
     json_path.write_text(json.dumps(report_as_dict(report), ensure_ascii=False, indent=2), encoding="utf-8")
     with csv_path.open("w", encoding="utf-8-sig", newline="") as handle:
         writer = csv.DictWriter(handle, fieldnames=[
-            "id", "type", "input_style", "status", "passed", "score", "pass_score", "question", "reply",
+            "id", "type", "topic", "input_style", "status", "passed", "score", "pass_score", "question", "reply",
             "failed_checks", "need_human", "guardrail_blocked", "model", "cost_vnd",
             "model_called",
             "latency_ms", "trace_id", "diagnostic_stage", "judge_reason", "error",
@@ -652,6 +691,20 @@ def save_report(
         ("errors", report.summary.errors, None, None, "cases"),
         ("manual_review", report.summary.manual_review, None, None, "cases"),
     ]
+    for topic, metrics in report.summary.topic_metrics.items():
+        metric_rows.extend([
+            (f"topic.{topic}.pass_rate", metrics.pass_rate, None, None, "%"),
+            (f"topic.{topic}.passed", metrics.passed, None, None, "cases"),
+            (f"topic.{topic}.total", metrics.total, None, None, "cases"),
+            (
+                f"topic.{topic}.average_cost_vnd",
+                metrics.average_cost_vnd, None, None, "VND",
+            ),
+            (
+                f"topic.{topic}.average_latency_ms",
+                metrics.average_latency_ms, None, None, "ms",
+            ),
+        ])
     with summary_path.open("w", encoding="utf-8-sig", newline="") as handle:
         writer = csv.writer(handle)
         writer.writerow(["metric", "current", "baseline", "delta", "unit"])
@@ -691,7 +744,28 @@ def save_report(
                 f"{result.cost_vnd:.2f}",
                 result.latency_ms,
             ])
-    return json_path, csv_path, summary_path, scorecard_path, manual_review_path
+    with topics_path.open("w", encoding="utf-8-sig", newline="") as handle:
+        writer = csv.writer(handle)
+        writer.writerow([
+            "CHỦ ĐỀ", "TỔNG", "ĐẠT", "SAI", "ERROR", "REVIEW",
+            "TỶ LỆ ĐÚNG", "CHI PHÍ TB (VND)", "ĐỘ TRỄ TB (ms)",
+        ])
+        for topic, metrics in report.summary.topic_metrics.items():
+            writer.writerow([
+                topic,
+                metrics.total,
+                metrics.passed,
+                metrics.failed,
+                metrics.errors,
+                metrics.manual_review,
+                f"{metrics.pass_rate:.2%}",
+                f"{metrics.average_cost_vnd:.2f}",
+                f"{metrics.average_latency_ms:.2f}",
+            ])
+    return (
+        json_path, csv_path, summary_path, scorecard_path, manual_review_path,
+        topics_path,
+    )
 
 
 def load_report_summary(path: str | Path) -> dict[str, Any]:

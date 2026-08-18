@@ -1,0 +1,13 @@
+﻿metric,current,baseline,delta,unit
+pass_rate,0.6,0.7,-0.1,%
+completion_rate,1.0,1.0,0.0,%
+average_cost_vnd,12.3,11.86,0.44,VND
+average_model_call_cost_vnd,23.07,,,VND/model call
+model_calls,16,,,cases
+zero_cost_turns,14,,,cases
+average_latency_ms,1319.9,1668.97,-349.07,ms
+duration_seconds,116.836,,,s
+passed,18,,,cases
+failed,12,,,cases
+errors,0,,,cases
+manual_review,0,,,cases

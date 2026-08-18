@@ -110,7 +110,7 @@ def _table(rows: list[list[str]], headers: list[str]) -> str:
 
 def print_report(
     report, json_path: Path, csv_path: Path, summary_path: Path,
-    scorecard_path: Path, manual_review_path: Path,
+    scorecard_path: Path, manual_review_path: Path, topics_path: Path,
     *, time_budget_seconds: float,
 ) -> None:
     rows = []
@@ -126,6 +126,7 @@ def print_report(
         rows.append([
             result.id,
             result.type,
+            result.topic,
             "không dấu" if result.input_style == "unaccented" else "có dấu",
             result.status,
             f"{result.score:.0%}",
@@ -134,7 +135,7 @@ def print_report(
             detail,
         ])
     print(_table(rows, [
-        "ID", "Loại", "Kiểu nhập", "KQ", "Điểm", "Chi phí VND", "Độ trễ ms", "Chi tiết",
+        "ID", "Loại", "Chủ đề", "Kiểu nhập", "KQ", "Điểm", "Chi phí VND", "Độ trễ ms", "Chi tiết",
     ]))
     summary = report.summary
     print(
@@ -156,6 +157,23 @@ def print_report(
         f"Không dấu: {summary.unaccented_passed}/{summary.unaccented_total} đạt "
         f"({summary.unaccented_pass_rate:.1%})"
     )
+    topic_rows = [
+        [
+            topic,
+            f"{metrics.passed}/{metrics.evaluated}",
+            f"{metrics.pass_rate:.1%}",
+            f"{metrics.average_cost_vnd:.2f}",
+            f"{metrics.average_latency_ms:.2f}",
+            str(metrics.errors),
+            str(metrics.manual_review),
+        ]
+        for topic, metrics in summary.topic_metrics.items()
+    ]
+    if topic_rows:
+        print("\nKết quả theo nhóm chủ đề:")
+        print(_table(topic_rows, [
+            "Chủ đề", "Đạt/đã chấm", "Tỷ lệ", "Chi phí TB", "Độ trễ TB", "ERROR", "REVIEW",
+        ]))
     for status, label in (
         ("FAIL", "Case sai"), ("ERROR", "Case lỗi hạ tầng"),
         ("MANUAL_REVIEW", "Case cần review thủ công"),
@@ -207,6 +225,7 @@ def print_report(
     print(f"Bảng tổng hợp/so sánh CSV: {summary_path}")
     print(f"Bảng điểm rút gọn CSV: {scorecard_path}")
     print(f"Bảng tự đánh giá 4 cột CSV: {manual_review_path}")
+    print(f"Bảng điểm theo chủ đề CSV: {topics_path}")
 
 
 def parse_args(argv: list[str] | None = None) -> argparse.Namespace:
@@ -256,14 +275,18 @@ def main(argv: list[str] | None = None) -> int:
             diagnostic_resolver=find_trace,
             judge_fn=_make_llm_judge(args.tenant_id, args.config_version),
         )
-        json_path, csv_path, summary_path, scorecard_path, manual_review_path = save_report(
+        (
+            json_path, csv_path, summary_path, scorecard_path,
+            manual_review_path, topics_path,
+        ) = save_report(
             report, args.report_dir
         )
     except (EvalConfigError, OSError, ValueError) as exc:
         print(f"Lỗi eval: {exc}", file=sys.stderr)
         return 2
     print_report(
-        report, json_path, csv_path, summary_path, scorecard_path, manual_review_path,
+        report, json_path, csv_path, summary_path, scorecard_path,
+        manual_review_path, topics_path,
         time_budget_seconds=args.time_budget_seconds,
     )
     if report.summary.duration_seconds >= args.time_budget_seconds:

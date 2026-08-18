@@ -1,0 +1,7 @@
+﻿profile,changed_variable,value,passed,failed,errors,manual_review,pass_rate,pass_rate_delta,average_cost_vnd,average_cost_delta_vnd,average_model_call_cost_vnd,average_latency_ms,average_latency_delta_ms,duration_seconds,within_5_minutes,report_run_id
+baseline,none,production configuration,21,9,0,0,0.7,0.0,11.86,0.0,22.24,1668.97,0.0,116.907,True,20260814T064129.511480Z
+chunk_350,chunk_size,"max 350 chars, overlap 60",20,10,0,0,0.6667,-0.0333,12.53,0.67,20.88,1692.13,23.16,116.719,True,20260814T064326.363318Z
+top_k_3,top_k,3,18,12,0,0,0.6,-0.1,10.68,-1.18,20.03,1225.0,-443.97,155.867,True,20260814T064602.296096Z
+threshold_070,min_score,0.70,20,10,0,0,0.6667,-0.0333,9.53,-2.33,21.99,1162.6,-506.37,116.885,True,20260814T064759.328957Z
+prompt_clear_refusal,prompt,explicit refusal experiment,18,12,0,0,0.6,-0.1,12.3,0.44,23.07,1319.9,-349.07,116.836,True,20260814T064956.271387Z
+model_gpt_primary,primary_model,gpt-5.6-luna,19,10,0,1,0.6552,-0.0448,7.51,-4.35,14.08,2180.5,511.53,116.78,True,20260814T065153.183579Z
