@@ -61,14 +61,18 @@ def _build_routing_and_contact_block(config: AgentConfig) -> str:
 
 def _build_forbidden_block(config: AgentConfig) -> str:
     seo = config.guardrails.seo_phrasing_example
-    return (
+    block = (
         "[QUY TẮC CẤM]\n"
         "Tuyệt đối không được vi phạm bất kỳ quy tắc nào sau đây:\n"
-        f"{_numbered(config.guardrails.forbidden)}\n"
-        "Khi nói về SEO, phải dùng ngôn ngữ nỗ lực, không dùng ngôn ngữ cam kết:\n"
-        f"- Cách nói đúng: \"{seo.correct}\"\n"
-        f"- Cách nói sai, không được dùng: \"{seo.incorrect}\""
+        f"{_numbered(config.guardrails.forbidden)}"
     )
+    if seo is not None:
+        block += (
+            "\nKhi nói về SEO, phải dùng ngôn ngữ nỗ lực, không dùng ngôn ngữ cam kết:\n"
+            f"- Cách nói đúng: \"{seo.correct}\"\n"
+            f"- Cách nói sai, không được dùng: \"{seo.incorrect}\""
+        )
+    return block
 
 
 def _build_escalation_block(config: AgentConfig) -> str:
@@ -79,9 +83,9 @@ def _build_escalation_block(config: AgentConfig) -> str:
         "[CHUYỂN NGƯỜI THẬT]\n"
         "Chuyển cho chuyên viên khi gặp một trong các trường hợp:\n"
         f"{conditions}\n"
-        "Khi khách yêu cầu nội dung vi phạm quy tắc cấm, chỉ từ chối phần bị cấm "
-        "và giải thích ngắn gọn theo cách an toàn; không tự động chuyển người thật.\n"
-        f"Chỉ khi thuộc điều kiện chuyển người thật ở trên, dùng câu: \"{config.refusal_message}\""
+        "Khi khách yêu cầu nội dung vi phạm quy tắc cấm, phải thay nội dung bằng câu trả lời "
+        "an toàn tương ứng và gắn cờ chuyển người thật.\n"
+        f"Khi cần chuyển người thật, dùng câu phù hợp với ngữ cảnh hoặc câu: \"{config.refusal_message}\""
     )
 
 

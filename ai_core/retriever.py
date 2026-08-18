@@ -24,6 +24,7 @@ from ai_core.vector_store import (
 
 
 DEFAULT_INDEX_DIR = Path(__file__).resolve().parent.parent / "index"
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
 DEFAULT_THRESHOLD = 0.65
 DEFAULT_RELATIVE_SCORE_MARGIN = 1.0
 
@@ -100,7 +101,7 @@ def retrieve(
     *,
     threshold: float | None = None,
     relative_score_margin: float | None = None,
-    index_dir: str | Path = DEFAULT_INDEX_DIR,
+    index_dir: str | Path | None = None,
     embed_fn: Callable[..., list[list[float]]] = embed_texts,
     model: str | None = None,
     provider: str | None = None,
@@ -112,29 +113,23 @@ def retrieve(
     Existing callers keep using ``retrieve(query, tenant_id, k)``. The two new
     keyword-only seams select/inject a store without changing that interface.
     """
+    # Default deny: không có tenant hợp lệ thì dừng trước embedding và đọc index.
     if not isinstance(tenant_id, str) or not tenant_id.strip():
         raise ValueError("tenant_id là bắt buộc; truy vấn không tenant bị từ chối.")
     if not isinstance(k, int) or isinstance(k, bool) or k <= 0:
         raise ValueError("k phải là số nguyên dương.")
     try:
+        # Tenant phải có file cấu hình riêng; không dùng cấu hình mặc định cho tenant lạ.
         tenant_config = load_config(tenant_id)
         retrieval_policy = tenant_config.retrieval_policy
-    except ConfigError:
-        tenant_config = None
-        retrieval_policy = None
+    except ConfigError as exc:
+        raise RetrieverError(f"tenant_id không hợp lệ hoặc chưa được đăng ký: {tenant_id!r}.") from exc
     if threshold is None:
-        if retrieval_policy is not None:
-            effective_threshold = retrieval_policy.min_score
-        else:
-            # Hỗ trợ index/test tenant tạm chưa có YAML; tenant production phải có config.
-            effective_threshold = DEFAULT_THRESHOLD
+        effective_threshold = retrieval_policy.min_score
     else:
         effective_threshold = threshold
     if relative_score_margin is None:
-        if retrieval_policy is not None:
-            effective_margin = retrieval_policy.relative_score_margin
-        else:
-            effective_margin = DEFAULT_RELATIVE_SCORE_MARGIN
+        effective_margin = retrieval_policy.relative_score_margin
     else:
         effective_margin = relative_score_margin
     if not 0.0 <= effective_threshold <= 1.0:
@@ -153,9 +148,9 @@ def retrieve(
             selected_backend == "auto" and bool(os.getenv("AI_CORE_VECTOR_STORE_URL", "").strip())
         )
         if use_remote:
-            configured = tenant_config.embedding_policy.primary if tenant_config is not None else None
-            remote_provider = provider or (configured.provider if configured is not None else None)
-            remote_model = model or (configured.model if configured is not None else None)
+            configured = tenant_config.embedding_policy.primary
+            remote_provider = provider or configured.provider
+            remote_model = model or configured.model
             if not remote_provider or not remote_model:
                 raise RetrieverError("Remote vector store cần provider/model embedding.")
             try:
@@ -163,7 +158,15 @@ def retrieve(
             except VectorStoreError as exc:
                 raise RetrieverError(str(exc)) from exc
         else:
-            vector_store = LocalNumpyVectorStore(Path(index_dir), _load_index)
+            if index_dir is None:
+                # Mỗi tenant tự khai báo vị trí knowledge index trong YAML của mình.
+                configured_dir = (
+                    tenant_config.knowledge.local_index_dir
+                )
+                selected_index_dir = PROJECT_ROOT / configured_dir
+            else:
+                selected_index_dir = Path(index_dir)
+            vector_store = LocalNumpyVectorStore(selected_index_dir, _load_index)
 
     index_provider, index_model = vector_store.embedding_spec()
     selected_model = model or index_model

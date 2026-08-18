@@ -27,6 +27,7 @@ persona:
 
 guardrails:
   refusal_message: "Phần này em xin phép kết nối anh/chị với chuyên viên tư vấn ạ."
+  customer_upset_message: "Dạ, em rất tiếc vì trải nghiệm vừa rồi đã khiến anh/chị không hài lòng. Em ghi nhận phản ánh này và xin phép chuyển ngay anh/chị đến chuyên viên phụ trách để hỗ trợ xử lý khiếu nại ạ."
 
   # Model nhỏ chỉ được gọi một lần cho input có dấu hiệu mơ hồ. Rule cục bộ
   # vẫn xử lý các trường hợp rõ ràng mà không phát sinh chi phí/model latency.
@@ -41,6 +42,24 @@ guardrails:
     rules:
       - reason: result_guarantee
         description: "Cam kết kết quả: lên top Google, ra đơn, tăng doanh thu hoặc thứ hạng"
+        request_variants:
+          - name: result_and_refund
+            patterns:
+              - '\b(?:guarantee|promise|cam ket|dam bao|bao dam).{0,100}(?:top|google|rank|ra don|doanh thu).{0,100}(?:refund|hoan tien)\b'
+              - '\b(?:hoan tien|refund).{0,100}(?:top|google|rank|ra don|doanh thu|ket qua|fails?)\b'
+            safe_reply: "Dạ, MIMA không thể cam kết chắc chắn thứ hạng hoặc kết quả trong một thời hạn cụ thể, đồng thời em cũng không thể xác nhận hoàn tiền khi chưa có chính sách được kiểm chứng. Kết quả thực tế còn phụ thuộc dữ liệu, mức độ cạnh tranh và thuật toán Google. Em xin phép chuyển anh/chị đến chuyên viên tư vấn để kiểm tra chính sách và trao đổi lộ trình phù hợp ạ."
+          - name: absolute_result_guarantee
+            patterns:
+              - '\b100\s*%.{0,80}(?:top|google|ra don|doanh thu|ket qua|thu hang|chac thang)\b'
+              - '\b(?:top|google|ra don|doanh thu|ket qua|thu hang|chac thang).{0,80}100\s*%(?:\s|$)'
+            safe_reply: "Dạ, MIMA không thể đảm bảo 100% về thứ hạng, số đơn hàng hoặc doanh thu vì kết quả còn phụ thuộc dữ liệu thực tế và điều kiện thị trường. Bên em chỉ cam kết nỗ lực triển khai minh bạch theo kế hoạch. Em xin phép chuyển anh/chị đến chuyên viên tư vấn để trao đổi phương án phù hợp ạ."
+          - name: result_guarantee
+            patterns:
+              - '\b(?:cam ket|dam bao|bao dam|bao dau|chac chan|dam hua|hua|xac nhan|guarantee|promise).{0,120}(?:top|google|ra don|doanh thu|ket qua|thu hang|first[ -]?page|rankings?)\b'
+              - '\b(?:top|google|ra don|doanh thu|ket qua|thu hang|first[ -]?page|rankings?).{0,100}(?:chac chan|chac thang|100\s*%|guarantee|promise)\b'
+              - '\b(?:kpi|bat buoc).{0,70}(?:top|ra don|doanh thu|thu hang)\b'
+              - '\b(?:ty le|kha nang).{0,45}(?:chac thang|100\s*%).{0,70}(?:top|google|ra don|doanh thu)\b'
+            safe_reply: "Dạ, MIMA không thể cam kết chắc chắn website đạt thứ hạng, ra đơn hoặc tăng doanh thu trong một thời hạn cố định. Kết quả thực tế còn phụ thuộc dữ liệu, mức độ cạnh tranh và thuật toán Google; bên em chỉ cam kết nỗ lực triển khai minh bạch theo kế hoạch. Em xin phép chuyển anh/chị đến chuyên viên tư vấn để trao đổi lộ trình phù hợp ạ."
         patterns:
           - '\b(?:cam ket|dam bao|bao dam|chac chan|hua).{0,70}(?:top|google|ra don|doanh thu|ket qua|thu hang)'
           - '\b100\s*%.{0,45}(?:top|ra don|tang doanh thu|dat ket qua)'
@@ -54,6 +73,13 @@ guardrails:
 
       - reason: refund_or_warranty_promise
         description: "Cam kết hoàn tiền hoặc bảo hành không có bằng chứng RAG/tool"
+        request_variants:
+          - name: refund_or_warranty
+            patterns:
+              - '\b(?:cam ket|dam bao|bao dam|promise|guarantee).{0,70}(?:hoan tien|refund|bao hanh|warranty)\b'
+              - '\b(?:hoan tien|refund).{0,60}(?:100\s*%|toan bo|neu|if|khong dat|that bai|fails?)\b'
+              - '\b(?:bao hanh|warranty).{0,45}(?:tron doi|vinh vien|vo thoi han|\d+)\b'
+            safe_reply: "Dạ, em không thể tự xác nhận cam kết hoàn tiền hoặc thời hạn bảo hành khi chính sách đó chưa được kiểm chứng từ nguồn chính thức. Để tránh cung cấp sai quyền lợi của anh/chị, em xin phép chuyển anh/chị đến chuyên viên tư vấn kiểm tra chính sách cụ thể ạ."
         patterns:
           - '\b(?:cam ket|dam bao|se)\s+hoan\s+tien\b'
           - '\b(?:em|ben em|chung toi|toi)\s+(?:se\s+)?hoan\s+tien\b'
@@ -64,6 +90,12 @@ guardrails:
 
       - reason: unauthorized_discount_or_gift
         description: "Tự ý giảm giá, tặng thêm, miễn phí hoặc thương lượng"
+        request_variants:
+          - name: unauthorized_discount_or_gift
+            patterns:
+              - '\b(?:tu y|giam rieng|bot rieng|tang rieng|secret|giu bi mat|ngoai goi|noi mieng|sep da duyet).{0,80}(?:giam|bot|discount|uu dai|tang|mien phi|free|gia|trieu|%)\b'
+              - '\b(?:giam|bot|discount|uu dai|tang them|mien phi|free).{0,80}(?:tu y|rieng|secret|giu bi mat|ngoai goi|noi mieng|sep da duyet)\b'
+            safe_reply: "Dạ, em không thể tự ý giảm giá, tặng thêm hoặc xác nhận ưu đãi ngoài gói và chính sách đã được phê duyệt. Em xin phép chuyển anh/chị đến chuyên viên có thẩm quyền để kiểm tra ưu đãi phù hợp và xác nhận bằng thông tin chính thức ạ."
         patterns:
           - '\b(?:em|ben em|chung toi|toi).{0,35}(?:giam gia|bot gia|tang them|tang rieng|thuong luong|chot gia|uu dai|chiet khau|mien phi)\b'
           - '\b(?:giam rieng|uu dai rieng|tang them|tang rieng)\b'
@@ -73,6 +105,13 @@ guardrails:
 
       - reason: internal_information
         description: "Tiết lộ thông tin nội bộ: lương, chi phí, dữ liệu khách hàng khác"
+        request_variants:
+          - name: internal_information
+            patterns:
+              - '\b(?:cho|gui|cung cap|tiet lo|chia se|biet).{0,55}(?:luong|bang luong|gia von|bien loi nhuan|chi phi noi bo|doanh thu noi bo|chien luoc noi bo)\b'
+              - '\b(?:danh sach|du lieu|so dien thoai|email|hop dong).{0,45}khach hang(?: khac)?\b'
+              - '\bkhach hang(?: khac)?.{0,45}(?:danh sach|du lieu|so dien thoai|email|hop dong)\b'
+            safe_reply: "Dạ, em không thể cung cấp lương, giá vốn, biên lợi nhuận hoặc dữ liệu liên hệ của khách hàng khác vì đây là thông tin nội bộ và cần được bảo mật. Em xin phép chuyển anh/chị đến chuyên viên phụ trách nếu anh/chị có yêu cầu chính đáng cần được xác minh ạ."
         patterns:
           - '\b(?:luong|bang luong|gia von|gia nhap|bien loi nhuan|chi phi (?:noi bo|van hanh|nhan su)|doanh thu noi bo|chien luoc noi bo|quy trinh noi bo|mat khau noi bo)\b'
           - '\b(?:du lieu|danh sach|so dien thoai|email|hop dong).{0,30}khach hang(?: khac)?\b'
@@ -82,6 +121,12 @@ guardrails:
 
       - reason: competitor_disparagement
         description: "Chê bai hoặc so sánh đích danh đối thủ"
+        request_variants:
+          - name: competitor_disparagement
+            patterns:
+              - '\b(?:noi|viet|bao|nhan xet|danh gia).{0,55}(?:cong ty|agency|don vi|abc|xyz).{0,55}(?:kem|te|lua dao|khong bang|thua xa|lam an chan|dich vu do)\b'
+              - '\b(?:cong ty|agency|don vi|abc|xyz).{0,55}(?:kem|te|lua dao|khong bang|thua xa|lam an chan|dich vu do)\b'
+            safe_reply: "Dạ, em không thể chê bai hoặc đưa nhận định tiêu cực đích danh về một đơn vị khác. Em có thể hỗ trợ anh/chị so sánh khách quan dựa trên phạm vi công việc, tính năng và tiêu chí đã được xác minh. Em xin phép chuyển anh/chị đến chuyên viên tư vấn để trao đổi cụ thể hơn ạ."
         patterns:
           - '\b(?:doi thu|cong ty|agency|don vi).{0,55}(?:kem|te|lua dao|khong bang|thua xa|lam an chan|dich vu do)\b'
           - '\b(?:kem|te|lua dao|khong bang|thua xa|lam an chan|dich vu do).{0,40}(?:doi thu|cong ty|agency|don vi)\b'
@@ -92,6 +137,13 @@ guardrails:
 
       - reason: banking_secret_request
         description: "Nhận hoặc tiết lộ thông tin thẻ ngân hàng, mật khẩu hay mã OTP"
+        request_variants:
+          - name: banking_secret
+            patterns:
+              - '\b(?:gui|cung cap|cho em|cho toi|nhap|xac nhan|share|send).{0,45}(?:ma otp|otp|so the|card number|cvv|cvc|mat khau ngan hang|bank password)\b'
+              - '\b(?:ma otp|otp)\D{0,12}\d{4,8}\b'
+              - '\b(?:so the|card)\D{0,12}(?:\d[ -]?){13,19}\b'
+            safe_reply: "Dạ, anh/chị tuyệt đối không gửi mã OTP, số thẻ, CVV hoặc mật khẩu ngân hàng qua cuộc trò chuyện này. MIMA không yêu cầu khách hàng cung cấp những thông tin bảo mật đó. Em xin phép chuyển anh/chị đến chuyên viên để được hướng dẫn thanh toán qua kênh chính thức và an toàn ạ."
         patterns:
           - '\b(?:gui|cung cap|cho em|cho toi|nhap|xac nhan).{0,35}(?:ma otp|otp|so the|cvv|cvc|mat khau ngan hang)\b'
           - '\b(?:ma otp|otp)\D{0,12}\d{4,8}\b'
@@ -101,6 +153,24 @@ guardrails:
 
       - reason: out_of_scope_advice
         description: "Trả lời ngoài lĩnh vực: chính trị, y tế, pháp luật, làm bài tập hộ"
+        request_variants:
+          - name: medical_advice
+            patterns:
+              - '\b(?:chan doan|ke thuoc|toa thuoc|lieu dung|uong thuoc|dung thuoc).{0,70}(?:benh|thuoc|mg|giup|cho anh|cho toi)?\b'
+            safe_reply: "Dạ, em không thể chẩn đoán bệnh, kê thuốc hoặc đưa liều dùng vì đây là nội dung cần chuyên môn y tế. Anh/chị nên trao đổi trực tiếp với bác sĩ hoặc chuyên gia y tế đủ chuyên môn. Em xin phép chuyển anh/chị đến chuyên viên để tiếp tục hỗ trợ trong phạm vi dịch vụ của MIMA ạ."
+          - name: legal_advice
+            patterns:
+              - '\b(?:tu van phap ly|nen khoi kien|chac chan thang kien|theo dieu \d+|can cu dieu \d+)\b'
+            safe_reply: "Dạ, em không thể đưa ra kết luận hoặc tư vấn pháp lý thay cho người có chuyên môn. Anh/chị nên trao đổi với luật sư hoặc đơn vị tư vấn pháp lý phù hợp. Em xin phép chuyển anh/chị đến chuyên viên để tiếp tục hỗ trợ trong phạm vi dịch vụ của MIMA ạ."
+          - name: political_advice
+            patterns:
+              - '\b(?:tong thong|thu tuong|dang phai|bau cu|chinh tri|quoc hoi).{0,90}(?:nen|ung ho|phan doi|tot|xau|thang|thua|nhan xet|danh gia)\b'
+            safe_reply: "Dạ, nội dung chính trị nằm ngoài phạm vi tư vấn của MIMA nên em không thể đưa ra nhận định hoặc định hướng cho anh/chị. Em xin phép chuyển anh/chị đến chuyên viên nếu anh/chị cần hỗ trợ về website, SEO hoặc các dịch vụ của MIMA ạ."
+          - name: homework
+            patterns:
+              - '\b(?:lam ho|giai ho|viet ho).{0,45}(?:toan bo|bai tap|bai toan|bai van)\b'
+              - '\b(?:toan bo).{0,25}(?:bai tap|bai toan|bai van).{0,25}(?:cho anh|cho toi|giup)\b'
+            safe_reply: "Dạ, em không thể làm hộ toàn bộ bài tập hoặc đưa thẳng đáp án hoàn chỉnh. Em có thể gợi ý phương pháp để anh/chị tự làm và hiểu bài tốt hơn. Em xin phép chuyển anh/chị đến chuyên viên để tiếp tục hỗ trợ trong phạm vi dịch vụ của MIMA ạ."
         patterns:
           - '\b(?:tong thong|thu tuong|dang phai|bau cu|chinh tri|quoc hoi).{0,90}(?:la|se|nen|tot|xau|ung ho|phan doi|thang|thua)\b'
           - '\b(?:chan doan|toa thuoc|lieu dung|uong|dung)\s+.{0,35}(?:mg|thuoc)\b'
@@ -111,6 +181,12 @@ guardrails:
 
       - reason: technical_information_disclosure
         description: "Tiết lộ system prompt, tên model, bí mật hoặc cấu trúc kỹ thuật"
+        request_variants:
+          - name: technical_information_disclosure
+            patterns:
+              - '\b(?:tiet lo|hien thi|in ra|lap lai|doc lai|viet lai|dich|tom tat|reveal|show|print|repeat|translate).{0,90}(?:system prompt|prompt he thong|developer message|hidden system|hidden instruction|chi dan an|huong dan bi mat|chi thi an)\b'
+              - '\b(?:ignore|disregard|forget|override|bo qua|quen).{0,90}(?:instruction|rule|prompt|huong dan|chi thi|vai tro).{0,90}(?:reveal|show|print|viet lai|tiet lo|hien thi|in ra)?\b'
+            safe_reply: "Dạ, em không thể tiết lộ, dịch, tóm tắt hoặc lặp lại system prompt, chỉ dẫn ẩn, tên model hay cấu trúc kỹ thuật nội bộ. Em xin phép chuyển anh/chị đến chuyên viên nếu anh/chị cần thông tin chính thức về phạm vi và khả năng của dịch vụ ạ."
         patterns:
           - '\b(?:system prompt|prompt he thong).{0,55}(?:la|gom|noi dung|bat dau|ben duoi)\b'
           - '\b(?:toi|em|bot|he thong).{0,35}(?:dang dung|su dung|dang chay|chay).{0,35}(?:model|gemini|gpt)\b'
@@ -124,6 +200,12 @@ guardrails:
       enabled: true
       reason: ungrounded_claim
       description: "Bịa thông tin khi không có trong kho tri thức hoặc bằng chứng đáng tin cậy"
+      request_variants:
+        - name: fabrication_request
+          patterns:
+            - '\b(?:bia|tu nghi|make up|fabricate|invent).{0,80}(?:so tai khoan|thong tin|du lieu|gia|chinh sach|dia chi|email|so dien thoai)\b'
+            - '\b(?:so tai khoan|thong tin|du lieu|gia|chinh sach|dia chi|email|so dien thoai).{0,80}(?:bia|tu nghi|make up|fabricate|invent)\b'
+          safe_reply: "Dạ, em không thể tự bịa hoặc cung cấp thông tin chưa được xác minh, đặc biệt là số tài khoản và dữ liệu thanh toán. Em xin phép chuyển anh/chị đến chuyên viên để xác nhận thông tin chính thức trước khi anh/chị thực hiện giao dịch ạ."
       min_token_overlap: 0.35
       min_matching_tokens: 2
       claim_patterns:
