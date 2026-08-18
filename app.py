@@ -6,6 +6,7 @@ Chạy từ thư mục gốc bằng:
 
 from __future__ import annotations
 
+import hmac
 import os
 from typing import Any, Iterable
 from uuid import uuid4
@@ -14,11 +15,40 @@ import streamlit as st
 
 from ai_core.chat import chat
 from ai_core.config import load_config
+from ai_core.feedback import (
+    load_feedback,
+    log_sale_turn,
+    sale_turns_path,
+    sale_usage_stats,
+    save_bad_feedback,
+)
 from ai_core.trace import find_trace
 
 
 TENANT_ID = os.getenv("AI_CORE_UI_TENANT_ID", "mima_internal")
 CONFIG_VERSION = int(os.getenv("AI_CORE_UI_CONFIG_VERSION", "1"))
+ACCESS_CODE = os.getenv("AI_CORE_UI_ACCESS_CODE", "").strip()
+
+
+def _require_access_code() -> bool:
+    """Protect tunneled test UI when an access code is configured."""
+
+    if not ACCESS_CODE or st.session_state.get("ui_access_granted", False):
+        return True
+    try:
+        display_name = load_config(TENANT_ID, CONFIG_VERSION).bot_name
+    except Exception:
+        display_name = "Chatbot"
+    st.title(f"🔒 {display_name} — Sale Test")
+    st.caption("Nhập mã truy cập do người phụ trách H2-12 cung cấp.")
+    entered = st.text_input("Mã truy cập", type="password", key="ui_access_code")
+    if st.button("Vào giao diện", type="primary"):
+        if hmac.compare_digest(entered, ACCESS_CODE):
+            st.session_state.ui_access_granted = True
+            st.rerun()
+        else:
+            st.error("Mã truy cập không đúng.")
+    return False
 
 
 def build_payload(
@@ -86,6 +116,8 @@ def get_source_details(response: dict[str, Any] | None) -> list[dict[str, Any]]:
 def reset_conversation() -> None:
     st.session_state.messages = []
     st.session_state.last_response = None
+    st.session_state.feedback_submitted = set()
+    st.session_state.feedback_open = set()
     st.session_state.conversation_id = str(uuid4())
 
 
@@ -96,12 +128,105 @@ def _init_session() -> None:
         st.session_state.last_response = None
     if "conversation_id" not in st.session_state:
         st.session_state.conversation_id = str(uuid4())
+    if "feedback_submitted" not in st.session_state:
+        st.session_state.feedback_submitted = set()
+    if "feedback_open" not in st.session_state:
+        st.session_state.feedback_open = set()
 
 
-def _render_sidebar(config: Any) -> str | None:
+def _render_bad_feedback_button(item: dict[str, Any], index: int) -> None:
+    response = item.get("response")
+    if not isinstance(response, dict):
+        return
+    trace_id = str(response.get("trace_id", "")).strip()
+    feedback_key = trace_id or f"message-{index}"
+    submitted = feedback_key in st.session_state.feedback_submitted
+    opened = feedback_key in st.session_state.feedback_open
+    if submitted:
+        st.button(
+            "✅ Đã gửi feedback",
+            key=f"bad-feedback-done-{feedback_key}",
+            disabled=True,
+        )
+        return
+    if not opened:
+        if st.button(
+            "👎 Câu trả lời này tệ",
+            key=f"bad-feedback-{feedback_key}",
+            help="Mở ô nhập câu trả lời mong muốn để người phụ trách có đủ thông tin sửa bot.",
+        ):
+            st.session_state.feedback_open.add(feedback_key)
+            st.rerun()
+        return
+
+    suggested_reply = st.text_area(
+        "Sale mong bot trả lời thế nào?",
+        key=f"bad-feedback-suggestion-{feedback_key}",
+        placeholder=(
+            "Ví dụ: Bot nên trả lời gói 12 triệu đã có SSL; hoặc ghi rõ phần nào sai. "
+            "Nếu chưa biết đáp án, nhập: cần kiểm tra lại thông tin."
+        ),
+        help="Ghi câu trả lời đề xuất hoặc hướng sửa cụ thể; không nhập dữ liệu nhạy cảm.",
+    )
+    send_col, cancel_col = st.columns(2)
+    send_clicked = send_col.button(
+        "Gửi feedback",
+        key=f"bad-feedback-send-{feedback_key}",
+        type="primary",
+        use_container_width=True,
+    )
+    if cancel_col.button(
+        "Huỷ",
+        key=f"bad-feedback-cancel-{feedback_key}",
+        use_container_width=True,
+    ):
+        st.session_state.feedback_open.discard(feedback_key)
+        st.rerun()
+    if send_clicked:
+        if not suggested_reply.strip():
+            st.warning("Vui lòng nhập câu trả lời mong muốn hoặc mô tả phần cần sửa trước khi gửi.")
+            return
+        try:
+            record, created = save_bad_feedback(
+                question=str(item.get("question", "")),
+                reply=str(item.get("content", "")),
+                response=response,
+                conversation_id=st.session_state.conversation_id,
+                tenant_id=TENANT_ID,
+                config_version=CONFIG_VERSION,
+                tester_name=str(st.session_state.get("tester_name", "")),
+                suggested_reply=suggested_reply,
+            )
+        except OSError:
+            st.error("Chưa gửi được đánh giá. Vui lòng báo người phụ trách kiểm tra máy chủ.")
+            return
+        st.session_state.feedback_submitted.add(feedback_key)
+        st.session_state.feedback_open.discard(feedback_key)
+        if created:
+            st.success(f"Đã gửi cho người phụ trách · mã {record['feedback_id']}")
+        else:
+            st.info(f"Đánh giá này đã được ghi nhận · mã {record['feedback_id']}")
+
+
+def _render_sidebar(config: Any) -> tuple[str | None, str]:
     response = st.session_state.last_response
     with st.sidebar:
         st.header("Cấu hình thử nghiệm")
+        tester_name = st.text_input(
+            "Tên người test",
+            key="tester_name",
+            placeholder="Ví dụ: Sale Lan",
+            help="Dùng tên/biệt danh để tổng hợp số người đã tham gia H2-12.",
+        ).strip()
+        if tester_name:
+            stats = sale_usage_stats(load_feedback(sale_turns_path()))
+            progress = stats["by_tester"].get(
+                tester_name, {"conversations": 0, "turns": 0}
+            )
+            st.caption(
+                f"Tiến độ H2-12: {progress['conversations']}/10 hội thoại · "
+                f"{progress['turns']} lượt hỏi"
+            )
         model_role = st.selectbox(
             "Model",
             options=("primary", "fallback"),
@@ -121,7 +246,7 @@ def _render_sidebar(config: Any) -> str | None:
 
         if not response:
             st.info("Hãy gửi một câu hỏi để xem nguồn và số liệu.")
-            return model_role
+            return model_role, tester_name
 
         usage = response.get("usage", {})
         left, right = st.columns(2)
@@ -156,7 +281,7 @@ def _render_sidebar(config: Any) -> str | None:
             for call in tool_calls:
                 with st.expander(str(call.get("name", "tool"))):
                     st.json({"args": call.get("args", {}), "result": call.get("result", {})})
-        return model_role
+        return model_role, tester_name
 
 
 def run_app() -> None:
@@ -166,6 +291,8 @@ def run_app() -> None:
         layout="wide",
         initial_sidebar_state="expanded",
     )
+    if not _require_access_code():
+        return
     _init_session()
     config = load_config(TENANT_ID, CONFIG_VERSION)
 
@@ -173,17 +300,21 @@ def run_app() -> None:
     st.caption(
         "Giao diện thử nghiệm nội bộ. Câu trả lời có thể cần chuyên viên xác nhận trước khi sử dụng."
     )
-    model_role = _render_sidebar(config)
+    model_role, tester_name = _render_sidebar(config)
 
-    for item in st.session_state.messages:
+    for index, item in enumerate(st.session_state.messages):
         with st.chat_message(item["role"]):
             st.markdown(item["content"])
+            if item["role"] == "assistant":
+                _render_bad_feedback_button(item, index)
 
     question = st.chat_input(
-        "Nhập câu hỏi về website, SEO, tên miền…",
-        disabled=model_role is None,
+        f"Nhập câu hỏi cho {config.bot_name}…",
+        disabled=model_role is None or not tester_name,
     )
-    if model_role is None:
+    if not tester_name:
+        st.info("Nhập tên người test trong thanh bên để bắt đầu và ghi nhận đúng người tham gia.")
+    elif model_role is None:
         st.info("Chọn Primary hoặc Fallback trong thanh bên để bắt đầu thử nghiệm.")
     if not question:
         return
@@ -217,9 +348,28 @@ def run_app() -> None:
             answer = "Xin lỗi, hệ thống đang gặp sự cố. Vui lòng thử lại hoặc báo cho người phụ trách."
             placeholder.error(answer)
 
-    st.session_state.messages.append({"role": "assistant", "content": answer})
+    assistant_message: dict[str, Any] = {
+        "role": "assistant",
+        "content": answer,
+        "question": question,
+    }
     if response is not None:
         st.session_state.last_response = response
+        assistant_message["response"] = response
+        try:
+            log_sale_turn(
+                tester_name=tester_name,
+                question=question,
+                reply=answer,
+                response=response,
+                conversation_id=st.session_state.conversation_id,
+                tenant_id=TENANT_ID,
+                config_version=CONFIG_VERSION,
+            )
+        except OSError:
+            # Không làm mất câu trả lời nếu hộp log tạm thời không ghi được.
+            pass
+    st.session_state.messages.append(assistant_message)
     st.rerun()
 
 
