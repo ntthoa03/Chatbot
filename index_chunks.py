@@ -137,6 +137,7 @@ def build_index(
     embed_fn: Callable[..., list[list[float]]] = embed_texts,
     model: str = DEFAULT_EMBEDDING_MODEL,
     provider: str | None = None,
+    batch_size: int = 100,
 ) -> tuple[list[dict], dict, int, int]:
     """
     Trả về (records, cache_đã_cập_nhật, số_embed_mới, số_lấy_từ_cache).
@@ -159,13 +160,17 @@ def build_index(
     to_embed_idx = [i for i, key in enumerate(cache_keys) if key not in embeddings]
     to_embed_texts = [chunks[i]["content"] for i in to_embed_idx]
 
-    if to_embed_texts:
-        new_vectors = _embed(embed_fn, to_embed_texts, model=model, provider=selected_provider)
-        if len(new_vectors) != len(to_embed_texts):
+    if batch_size < 1:
+        raise IndexError_("batch_size phải >= 1.")
+    for start in range(0, len(to_embed_texts), batch_size):
+        batch_texts = to_embed_texts[start : start + batch_size]
+        batch_indices = to_embed_idx[start : start + batch_size]
+        new_vectors = _embed(embed_fn, batch_texts, model=model, provider=selected_provider)
+        if len(new_vectors) != len(batch_texts):
             raise IndexError_(
-                f"embed_fn trả về {len(new_vectors)} vector nhưng gửi đi {len(to_embed_texts)} text — không khớp."
+                f"embed_fn trả về {len(new_vectors)} vector nhưng gửi đi {len(batch_texts)} text — không khớp."
             )
-        for idx, vec in zip(to_embed_idx, new_vectors):
+        for idx, vec in zip(batch_indices, new_vectors):
             embeddings[cache_keys[idx]] = vec
 
     # chunk_id là identity của chunk; content_hash quyết định vector có còn hợp lệ.
@@ -261,6 +266,7 @@ def build_index_with_fallback(
     candidates: list[tuple[str, str]],
     *,
     embed_fn: Callable[..., list[list[float]]] = embed_texts,
+    batch_size: int = 100,
 ) -> tuple[list[dict], dict, int, int, str, str]:
     """Try embedding routes in order and report the route that built the index."""
     last_error: EmbedderError | None = None
@@ -272,6 +278,7 @@ def build_index_with_fallback(
                 embed_fn=embed_fn,
                 model=candidate_model,
                 provider=candidate_provider,
+                batch_size=batch_size,
             )
             return records, cache, n_new, n_cached, candidate_provider, candidate_model
         except EmbedderError as exc:
@@ -289,6 +296,12 @@ def main() -> None:
     parser.add_argument("--tenant-id", default="mima_internal", help="Tenant dùng để nạp embedding_policy")
     parser.add_argument("--model", help="Ghi đè model trong embedding_policy")
     parser.add_argument("--provider", choices=("gemini", "openai"), help="Tự suy ra từ model nếu bỏ trống")
+    parser.add_argument(
+        "--batch-size",
+        type=int,
+        default=100,
+        help="Số chunks mỗi request embedding; Gemini cho phép tối đa 100",
+    )
     args = parser.parse_args()
 
     try:
@@ -304,6 +317,7 @@ def main() -> None:
             chunks,
             cache,
             candidates,
+            batch_size=args.batch_size,
         )
         save_cache(cache_path, cache)
         save_index(

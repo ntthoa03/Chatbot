@@ -1,0 +1,135 @@
+{
+  "schema_version": "h2-04.index-smoke.v1",
+  "tested_at": "2026-08-18T03:06:44.745890+00:00",
+  "index_dir": "outputs/h2_04/index_phongkham_hyhy",
+  "tenant_id": "phongkham_hyhy",
+  "threshold": 0.3,
+  "top_k": 3,
+  "queries": [
+    {
+      "query": "Gói khám đánh giá nguy cơ đột quỵ gồm những gì?",
+      "result_count": 3,
+      "results": [
+        {
+          "score": 0.541005,
+          "title": "Khám Đột Quỵ Công Nghệ Cao Không Đau",
+          "url": "https://phongkhamhyhy.com/kham-dot-quy-cong-nghe-cao-khong-dau",
+          "content_preview": "Phòng Khám Đa Khoa Cộng Đồng Hỷ Hỷ hiện cung cấp gói khám đánh giá nguy cơ đột quỵ, với các nội dung được xây dựng nhằm kiểm tra nhiều yếu tố nguy cơ và tư vấn phòng ngừa theo từng trường hợp.\nPhòng khám cũng công bố đội ngũ bác sĩ thuộc ch"
+        },
+        {
+          "score": 0.533537,
+          "title": "Khám Đột Quỵ Ở Đâu Uy Tín Và Chính Xác?",
+          "url": "https://phongkhamhyhy.com/kham-dot-quy-o-dau-uy-tin-va-chinh-xac",
+          "content_preview": "Quy trình khám rõ ràng\nMột địa chỉ uy tín luôn có quy trình minh bạch, tư vấn kỹ và không chỉ định lan man.\nKhách hàng nên ưu tiên nơi công khai chi phí và có nhiều gói khám phù hợp nhu cầu.\nAi Nên Đi Khám Đột Quỵ Định Kỳ?\nKhông ít người ng"
+        },
+        {
+          "score": 0.533025,
+          "title": "Gói Khám Đánh Giá Nguy Cơ Đột Quỵ",
+          "url": "https://phongkhamhyhy.com/goi-kham-nguy-co-dot-quy",
+          "content_preview": "Hãy để lại SĐT, nhân viên tư vấn sẽ gọi lại cho bạn ngay lập tức\nMô tả: Gói Đánh Giá Nguy Cơ Đột Quỵ — áp dụng tại phòng khám Hỷ Hỷ Giúp đánh giá và kiểm soát yếu tố nguy cơ ( tăng huyết áp , rung nhĩ, rối loạn lipid, đái tháo đường, lối số"
+        }
+      ]
+    },
+    {
+      "query": "Phòng khám có khám tim mạch không?",
+      "result_count": 3,
+      "results": [
+        {
+          "score": 0.643564,
+          "title": "Phòng Khám Đa Khoa Khám Tim Mạch Uy Tín",
+          "url": "https://phongkhamhyhy.com/phong-kham-da-khoa-kham-tim-mach-uy-tin",
+          "content_preview": "Lợi ích khi khám tim mạch tại phòng khám đa khoa uy tín\nLựa chọn phòng khám đa khoa khám tim mạch uy tín mang lại nhiều lợi ích thiết thực. Trước hết, người bệnh được thăm khám bởi đội ngũ bác sĩ có chuyên môn, kết hợp khai thác tiền sử bện"
+        },
+        {
+          "score": 0.624274,
+          "title": "Phòng Khám Đa Khoa Khám Tim Mạch Uy Tín",
+          "url": "https://phongkhamhyhy.com/phong-kham-da-khoa-kham-tim-mach-uy-tin",
+          "content_preview": "Phòng khám đa khoa khám tim mạch uy tín có vai trò như thế nào?\nTim mạch là một trong những chuyên khoa quan trọng bởi trái tim chính là cơ quan duy trì sự sống của toàn bộ cơ thể. Khi hệ tim mạch gặp vấn đề, sức khỏe tổng thể sẽ bị ảnh hưở"
+        },
+        {
+          "score": 0.616669,
+          "title": "Phòng Khám Uy Tín Tại Tân Phú Được Tin Chọn",
+          "url": "https://phongkhamhyhy.com/phong-kham-uy-tin-tai-tan-phu-duoc-tin-chon",
+          "content_preview": "Khám Tim Mạch Chuyên Sâu Tại Phòng Khám Hỷ Hỷ\nBệnh tim mạch thường đi kèm với tăng huyết áp và rối loạn nhịp tim. Tại phòng khám Hỷ Hỷ, quy trình khám tim mạch bao gồm khám lâm sàng, đo huyết áp, xét nghiệm máu, siêu âm tim và điện tâm đồ. "
+        }
+      ]
+    },
+    {
+      "query": "Địa chỉ và giờ làm việc của phòng khám",
+      "result_count": 3,
+      "results": [
+        {
+          "score": 0.584126,
+          "title": "Phòng Khám Đa Khoa Khám Ngoài Giờ Tiện Lợi",
+          "url": "https://phongkhamhyhy.com/phong-kham-da-khoa-kham-ngoai-gio-tien-loi",
+          "content_preview": "Đối với nhân viên văn phòng, công nhân làm theo ca, chủ doanh nghiệp, người kinh doanh hay những gia đình có con nhỏ, việc tìm được một phòng khám đa khoa ngoài giờ giúp giảm đáng kể áp lực về thời gian. Người bệnh vừa đảm bảo công việc, vừ"
+        },
+        {
+          "score": 0.583412,
+          "title": "Phòng Khám Tân Phú Có Lịch Linh Hoạt",
+          "url": "https://phongkhamhyhy.com/phong-kham-tan-phu-co-lich-linh-hoat",
+          "content_preview": "Tầm quan trọng của phòng khám có lịch linbh hoạt tại Tân Phú\nKhu vực Tân Phú là một trong những quận đông dân cư, tập trung nhiều khu công nghiệp, trung tâm thương mại và khu dân cư. Người dân nơi đây thường làm việc theo ca, tăng ca hoặc c"
+        },
+        {
+          "score": 0.556174,
+          "title": "Phòng Khám Đa Khoa Khám Ngoài Giờ Tiện Lợi",
+          "url": "https://phongkhamhyhy.com/phong-kham-da-khoa-kham-ngoai-gio-tien-loi",
+          "content_preview": "Trong số những địa chỉ được nhiều người tin tưởng hiện nay, phòng khám Hỷ Hỷ là một trong những cơ sở y tế mang đến giải pháp khám chữa bệnh ngoài giờ hiệu quả, đáp ứng nhu cầu khám sức khỏe tổng quát, khám chuyên khoa và tầm soát bệnh lý c"
+        }
+      ]
+    },
+    {
+      "query": "Bác sĩ Hồ Hữu Thật chuyên khoa gì?",
+      "result_count": 3,
+      "results": [
+        {
+          "score": 0.6156,
+          "title": "Bác Sĩ Thạc Sĩ Hồ Hữu Thật | Bác sĩ điều trị đột quỵ Top đầu Sài Gòn",
+          "url": "https://phongkhamhyhy.com/ho-huu-that",
+          "content_preview": "Bác sĩ Hồ Hữu Thật luôn được bệnh nhân và đồng nghiệp đánh giá cao nhờ vào sự tận tâm, chuyên nghiệp và lòng nhiệt huyết trong công việc. Với hơn 20 năm kinh nghiệm, bác sĩ không chỉ có chuyên môn vững vàng trong việc điều trị đột quỵ và cá"
+        },
+        {
+          "score": 0.607595,
+          "title": "Bác Sĩ Thạc Sĩ Hồ Hữu Thật | Bác sĩ điều trị đột quỵ Top đầu Sài Gòn",
+          "url": "https://phongkhamhyhy.com/ho-huu-that",
+          "content_preview": "Bác sĩ Hồ Hữu Thật là chuyên gia trong lĩnh vực Nội Thần Kinh và đột quỵ , với hơn 20 năm kinh nghiệm trong việc điều trị các bệnh lý liên quan đến hệ thần kinh, đặc biệt là đột quỵ. Bác sĩ có chuyên môn sâu về chẩn đoán và điều trị các ca "
+        },
+        {
+          "score": 0.598128,
+          "title": "Thạc sĩ - BSNT - BSCK1 Hồ Hữu Thật | BÁC SĨ ĐIỀU TRỊ ĐỘT QUỴ HÀNG ĐẦU HCM",
+          "url": "https://phongkhamhyhy.com/thac-si-bsnt-bsck1-ho-huu-that",
+          "content_preview": "Thạc sĩ - BSNT - BSCK1 Hồ Hữu Thật\nBác sĩ Hồ Hữu Thật là Thạc sĩ, Bác sĩ Nội Thần Kinh, Bác sĩ Chuyên khoa 1 (BSCK1) với hơn 20 năm kinh nghiệm trong việc điều trị đột quỵ và các bệnh lý thần kinh. Hiện bác sĩ đang công tác tại Bệnh viện An"
+        }
+      ]
+    },
+    {
+      "query": "Xét nghiệm HbA1c là gì?",
+      "result_count": 3,
+      "results": [
+        {
+          "score": 0.534907,
+          "title": "Cử nhân xét nghiệm Thiều Thị Bích Ngọc | Xét Nghiệm tiểu đường Tân Phú",
+          "url": "https://phongkhamhyhy.com/cu-nhan-xet-nghiem-thieu-thi-bich-ngoc",
+          "content_preview": "Xét nghiệm tổng phân tích nước tiểu\nXét nghiệm tổng phân tích nước tiểu là một loạt các xét nghiệm về nước tiểu. Bạn sẽ cung cấp mẫu nước tiểu, có thể đựng trong lọ chuyên dụng hoặc qua ống thông. Sau đó, mẫu sẽ được gửi đến phòng xét nghiệ"
+        },
+        {
+          "score": 0.471309,
+          "title": "Chẩn đoán và xét nghiệm",
+          "url": "https://phongkhamhyhy.com/chan-doan-va-xet-nghiem",
+          "content_preview": "Xét nghiệm Alanine Transaminase (ALT) là gì\nAlanine transaminase (ALT) là một loại enzyme chủ yếu tồn tại trong gan. Xét nghiệm ALT thường được bao gồm trong xét nghiệm chức năng gan và xét nghiệm chuyển hóa toàn diện, và các bác sĩ sẽ sử d"
+        },
+        {
+          "score": 0.438191,
+          "title": "Chẩn đoán và xét nghiệm",
+          "url": "https://phongkhamhyhy.com/chan-doan-va-xet-nghiem",
+          "content_preview": "Xét nghiệm Gamma-Glutamyl Transferase (GGT)\nGamma-Glutamyl Transferase (GGT) là một enzyme được tìm thấy chủ yếu ở gan, nhưng cũng có mặt ở thận, tuyến tụy và ruột. Xét nghiệm GGT là một xét nghiệm máu được sử dụng để đo lượng GGT trong máu"
+        }
+      ]
+    }
+  ],
+  "isolation_probe": {
+    "wrong_tenant": "mima_internal",
+    "result_count": 0,
+    "passed": true
+  }
+}
