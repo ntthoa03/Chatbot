@@ -5,6 +5,7 @@ from __future__ import annotations
 import json
 import math
 import os
+import re
 from collections.abc import Callable, Sequence
 from dataclasses import dataclass
 from pathlib import Path
@@ -17,6 +18,16 @@ import numpy as np
 
 class VectorStoreError(RuntimeError):
     """Raised when a vector store cannot execute a safe query."""
+
+
+def _require_tenant_scope(tenant_id: object) -> str:
+    # Bảo vệ ngay tại vector store để đường gọi tắt retriever cũng không bỏ qua tenant.
+    if (
+        not isinstance(tenant_id, str)
+        or re.fullmatch(r"[a-z0-9][a-z0-9_-]{0,63}", tenant_id) is None
+    ):
+        raise VectorStoreError("tenant_id hợp lệ là bắt buộc; từ chối truy vấn không tenant.")
+    return tenant_id
 
 
 class VectorStore(Protocol):
@@ -49,6 +60,7 @@ class LocalNumpyVectorStore:
     def query(
         self, vector: Sequence[float], *, tenant_id: str, k: int
     ) -> list[dict[str, Any]]:
+        tenant_id = _require_tenant_scope(tenant_id)
         vectors, metadata, _ = self._load()
         query_vector = np.asarray(vector, dtype="float32")
         if query_vector.ndim != 1 or query_vector.shape[0] != vectors.shape[1]:
@@ -60,7 +72,7 @@ class LocalNumpyVectorStore:
         if query_norm == 0.0:
             return []
 
-        # Filter before ranking; there is no global cross-tenant similarity search.
+        # Lọc tenant trước khi tính điểm để chunk tenant khác không được tham gia xếp hạng.
         tenant_rows = [i for i, item in enumerate(metadata) if item.get("tenant_id") == tenant_id]
         if not tenant_rows:
             return []
@@ -128,6 +140,8 @@ class RemoteVectorStore:
     def query(
         self, vector: Sequence[float], *, tenant_id: str, k: int
     ) -> list[dict[str, Any]]:
+        tenant_id = _require_tenant_scope(tenant_id)
+        # Gửi đồng thời namespace và filter để cách ly dữ liệu ngay trên vector database.
         payload = {
             "vector": [float(value) for value in vector],
             "top_k": min(max(k * 4, k), 100),
@@ -147,6 +161,7 @@ class RemoteVectorStore:
 
         safe: list[dict[str, Any]] = []
         for item in raw_matches:
+            # Không tin tuyệt đối phía server: kiểm tra lại tenant của từng kết quả trả về.
             normalized = _remote_result(item, tenant_id)
             if normalized is not None:
                 safe.append(normalized)
@@ -205,6 +220,7 @@ def _remote_result(item: Any, tenant_id: str) -> dict[str, Any] | None:
         # Canonical Task.xlsx/H-06 response shape at the match top level.
         chunk = item
     result_tenant = chunk.get("tenant_id", item.get("tenant_id", match_metadata.get("tenant_id")))
+    # Thiếu tenant hoặc tenant không khớp đều bị loại theo nguyên tắc fail-closed.
     if result_tenant != tenant_id:
         return None
     chunk_id = chunk.get("chunk_id") or item.get("chunk_id") or item.get("id")
