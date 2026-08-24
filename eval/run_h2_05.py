@@ -148,7 +148,7 @@ def main() -> None:
     with csv_path.open("w", encoding="utf-8-sig", newline="") as handle:
         writer = csv.DictWriter(
             handle,
-            fieldnames=["id", "kind", "question", "reply", "passed", "note", "need_human", "guardrail_reason", "source_urls", "tool_names", "cost_vnd", "latency_ms"],
+            fieldnames=["id", "kind", "question", "reply", "passed", "note", "need_human", "guardrail_reason", "source_urls", "tool_names", "cost_usd", "latency_ms"],
         )
         writer.writeheader()
         for row in rows:
@@ -164,7 +164,7 @@ def main() -> None:
                     "guardrail_reason": row["guardrail"].get("reason"),
                     "source_urls": " | ".join(str(item.get("url") or "") for item in row["sources"]),
                     "tool_names": " | ".join(str(item.get("name") or "") for item in row["tool_calls"]),
-                    "cost_vnd": row["usage"].get("cost_vnd"),
+                    "cost_usd": row["usage"].get("cost_usd"),
                     "latency_ms": row["usage"].get("latency_ms"),
                 }
             )
