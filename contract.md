@@ -55,7 +55,11 @@ Sự kiện cuối luôn chứa nguyên response đúng cấu trúc ở trên, b
   "response": {
     "reply": "...", "sources": [], "tool_calls": [], "need_human": false,
     "lead_captured": null, "guardrail": {"blocked": false, "reason": null},
-    "usage": {"model": "...", "tokens_in": 0, "tokens_out": 0, "cost_vnd": 0, "latency_ms": 0},
+    "usage": {
+      "model": "...", "tokens_in": 0, "tokens_out": 0,
+      "cached_tokens_in": 0, "cache_write_tokens_in": 0,
+      "cost_usd": 0, "latency_ms": 0
+    },
     "trace_id": "uuid"
   },
   "trace_id": "uuid"

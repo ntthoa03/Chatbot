@@ -23,6 +23,10 @@ from ai_core.feedback import (
     save_bad_feedback,
 )
 from ai_core.trace import find_trace
+from handoff import (
+    confirmed_handoff_contact,
+    create_handoff,
+)
 
 
 TENANT_ID = os.getenv("AI_CORE_UI_TENANT_ID", "mima_internal")
@@ -229,11 +233,13 @@ def _render_sidebar(config: Any) -> tuple[str | None, str]:
             )
         model_role = st.selectbox(
             "Model",
-            options=("primary", "fallback"),
-            index=None,
-            placeholder="Chọn primary hoặc fallback",
+            options=("auto", "primary", "fallback"),
+            index=0,
+            placeholder="Chọn routing tự động hoặc model cố định",
             format_func=lambda role: (
-                f"Primary — {config.model_primary}"
+                "Tự động — câu dễ model rẻ, câu khó model mạnh"
+                if role == "auto"
+                else f"Primary — {config.model_primary}"
                 if role == "primary"
                 else f"Fallback — {config.model_fallback}"
             ),
@@ -252,7 +258,7 @@ def _render_sidebar(config: Any) -> tuple[str | None, str]:
         left, right = st.columns(2)
         left.metric("Token vào", f"{int(usage.get('tokens_in', 0)):,}")
         right.metric("Token ra", f"{int(usage.get('tokens_out', 0)):,}")
-        left.metric("Chi phí", f"{float(usage.get('cost_vnd', 0)):.2f} ₫")
+        left.metric("Chi phí model ước tính", f"${float(usage.get('cost_usd', 0)):.8f}")
         right.metric("Độ trễ", f"{int(usage.get('latency_ms', 0)):,} ms")
 
         st.caption(f"Model: {usage.get('model', 'N/A')}")
@@ -354,6 +360,42 @@ def run_app() -> None:
         "question": question,
     }
     if response is not None:
+        handoff_contact = confirmed_handoff_contact(response)
+        if handoff_contact is not None:
+            customer_name, customer_phone = handoff_contact
+            try:
+                handoff_record, _created = create_handoff(
+                    tenant_id=TENANT_ID,
+                    config_version=CONFIG_VERSION,
+                    conversation_id=st.session_state.conversation_id,
+                    trace_id=str(response.get("trace_id", "")),
+                    tester_name=tester_name,
+                    reason="hoa14_need_human_with_confirmed_lead",
+                    question=question,
+                    reply=answer,
+                    messages=[
+                        *previous_messages,
+                        {"role": "user", "content": question},
+                        {"role": "assistant", "content": answer},
+                    ],
+                    customer_name=customer_name,
+                    customer_phone=customer_phone,
+                )
+                # Đây là cờ của lớp UI; hợp đồng và mã nguồn ai_core không bị thay đổi.
+                response = dict(response)
+                response["need_human"] = True
+                assistant_message["response"] = response
+                assistant_message["handoff"] = handoff_record
+                # Câu chat giữ phần dẫn từ core; mã ticket đã có thẻ trạng thái riêng.
+            except OSError:
+                # Không tuyên bố đã chuyển nếu hàng đợi không ghi được ticket.
+                answer = (
+                    "Dạ, hệ thống chưa tạo được yêu cầu chuyển chuyên viên. Anh/chị vui lòng "
+                    "liên hệ hotline/Zalo hiển thị trong phần tư vấn hoặc thử lại sau ạ."
+                )
+                assistant_message["content"] = answer
+                response = dict(response)
+                response["reply"] = answer
         st.session_state.last_response = response
         assistant_message["response"] = response
         try:

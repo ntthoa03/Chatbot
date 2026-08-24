@@ -21,17 +21,37 @@ _NAME_PATTERNS = (
     re.compile(
         r"\b(?:t[eê]n(?:\s+c[uủ]a\s+(?:anh|ch[iị]|em|t[oô]i|m[iì]nh))?\s*(?:l[aà]|:)|"
         r"(?:anh|ch[iị]|em|t[oô]i|m[iì]nh)\s+t[eê]n(?:\s+l[aà])?|"
-        r"(?:anh|ch[iị]|em|t[oô]i|m[iì]nh)\s+l[aà])\s*"
+        r"(?:anh|ch[iị]|em|t[oô]i|m[iì]nh)\s+l[aà]|"
+        r"t[eê]n\s+(?!mi[eề]n\b|g[iì]\b|n[aà]o\b))\s*"
         r"([A-Za-zÀ-ỹĐđ]+(?:[ '\-]+[A-Za-zÀ-ỹĐđ]+){0,5})",
         re.IGNORECASE,
     ),
 )
+# Các mẫu này là câu hỏi truy xuất thông tin đã nhớ, không phải lời giới thiệu tên.
+# Giữ ở tầng lead dùng chung để mọi tenant đều có cùng hành vi an toàn.
+_IDENTITY_LOOKUP_PATTERNS = (
+    re.compile(
+        r"\b(?:toi|minh|anh|chi|em)\s+la\s+ai"
+        r"(?:\s+(?:k|ko|khong|vay|nhi|nhe))?\s*[?!.]*$"
+    ),
+    re.compile(
+        r"\bten\s+(?:cua\s+)?(?:toi|minh|anh|chi|em)\s+(?:la\s+)?gi"
+        r"(?:\s+(?:vay|nhi|nhe))?\s*[?!.]*$"
+    ),
+    re.compile(r"\bwho\s+am\s+i\s*[?!.]*$"),
+    re.compile(r"\bwhat(?:'s|\s+is)\s+my\s+name\s*[?!.]*$"),
+    re.compile(r"\bdo\s+you\s+(?:still\s+)?(?:know|remember)\s+who\s+i\s+am\s*[?!.]*$"),
+)
 _CONFIRMATION_PREFIX = "Em xin xác nhận thông tin:"
 _LEAD_REQUEST_MARKER = "cho em xin tên và số điện thoại"
+_HANDOFF_CONTACT_MARKER = "để em chuyển yêu cầu đến chuyên viên"
+_HANDOFF_COMPLETE_MARKER = "em đã ghi nhận yêu cầu chuyển chuyên viên"
 _AFFIRMATIVE = re.compile(
     r"\b(?:dung|ok|okay|chinh xac|xac nhan|u|uh|vang|dong y|yes)\b"
 )
-_NEGATIVE = re.compile(r"\b(?:không đúng|khong dung|sai|không phải|khong phai)\b")
+_NEGATIVE = re.compile(
+    r"\b(?:khong dung|sai|khong phai|k|ko|khong|no|nope)\b"
+)
 
 
 @dataclass(frozen=True)
@@ -67,8 +87,19 @@ def looks_like_phone_submission(text: str) -> bool:
     return bool(_PHONE_LABEL.search(text) and re.search(r"\d", text))
 
 
+def is_identity_lookup(text: str) -> bool:
+    """Return True when the customer asks the bot to recall their identity."""
+
+    normalized = _normalize(text)
+    return any(pattern.search(normalized) for pattern in _IDENTITY_LOOKUP_PATTERNS)
+
+
 def extract_name(text: str) -> str | None:
     """Extract only explicitly introduced names; never guess from arbitrary prose."""
+
+    # Không cho regex "tôi là ..." biến đại từ nghi vấn thành tên như "Ai K".
+    if is_identity_lookup(text):
+        return None
 
     for pattern in _NAME_PATTERNS:
         match = pattern.search(text)
@@ -100,11 +131,99 @@ def _latest_pending_confirmation(history: Sequence[Message]) -> Message | None:
     return None
 
 
+def confirmed_lead_from_history(history: Sequence[Message]) -> LeadCaptured | None:
+    """Recover the latest lead that the customer explicitly approved."""
+
+    latest: LeadCaptured | None = None
+    for index, item in enumerate(history[:-1]):
+        if item.role != "assistant" or not item.content.startswith(_CONFIRMATION_PREFIX):
+            continue
+        approval = history[index + 1]
+        normalized_approval = _normalize(approval.content)
+        if (
+            approval.role != "user"
+            or not _AFFIRMATIVE.search(normalized_approval)
+            or _NEGATIVE.search(normalized_approval)
+        ):
+            continue
+        name = extract_name(item.content)
+        phone = extract_vietnamese_phone(item.content)
+        if name and phone:
+            # Nếu khách xác nhận lại thông tin mới, bản xác nhận gần nhất sẽ thắng.
+            latest = LeadCaptured(name=name, phone=phone)
+    return latest
+
+
+def has_pending_handoff(history: Sequence[Message]) -> bool:
+    """Khôi phục trạng thái đang chờ lead từ lịch sử vì core không giữ session server."""
+
+    contact_marker = _normalize(_HANDOFF_CONTACT_MARKER)
+    complete_marker = _normalize(_HANDOFF_COMPLETE_MARKER)
+    for item in reversed(history):
+        if item.role != "assistant":
+            continue
+        normalized = _normalize(item.content)
+        if complete_marker in normalized:
+            return False
+        if contact_marker in normalized:
+            return True
+    return False
+
+
+def append_handoff_contact_request(reply: str) -> str:
+    """Yêu cầu lead ngay khi cần chuyển người thật, không chờ mốc 2-3 lượt."""
+
+    request = (
+        "Để em chuyển yêu cầu đến chuyên viên, anh/chị vui lòng cho em xin tên và "
+        "số điện thoại liên hệ ạ. Em sẽ đọc lại để anh/chị xác nhận trước khi ghi nhận."
+    )
+    if _normalize(_HANDOFF_CONTACT_MARKER) in _normalize(reply):
+        return reply
+    return f"{reply.rstrip()}\n\n{request}" if reply.strip() else request
+
+
+def handoff_acknowledgement(name: str | None) -> str:
+    """Xác nhận nghiệp vụ sau khi đã có lead hợp lệ và được khách xác nhận."""
+
+    salutation = f" của anh/chị {name}" if name else " của anh/chị"
+    return (
+        f"Em đã ghi nhận yêu cầu chuyển chuyên viên{salutation}. "
+        "Chuyên viên sẽ tiếp nhận thông tin và hỗ trợ anh/chị sớm ạ."
+    )
+
+
+def append_handoff_acknowledgement(reply: str, name: str | None) -> str:
+    """Giữ câu an toàn/tư vấn hiện tại rồi mới thêm trạng thái chuyển người."""
+
+    if _normalize(_HANDOFF_COMPLETE_MARKER) in _normalize(reply):
+        return reply
+    acknowledgement = handoff_acknowledgement(name)
+    return f"{reply.rstrip()}\n\n{acknowledgement}" if reply.strip() else acknowledgement
+
+
 def decide_lead(message: str, history: Sequence[Message]) -> LeadDecision:
     """Confirm an extracted lead first, then emit it only on customer approval."""
 
     pending = _latest_pending_confirmation(history)
     normalized = _normalize(message)
+
+    if is_identity_lookup(message):
+        confirmed = confirmed_lead_from_history(history)
+        if confirmed is not None and confirmed.name:
+            # Chỉ nhắc lại tên được hỏi, không phát lại số điện thoại không cần thiết.
+            return LeadDecision(
+                reply_override=(
+                    f"Dạ, anh/chị đã giới thiệu tên là {confirmed.name} ạ. "
+                    "Em vẫn đang ghi nhớ thông tin này trong cuộc trò chuyện hiện tại."
+                )
+            )
+        return LeadDecision(
+            reply_override=(
+                "Dạ, trong cuộc trò chuyện hiện tại em chưa thấy tên nào đã được "
+                "anh/chị xác nhận. Anh/chị có thể giới thiệu lại tên giúp em nhé."
+            )
+        )
+
     if pending is not None and _AFFIRMATIVE.search(normalized) and not _NEGATIVE.search(normalized):
         name = extract_name(pending.content)
         phone = extract_vietnamese_phone(pending.content)
@@ -145,6 +264,13 @@ def decide_lead(message: str, history: Sequence[Message]) -> LeadDecision:
             reply_override=(
                 f"{_CONFIRMATION_PREFIX} anh/chị tên {name}, số điện thoại {phone}. "
                 "Thông tin này đã đúng chưa ạ?"
+            )
+        )
+    if phone:
+        return LeadDecision(
+            reply_override=(
+                f"Em đã nhận số điện thoại {phone}. "
+                "Anh/chị cho em xin thêm tên để em đọc lại và xác nhận thông tin ạ."
             )
         )
     return LeadDecision()

@@ -17,7 +17,7 @@ from typing import Any, Iterator
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 DEFAULT_TRACE_PATH = PROJECT_ROOT / "outputs" / "traces.jsonl"
-TRACE_SCHEMA_VERSION = "schema.v1"
+TRACE_SCHEMA_VERSION = "schema.v2"
 _WRITE_LOCK = threading.Lock()
 
 

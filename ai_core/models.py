@@ -78,7 +78,9 @@ class Usage(BaseModel):
     model: str
     tokens_in: int = 0
     tokens_out: int = 0
-    cost_vnd: float = 0.0
+    cached_tokens_in: int = 0
+    cache_write_tokens_in: int = 0
+    cost_usd: float = 0.0
     latency_ms: int = 0
 
 

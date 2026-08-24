@@ -16,7 +16,7 @@ from uuid import uuid4
 from ai_core.trace import PROJECT_ROOT, redact_sensitive_data
 
 
-FEEDBACK_SCHEMA_VERSION = "h2-12.v2"
+FEEDBACK_SCHEMA_VERSION = "h2-12.v3"
 DEFAULT_FEEDBACK_PATH = PROJECT_ROOT / "outputs" / "sale_feedback.jsonl"
 DEFAULT_SALE_TURNS_PATH = PROJECT_ROOT / "outputs" / "sale_ui_turns.jsonl"
 _WRITE_LOCK = threading.Lock()
@@ -89,7 +89,7 @@ def save_bad_feedback(
         "model": str(usage.get("model", "")),
         "tokens_in": int(usage.get("tokens_in", 0) or 0),
         "tokens_out": int(usage.get("tokens_out", 0) or 0),
-        "cost_vnd": float(usage.get("cost_vnd", 0) or 0),
+        "cost_usd": float(usage.get("cost_usd", 0) or 0),
         "latency_ms": int(usage.get("latency_ms", 0) or 0),
         "need_human": bool(response.get("need_human", False)),
         "guardrail": response.get("guardrail", {}),
@@ -130,7 +130,7 @@ def log_sale_turn(
     trace_id = str(response.get("trace_id", "")).strip()
     usage = response.get("usage") if isinstance(response.get("usage"), dict) else {}
     record = redact_sensitive_data({
-        "schema_version": "h2-12.turn.v1",
+        "schema_version": "h2-12.turn.v2",
         "logged_at": datetime.now(UTC).isoformat(),
         "tester_name": tester_name.strip(),
         "tenant_id": tenant_id,
@@ -140,7 +140,7 @@ def log_sale_turn(
         "question": question,
         "reply": reply,
         "model": str(usage.get("model", "")),
-        "cost_vnd": float(usage.get("cost_vnd", 0) or 0),
+        "cost_usd": float(usage.get("cost_usd", 0) or 0),
         "latency_ms": int(usage.get("latency_ms", 0) or 0),
     })
     destination.parent.mkdir(parents=True, exist_ok=True)
@@ -161,7 +161,7 @@ def feedback_csv(records: list[dict[str, Any]]) -> str:
     writer.writerow([
         "feedback_id", "created_at", "rating", "tenant_id", "conversation_id",
         "tester_name", "trace_id", "question", "reply", "suggested_reply", "model",
-        "cost_vnd", "latency_ms", "need_human",
+        "cost_usd", "latency_ms", "need_human",
     ])
     for item in records:
         writer.writerow([
@@ -176,7 +176,7 @@ def feedback_csv(records: list[dict[str, Any]]) -> str:
             item.get("reply", ""),
             item.get("suggested_reply", ""),
             item.get("model", ""),
-            item.get("cost_vnd", 0),
+            item.get("cost_usd", ""),
             item.get("latency_ms", 0),
             item.get("need_human", False),
         ])
