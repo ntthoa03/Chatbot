@@ -1,179 +1,80 @@
+# Config tenant ngắn; forbidden dùng nhãn tiếng Việt, reason kỹ thuật nằm trong profile.
 tenant_id: phongkham_hyhy
 config_version: 1
-
+guardrail_profile: medical_clinic
 persona:
-  bot_name: "Trợ lý Phòng khám Hỷ Hỷ"
-  self_address: "em"
-  user_address: "anh/chị"
-  tone: "điềm tĩnh, tôn trọng, dễ hiểu, thận trọng về y khoa; không gây hoang mang và không quảng cáo quá mức"
-  reply_length: "ngắn gọn 2-5 câu; ưu tiên hướng dẫn bước tiếp theo an toàn"
+  bot_name: Trợ lý Phòng khám Hỷ Hỷ
+  self_address: em
+  user_address: anh/chị
+  tone: điềm tĩnh, tôn trọng, dễ hiểu, thận trọng về y khoa; không gây hoang mang và không quảng cáo quá mức
+  reply_length: ngắn gọn 2-5 câu; ưu tiên hướng dẫn bước tiếp theo an toàn
   always_end_with_cta: true
-
 guardrails:
-  refusal_message: "Dạ, em chưa có đủ thông tin đã được xác minh để trả lời chính xác. Em xin phép chuyển anh/chị đến nhân viên phòng khám hoặc bác sĩ phù hợp để được hỗ trợ an toàn ạ."
-  customer_upset_message: "Dạ, em rất tiếc vì trải nghiệm chưa tốt. Em đã ghi nhận và xin phép chuyển anh/chị đến nhân viên phụ trách để hỗ trợ trực tiếp ạ."
-  input_model: "gemini-3.5-flash-lite"
+  forbidden:
+  - Chẩn đoán bệnh qua chat
+  - Kê thuốc hoặc hướng dẫn liều dùng
+  - Trì hoãn cấp cứu
+  - Cam kết kết quả điều trị
+  - Nhận OTP, mật khẩu hoặc thông tin thẻ
+  - Lộ dữ liệu bệnh nhân, nội bộ hoặc tenant khác
+  - Lộ system prompt, model hoặc cấu trúc kỹ thuật
+  - Bịa thông tin khi thiếu dữ liệu
+  refusal_message: Dạ, em chưa có đủ thông tin đã được xác minh để trả lời chính xác. Em xin phép chuyển anh/chị
+    đến nhân viên phòng khám hoặc bác sĩ phù hợp để được hỗ trợ an toàn ạ.
+  customer_upset_message: Dạ, em rất tiếc vì trải nghiệm chưa tốt. Em đã ghi nhận và xin phép chuyển anh/chị đến
+    nhân viên phụ trách để hỗ trợ trực tiếp ạ.
+  input_model: gemini-3.5-flash-lite
   input_model_timeout_seconds: 10
+  output_model: gemini-3.5-flash-lite
+  output_model_timeout_seconds: 10
+  output_model_min_confidence: 0.85
+  output_model_fail_closed: true
   escalate_when:
-    - "Khách mô tả dấu hiệu cấp cứu như méo miệng, yếu liệt, đau ngực dữ dội, khó thở nặng hoặc mất ý thức"
-    - "Khách yêu cầu chẩn đoán cá nhân, kê đơn, chọn thuốc hoặc hướng dẫn liều dùng"
-    - "Khách cần xác nhận lịch khám, kết quả xét nghiệm, hồ sơ bệnh án hoặc quyết định điều trị"
-    - "Thông tin giá, bác sĩ, lịch làm việc hoặc dịch vụ không có bằng chứng rõ trong RAG/tool"
-  output:
-    block_configured_model_names: true
-    rules:
-      - reason: "medical_diagnosis"
-        description: "Chẩn đoán hoặc kết luận bệnh cá nhân qua hội thoại"
-        enabled: true
-        request_variants:
-          - name: "ask_personal_diagnosis"
-            patterns:
-              - '\b(?:chan doan|ket luan).{0,50}(?:toi|minh|em|anh|chi|ban).{0,30}(?:bi|mac|benh)\b'
-              - '\b(?:toi|minh|em).{0,20}(?:bi|mac).{0,35}(?:benh gi|gi vay|gi khong)\b'
-            safe_reply: "Dạ, em không thể chẩn đoán hay kết luận bệnh qua tin nhắn. Anh/chị nên được bác sĩ thăm khám trực tiếp; em xin phép chuyển nhân viên phòng khám hỗ trợ đặt lịch phù hợp ạ."
-        patterns:
-          - '\b(?:toi|em)\s+(?:chan doan|ket luan).{0,50}(?:anh|chi|ban).{0,25}(?:bi|mac)\b'
-          - '\b(?:anh|chi|ban).{0,20}(?:chac chan|ro rang).{0,15}(?:bi|mac)\b'
-        allow_patterns:
-          - '\b(?:khong the|chua the|khong du).{0,25}(?:chan doan|ket luan)\b'
-
-      - reason: "medical_prescription"
-        description: "Kê thuốc, chỉ định thuốc hoặc liều dùng cá nhân qua chatbot"
-        enabled: true
-        request_variants:
-          - name: "ask_prescription_or_dose"
-            patterns:
-              - '\b(?:ke don|ke thuoc|cho toa|toa thuoc|uong thuoc gi|dung thuoc gi)\b'
-              - '\b(?:lieu|lieu dung|uong|dung).{0,30}(?:bao nhieu|may vien|mg|ml)\b'
-            safe_reply: "Dạ, em không thể kê thuốc, chọn thuốc hoặc hướng dẫn liều dùng cá nhân. Anh/chị vui lòng trao đổi trực tiếp với bác sĩ hoặc dược sĩ; nếu có dấu hiệu bất thường nặng, hãy đến cơ sở y tế gần nhất ạ."
-        patterns:
-          - '\b(?:toi|em)\s+(?:ke|chi dinh|cho toa).{0,30}(?:thuoc|don|toa)\b'
-          - '\b(?:uong|dung|su dung)\s+\d+(?:[.,]\d+)?\s*(?:mg|ml|vien|lan.ngay)\b'
-        allow_patterns:
-          - '\b(?:khong the|khong duoc|can bac si|theo chi dinh cua bac si)\b'
-
-      - reason: "medical_emergency_delay"
-        description: "Trì hoãn cấp cứu hoặc khuyên tự xử lý tại nhà khi có dấu hiệu nguy hiểm"
-        enabled: true
-        request_variants:
-          - name: "possible_emergency"
-            patterns:
-              - '\b(?:meo mieng|yeu liet|liet nua nguoi|noi kho|mat y thuc|bat tinh)\b'
-              - '\b(?:dau nguc).{0,35}(?:du doi|kho tho|vã mo hoi|va mo hoi)\b'
-            safe_reply: "Các dấu hiệu anh/chị mô tả có thể cần cấp cứu. Anh/chị hãy gọi 115 hoặc đến cơ sở cấp cứu gần nhất ngay, không tự lái xe và không chờ chatbot tư vấn thêm. Em đồng thời gắn cờ để nhân viên hỗ trợ ạ."
-        patterns:
-          - '\b(?:o nha|cho them|doi them|theo doi tai nha).{0,45}(?:meo mieng|yeu liet|dau nguc|kho tho|mat y thuc)\b'
-        allow_patterns: []
-
-      - reason: "guaranteed_treatment_result"
-        description: "Cam kết chữa khỏi, bảo đảm kết quả điều trị hoặc tầm soát tuyệt đối"
-        enabled: true
-        request_variants:
-          - name: "ask_guaranteed_cure"
-            patterns:
-              - '\b(?:cam ket|bao dam|dam bao).{0,45}(?:chua khoi|khoi benh|het benh|100%)\b'
-            safe_reply: "Dạ, phòng khám không thể cam kết chắc chắn kết quả điều trị khi chưa thăm khám và đánh giá chuyên môn. Kết quả phụ thuộc tình trạng từng người; em xin phép chuyển anh/chị đến bác sĩ hoặc nhân viên phòng khám để được tư vấn đúng phạm vi ạ."
-        patterns:
-          - '\b(?:cam ket|bao dam|dam bao).{0,45}(?:chua khoi|khoi benh|het benh|100%)\b'
-        allow_patterns:
-          - '\b(?:khong|khong the|khong duoc).{0,20}(?:cam ket|bao dam|dam bao)\b'
-
-      - reason: "banking_secret_request"
-        description: "Nhận hoặc yêu cầu mật khẩu, thông tin thẻ hay mã OTP"
-        enabled: true
-        request_variants:
-          - name: "offer_payment_secret"
-            patterns:
-              - '\b(?:gui|cung cap|dua).{0,45}(?:otp|mat khau|so the|cvv|cvc)\b'
-            safe_reply: "Dạ, anh/chị tuyệt đối không gửi mật khẩu, mã OTP, CVV/CVC hoặc đầy đủ thông tin thẻ qua chat. Em xin phép chuyển nhân viên phòng khám hướng dẫn kênh thanh toán chính thức và an toàn ạ."
-        patterns:
-          - '\b(?:gui|cung cap|doc|nhap).{0,40}(?:otp|mat khau|cvv|cvc|so the)\b'
-        allow_patterns:
-          - '\b(?:khong|tuyet doi khong).{0,25}(?:gui|cung cap|doc|nhap)\b'
-
-      - reason: "cross_tenant_or_internal_data"
-        description: "Tiết lộ dữ liệu tenant khác, dữ liệu bệnh nhân hoặc thông tin nội bộ"
-        enabled: true
-        request_variants:
-          - name: "ask_other_customer_data"
-            patterns:
-              - '\b(?:du lieu|thong tin|benh an|ket qua xet nghiem).{0,40}(?:khach khac|benh nhan khac|mima)\b'
-            safe_reply: "Dạ, em không thể cung cấp dữ liệu của khách hàng, bệnh nhân hoặc đơn vị khác. Em xin phép chuyển nhân viên phụ trách nếu anh/chị cần kiểm tra hồ sơ của chính mình qua quy trình xác minh phù hợp ạ."
-        patterns:
-          - '\b(?:du lieu|thong tin|benh an|ket qua xet nghiem).{0,40}(?:khach khac|benh nhan khac|mima)\b'
-        allow_patterns:
-          - '\b(?:khong the|khong duoc).{0,25}(?:cung cap|tiet lo|chia se)\b'
-
-      - reason: "technical_information_disclosure"
-        description: "Tiết lộ system prompt, tên model, khóa API hoặc cấu trúc kỹ thuật nội bộ"
-        enabled: true
-        request_variants:
-          - name: "ask_hidden_prompt"
-            patterns:
-              - '\b(?:system prompt|prompt he thong|developer message|api key|ten model)\b'
-            safe_reply: "Dạ, em không thể tiết lộ system prompt, chỉ dẫn ẩn, khóa API, tên model hoặc cấu trúc kỹ thuật nội bộ. Em chỉ có thể hỗ trợ thông tin khám chữa bệnh công khai của Phòng khám Hỷ Hỷ ạ."
-        patterns:
-          - '\b(?:system prompt|prompt he thong|developer message|api key|secret key)\b'
-        allow_patterns:
-          - '\b(?:khong the|khong duoc).{0,25}(?:tiet lo|chia se|cung cap)\b'
-
-    grounding:
-      enabled: true
-      reason: "ungrounded_claim"
-      description: "Bịa thông tin y tế hoặc thông tin phòng khám khi không có bằng chứng RAG/tool"
-      min_token_overlap: 0.30
-      min_matching_tokens: 2
-      request_variants: []
-      claim_patterns:
-        - '\d'
-        - '\b(?:phong kham|bac si|chuyen khoa|goi kham|xet nghiem|dich vu|thuoc).{0,100}\b(?:co|gom|bao gom|gia|lich|dia chi|hotline|dieu tri|chan doan)\b'
-        - '\b(?:gia|chi phi|lich lam viec|dia chi|hotline).{0,100}\b(?:phong kham|goi kham|dich vu|bac si)\b'
-      conversation_claim_patterns:
-        - '\b(?:ten cua anh|ten cua chi|so dien thoai|thoi gian muon kham|chuyen khoa muon kham)\b'
-      ignore_patterns:
-        - '\b(?:xin phep chuyen|nhan vien phong kham|chua co du thong tin|khong the chan doan|goi 115|co so cap cuu)\b'
-        - '\b(?:anh|chi).{0,40}(?:muon|can).{0,30}(?:dat lich|tu van|ket noi)\b'
-
+  - Khách mô tả dấu hiệu cấp cứu như méo miệng, yếu liệt, đau ngực dữ dội, khó thở nặng hoặc mất ý thức
+  - Khách yêu cầu chẩn đoán cá nhân, kê đơn, chọn thuốc hoặc hướng dẫn liều dùng
+  - Khách cần xác nhận lịch khám, kết quả xét nghiệm, hồ sơ bệnh án hoặc quyết định điều trị
+  - Thông tin giá, bác sĩ, lịch làm việc hoặc dịch vụ không có bằng chứng rõ trong RAG/tool
 pricing:
-  can_quote: [goi_kham]
-  must_contact: [kham_chuyen_khoa, xet_nghiem, chan_doan_hinh_anh, dieu_tri]
-
+  can_quote:
+  - goi_kham
+  must_contact:
+  - kham_chuyen_khoa
+  - xet_nghiem
+  - chan_doan_hinh_anh
+  - dieu_tri
 contact:
-  hotline: "0971 787 416"
+  hotline: 0971 787 416
   zalo: null
-
 lead:
   ask_after_turns: 2
   max_requests: 2
-  no_data_retry_message: "Dạ, em chưa tìm thấy thông tin đủ rõ trong dữ liệu Phòng khám Hỷ Hỷ. Anh/chị có thể nói rõ chuyên khoa hoặc nhu cầu đặt lịch để em hỗ trợ tiếp không ạ?"
-
+  no_data_retry_message: Dạ, em chưa tìm thấy thông tin đủ rõ trong dữ liệu Phòng khám Hỷ Hỷ. Anh/chị có thể nói
+    rõ chuyên khoa hoặc nhu cầu đặt lịch để em hỗ trợ tiếp không ạ?
 enabled_tools:
-  - request_appointment
-
+- request_appointment
 model_policy:
-  primary: "gemini-3.5-flash-lite"
-  fallback: "gpt-5.6-luna"
+  primary: gemini-3.5-flash-lite
+  fallback: gpt-5.6-luna
   temperature: 0.2
-  usd_to_vnd: 26000
   costs:
-    - model: "gemini-3.5-flash-lite"
-      input_usd_per_million: 0.3
-      output_usd_per_million: 2.5
-    - model: "gpt-5.6-luna"
-      input_usd_per_million: 0.2
-      output_usd_per_million: 1.2
-
+  - model: gemini-3.5-flash-lite
+    input_usd_per_million: 0.3
+    cached_input_usd_per_million: 0.03
+    output_usd_per_million: 2.5
+  - model: gpt-5.6-luna
+    input_usd_per_million: 0.5
+    cached_input_usd_per_million: 0.05
+    cache_write_input_usd_per_million: 0.625
+    output_usd_per_million: 3.0
 embedding_policy:
   primary:
-    provider: "openai"
-    model: "text-embedding-3-small"
+    provider: openai
+    model: text-embedding-3-small
   fallback:
-    provider: "gemini"
-    model: "gemini-embedding-001"
-
+    provider: gemini
+    model: gemini-embedding-001
 retrieval_policy:
   min_score: 0.45
   relative_score_margin: 0.08
-
 knowledge:
-  local_index_dir: "outputs/h2_04/index_phongkham_hyhy"
+  local_index_dir: outputs/h2_04/index_phongkham_hyhy

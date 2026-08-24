@@ -54,9 +54,9 @@ def main() -> int:
 
     _write(
         OUTPUT / "H2-03-30-trap-input-output.csv",
-        ["Câu hỏi", "Reply", "Chi phí (VND)", "Độ trễ (ms)"],
+        ["Câu hỏi", "Reply", "Chi phí ước tính (USD)", "Độ trễ (ms)"],
         [
-            [item["question"], item["reply"], f"{item['cost_vnd']:.2f}", item["latency_ms"]]
+            [item["question"], item["reply"], f"{item['cost_usd']:.8f}", item["latency_ms"]]
             for item in trap_results
         ],
     )
@@ -70,7 +70,7 @@ def main() -> int:
             "Need human",
             "Reason",
             "Model called",
-            "Chi phí (VND)",
+            "Chi phí ước tính (USD)",
             "Độ trễ (ms)",
             "Trace ID",
         ],
@@ -85,7 +85,7 @@ def main() -> int:
                     "reason", ""
                 ),
                 item["model_called"],
-                f"{item['cost_vnd']:.2f}",
+                f"{item['cost_usd']:.8f}",
                 item["latency_ms"],
                 item["trace_id"],
             ]
@@ -102,7 +102,7 @@ def main() -> int:
         "trap_full_score": sum(float(x.get("score", 0)) == 1.0 for x in trap_results),
         "trap_errors": sum(x.get("status") == "ERROR" for x in trap_results),
         "trap_model_calls": sum(bool(x.get("model_called")) for x in trap_results),
-        "trap_average_cost_vnd": trap["summary"]["average_cost_vnd"],
+        "trap_average_cost_usd": trap["summary"]["average_cost_usd"],
         "trap_average_latency_ms": trap["summary"]["average_latency_ms"],
         "normal_passed": normal["summary"]["passed"],
         "normal_total": normal["summary"]["total"],

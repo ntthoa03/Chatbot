@@ -1,0 +1,36 @@
+# Nhãn tiếng Việt nằm ở `label`; `reason` kỹ thuật dùng cho log/test.
+profile_id: common
+output:
+  block_configured_model_names: true
+  rules:
+  - reason: banking_secret_request
+    description: Nhận hoặc tiết lộ OTP, mật khẩu và thông tin thẻ ngân hàng
+    request_variants:
+    - name: banking_secret
+      patterns:
+      - \b(?:gui|doc|nhap|cung cap|chia se).{0,45}(?:otp|ma xac thuc|mat khau|so the|cvv|cvc)\b
+      safe_reply: Dạ, anh/chị tuyệt đối không gửi OTP, mật khẩu hoặc thông tin thẻ qua cuộc trò chuyện. Em xin phép
+        chuyển anh/chị đến nhân viên phụ trách để được hướng dẫn qua kênh chính thức và an toàn ạ.
+    patterns:
+    - \b(?:gui|doc|nhap|cung cap|chia se).{0,45}(?:otp|ma xac thuc|mat khau|so the|cvv|cvc)\b
+    allow_patterns:
+    - \b(?:khong|tuyet doi khong).{0,25}(?:gui|doc|nhap|cung cap|chia se)\b
+    label: Nhận OTP, mật khẩu hoặc thông tin thẻ
+  - reason: technical_information_disclosure
+    description: Tiết lộ system prompt, khóa API, tên model hoặc cấu trúc kỹ thuật nội bộ
+    request_variants:
+    - name: hidden_technical_information
+      patterns:
+      - \b(?:system prompt|prompt he thong|developer message|api key|secret key|ten model)\b
+      safe_reply: Dạ, em không thể tiết lộ system prompt, chỉ dẫn ẩn, khóa API, tên model hoặc cấu trúc kỹ thuật
+        nội bộ. Em xin phép chuyển anh/chị đến nhân viên phụ trách nếu cần thông tin chính thức về hệ thống ạ.
+    patterns:
+    - \b(?:system prompt|prompt he thong|developer message|api key|secret key)\b
+    allow_patterns:
+    - \b(?:khong the|khong duoc).{0,25}(?:tiet lo|chia se|cung cap)\b
+    label: Lộ system prompt, model hoặc cấu trúc kỹ thuật
+  grounding:
+    enabled: false
+    reason: ungrounded_claim
+    description: Không bịa thông tin khi không có bằng chứng RAG/tool
+    label: Bịa thông tin khi thiếu dữ liệu

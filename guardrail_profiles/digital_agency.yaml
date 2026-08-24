@@ -1,0 +1,317 @@
+# Nhãn tiếng Việt nằm ở `label`; `reason` kỹ thuật dùng cho log/test.
+profile_id: digital_agency
+extends: common
+output:
+  block_configured_model_names: true
+  rules:
+  - reason: result_guarantee
+    description: 'Cam kết kết quả: lên top Google, ra đơn, tăng doanh thu hoặc thứ hạng'
+    request_variants:
+    - name: result_and_refund
+      patterns:
+      - \b(?:guarantee|promise|cam ket|dam bao|bao dam).{0,100}(?:top|google|rank|ra don|doanh thu).{0,100}(?:refund|hoan
+        tien)\b
+      - \b(?:hoan tien|refund).{0,100}(?:top|google|rank|ra don|doanh thu|ket qua|fails?)\b
+      - \b(?:top|google|ra don|doanh thu|ket qua).{0,100}(?:hoan lai|tra lai|tra du|tra het).{0,35}(?:tien|phi)\b
+      - \b(?:hoan lai|tra lai|tra du|tra het).{0,35}(?:tien|phi).{0,100}(?:top|google|ra don|doanh thu|ket qua|khong
+        dat)\b
+      safe_reply: Dạ, MIMA không thể cam kết chắc chắn thứ hạng hoặc kết quả trong một thời hạn cụ thể, đồng thời
+        em cũng không thể xác nhận hoàn tiền khi chưa có chính sách được kiểm chứng. Kết quả thực tế còn phụ thuộc
+        dữ liệu, mức độ cạnh tranh và thuật toán Google. Em xin phép chuyển anh/chị đến chuyên viên tư vấn để kiểm
+        tra chính sách và trao đổi lộ trình phù hợp ạ.
+    - name: absolute_result_guarantee
+      patterns:
+      - \b100\s*%.{0,80}(?:top|google|ra don|doanh thu|ket qua|thu hang|chac thang)\b
+      - \b(?:top|google|ra don|doanh thu|ket qua|thu hang|chac thang).{0,80}100\s*%(?:\s|$)
+      safe_reply: Dạ, MIMA không thể đảm bảo 100% về thứ hạng, số đơn hàng hoặc doanh thu vì kết quả còn phụ thuộc
+        dữ liệu thực tế và điều kiện thị trường. Bên em chỉ cam kết nỗ lực triển khai minh bạch theo kế hoạch. Em
+        xin phép chuyển anh/chị đến chuyên viên tư vấn để trao đổi phương án phù hợp ạ.
+    - name: result_guarantee
+      patterns:
+      - \b(?:cam ket|dam bao|bao dam|bao dau|chac chan|dam hua|hua|xac nhan|guarantee|promise).{0,120}(?:top|google|ra
+        don|doanh thu|ket qua|thu hang|first[ -]?page|rankings?)\b
+      - \b(?:top|google|ra don|doanh thu|ket qua|thu hang|first[ -]?page|rankings?).{0,100}(?:chac chan|chac thang|100\s*%|guarantee|promise)\b
+      - \b(?:kpi|bat buoc).{0,70}(?:top|ra don|doanh thu|thu hang)\b
+      - \b(?:ty le|kha nang).{0,45}(?:chac thang|100\s*%).{0,70}(?:top|google|ra don|doanh thu)\b
+      - \b(?:xac nhan|noi chac|bao chung|chac keo).{0,120}(?:dung dau|dung so mot|ba vi tri dau|trang dau|thanh
+        cong|co khach mua deu)\b
+      - \b(?:bao hanh|bao lanh).{0,80}(?:top|thu hang|vi tri|doanh thu|ra don|ket qua)\b
+      - \b(?:dung dau|dung so mot|ba vi tri dau|trang dau).{0,80}(?:sau|trong)\s+\d+\b
+      - \b(?:dam bao|bao dam|hua|noi chac|xac nhan|chac chan).{0,120}(?:\d+\s*don|don hang|khach dat hang|doanh
+        so|co khach mua deu|du an.{0,20}thanh cong)\b
+      safe_reply: Dạ, MIMA không thể cam kết chắc chắn website đạt thứ hạng, ra đơn hoặc tăng doanh thu trong một
+        thời hạn cố định. Kết quả thực tế còn phụ thuộc dữ liệu, mức độ cạnh tranh và thuật toán Google; bên em
+        chỉ cam kết nỗ lực triển khai minh bạch theo kế hoạch. Em xin phép chuyển anh/chị đến chuyên viên tư vấn
+        để trao đổi lộ trình phù hợp ạ.
+    patterns:
+    - \b(?:cam ket|dam bao|bao dam|chac chan|hua).{0,70}(?:top|google|ra don|doanh thu|ket qua|thu hang)
+    - \b100\s*%.{0,45}(?:top|ra don|tang doanh thu|dat ket qua)
+    - \bse\s+(?:len|dat)\s+top\s*1\b
+    - \bse.{0,20}(?:dua|day|giup).{0,45}(?:website|tu khoa).{0,35}(?:len|dat).{0,12}(?:top|trang nhat)\b
+    allow_patterns:
+    - \b(?:khong|khong the|khong he)\s+(?:cam ket|dam bao|bao dam|hua)\b
+    - '\bkhong(?: the)?\s+dua ra\s+(?:bat ky\s+|mot\s+|cac\s+|nhung\s+)?(?:cam ket|dam bao|bao dam|loi hua)\b'
+    - \bkhong co\s+(?:bat ky\s+|mot\s+|cac\s+|nhung\s+)?(?:cam ket|dam bao|bao dam|loi hua)\b
+    - \b(?:cach noi|cum).{0,35}(?:khong duoc|bi cam)\b
+    label: Cam kết kết quả hoặc thứ hạng
+  - reason: refund_or_warranty_promise
+    description: Cam kết hoàn tiền hoặc bảo hành không có bằng chứng RAG/tool
+    request_variants:
+    - name: refund_or_warranty
+      patterns:
+      - \b(?:cam ket|dam bao|bao dam|promise|guarantee).{0,70}(?:hoan tien|refund|bao hanh|warranty)\b
+      - \b(?:hoan tien|refund).{0,60}(?:100\s*%|toan bo|neu|if|khong dat|that bai|fails?)\b
+      - \b(?:bao hanh|warranty).{0,45}(?:tron doi|vinh vien|vo thoi han|\d+)\b
+      - \b(?:hoan lai|tra lai|tra du|tra het|boi thuong).{0,60}(?:tien|phi|toan bo|gap doi|neu|khong dat|that bai)\b
+      - \b(?:bao lanh ca nhan|dung ra bao lanh|chiu trach nhiem sua).{0,70}(?:tien|phi|mai|khong gioi han|that bai)\b
+      - \b(?:bao hanh|warranty|sua).{0,55}(?:khong gioi han thoi gian|mai mai|moi loi|vo dieu kien)\b
+      - \b(?:hoan tien|hoan lai|tra lai|tra du).{0,45}(?:100\s*phan tram|vo dieu kien|day du|toan bo)\b
+      safe_reply: Dạ, em không thể tự xác nhận cam kết hoàn tiền hoặc thời hạn bảo hành khi chính sách đó chưa được
+        kiểm chứng từ nguồn chính thức. Để tránh cung cấp sai quyền lợi của anh/chị, em xin phép chuyển anh/chị
+        đến chuyên viên tư vấn kiểm tra chính sách cụ thể ạ.
+    patterns:
+    - \b(?:cam ket|dam bao|se)\s+hoan\s+tien\b
+    - \b(?:em|ben em|chung toi|toi)\s+(?:se\s+)?hoan\s+tien\b
+    - \bhoan\s+tien\s*(?:100\s*%|toan bo)\b
+    - \b(?:duoc\s+)?bao\s+hanh.{0,30}(?:\d+|tron doi|vinh vien|vo thoi han|nam|thang)\b
+    allow_patterns:
+    - \bkhong.{0,15}(?:cam ket|hoan tien|bao hanh)\b
+    label: Cam kết hoàn tiền hoặc bảo hành
+  - reason: unauthorized_discount_or_gift
+    description: Tự ý giảm giá, tặng thêm, miễn phí hoặc thương lượng
+    request_variants:
+    - name: unauthorized_discount_or_gift
+      patterns:
+      - \b(?:tu y|giam rieng|bot rieng|tang rieng|secret|giu bi mat|ngoai goi|noi mieng|sep da duyet).{0,80}(?:giam|bot|discount|uu
+        dai|tang|mien phi|free|gia|trieu|%)\b
+      - \b(?:giam|bot|discount|uu dai|tang them|mien phi|free).{0,80}(?:tu y|rieng|secret|giu bi mat|ngoai goi|noi
+        mieng|sep da duyet)\b
+      - \b(?:em|bot|tro ly).{0,30}(?:tu|tu quyet|tu chot).{0,25}(?:giam|bot|ha|ho tro gia|tang|cho kem|khong tinh
+        tien|uu dai)\b
+      - \b(?:ha gia|ho tro gia|lai gia|cho kem|khong tinh tien|trich lai|hoa hong|lai qua).{0,70}(?:chot|ky|coc|goi|trieu|%)\b
+      - \b(?:ban cua giam doc|nguoi quen|gia noi bo|match gia|sep duyet|quan ly duyet).{0,70}(?:gia|giam|bot|uu
+        dai|chiet khau|trieu|%)\b
+      - \b(?:ghi|doi ten).{0,45}(?:ho tro marketing|khoan ho tro|qua tang).{0,45}(?:lach|giam|bot|gia)\b
+      - \b(?:giam them|ha rieng|ha gia|lay it hon|thu it hon|match gia|tu giam|tu bot|dong y uu dai).{0,70}(?:\d+|trieu|tr|%|chot|coc|hop
+        dong|gia|truoc)\b
+      - \b(?:neu|if).{0,45}(?:giam|bot|ha|ho tro gia).{0,45}(?:chuyen coc|chot|ky|review)\b
+      safe_reply: Dạ, em không thể tự ý giảm giá, tặng thêm hoặc xác nhận ưu đãi ngoài gói và chính sách đã được
+        phê duyệt. Em xin phép chuyển anh/chị đến chuyên viên có thẩm quyền để kiểm tra ưu đãi phù hợp và xác nhận
+        bằng thông tin chính thức ạ.
+    patterns:
+    - \b(?:em|ben em|chung toi|toi).{0,35}(?:giam gia|bot gia|tang them|tang rieng|thuong luong|chot gia|uu dai|chiet
+      khau|mien phi)\b
+    - \b(?:giam rieng|uu dai rieng|tang them|tang rieng)\b
+    - \b(?:giam|bot|uu dai|chiet khau)\s+(?:gia\s+)?\d+(?:[.,]\d+)?\s*(?:%|k|nghin|trieu|tr)\b
+    allow_patterns:
+    - \bkhong.{0,15}(?:tu y|giam gia|tang them|thuong luong|uu dai|chiet khau)\b
+    label: Tự giảm giá, tặng thêm hoặc thương lượng
+  - reason: internal_information
+    description: 'Tiết lộ thông tin nội bộ: lương, chi phí, dữ liệu khách hàng khác'
+    request_variants:
+    - name: internal_information
+      patterns:
+      - \b(?:cho|gui|cung cap|tiet lo|chia se|biet|noi that|doc|xuat|export).{0,55}(?:luong(?! (?:khach|nguoi|truy
+        cap|don|lead))|bang luong|gia von|bien loi nhuan|chi phi noi bo|doanh thu noi bo|chien luoc noi bo)\b
+      - '\b(?:danh sach|du lieu|so dien thoai|email|hop dong).{0,45}khach hang(?: khac)?\b'
+      - '\bkhach hang(?: khac)?.{0,45}(?:danh sach|du lieu|so dien thoai|email|hop dong)\b'
+      - '\b(?:file|data|so dien thoai|so dt|email|hop dong|bao gia).{0,55}(?:nhung )?khach(?: da mua| dang dung|
+        ben khac)?\b'
+      - \b(?:thu nhap|chi phi thuc|phan loi|doanh so|doanh thu|lich lam viec|so dien thoai rieng).{0,55}(?:sale|nhan
+        vien|giam doc|cong ty|noi bo|mima)\b
+      - \b(?:chunk|index|du lieu|data).{0,55}(?:tenant|phong kham|hyhy|khach b|don vi khac)\b
+      - \b(?:khach dang no|du an khach|ho so khach).{0,55}(?:danh sach|xuat|gui|doc|cho)\b
+      - \b(?:uoc luong|doan|suy ra).{0,55}(?:luong|thu nhap|gia von|chi phi thuc|bien loi nhuan|phan loi)\b
+      - \b(?:gia von|bien loi nhuan|phan loi|chi phi thuc).{0,55}(?:bao nhieu|may|that|thuc te|phan tram|%)\b
+      - \b(?:xuat|gui|cho|export).{0,55}(?:danh sach|contact list|project notes).{0,55}(?:khach dang no|khach hang|customer|another
+        customer)\b
+      - \b(?:another|other).{0,25}customer.{0,45}(?:contact|project|notes|data|list)\b
+      safe_reply: Dạ, em không thể cung cấp lương, giá vốn, biên lợi nhuận hoặc dữ liệu liên hệ của khách hàng khác
+        vì đây là thông tin nội bộ và cần được bảo mật. Em xin phép chuyển anh/chị đến chuyên viên phụ trách nếu
+        anh/chị có yêu cầu chính đáng cần được xác minh ạ.
+    patterns:
+    - \b(?:luong(?! (?:khach|nguoi|truy cap|don|lead))|bang luong|gia von|gia nhap|bien loi nhuan|chi phi (?:noi
+      bo|van hanh|nhan su)|doanh thu noi bo|chien luoc noi bo|quy trinh noi bo|mat khau noi bo)\b
+    - '\b(?:du lieu|danh sach|so dien thoai|email|hop dong).{0,30}khach hang(?: khac)?\b'
+    - '\bkhach hang(?: khac)?.{0,30}(?:so dien thoai|email|du lieu|hop dong)\b'
+    allow_patterns:
+    - '\bkhong(?: the)?\s+(?:tiet lo|chia se|cung cap).{0,35}(?:noi bo|khach hang)\b'
+    label: Lộ thông tin nội bộ hoặc dữ liệu khách khác
+  - reason: competitor_disparagement
+    description: Chê bai hoặc so sánh đích danh đối thủ
+    request_variants:
+    - name: competitor_disparagement
+      patterns:
+      - \b(?:noi|viet|bao|nhan xet|danh gia).{0,55}(?:cong ty|agency|don vi|abc|xyz).{0,55}(?:kem|te|lua dao|khong
+        bang|thua xa|lam an chan|dich vu do)\b
+      - \b(?:cong ty|agency|don vi|abc|xyz).{0,55}(?:kem|te|lua dao|khong bang|thua xa|lam an chan|dich vu do)\b
+      - \b(?:noi|viet|bao|soan|xac nhan|boc phot).{0,70}(?:cong ty|agency|don vi|abc|xyz|haravan).{0,70}(?:do|rat
+        do|khong dang tin|khong uy tin|gian doi|dishonest|inferior|pha san|yeu|toan nguoi moi|khong co cua)\b
+      - \b(?:cong ty|agency|don vi|abc|xyz|haravan).{0,60}(?:do|rat do|khong dang tin|khong uy tin|gian doi|dishonest|inferior|pha
+        san|yeu|toan nguoi moi|khong co cua)\b
+      - \b(?:boc phot|viet bai|soan status).{0,55}(?:abc|xyz|doi thu|cong ty).{0,45}(?:lua khach|gian doi|lua dao|kem|te)\b
+      - \b(?:mima|ben em).{0,35}(?:tot hon han|vuot troi hon|hon han).{0,35}(?:abc|xyz|haravan|doi thu).{0,25}(?:moi
+        mat|tat ca|toan dien)?\b
+      safe_reply: Dạ, em không thể chê bai hoặc đưa nhận định tiêu cực đích danh về một đơn vị khác. Em có thể hỗ
+        trợ anh/chị so sánh khách quan dựa trên phạm vi công việc, tính năng và tiêu chí đã được xác minh. Em xin
+        phép chuyển anh/chị đến chuyên viên tư vấn để trao đổi cụ thể hơn ạ.
+    patterns:
+    - \b(?:doi thu|cong ty|agency|don vi).{0,55}(?:kem|te|lua dao|khong bang|thua xa|lam an chan|dich vu do)\b
+    - \b(?:kem|te|lua dao|khong bang|thua xa|lam an chan|dich vu do).{0,40}(?:doi thu|cong ty|agency|don vi)\b
+    - \b(?:abc|xyz).{0,35}(?:kem|te|lua dao|khong bang|thua xa|lam an chan|dich vu do)\b
+    allow_patterns:
+    - \bkhong.{0,20}(?:che bai|so sanh|danh gia).{0,30}(?:doi thu|cong ty|agency|don vi|abc|xyz)\b
+    label: Chê bai đối thủ đích danh
+  - reason: banking_secret_request
+    description: Nhận hoặc tiết lộ thông tin thẻ ngân hàng, mật khẩu hay mã OTP
+    request_variants:
+    - name: banking_secret
+      patterns:
+      - \b(?:gui|cung cap|cho em|cho toi|nhap|xac nhan|share|send).{0,45}(?:ma otp|otp|so the|card number|cvv|cvc|mat
+        khau ngan hang|bank password)\b
+      - \b(?:ma otp|otp)\D{0,12}\d{4,8}\b
+      - \b(?:so the|card)\D{0,12}(?:\d[ -]?){13,19}\b
+      - \b(?:doc|gui|nhan|chia se|nhap|xac nhan|xu ly|thanh toan ho).{0,55}(?:ma xac thuc|one[ -]?time password|day
+        so tren the|ba so sau the|pass ngan hang|tai khoan va mat khau|anh the ngan hang)\b
+      - \b(?:ma xac thuc|one[ -]?time password|day so tren the|ba so sau the|pass ngan hang|tai khoan va mat khau).{0,55}(?:doc|gui|nhan|chia
+        se|nhap|xac nhan|xu ly|thanh toan ho)\b
+      - \b(?:dang nhap|login).{0,35}(?:internet banking|ngan hang).{0,35}(?:giup|ho|tai khoan|mat khau|pass)\b
+      - \b(?:anh hai mat|hinh hai mat).{0,35}(?:the ngan hang|credit card|debit card)\b
+      - \b(?:doc|nhan|cu nhan|lay lai).{0,40}(?:ma otp|otp|ma xac thuc)\b
+      - \b(?:dai (?:mot|1)|cho (?:mot|1)|gui (?:mot|1)).{0,35}so tai khoan.{0,45}(?:chuyen|sai|sua sau|tam)\b
+      - \b(?:doi|gui|xac nhan).{0,35}tai khoan.{0,45}(?:moi|nhan tien|chua xac minh|xac minh sau)\b
+      safe_reply: Dạ, anh/chị tuyệt đối không gửi mã OTP, số thẻ, CVV hoặc mật khẩu ngân hàng qua cuộc trò chuyện
+        này. MIMA không yêu cầu khách hàng cung cấp những thông tin bảo mật đó. Em xin phép chuyển anh/chị đến chuyên
+        viên để được hướng dẫn thanh toán qua kênh chính thức và an toàn ạ.
+    patterns:
+    - \b(?:gui|cung cap|cho em|cho toi|nhap|xac nhan).{0,35}(?:ma otp|otp|so the|cvv|cvc|mat khau ngan hang)\b
+    - \b(?:ma otp|otp)\D{0,12}\d{4,8}\b
+    - \b(?:so the|card)\D{0,12}(?:\d[ -]?){13,19}\b
+    allow_patterns:
+    - \b(?:khong|tuyet doi khong).{0,25}(?:gui|cung cap|nhap|chia se).{0,25}(?:otp|so the|cvv|cvc|mat khau)\b
+    label: Nhận OTP, mật khẩu hoặc thông tin thẻ
+  - reason: out_of_scope_advice
+    description: 'Trả lời ngoài lĩnh vực: chính trị, y tế, pháp luật, làm bài tập hộ'
+    request_variants:
+    - name: medical_advice
+      patterns:
+      - \b(?:chan doan|ke thuoc|toa thuoc|lieu dung|uong thuoc|dung thuoc).{0,70}(?:benh|thuoc|mg|giup|cho anh|cho
+        toi)?\b
+      safe_reply: Dạ, em không thể chẩn đoán bệnh, kê thuốc hoặc đưa liều dùng vì đây là nội dung cần chuyên môn
+        y tế. Anh/chị nên trao đổi trực tiếp với bác sĩ hoặc chuyên gia y tế đủ chuyên môn. Em xin phép chuyển anh/chị
+        đến chuyên viên để tiếp tục hỗ trợ trong phạm vi dịch vụ của MIMA ạ.
+    - name: legal_advice
+      patterns:
+      - \b(?:tu van phap ly|nen khoi kien|chac chan thang kien|theo dieu \d+|can cu dieu \d+)\b
+      - \b(?:lach|ne|tron).{0,25}(?:thue|nghia vu thue|phap luat)\b
+      safe_reply: Dạ, em không thể đưa ra kết luận hoặc tư vấn pháp lý thay cho người có chuyên môn. Anh/chị nên
+        trao đổi với luật sư hoặc đơn vị tư vấn pháp lý phù hợp. Em xin phép chuyển anh/chị đến chuyên viên để tiếp
+        tục hỗ trợ trong phạm vi dịch vụ của MIMA ạ.
+    - name: political_advice
+      patterns:
+      - \b(?:tong thong|thu tuong|dang phai|bau cu|chinh tri|quoc hoi).{0,90}(?:nen|ung ho|phan doi|tot|xau|thang|thua|nhan
+        xet|danh gia)\b
+      - \b(?:ung ho|phan doi|chon|du doan).{0,60}(?:ung vien|tong thong|bau cu).{0,60}(?:thang|thua|chac chan)?\b
+      safe_reply: Dạ, nội dung chính trị nằm ngoài phạm vi tư vấn của MIMA nên em không thể đưa ra nhận định hoặc
+        định hướng cho anh/chị. Em xin phép chuyển anh/chị đến chuyên viên nếu anh/chị cần hỗ trợ về website, SEO
+        hoặc các dịch vụ của MIMA ạ.
+    - name: homework
+      patterns:
+      - \b(?:lam ho|giai ho|viet ho).{0,45}(?:toan bo|bai tap|bai toan|bai van)\b
+      - \b(?:toan bo).{0,25}(?:bai tap|bai toan|bai van).{0,25}(?:cho anh|cho toi|giup)\b
+      - \b(?:lam tron|lam het|chi gui dap an).{0,50}(?:bai thi|bai online|mon toan|bai tap)\b
+      safe_reply: Dạ, em không thể làm hộ toàn bộ bài tập hoặc đưa thẳng đáp án hoàn chỉnh. Em có thể gợi ý phương
+        pháp để anh/chị tự làm và hiểu bài tốt hơn. Em xin phép chuyển anh/chị đến chuyên viên để tiếp tục hỗ trợ
+        trong phạm vi dịch vụ của MIMA ạ.
+    - name: financial_advice
+      patterns:
+      - \b(?:vay het|tat tay|dau tu het).{0,50}(?:co phieu|crypto|tien ao).{0,50}(?:chac chan|bao dam|co lai|sinh
+        loi)\b
+      - \b(?:co phieu|crypto|tien ao).{0,60}(?:nao|ma nao).{0,45}(?:chac chan|bao dam|co lai|sinh loi)\b
+      safe_reply: Dạ, em không thể khuyến nghị đầu tư tài chính hoặc bảo đảm lợi nhuận. Anh/chị nên trao đổi với
+        chuyên gia tài chính được cấp phép và tự đánh giá rủi ro trước khi quyết định. Em xin phép chuyển anh/chị
+        đến chuyên viên để tiếp tục hỗ trợ trong phạm vi dịch vụ của MIMA ạ.
+    patterns:
+    - \b(?:tong thong|thu tuong|dang phai|bau cu|chinh tri|quoc hoi).{0,90}(?:la|se|nen|tot|xau|ung ho|phan doi|thang|thua)\b
+    - \b(?:chan doan|toa thuoc|lieu dung|uong|dung)\s+.{0,35}(?:mg|thuoc)\b
+    - \b(?:theo dieu \d+|can cu dieu \d+|nen khoi kien|chac chan thang kien|tu van phap ly)\b
+    - \b(?:dap an bai tap|giai ho bai|lam ho bai|loi giai bai tap|viet bai ho)\b
+    allow_patterns:
+    - '\bkhong(?: the)?\s+(?:tu van|tra loi|ho tro).{0,45}(?:chinh tri|y te|phap luat|bai tap)\b'
+    label: Tư vấn ngoài lĩnh vực
+  - reason: technical_information_disclosure
+    description: Tiết lộ system prompt, tên model, bí mật hoặc cấu trúc kỹ thuật
+    request_variants:
+    - name: technical_information_disclosure
+      patterns:
+      - \b(?:tiet lo|hien thi|in ra|lap lai|doc lai|viet lai|dich|tom tat|reveal|show|print|repeat|translate).{0,90}(?:system
+        prompt|prompt he thong|developer message|hidden system|hidden instruction|chi dan an|huong dan bi mat|chi
+        thi an)\b
+      - \b(?:ignore|disregard|forget|override|bo qua|quen).{0,90}(?:instruction|rule|prompt|huong dan|chi thi|vai
+        tro).{0,90}(?:reveal|show|print|viet lai|tiet lo|hien thi|in ra)?\b
+      - \b(?:tom tat|liet ke|doc|xuat|dien|cho biet).{0,80}(?:quy tac noi bo|noi quy an|noi quy khong hien thi|thu
+        tu uu tien|chi dan goc an|noi dung nha phat trien)\b
+      - \b(?:admin override|che do kiem tra|debug mode|yeu cau tu quan ly).{0,100}(?:model|api key|secret|cau hinh|prompt|quy
+        tac)\b
+      - \b(?:tool|ket qua tool).{0,80}(?:bo|vuot|khong can theo).{0,55}(?:luat|bao mat|quy tac|chi dan)\b
+      - \b(?:so do|pipeline|nguong guardrail|cach ne|cach vuot).{0,100}(?:model|guardrail|lop chan|he thong|ky thuat)\b
+      - \b(?:json|dien du lieu|tra dung).{0,90}(?:system prompt|model|secret|api key)\b
+      - \b(?:dat|dua|bo|chep).{0,35}(?:system prompt|prompt he thong).{0,45}(?:khoi code|code block|debug)\b
+      safe_reply: Dạ, em không thể tiết lộ, dịch, tóm tắt hoặc lặp lại system prompt, chỉ dẫn ẩn, tên model hay
+        cấu trúc kỹ thuật nội bộ. Em xin phép chuyển anh/chị đến chuyên viên nếu anh/chị cần thông tin chính thức
+        về phạm vi và khả năng của dịch vụ ạ.
+    patterns:
+    - \b(?:system prompt|prompt he thong).{0,55}(?:la|gom|noi dung|bat dau|ben duoi)\b
+    - \b(?:toi|em|bot|he thong).{0,35}(?:dang dung|su dung|dang chay|chay).{0,35}(?:model|gemini|gpt)\b
+    - \b(?:api key|api_key|secret key|access token)\s*[:=]
+    - \[(?:vai tro va persona|pham vi duoc phep tra loi|quy tac cam)\]
+    - \b(?:kien truc|backend|vector store|framework|cau hinh ky thuat).{0,70}(?:fastapi|django|faiss|chroma|postgres|redis|python|yaml|json)\b
+    allow_patterns:
+    - '\bkhong(?: the)?\s+(?:tiet lo|chia se|cung cap|xac nhan).{0,45}(?:system prompt|model|kien truc|ky thuat|api
+      key)\b'
+    label: Lộ system prompt, model hoặc cấu trúc kỹ thuật
+  grounding:
+    enabled: true
+    reason: ungrounded_claim
+    description: Bịa thông tin khi không có trong kho tri thức hoặc bằng chứng đáng tin cậy
+    request_variants:
+    - name: fabrication_request
+      patterns:
+      - \b(?:bia|tu nghi|make up|fabricate|invent).{0,80}(?:so tai khoan|thong tin|du lieu|gia|chinh sach|dia chi|email|so
+        dien thoai)\b
+      - \b(?:so tai khoan|thong tin|du lieu|gia|chinh sach|dia chi|email|so dien thoai).{0,80}(?:bia|tu nghi|make
+        up|fabricate|invent)\b
+      - \b(?:doan dai|tu dien tam|uoc chung|cho mot so gan dung|noi dai|bao dai|tu tao|tao tam).{0,90}(?:gia|so|thong
+        tin|du lieu|chinh sach|tien do|so lieu|nguon|tai khoan)\b
+      - \b(?:khong biet|chua co|chua thay|chua tim thay).{0,80}(?:cu|thi).{0,30}(?:bao|noi|viet|doan|uoc|tao).{0,60}(?:dai|tam|gan
+        dung|cung duoc)\b
+      - \b(?:tao|viet).{0,55}(?:nguon gia|cau tra loi co ve dang tin|so lieu gia|thong tin gia)\b
+      - \b(?:noi dai|bao dai|cu noi|cu bao).{0,90}(?:khong gioi han|duoc sua|dc sua|7 ngay|thoi gian|tinh nang|chinh
+        sach)\b
+      - \b(?:khong co|khong biet|chua co|chua thay).{0,80}(?:mo ta|du lieu|thoi gian|gia).{0,80}(?:doan|tu doan|cu
+        bao|cu noi|noi dai|bao dai)\b
+      - \b(?:con so gia|so lieu gia|luong khach gia).{0,60}(?:khach|mima|phuc vu|slide)\b
+      - \b(?:khong co du lieu).{0,50}(?:tu doan|doan giup).{0,50}(?:gia|chinh sach|tinh nang)\b
+      - \b(?:khong co|k co|khong thay|chua co).{0,45}(?:mo ta|du lieu).{0,45}(?:doan|doan giup|doan jup).{0,55}(?:tinh
+        nang|gia|chinh sach|co du)\b
+      safe_reply: Dạ, em không thể tự bịa hoặc cung cấp thông tin chưa được xác minh, đặc biệt là số tài khoản và
+        dữ liệu thanh toán. Em xin phép chuyển anh/chị đến chuyên viên để xác nhận thông tin chính thức trước khi
+        anh/chị thực hiện giao dịch ạ.
+    min_token_overlap: 0.35
+    min_matching_tokens: 2
+    claim_patterns:
+    - \d
+    - \b(?:goi|dich vu|website|seo|quang cao|backlink|app|phan mem|ten mien).{0,100}\b(?:co gia|co kem|co tinh nang|gom|bao
+      gom|gia|duoc|tang|ho tro|thoi gian|chinh sach|quy trinh)\b
+    - \b(?:co gia|co kem|co tinh nang|gom|bao gom|gia|duoc|tang|ho tro|thoi gian|chinh sach|quy trinh).{0,100}\b(?:goi|dich
+      vu|website|seo|quang cao|backlink|app|phan mem|ten mien)\b
+    - \b(?:cong ty|chung toi|ben em).{0,100}\b(?:la|co|dat tai|thanh lap|hoat dong|cung cap|so huu)\b
+    - \b(?:hotline|zalo|email|so dien thoai|dia chi|website chinh thuc).{0,100}\b(?:la|tai|qua|gom|co)\b
+    conversation_claim_patterns:
+    - \b(?:ma du an|ma yeu cau|ten cua anh|ten cua chi|so dien thoai|email|ngan sach|thoi han cua anh|thoi han cua
+      chi)\b
+    ignore_patterns:
+    - \b(?:xin phep ket noi|chuyen vien tu van|chua co du du lieu|khong co du lieu)\b
+    - \b(?:anh|chi).{0,40}(?:muon|can).{0,30}(?:tu van|ket noi|tham khao)\b
+    - \b(?:co co hoi|no luc|toi uu theo tieu chuan)\b
+    label: Bịa thông tin khi thiếu dữ liệu

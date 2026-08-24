@@ -3,3 +3,7 @@ __pycache__/
 .tmp_input_extract/
 .env
 index_demo/
+outputs/sale_feedback.jsonl
+outputs/sale_ui_turns.jsonl
+outputs/sale_feedback.csv
+tools/ngrok/*.exe

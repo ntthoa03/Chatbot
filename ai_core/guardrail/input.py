@@ -25,9 +25,24 @@ _INJECTION_PATTERNS = (
     r"\bbo qua (?:tat ca |toan bo |cac )?(?:chi thi|huong dan|quy tac|lenh)(?: truoc do| ben tren| cua he thong)?\b",
     r"\b(?:quen|xoa|vo hieu hoa) (?:vai tro|chi thi|huong dan|quy tac|bo nho)(?: cua ban| hien tai| truoc do)?\b",
     r"\b(?:khong can|dung|cho) (?:tuan theo|lam theo) (?:chi thi|huong dan|quy tac|system prompt)\b",
-    r"\b(?:hay |tu gio )?(?:dong vai|gia vo|hanh dong nhu) (?:developer|system|quan tri vien|admin|mot ai)\b",
+    r"\b(?:hay |tu gio )?(?:dong vai|gia vo|hanh dong nhu) "
+    r"(?:(?:em|ban|may) (?:la|thanh) )?(?:developer|system|quan tri vien|admin|mot ai)\b",
     r"\b(?:bat|kich hoat|enable) (?:developer mode|che do nha phat trien|dan|jailbreak)\b",
-    r"\b(?:tiet lo|hien thi|in ra|lap lai|doc lai|cho (?:toi|tao) xem) (?:toan bo )?(?:system prompt|prompt he thong|chi thi an|huong dan noi bo)\b",
+    r"\b(?:tiet lo|hien thi|in ra|lap lai|doc lai|cho (?:toi|tao) xem) "
+    r"(?:toan bo )?(?:system prompt|prompt he thong|chi thi an|huong dan an|"
+    r"huong dan noi bo|quy tac an|lenh an|developer message)\b",
+    r"\b(?:ma hoa|encode|chuyen|viet).{0,30}(?:base64|hex|rot13).{0,35}"
+    r"(?:system prompt|prompt he thong|huong dan an|chi thi an)\b",
+    r"\b(?:chia|tach).{0,25}(?:system prompt|prompt he thong|huong dan an|chi thi an)"
+    r".{0,30}(?:doan|phan|lan luot)\b",
+    r"\b(?:tom tat|dien giai|mo ta).{0,30}(?:quy tac an|huong dan an|system prompt|prompt noi bo)\b",
+    r"\b(?:viet lai|dich|translate|gui|sao chep|copy|cho (?:toi|tao) xem).{0,45}"
+    r"(?:system prompt|prompt (?:goc|he thong|noi bo|an|cua (?:em|ban|may))|"
+    r"chi thi an|huong dan an|quy tac an)\b",
+    r"\b(?:in|hien thi|tiet lo|gui).{0,40}(?:noi dung )?"
+    r"(?:cau hinh|lenh) (?:he thong|noi bo|developer)\b",
+    r"\b(?:lap lai|doc lai|hien thi|tiet lo).{0,35}"
+    r"(?:ten model|model dang dung|lenh developer|developer message)\b",
     r"\b(?:lam trai|lam nguoc|pha bo) (?:nhung dieu|dieu|quy tac|chi thi).{0,35}(?:he thong|ban duoc dan|truoc do)\b",
     r"\b(?:ignore|disregard|forget|override) (?:all |any |the )?(?:previous|prior|above|system)? ?(?:instructions?|rules?|prompts?|role)\b",
     r"\b(?:reveal|show|print|repeat|leak) (?:your |the )?(?:system prompt|hidden instructions?|developer message)\b",
@@ -43,6 +58,13 @@ _COMPACT_INJECTION_MARKERS = (
     "quenhuongdantruocdo",
     "tietlosystemprompt",
     "hienthiprompthethong",
+    "hienthitoanbohuongdanan",
+    "giavoemlaadmin",
+    "tomtatquytacan",
+    "mahoasystemprompt",
+    "vietlaipromptgoc",
+    "dichpromptgoc",
+    "guipromptnoibo",
     "ignorepreviousinstructions",
     "ignoreallpriorrules",
     "revealsystemprompt",
@@ -72,6 +94,11 @@ _UPSET_PATTERNS = (
     r"\b(?:toi muon|toi se|cho toi) (?:khieu nai|khieu kien|gap quan ly|gap nguoi phu trach)\b",
     r"\b(?:khieu nai|khieu kien) (?:cong ty|dich vu|ben ban)\b",
     r"\b(?:cho doi|nhan(?: tin)?|goi).{0,24}(?:mai khong thay|khong thay ai tra loi|khong ai tra loi|khong ai xu ly)\b",
+    # Khách đe dọa phản ánh công khai hoặc yêu cầu hủy vì không được xử lý.
+    r"\b(?:se|doi|muon).{0,25}(?:dang|dua|viet).{0,30}(?:facebook|mang xa hoi|len mang|boc phot)\b",
+    r"\b(?:muon|yeu cau|cho toi).{0,25}(?:huy dich vu|huy hop dong|gap nguoi co trach nhiem|goi quan ly)\b",
+    # Câu chửi bot thường đi kèm tín hiệu hỏi nhiều lần nhưng vẫn sai.
+    r"\b(?:bot|tro ly).{0,20}(?:ngu|te|vo dung).{0,45}(?:hoi|tra loi|sai|nguoi that|xu ly)?\b",
 )
 
 _AMBIGUOUS_INJECTION = re.compile(
@@ -301,7 +328,13 @@ def check_input(
         marker.casefold() in compact for marker in _COMPACT_INJECTION_MARKERS
     ):
         return _decision(True, "prompt_injection", False, include_metadata=include_metadata)
-    if _is_spam(message, normalized, history):
+    if _is_cross_turn_spam(message, history):
+        # Gắn subtype để tầng chat có thể trả lời lịch sự cho khách hỏi lại,
+        # trong khi quyết định chặn spam và chuyển người vẫn được giữ nguyên.
+        decision = _decision(True, "spam", False, include_metadata=include_metadata)
+        decision["variant"] = "repeated_message"
+        return decision
+    if _is_spam(message, normalized, None):
         return _decision(True, "spam", False, include_metadata=include_metadata)
     if _matches(normalized, _HARMFUL_PATTERNS):
         return _decision(True, "harmful_content", True, include_metadata=include_metadata)
