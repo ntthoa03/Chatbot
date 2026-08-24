@@ -116,7 +116,7 @@ def print_report(
     rows = []
     for result in report.results:
         if result.model_called:
-            cost_display = f"{result.cost_vnd:.2f}"
+            cost_display = f"{result.cost_usd:.8f}"
         else:
             cost_display = "0.00 (không gọi model)"
         detail = (
@@ -135,7 +135,7 @@ def print_report(
             detail,
         ])
     print(_table(rows, [
-        "ID", "Loại", "Chủ đề", "Kiểu nhập", "KQ", "Điểm", "Chi phí VND", "Độ trễ ms", "Chi tiết",
+        "ID", "Loại", "Chủ đề", "Kiểu nhập", "KQ", "Điểm", "Chi phí USD", "Độ trễ ms", "Chi tiết",
     ]))
     summary = report.summary
     print(
@@ -145,11 +145,11 @@ def print_report(
         f"Hoàn tất: {summary.completion_rate:.1%}"
     )
     print(
-        f"Chi phí TB/lượt: {summary.average_cost_vnd:.2f} VND "
-        f"({summary.total_cost_vnd:.2f}/{summary.total}) | "
-        f"TB/lượt gọi model: {summary.average_model_call_cost_vnd:.2f} VND "
-        f"({summary.model_calls} lượt model, {summary.zero_cost_turns} lượt 0 VND) | "
-        f"Tổng chi phí: {summary.total_cost_vnd:.2f} VND | "
+        f"Chi phí TB/lượt: ${summary.average_cost_usd:.8f} "
+        f"(${summary.total_cost_usd:.8f}/{summary.total}) | "
+        f"TB/lượt gọi model: ${summary.average_model_call_cost_usd:.8f} "
+        f"({summary.model_calls} lượt model, {summary.zero_cost_turns} lượt $0) | "
+        f"Tổng chi phí: ${summary.total_cost_usd:.8f} | "
         f"Độ trễ TB: {summary.average_latency_ms:.2f} ms | "
         f"Thời gian chạy: {summary.duration_seconds:.3f}s"
     )
@@ -162,7 +162,7 @@ def print_report(
             topic,
             f"{metrics.passed}/{metrics.evaluated}",
             f"{metrics.pass_rate:.1%}",
-            f"{metrics.average_cost_vnd:.2f}",
+            f"{metrics.average_cost_usd:.8f}",
             f"{metrics.average_latency_ms:.2f}",
             str(metrics.errors),
             str(metrics.manual_review),
@@ -199,10 +199,10 @@ def print_report(
                     f"{delta['completion_rate_delta']:+.1%}",
                 ],
                 [
-                    "Chi phí TB (VND)",
-                    f"{delta['baseline_average_cost_vnd']:.2f}",
-                    f"{delta['current_average_cost_vnd']:.2f}",
-                    f"{delta['average_cost_vnd_delta']:+.2f}",
+                    "Chi phí TB ước tính (USD)",
+                    f"{delta['baseline_average_cost_usd']:.8f}",
+                    f"{delta['current_average_cost_usd']:.8f}",
+                    f"{delta['average_cost_usd_delta']:+.8f}",
                 ],
                 [
                     "Độ trễ TB (ms)",

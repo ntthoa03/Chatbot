@@ -206,11 +206,11 @@ def _aggregate_row(profile: Profile, report: EvalReport, baseline: EvalReport) -
         "manual_review": summary.manual_review,
         "pass_rate": summary.pass_rate,
         "pass_rate_delta": round(summary.pass_rate - baseline.summary.pass_rate, 4),
-        "average_cost_vnd": summary.average_cost_vnd,
+        "average_cost_usd": summary.average_cost_usd,
         "average_cost_delta_vnd": round(
-            summary.average_cost_vnd - baseline.summary.average_cost_vnd, 2
+            summary.average_cost_usd - baseline.summary.average_cost_usd, 12
         ),
-        "average_model_call_cost_vnd": summary.average_model_call_cost_vnd,
+        "average_model_call_cost_usd": summary.average_model_call_cost_usd,
         "average_latency_ms": summary.average_latency_ms,
         "average_latency_delta_ms": round(
             summary.average_latency_ms - baseline.summary.average_latency_ms, 2
@@ -233,21 +233,21 @@ def save_aggregate(output_dir: Path, rows: list[dict[str, Any]]) -> tuple[Path, 
     eligible = [row for row in rows if row["errors"] == 0]
     best = sorted(
         eligible,
-        key=lambda row: (-row["pass_rate"], row["average_cost_vnd"], row["average_latency_ms"]),
+        key=lambda row: (-row["pass_rate"], row["average_cost_usd"], row["average_latency_ms"]),
     )[0] if eligible else rows[0]
     lines = [
         "# HOA-17 — kết quả tinh chỉnh",
         "",
         "Mỗi dòng chỉ thay đúng một biến so với `baseline`.",
         "",
-        "| Cấu hình | Biến thay đổi | Giá trị | Đúng | Δ đúng | Chi phí TB (VND) | Độ trễ TB (ms) | <5 phút | Lỗi |",
+        "| Cấu hình | Biến thay đổi | Giá trị | Đúng | Δ đúng | Chi phí TB ước tính (USD) | Độ trễ TB (ms) | <5 phút | Lỗi |",
         "|---|---|---|---:|---:|---:|---:|:---:|---:|",
     ]
     for row in rows:
         lines.append(
             f"| {row['profile']} | {row['changed_variable']} | {row['value']} | "
             f"{row['pass_rate']:.1%} | {row['pass_rate_delta']:+.1%} | "
-            f"{row['average_cost_vnd']:.2f} | {row['average_latency_ms']:.2f} | "
+            f"{row['average_cost_usd']:.8f} | {row['average_latency_ms']:.2f} | "
             f"{'Có' if row['within_5_minutes'] else 'Không'} | {row['errors']} |"
         )
     lines.extend([
@@ -255,7 +255,7 @@ def save_aggregate(output_dir: Path, rows: list[dict[str, Any]]) -> tuple[Path, 
         "## Cấu hình được chọn",
         "",
         f"`{best['profile']}` — tỷ lệ đúng {best['pass_rate']:.1%}, "
-        f"chi phí trung bình {best['average_cost_vnd']:.2f} VND/lượt, "
+        f"chi phí trung bình ${best['average_cost_usd']:.8f}/lượt, "
         f"độ trễ trung bình {best['average_latency_ms']:.2f} ms/lượt.",
         "",
         "Tiêu chí chọn: không có lỗi hạ tầng, ưu tiên tỷ lệ đúng; nếu bằng nhau thì "

@@ -111,7 +111,7 @@ class CaseResult(_FrozenEvalModel):
     guardrail_blocked: bool
     model: str
     model_called: bool
-    cost_vnd: float = Field(ge=0.0)
+    cost_usd: float = Field(ge=0.0)
     latency_ms: int = Field(ge=0)
     trace_id: str
     diagnostic_stage: str | None = None
@@ -131,7 +131,7 @@ class TopicSummary(_FrozenEvalModel):
     manual_review: int = Field(ge=0)
     evaluated: int = Field(ge=0)
     pass_rate: float = Field(ge=0.0, le=1.0)
-    average_cost_vnd: float = Field(ge=0.0)
+    average_cost_usd: float = Field(ge=0.0)
     average_latency_ms: float = Field(ge=0.0)
 
 
@@ -144,12 +144,12 @@ class EvalSummary(_FrozenEvalModel):
     evaluated: int = Field(ge=0)
     pass_rate: float = Field(ge=0.0, le=1.0)
     completion_rate: float = Field(ge=0.0, le=1.0)
-    average_cost_vnd: float = Field(ge=0.0)
-    average_model_call_cost_vnd: float = Field(ge=0.0)
+    average_cost_usd: float = Field(ge=0.0)
+    average_model_call_cost_usd: float = Field(ge=0.0)
     model_calls: int = Field(ge=0)
     zero_cost_turns: int = Field(ge=0)
     average_latency_ms: float = Field(ge=0.0)
-    total_cost_vnd: float = Field(ge=0.0)
+    total_cost_usd: float = Field(ge=0.0)
     duration_seconds: float = Field(ge=0.0)
     unaccented_total: int = Field(ge=0)
     unaccented_passed: int = Field(ge=0)
@@ -327,7 +327,7 @@ def score_case(
         model_called = bool(diagnostic_model.get("called"))
     else:
         model_called = bool(
-            float(usage.get("cost_vnd", 0) or 0)
+            float(usage.get("cost_usd", 0) or 0)
             or int(usage.get("tokens_in", 0) or 0)
             or int(usage.get("tokens_out", 0) or 0)
         )
@@ -388,7 +388,7 @@ def score_case(
         guardrail_blocked=bool(guardrail.get("blocked", False)),
         model=str(usage.get("model", "")),
         model_called=model_called,
-        cost_vnd=float(usage.get("cost_vnd", 0) or 0),
+        cost_usd=float(usage.get("cost_usd", 0) or 0),
         latency_ms=int(usage.get("latency_ms", 0) or 0),
         trace_id=trace_id,
         diagnostic_stage=diagnostic_stage,
@@ -404,7 +404,7 @@ def _error_result(case: EvalCase, exc: Exception, latency_ms: int = 0) -> CaseRe
         question=case.question, reply="", status="ERROR", passed=False,
         score=0.0, pass_score=case.pass_score, criteria=(), need_human=False,
         guardrail_blocked=False, model="", model_called=False,
-        cost_vnd=0.0, latency_ms=latency_ms,
+        cost_usd=0.0, latency_ms=latency_ms,
         trace_id="", diagnostic_stage="exception",
         error=f"{type(exc).__name__}: {exc}",
     )
@@ -415,7 +415,7 @@ def build_case_fingerprint(cases_path: str | Path) -> str:
 
     payload = {
         "cases": yaml.safe_load(Path(cases_path).read_text(encoding="utf-8")),
-        "scoring_schema_version": 3,
+        "scoring_schema_version": 4,
     }
     encoded = json.dumps(payload, ensure_ascii=False, sort_keys=True, separators=(",", ":"))
     return hashlib.sha256(encoded.encode("utf-8")).hexdigest()
@@ -472,9 +472,11 @@ def build_comparison(
         "baseline_pass_rate": round(float(base.get("pass_rate", 0)), 4),
         "current_pass_rate": current.pass_rate,
         "pass_rate_delta": round(current.pass_rate - float(base.get("pass_rate", 0)), 4),
-        "baseline_average_cost_vnd": round(float(base.get("average_cost_vnd", 0)), 2),
-        "current_average_cost_vnd": current.average_cost_vnd,
-        "average_cost_vnd_delta": round(current.average_cost_vnd - float(base.get("average_cost_vnd", 0)), 2),
+        "baseline_average_cost_usd": round(float(base.get("average_cost_usd", 0)), 12),
+        "current_average_cost_usd": current.average_cost_usd,
+        "average_cost_usd_delta": round(
+            current.average_cost_usd - float(base.get("average_cost_usd", 0)), 12
+        ),
         "baseline_average_latency_ms": round(float(base.get("average_latency_ms", 0)), 2),
         "current_average_latency_ms": current.average_latency_ms,
         "average_latency_ms_delta": round(current.average_latency_ms - float(base.get("average_latency_ms", 0)), 2),
@@ -558,8 +560,8 @@ def run_eval(
     errors = sum(item.status == "ERROR" for item in results)
     manual_review = sum(item.status == "MANUAL_REVIEW" for item in results)
     evaluated = passed + failed
-    costs = [item.cost_vnd for item in results]
-    model_call_costs = [item.cost_vnd for item in results if item.model_called]
+    costs = [item.cost_usd for item in results]
+    model_call_costs = [item.cost_usd for item in results if item.model_called]
     latencies = [item.latency_ms for item in results]
     unaccented_results = [item for item in results if item.input_style == "unaccented"]
     unaccented_passed = sum(item.status == "PASS" for item in unaccented_results)
@@ -582,7 +584,7 @@ def run_eval(
             manual_review=topic_manual,
             evaluated=topic_evaluated,
             pass_rate=round(topic_passed / topic_evaluated, 4) if topic_evaluated else 0.0,
-            average_cost_vnd=round(fmean(item.cost_vnd for item in topic_results), 2),
+            average_cost_usd=round(fmean(item.cost_usd for item in topic_results), 12),
             average_latency_ms=round(fmean(item.latency_ms for item in topic_results), 2),
         )
     summary = EvalSummary(
@@ -590,14 +592,14 @@ def run_eval(
         manual_review=manual_review, evaluated=evaluated,
         pass_rate=round(passed / evaluated, 4) if evaluated else 0.0,
         completion_rate=round(evaluated / len(results), 4),
-        average_cost_vnd=round(fmean(costs), 2),
-        average_model_call_cost_vnd=(
-            round(fmean(model_call_costs), 2) if model_call_costs else 0.0
+        average_cost_usd=round(fmean(costs), 12),
+        average_model_call_cost_usd=(
+            round(fmean(model_call_costs), 12) if model_call_costs else 0.0
         ),
         model_calls=len(model_call_costs),
-        zero_cost_turns=sum(item.cost_vnd == 0 for item in results),
+        zero_cost_turns=sum(item.cost_usd == 0 for item in results),
         average_latency_ms=round(fmean(latencies), 2),
-        total_cost_vnd=round(sum(costs), 2),
+        total_cost_usd=round(sum(costs), 12),
         duration_seconds=round(duration, 3),
         unaccented_total=len(unaccented_results),
         unaccented_passed=unaccented_passed,
@@ -647,7 +649,7 @@ def save_report(
     with csv_path.open("w", encoding="utf-8-sig", newline="") as handle:
         writer = csv.DictWriter(handle, fieldnames=[
             "id", "type", "topic", "input_style", "status", "passed", "score", "pass_score", "question", "reply",
-            "failed_checks", "need_human", "guardrail_blocked", "model", "cost_vnd",
+            "failed_checks", "need_human", "guardrail_blocked", "model", "cost_usd",
             "model_called",
             "latency_ms", "trace_id", "diagnostic_stage", "judge_reason", "error",
         ])
@@ -669,14 +671,14 @@ def save_report(
             comparison.get("completion_rate_delta"), "%",
         ),
         (
-            "average_cost_vnd", report.summary.average_cost_vnd,
-            comparison.get("baseline_average_cost_vnd"),
-            comparison.get("average_cost_vnd_delta"), "VND",
+            "average_cost_usd", report.summary.average_cost_usd,
+            comparison.get("baseline_average_cost_usd"),
+            comparison.get("average_cost_usd_delta"), "USD",
         ),
         (
-            "average_model_call_cost_vnd",
-            report.summary.average_model_call_cost_vnd,
-            None, None, "VND/model call",
+            "average_model_call_cost_usd",
+            report.summary.average_model_call_cost_usd,
+            None, None, "USD/model call",
         ),
         ("model_calls", report.summary.model_calls, None, None, "cases"),
         ("zero_cost_turns", report.summary.zero_cost_turns, None, None, "cases"),
@@ -697,8 +699,8 @@ def save_report(
             (f"topic.{topic}.passed", metrics.passed, None, None, "cases"),
             (f"topic.{topic}.total", metrics.total, None, None, "cases"),
             (
-                f"topic.{topic}.average_cost_vnd",
-                metrics.average_cost_vnd, None, None, "VND",
+                f"topic.{topic}.average_cost_usd",
+                metrics.average_cost_usd, None, None, "USD",
             ),
             (
                 f"topic.{topic}.average_latency_ms",
@@ -714,14 +716,14 @@ def save_report(
         writer.writerow(["TỶ LỆ ĐÚNG", f"{report.summary.pass_rate:.2%}"])
         writer.writerow([
             "CHI PHÍ TRUNG BÌNH MỖI LƯỢT",
-            f"{report.summary.average_cost_vnd:.2f} VND "
-            f"({report.summary.total_cost_vnd:.2f}/{report.summary.total} lượt)",
+            f"${report.summary.average_cost_usd:.8f} "
+            f"(${report.summary.total_cost_usd:.8f}/{report.summary.total} lượt)",
         ])
         writer.writerow([
             "CHI PHÍ TRUNG BÌNH LƯỢT GỌI MODEL",
-            f"{report.summary.average_model_call_cost_vnd:.2f} VND "
+            f"${report.summary.average_model_call_cost_usd:.8f} "
             f"({report.summary.model_calls} lượt gọi model; "
-            f"{report.summary.zero_cost_turns} lượt 0 VND)",
+            f"{report.summary.zero_cost_turns} lượt $0)",
         ])
         writer.writerow([
             "ĐỘ TRỄ TRUNG BÌNH MỖI LƯỢT",
@@ -735,20 +737,20 @@ def save_report(
     with manual_review_path.open("w", encoding="utf-8-sig", newline="") as handle:
         writer = csv.writer(handle)
         writer.writerow([
-            "CÂU HỎI", "CÂU TRẢ LỜI", "CHI PHÍ (VND)", "ĐỘ TRỄ (ms)",
+            "CÂU HỎI", "CÂU TRẢ LỜI", "CHI PHÍ ƯỚC TÍNH (USD)", "ĐỘ TRỄ (ms)",
         ])
         for result in report.results:
             writer.writerow([
                 result.question,
                 result.reply,
-                f"{result.cost_vnd:.2f}",
+                f"{result.cost_usd:.8f}",
                 result.latency_ms,
             ])
     with topics_path.open("w", encoding="utf-8-sig", newline="") as handle:
         writer = csv.writer(handle)
         writer.writerow([
             "CHỦ ĐỀ", "TỔNG", "ĐẠT", "SAI", "ERROR", "REVIEW",
-            "TỶ LỆ ĐÚNG", "CHI PHÍ TB (VND)", "ĐỘ TRỄ TB (ms)",
+            "TỶ LỆ ĐÚNG", "CHI PHÍ TB ƯỚC TÍNH (USD)", "ĐỘ TRỄ TB (ms)",
         ])
         for topic, metrics in report.summary.topic_metrics.items():
             writer.writerow([
@@ -759,7 +761,7 @@ def save_report(
                 metrics.errors,
                 metrics.manual_review,
                 f"{metrics.pass_rate:.2%}",
-                f"{metrics.average_cost_vnd:.2f}",
+                f"{metrics.average_cost_usd:.8f}",
                 f"{metrics.average_latency_ms:.2f}",
             ])
     return (
