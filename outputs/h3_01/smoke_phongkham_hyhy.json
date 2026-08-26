@@ -1,0 +1,87 @@
+{
+  "schema_version": "h2-04.index-smoke.v1",
+  "tested_at": "2026-08-25T09:28:57.789405+00:00",
+  "index_dir": "outputs/h2_04/index_phongkham_hyhy",
+  "tenant_id": "phongkham_hyhy",
+  "threshold": 0.3,
+  "top_k": 3,
+  "queries": [
+    {
+      "query": "Phòng khám có khám tim mạch không?",
+      "result_count": 3,
+      "results": [
+        {
+          "score": 0.643564,
+          "title": "Phòng Khám Đa Khoa Khám Tim Mạch Uy Tín",
+          "url": "https://phongkhamhyhy.com/phong-kham-da-khoa-kham-tim-mach-uy-tin",
+          "content_preview": "Lợi ích khi khám tim mạch tại phòng khám đa khoa uy tín\nLựa chọn phòng khám đa khoa khám tim mạch uy tín mang lại nhiều lợi ích thiết thực. Trước hết, người bệnh được thăm khám bởi đội ngũ bác sĩ có chuyên môn, kết hợp khai thác tiền sử bện"
+        },
+        {
+          "score": 0.624274,
+          "title": "Phòng Khám Đa Khoa Khám Tim Mạch Uy Tín",
+          "url": "https://phongkhamhyhy.com/phong-kham-da-khoa-kham-tim-mach-uy-tin",
+          "content_preview": "Phòng khám đa khoa khám tim mạch uy tín có vai trò như thế nào?\nTim mạch là một trong những chuyên khoa quan trọng bởi trái tim chính là cơ quan duy trì sự sống của toàn bộ cơ thể. Khi hệ tim mạch gặp vấn đề, sức khỏe tổng thể sẽ bị ảnh hưở"
+        },
+        {
+          "score": 0.616669,
+          "title": "Phòng Khám Uy Tín Tại Tân Phú Được Tin Chọn",
+          "url": "https://phongkhamhyhy.com/phong-kham-uy-tin-tai-tan-phu-duoc-tin-chon",
+          "content_preview": "Khám Tim Mạch Chuyên Sâu Tại Phòng Khám Hỷ Hỷ\nBệnh tim mạch thường đi kèm với tăng huyết áp và rối loạn nhịp tim. Tại phòng khám Hỷ Hỷ, quy trình khám tim mạch bao gồm khám lâm sàng, đo huyết áp, xét nghiệm máu, siêu âm tim và điện tâm đồ. "
+        }
+      ]
+    },
+    {
+      "query": "Có gói tầm soát đột quỵ không?",
+      "result_count": 3,
+      "results": [
+        {
+          "score": 0.509035,
+          "title": "Khám Đột Quỵ Sớm Giúp Giảm Biến Chứng",
+          "url": "https://phongkhamhyhy.com/kham-dot-quy-som-giup-giam-bien-chung",
+          "content_preview": "Các Yếu Tố Nguy Cơ Dẫn Đến Đột Quỵ Và Vai Trò Của Tầm Soát\nNhiều yếu tố làm tăng nguy cơ đột quỵ, bao gồm cả những yếu tố không thể thay đổi như tuổi tác, giới tính, tiền sử gia đình và những yếu tố có thể kiểm soát như tăng huyết áp, tiểu "
+        },
+        {
+          "score": 0.504599,
+          "title": "Khám Sức Khỏe Định Kỳ Tân Phú Uy Tín",
+          "url": "https://phongkhamhyhy.com/kham-suc-khoe-dinh-ky-tan-phu-uy-tin",
+          "content_preview": "Tầm Soát Đột Quỵ – Dịch Vụ Nổi Bật Tại Phòng Khám Hỷ Hỷ\nĐột quỵ là “kẻ giết người thầm lặng”. Tại Phòng khám Hỷ Hỷ, gói tầm soát đột quỵ được xây dựng khoa học với sự dẫn dắt của các chuyên gia thần kinh. Khám bao gồm kiểm tra huyết áp, xét"
+        },
+        {
+          "score": 0.498774,
+          "title": "Khám Tầm Soát Đột Quỵ Gồm Những Gì?",
+          "url": "https://phongkhamhyhy.com/kham-tam-soat-dot-quy-gom-nhung-gi",
+          "content_preview": "Khám Tầm Soát Đột Quỵ Gồm Những Gì?\nKhám Tầm Soát Đột Quỵ Gồm Những Gì? Những Điều Bạn Cần Biết Để Bảo Vệ Sức Khỏe Từ Sớm\nĐột quỵ đang trở thành một trong những nguyên nhân gây tử vong và tàn phế hàng đầu tại Việt Nam. Điều đáng lo ngại là "
+        }
+      ]
+    },
+    {
+      "query": "Địa chỉ và hotline phòng khám là gì?",
+      "result_count": 3,
+      "results": [
+        {
+          "score": 0.570597,
+          "title": "Phòng Khám Đa Khoa Khám Ngoài Giờ Tiện Lợi",
+          "url": "https://phongkhamhyhy.com/phong-kham-da-khoa-kham-ngoai-gio-tien-loi",
+          "content_preview": "Trong số những địa chỉ được nhiều người tin tưởng hiện nay, phòng khám Hỷ Hỷ là một trong những cơ sở y tế mang đến giải pháp khám chữa bệnh ngoài giờ hiệu quả, đáp ứng nhu cầu khám sức khỏe tổng quát, khám chuyên khoa và tầm soát bệnh lý c"
+        },
+        {
+          "score": 0.568693,
+          "title": "Phòng khám Đa Khoa Cộng Đồng Hỷ Hỷ",
+          "url": "https://phongkhamhyhy.com/",
+          "content_preview": "Liên hệ và đặt lịch khám tại Phòng khám Đa Khoa Cộng Đồng Hỷ Hỷ\nĐể đặt lịch khám hoặc biết thêm thông tin chi tiết về các dịch vụ tại Phòng khám Đa Khoa Cộng Đồng Hỷ Hỷ, quý khách có thể liên hệ qua các thông tin dưới đây:\nĐịa chỉ cũ: 366 T"
+        },
+        {
+          "score": 0.566253,
+          "title": "Phòng Khám Uy Tín Tại Tân Phú Được Tin Chọn",
+          "url": "https://phongkhamhyhy.com/phong-kham-uy-tin-tai-tan-phu-duoc-tin-chon",
+          "content_preview": "Hướng Dẫn Đặt Lịch Khám Tại Phòng Khám Hỷ Hỷ\nĐể trải nghiệm dịch vụ tốt nhất, bạn có thể truy cập website phongkhamhyhy.com để đặt lịch trực tuyến. Hoặc liên hệ hotline 0984.124.076 / 0969.124.076. Nhân viên sẽ hỗ trợ nhanh chóng, sắp xếp l"
+        }
+      ]
+    }
+  ],
+  "isolation_probe": {
+    "wrong_tenant": "mima_internal",
+    "result_count": 0,
+    "passed": true
+  }
+}

@@ -1,0 +1,87 @@
+{
+  "schema_version": "h2-04.index-smoke.v1",
+  "tested_at": "2026-08-25T09:28:37.528730+00:00",
+  "index_dir": "index",
+  "tenant_id": "mima_internal",
+  "threshold": 0.3,
+  "top_k": 3,
+  "queries": [
+    {
+      "query": "MIMA có những dịch vụ gì?",
+      "result_count": 3,
+      "results": [
+        {
+          "score": 0.820669,
+          "title": "Quan điểm kinh doanh và dịch vụ nổi bật MIMA",
+          "url": "https://mimadigi.com/gioi-thieu",
+          "content_preview": "Quan điểm kinh doanh của MIMA: 'Thành công của khách hàng chính là thành công của MIMA' - chỉ khi khách hàng phát triển, MIMA mới thật sự lớn mạnh. 10 nhóm dịch vụ nổi bật của MIMA gồm: Thiết kế website, Thiết kế app, Cung cấp hosting, Tên "
+        },
+        {
+          "score": 0.813618,
+          "title": "Traffic User Thật và các dịch vụ chăm sóc đi kèm",
+          "url": "https://mimadigi.com/traffic-user-that",
+          "content_preview": "Dịch vụ Traffic User Thật của MIMA cung cấp lượng truy cập từ người dùng thật 100%, tự tìm kiếm - tự click - tương tác tự nhiên theo đúng chuẩn thuật toán Google, khác với traffic ảo/bot. MIMA cũng có dịch vụ Chăm sóc website (cập nhật nội "
+        },
+        {
+          "score": 0.801059,
+          "title": "Dịch vụ tên miền",
+          "url": "https://mimadigi.com/ten-mien",
+          "content_preview": "Dịch vụ tên miền của MIMA hỗ trợ đăng ký và quản lý tên miền theo yêu cầu, tư vấn chọn tên miền đẹp, dễ nhớ, phù hợp chiến lược thương hiệu của khách hàng. Trang chủ có sẵn công cụ kiểm tra tên miền (WHOIS) ngay trên website để khách tự tra"
+        }
+      ]
+    },
+    {
+      "query": "Giá thiết kế website bao nhiêu?",
+      "result_count": 3,
+      "results": [
+        {
+          "score": 0.753611,
+          "title": "Bảng giá thiết kế website - Gói khởi nghiệp",
+          "url": "https://mimadigi.com/thiet-ke-website",
+          "content_preview": "Gói Website khởi nghiệp giá 9.000.000đ: thiết kế giao diện theo yêu cầu, tích hợp AI Content SEO, chuẩn SEO Google, có phiên bản mobile - tablet, bàn giao source code, tặng 5 bài viết chuẩn SEO và 200 chủ đề SEO. Chưa bao gồm SSL, song ngữ,"
+        },
+        {
+          "score": 0.751722,
+          "title": "Bảng giá thiết kế website - Gói phổ thông",
+          "url": "https://mimadigi.com/thiet-ke-website",
+          "content_preview": "Gói Website phổ thông giá 6.000.000đ: thiết kế giao diện theo yêu cầu, tích hợp AI Content SEO, chuẩn SEO theo tiêu chuẩn Google, tiện ích Zalo/nút gọi/chat ngay, bàn giao source code, tặng kèm 5 bài viết chuẩn SEO và 200 chủ đề SEO. Gói nà"
+        },
+        {
+          "score": 0.746888,
+          "title": "Bảng giá thiết kế website - Gói cao cấp và theo yêu cầu",
+          "url": "https://mimadigi.com/thiet-ke-website",
+          "content_preview": "Gói Website cao cấp giá 17.000.000đ: đầy đủ tính năng như gói chuyên nghiệp, cộng thêm giỏ hàng và hỗ trợ song ngữ, tặng 30 bài viết chuẩn SEO và 500 chủ đề SEO. Gói Website theo yêu cầu (cao cấp nhất) có thêm phân quyền quản trị, đăng ký/đ"
+        }
+      ]
+    },
+    {
+      "query": "MIMA liên hệ ở đâu?",
+      "result_count": 3,
+      "results": [
+        {
+          "score": 0.826135,
+          "title": "Liên hệ MIMA",
+          "url": "https://mimadigi.com/lien-he",
+          "content_preview": "Thông tin liên hệ MIMA: Công Ty TNHH Thương Mại Dịch Vụ MIMA, MST 0318672839. Địa chỉ: 31/3B Ấp Thới Tứ 1, Xã Đông Thạnh, TP. Hồ Chí Minh. Hotline: 0909 035 333. Zalo tư vấn: 0902875586. Email: info@mimadigi.com. Khách để lại thông tin sẽ đ"
+        },
+        {
+          "score": 0.785491,
+          "title": "Chính sách bảo mật - Sử dụng, bảo vệ thông tin và quyền khách hàng",
+          "url": "https://mimadigi.com/chinh-sach-bao-mat",
+          "content_preview": "Chính sách bảo mật MIMA - sử dụng và bảo vệ thông tin: MIMA chỉ dùng thông tin khách hàng nội bộ để xác nhận tư vấn, gửi báo giá/hợp đồng/hóa đơn và cải thiện trải nghiệm website; cam kết không bán, chia sẻ hay trao đổi thông tin khách hàng"
+        },
+        {
+          "score": 0.778975,
+          "title": "Chính sách bảo mật - Mục đích và phạm vi thu thập thông tin",
+          "url": "https://mimadigi.com/chinh-sach-bao-mat",
+          "content_preview": "Chính sách bảo mật MIMA - mục đích và phạm vi thu thập thông tin: MIMA thu thập thông tin cá nhân (họ tên, số điện thoại, email, địa chỉ công ty, thông tin yêu cầu dịch vụ, dữ liệu hành vi truy cập website như cookies/IP/trình duyệt) nhằm h"
+        }
+      ]
+    }
+  ],
+  "isolation_probe": {
+    "wrong_tenant": "phongkham_hyhy",
+    "result_count": 0,
+    "passed": true
+  }
+}

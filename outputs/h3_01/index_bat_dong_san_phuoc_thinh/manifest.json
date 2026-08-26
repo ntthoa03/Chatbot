@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "provider": "gemini",
+  "model": "gemini-embedding-001",
+  "dimension": 3072,
+  "record_count": 52,
+  "tenants": [
+    "bat_dong_san_phuoc_thinh"
+  ]
+}

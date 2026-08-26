@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "provider": "openai",
+  "model": "text-embedding-3-small",
+  "dimension": 1536,
+  "record_count": 1369,
+  "tenants": [
+    "giao_duc_haiyan"
+  ]
+}

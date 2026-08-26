@@ -1,0 +1,87 @@
+{
+  "schema_version": "h2-04.index-smoke.v1",
+  "tested_at": "2026-08-25T09:26:48.683875+00:00",
+  "index_dir": "outputs/h3_01/index_bat_dong_san_phuoc_thinh",
+  "tenant_id": "bat_dong_san_phuoc_thinh",
+  "threshold": 0.3,
+  "top_k": 3,
+  "queries": [
+    {
+      "query": "Có nhà nào bán ở Quận 8?",
+      "result_count": 3,
+      "results": [
+        {
+          "score": 0.824437,
+          "title": "Nhà bán Quận 8",
+          "url": "https://www.nhabanphuocthinh.com/quan-8",
+          "content_preview": "Bán Nhà Nhanh : 2 Tỷ 790 (tl)\nBán Nhà Quận 8 - 2 tỷ 890 (tl)\nBán Nhà Quận 8 - 1 tỷ 680 (tl)\nBán Nhà Hẻm Hưng Phú P10 Q8\nBán Nhà 125/ Tám Danh P4Q8\nGiá Bán Nhanh : 5 Tỷ 1 (TL)\nBán Nhà Quận 8 3 Tỷ 470 Triệu( TL)\nNhà Bán Đường Bùi Minh Trực P6"
+        },
+        {
+          "score": 0.819974,
+          "title": "Nhà Bán Phước Thịnh",
+          "url": "https://www.nhabanphuocthinh.com/ban-nha-quan-8-2-ty-890-tl",
+          "content_preview": "Bán Nhà Quận 8 - 2 tỷ 890 (tl)\nĐịa chỉ: Lương Văn Can P15. Q8 (P. Phú Định)\nMô tả: Quận 8 - 2 tỷ 890 (tl) - Dt: 4 ×6m, 1 trệt 2 lầu 3 phòng - Sổ hồng riêng công chứng ngay - Đc: 28/ Lương Văn Can P15. Q8 (P. Phú Định) - Căn góc 2 mặt tiền g"
+        },
+        {
+          "score": 0.817618,
+          "title": "Nhà Bán Phước Thịnh",
+          "url": "https://www.nhabanphuocthinh.com/ban-nha-quan-8-3ty-470trieu-tl",
+          "content_preview": "Bán Nhà Quận 8 3 Tỷ 470 Triệu( TL)\nĐịa chỉ: 780/ Hưng Phú P10. Q8\nMô tả: Quận 8: 3.tỷ 470triệu( TL) - Hẻm xe hơi gần mặt tiền - Đc: 780/ Hưng Phú P10. Q8 - Diện tích đất: 3 x 8m nở hậu 5m công nhận gần 27m2. - Vị trí nhà mặt tiền hẻm . Cách"
+        }
+      ]
+    },
+    {
+      "query": "Nhà đường Phạm Thế Hiển giá bao nhiêu?",
+      "result_count": 3,
+      "results": [
+        {
+          "score": 0.744775,
+          "title": "Nhà Bán Phước Thịnh",
+          "url": "https://www.nhabanphuocthinh.com/ban-nha-pham-the-hien-quan-8",
+          "content_preview": "Địa chỉ: 1225/ Phạm Thế Hiển , P.5 Q.8\nMô tả: Địa chỉ: hẻm 1225/ Phạm Thế Hiển , P.5 Q.8 TP.HCM Diện tích: 4,3m x 16m( nở hậu 4.6 m)– , diện tích xây dựng 48,5m2, hoàn công 69,8m2, phong thủy đẹp, nhà 2 mặt hẻm Kết cấu hiện tại: nhà 1 trệt,"
+        },
+        {
+          "score": 0.743317,
+          "title": "Nhà Bán Phước Thịnh",
+          "url": "https://www.nhabanphuocthinh.com/ban-nha-mat-tien-quan-8",
+          "content_preview": "Địa chỉ: 1199/ Phạm Thế Hiển, Phường 5, Quận 8 .\nMô tả: Cần bán 1 căn nhà mặt tiền • Địa chỉ: 1199/ Phạm Thế Hiển, Phường 5, Quận 8 . • Vị trí: Đường 6m thông ra 4 Hướng, đường BMTrực, đừơng Bông Sao và đừơng Phạm Thế Hiển ,Gần cầu Chánh Hư"
+        },
+        {
+          "score": 0.725901,
+          "title": "Nhà Bán Phước Thịnh",
+          "url": "https://www.nhabanphuocthinh.com/nha-ban-mat-tien-q6",
+          "content_preview": "Địa chỉ: Phạm Văn Chí P7 #Q6\nMô tả: - Nhà bán Mặt Tiền Hẻm 10m Phạm Văn Chí P7 #Q6 - DT : 3m x 11m ( DT sàn 116 ) - Kết cấu : 1 Lửng , 2 Lầu , 5 Phòng Ngủ , 4 Tolet . - Vị Trí siêu Đẹp ,Đối Diện Cổng Trường Tiểu Học Phạm Văn Chí , Cách MT c"
+        }
+      ]
+    },
+    {
+      "query": "Liên hệ Phước Thịnh thế nào?",
+      "result_count": 3,
+      "results": [
+        {
+          "score": 0.734371,
+          "title": "Nhà Đất Phước Thịnh Quận 8, nhabanphuocthinh, nha ban phuoc thinh, nhà bán phước thịnh, bán nhà các quận, nhà đất gần đây",
+          "url": "https://www.nhabanphuocthinh.com/tin-tuc",
+          "content_preview": "- Tuyển Dụng Thành Viên Công Ty Phước Thịnh -\n[ TUYỂN DỤNG ] – VỊ TRÍ CTY PHƯỚC THỊNH Hiện BĐS Đang Tăng Mạnh Cty Cần Tuyển Thêm Nhiều Nhân Sự ACE Liên Hệ : 0906070939 - 0909070939 Để Được Tư Vấn"
+        },
+        {
+          "score": 0.71531,
+          "title": "Nhà Đất Phước Thịnh",
+          "url": "https://www.nhabanphuocthinh.com/",
+          "content_preview": "CTY luôn luôn lấy chữ tín làm đầu, tư vấn thông tin pháp lí đến khách hàng\n100% Uy Tín- Niềm Tin. luôn trung thực, minh bạch chia sẽ thông tin chính xác nhất đến khách hàng. pháp lí rõ ràng không quy hoạch hay tranh chấp.\n100% Chất Lượng - "
+        },
+        {
+          "score": 0.712107,
+          "title": "Đo đạc - bản vẽ, Nhà Đất Phước Thịnh Quận 8, nhabanphuocthinh, nha ban phuoc thinh, nhà bán phước thịnh, bán nhà quận, nhà đất gần đây",
+          "url": "https://www.nhabanphuocthinh.com/do-dac-ban-ve",
+          "content_preview": "Nhà đất Phước Thịnh kính chào Quý Khách Hàng !!!\nVới sự mong muốn đáp ứng một phần nhu cầu của khách hàng về nhà đất, đất nền, ký gửi, mua bán,... kèm theo các dịch vụ pháp lý như:\n- Đo vẽ nhà đất, đo vẽ bản vẽ địa chính trích lục, trích đo"
+        }
+      ]
+    }
+  ],
+  "isolation_probe": {
+    "wrong_tenant": "mima_internal",
+    "result_count": 0,
+    "passed": true
+  }
+}

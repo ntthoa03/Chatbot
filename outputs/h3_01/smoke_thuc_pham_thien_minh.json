@@ -1,0 +1,87 @@
+{
+  "schema_version": "h2-04.index-smoke.v1",
+  "tested_at": "2026-08-25T09:27:36.560281+00:00",
+  "index_dir": "outputs/h3_01/index_thuc_pham_thien_minh",
+  "tenant_id": "thuc_pham_thien_minh",
+  "threshold": 0.3,
+  "top_k": 3,
+  "queries": [
+    {
+      "query": "Thiện Minh bán những sản phẩm gì?",
+      "result_count": 3,
+      "results": [
+        {
+          "score": 0.753983,
+          "title": "Thực Phẩm Thực Dưỡng Thiện Minh – Sống Lành, Ăn Đúng",
+          "url": "https://thucphamchaythienminh.com/",
+          "content_preview": "Đối tác tin dùng sản phẩm Thực Dưỡng Thiện Minh.\nTrong bối cảnh cuộc sống ngày càng phát triển, ý thức về sức khỏe và lối sống xanh đang dần trở thành một xu hướng tất yếu. Nhu cầu tìm kiếm những sản phẩm thực phẩm an toàn, lành mạnh và thâ"
+        },
+        {
+          "score": 0.751769,
+          "title": "Thực Phẩm Thực Dưỡng Thiện Minh – Sống Lành, Ăn Đúng",
+          "url": "https://thucphamchaythienminh.com/",
+          "content_preview": "Đồ khô: Các loại gạo lứt, hạt ngũ cốc, đậu, gia vị chay tự nhiên.\nThực phẩm chế biến sẵn: Chả lụa chay, nem rán chay, xúc xích chay, đậu hũ non, các món kho, món xào đóng gói tiện lợi.\nĐồ ăn vặt và bánh kẹo chay: Các loại snack, bánh quy, m"
+        },
+        {
+          "score": 0.750337,
+          "title": "Thực Phẩm Thực Dưỡng Thiện Minh – Sống Lành, Ăn Đúng",
+          "url": "https://thucphamchaythienminh.com/",
+          "content_preview": "Thực Phẩm Thực Dưỡng Thiện Minh – Sống Lành, Ăn Đúng\nSản phẩm có nguồn gốc và hạn sử dụng rõ ràng trên bao bì.\nGIAO HÀNG NHANH CHÓNG\nHệ thống giao hàng toàn quốc.\nGiá cả hợp lý so với mặt bằng chung.\nĐội ngũ nhân viên trực 24/24 để tư vấn k"
+        }
+      ]
+    },
+    {
+      "query": "Giá gạo lứt và bánh gạo lứt bao nhiêu?",
+      "result_count": 3,
+      "results": [
+        {
+          "score": 0.741264,
+          "title": "Thực Phẩm Thực Dưỡng Thiện Minh – Sống Lành, Ăn Đúng",
+          "url": "https://thucphamchaythienminh.com/",
+          "content_preview": "Thực Phẩm Thực Dưỡng Thiện Minh – Sống Lành, Ăn Đúng\nSản phẩm có nguồn gốc và hạn sử dụng rõ ràng trên bao bì.\nGIAO HÀNG NHANH CHÓNG\nHệ thống giao hàng toàn quốc.\nGiá cả hợp lý so với mặt bằng chung.\nĐội ngũ nhân viên trực 24/24 để tư vấn k"
+        },
+        {
+          "score": 0.73426,
+          "title": "Bánh gạo lứt Ohsawa Zozin Vị Điều",
+          "url": "https://thucphamchaythienminh.com/banh-gao-lut-ohsawa-zozin-vi-dieu",
+          "content_preview": "Thông Tin Liên Hệ và Đặt Hàng\nThực Dưỡng Thiện Minh cam kết mang đến những sản phẩm tốt nhất cho sức khỏe của bạn và gia đình. Chúng tôi không chỉ cung cấp các sản phẩm thực phẩm chay mà còn là địa chỉ tin cậy cho những ai quan tâm đến lối "
+        },
+        {
+          "score": 0.731605,
+          "title": "Bánh gạo lứt Ohsawa Zozin Hạt điều - Rong biển",
+          "url": "https://thucphamchaythienminh.com/banh-gao-lut-ohsawa-zozin-hat-dieu-rong-bien",
+          "content_preview": "Khám Phá Bánh Gạo Lứt Ohsawa Zozin Ngũ Hạt: Lựa Chọn Tuyệt Vời Cho Gia Đình\nTrong bối cảnh nhu cầu về một chế độ ăn lành mạnh ngày càng được chú trọng, việc tìm kiếm những sản phẩm dinh dưỡng, an toàn và thơm ngon trở nên quan trọng hơn bao"
+        }
+      ]
+    },
+    {
+      "query": "Đặt hàng và liên hệ thế nào?",
+      "result_count": 3,
+      "results": [
+        {
+          "score": 0.759106,
+          "title": "Bánh gạo lứt Ohsawa Zozin Vị Điều",
+          "url": "https://thucphamchaythienminh.com/banh-gao-lut-ohsawa-zozin-vi-dieu",
+          "content_preview": "Thông Tin Liên Hệ và Đặt Hàng\nThực Dưỡng Thiện Minh cam kết mang đến những sản phẩm tốt nhất cho sức khỏe của bạn và gia đình. Chúng tôi không chỉ cung cấp các sản phẩm thực phẩm chay mà còn là địa chỉ tin cậy cho những ai quan tâm đến lối "
+        },
+        {
+          "score": 0.678698,
+          "title": "Thực Phẩm Thực Dưỡng Thiện Minh – Sống Lành, Ăn Đúng",
+          "url": "https://thucphamchaythienminh.com/",
+          "content_preview": "Tư Vấn Chuyên Nghiệp\nĐội ngũ nhân viên của chúng tôi không chỉ am hiểu về sản phẩm mà còn có kiến thức sâu rộng về dinh dưỡng thực vật. Chúng tôi sẵn sàng lắng nghe, tư vấn và đưa ra những lời khuyên hữu ích để khách hàng có thể lựa chọn đư"
+        },
+        {
+          "score": 0.673766,
+          "title": "Thực Phẩm Thực Dưỡng Thiện Minh – Sống Lành, Ăn Đúng",
+          "url": "https://thucphamchaythienminh.com/",
+          "content_preview": "Thực Phẩm Thực Dưỡng Thiện Minh – Sống Lành, Ăn Đúng\nSản phẩm có nguồn gốc và hạn sử dụng rõ ràng trên bao bì.\nGIAO HÀNG NHANH CHÓNG\nHệ thống giao hàng toàn quốc.\nGiá cả hợp lý so với mặt bằng chung.\nĐội ngũ nhân viên trực 24/24 để tư vấn k"
+        }
+      ]
+    }
+  ],
+  "isolation_probe": {
+    "wrong_tenant": "mima_internal",
+    "result_count": 0,
+    "passed": true
+  }
+}

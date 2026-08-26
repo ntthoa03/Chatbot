@@ -1,0 +1,87 @@
+{
+  "schema_version": "h2-04.index-smoke.v1",
+  "tested_at": "2026-08-25T09:27:15.302647+00:00",
+  "index_dir": "outputs/h3_01/index_giao_duc_haiyan",
+  "tenant_id": "giao_duc_haiyan",
+  "threshold": 0.3,
+  "top_k": 3,
+  "queries": [
+    {
+      "query": "Trung tâm có khóa tiếng Trung cho người mới không?",
+      "result_count": 3,
+      "results": [
+        {
+          "score": 0.594286,
+          "title": "Trung Tâm Tiếng Trung HaiYan | Long Thành, Đồng Nai",
+          "url": "https://hannguhaiyan.edu.vn/",
+          "content_preview": "tiếng Trung dành cho doanh nghiệp\nTrong bối cảnh hội nhập toàn cầu ngày càng sâu rộng, tiếng Trung không còn là một lựa chọn mà đã trở thành một công cụ đắc lực, một cánh cửa mở ra vô vàn cơ hội cho sự nghiệp và phát triển cá nhân của mỗi d"
+        },
+        {
+          "score": 0.594071,
+          "title": "Trung Tâm Tiếng Trung HaiYan | Long Thành, Đồng Nai",
+          "url": "https://hannguhaiyan.edu.vn/",
+          "content_preview": "khóa học tiếng Trung thực hành giao tiếp\nTrong thế giới hội nhập ngày nay, việc sở hữu một ngôn ngữ thứ hai không chỉ là lợi thế mà còn là cánh cửa mở ra vô vàn cơ hội. Tiếng Trung, với sự phổ biến ngày càng tăng và ảnh hưởng sâu rộng trên "
+        },
+        {
+          "score": 0.589271,
+          "title": "Tiếng Trung họp đầu ca",
+          "url": "https://hannguhaiyan.edu.vn/tieng-trung-hop-dau-ca",
+          "content_preview": "Tham gia khóa học bài bản: Đây là cách nhanh nhất và hiệu quả nhất để bạn có thể nắm vững tiếng Trung trong thời gian ngắn. Một trung tâm uy tín sẽ cung cấp lộ trình học rõ ràng, giáo trình chuyên biệt và giáo viên có kinh nghiệm thực tế tr"
+        }
+      ]
+    },
+    {
+      "query": "Có lớp tiếng Trung cho trẻ em không?",
+      "result_count": 3,
+      "results": [
+        {
+          "score": 0.762599,
+          "title": "Trung Tâm Tiếng Trung HaiYan | Long Thành, Đồng Nai",
+          "url": "https://hannguhaiyan.edu.vn/",
+          "content_preview": "lớp tiếng Hoa cho trẻ em\nThế giới của con trẻ là những sắc màu rực rỡ, nơi trí tò mò và khả năng tiếp thu ngôn ngữ tự nhiên đang ở giai đoạn hoàng kim nhất. Việc định hướng cho con tiếp cận một ngôn ngữ mới không chỉ đơn thuần là trang bị m"
+        },
+        {
+          "score": 0.680537,
+          "title": "Trung Tâm Tiếng Trung HaiYan | Long Thành, Đồng Nai",
+          "url": "https://hannguhaiyan.edu.vn/",
+          "content_preview": "trung tâm tiếng Trung cho trẻ em\nCho con tiếp cận với một ngôn ngữ mới từ sớm giống như việc tặng con một chiếc chìa khóa vạn năng để mở ra thế giới rộng lớn. Giữa xu thế hội nhập toàn cầu, tiếng Trung đang trở thành cầu nối ngôn ngữ mở ra "
+        },
+        {
+          "score": 0.665441,
+          "title": "lớp tiếng Trung thiếu nhi tại Nhơn Trạch",
+          "url": "https://hannguhaiyan.edu.vn/lop-tieng-trung-thieu-nhi-tai-nhon-trach",
+          "content_preview": "Tại sao nên cho trẻ học tiếng Trung từ sớm?\nTiếng Trung là một trong những ngôn ngữ có lượng người sử dụng lớn nhất toàn cầu. Đối với trẻ nhỏ, não bộ giống như một miếng bọt biển với khả năng hấp thụ âm thanh và cấu trúc ngôn ngữ tuyệt vời."
+        }
+      ]
+    },
+    {
+      "query": "Hotline và địa chỉ trung tâm là gì?",
+      "result_count": 3,
+      "results": [
+        {
+          "score": 0.469907,
+          "title": "Tiếng Trung khi kiểm tra nguyên liệu đầu vào",
+          "url": "https://hannguhaiyan.edu.vn/tieng-trung-khi-kiem-tra-nguyen-lieu-dau-vao",
+          "content_preview": "Chọn trung tâm đào tạo uy tín: Một trung tâm có lộ trình học bài bản, giáo viên giàu kinh nghiệm thực tế sẽ giúp bạn tiếp cận ngôn ngữ một cách hệ thống và hiệu quả nhất, đặc biệt là trong việc phát triển các kỹ năng nghe – nói – đọc hiểu t"
+        },
+        {
+          "score": 0.460195,
+          "title": "Trung Tâm Tiếng Trung HaiYan | Long Thành, Đồng Nai",
+          "url": "https://hannguhaiyan.edu.vn/",
+          "content_preview": "trung tâm tiếng Trung gần KCN Nhơn Trạch\nTrong bối cảnh hội nhập kinh tế ngày càng sâu rộng, việc trang bị kiến thức và kỹ năng ngoại ngữ, đặc biệt là tiếng Trung, trở nên vô cùng quan trọng. Đối với những người đang làm việc và sinh sống t"
+        },
+        {
+          "score": 0.456803,
+          "title": "khóa học tiếng Trung trẻ em",
+          "url": "https://hannguhaiyan.edu.vn/khoa-hoc-tieng-trung-tre-em",
+          "content_preview": "Hãy để Trung tâm tiếng Trung Haiyan cùng cha mẹ nâng đỡ những bước chân đầu tiên của con trên hành trình chinh phục tiếng Trung đầy thú vị này. Chúng tôi cam kết mang đến một môi trường học tập an toàn, thân thiện, tràn đầy cảm hứng, nơi co"
+        }
+      ]
+    }
+  ],
+  "isolation_probe": {
+    "wrong_tenant": "mima_internal",
+    "result_count": 0,
+    "passed": true
+  }
+}

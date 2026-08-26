@@ -1,0 +1,79 @@
+{
+  "schema_version": "h3-01.index-catalog.v1",
+  "index_count": 5,
+  "indexes": [
+    {
+      "tenant_id": "mima_internal",
+      "industry": "digital_agency",
+      "index_dir": "index",
+      "record_count": 40,
+      "embedding_provider": "gemini",
+      "embedding_model": "gemini-embedding-001",
+      "data_files": [
+        "index/vectors.npy",
+        "index/metadata.json",
+        "index/manifest.json",
+        "index/embedding_cache.json"
+      ]
+    },
+    {
+      "tenant_id": "phongkham_hyhy",
+      "industry": "medical_clinic",
+      "index_dir": "outputs/h2_04/index_phongkham_hyhy",
+      "record_count": 776,
+      "embedding_provider": "openai",
+      "embedding_model": "text-embedding-3-small",
+      "data_files": [
+        "outputs/h2_04/index_phongkham_hyhy/vectors.npy",
+        "outputs/h2_04/index_phongkham_hyhy/metadata.json",
+        "outputs/h2_04/index_phongkham_hyhy/manifest.json",
+        "outputs/h2_04/index_phongkham_hyhy/embedding_cache.json"
+      ]
+    },
+    {
+      "tenant_id": "bat_dong_san_phuoc_thinh",
+      "industry": "real_estate",
+      "index_dir": "outputs/h3_01/index_bat_dong_san_phuoc_thinh",
+      "record_count": 52,
+      "embedding_provider": "gemini",
+      "embedding_model": "gemini-embedding-001",
+      "source_chunks": "outputs/h3_01/bat_dong_san_phuoc_thinh_chunks.json",
+      "data_files": [
+        "outputs/h3_01/index_bat_dong_san_phuoc_thinh/vectors.npy",
+        "outputs/h3_01/index_bat_dong_san_phuoc_thinh/metadata.json",
+        "outputs/h3_01/index_bat_dong_san_phuoc_thinh/manifest.json",
+        "outputs/h3_01/index_bat_dong_san_phuoc_thinh/embedding_cache.json"
+      ]
+    },
+    {
+      "tenant_id": "giao_duc_haiyan",
+      "industry": "education",
+      "index_dir": "outputs/h3_01/index_giao_duc_haiyan",
+      "record_count": 1369,
+      "embedding_provider": "openai",
+      "embedding_model": "text-embedding-3-small",
+      "source_chunks": "outputs/h3_01/giao_duc_haiyan_chunks.json",
+      "data_files": [
+        "outputs/h3_01/index_giao_duc_haiyan/vectors.npy",
+        "outputs/h3_01/index_giao_duc_haiyan/metadata.json",
+        "outputs/h3_01/index_giao_duc_haiyan/manifest.json",
+        "outputs/h3_01/index_giao_duc_haiyan/embedding_cache.json"
+      ]
+    },
+    {
+      "tenant_id": "thuc_pham_thien_minh",
+      "industry": "food",
+      "index_dir": "outputs/h3_01/index_thuc_pham_thien_minh",
+      "record_count": 41,
+      "embedding_provider": "gemini",
+      "embedding_model": "gemini-embedding-001",
+      "source_chunks": "outputs/h3_01/thuc_pham_thien_minh_chunks.json",
+      "data_files": [
+        "outputs/h3_01/index_thuc_pham_thien_minh/vectors.npy",
+        "outputs/h3_01/index_thuc_pham_thien_minh/metadata.json",
+        "outputs/h3_01/index_thuc_pham_thien_minh/manifest.json",
+        "outputs/h3_01/index_thuc_pham_thien_minh/embedding_cache.json"
+      ]
+    }
+  ]
+}
