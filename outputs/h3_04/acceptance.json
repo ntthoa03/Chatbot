@@ -1,0 +1,16 @@
+{
+  "schema_version": "h3-04.sqlite-acceptance.v1",
+  "generated_at": "2026-08-27T03:16:45.663704+00:00",
+  "synthetic": true,
+  "database": "outputs/h3_04/demo.sqlite3",
+  "tenant_id": "h3_04_demo",
+  "conversation_id": "530a53d8-a614-4398-9ccd-8b25ad394f7e",
+  "checks": {
+    "conversation_round_trip": true,
+    "message_count": 2,
+    "lead_count": 1,
+    "usage_event_count": 1,
+    "wrong_tenant_returns_none": true
+  },
+  "passed": true
+}
