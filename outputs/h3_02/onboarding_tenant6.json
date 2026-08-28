@@ -1,0 +1,12 @@
+{
+  "schema_version": "h3-02.onboarding-time.v1",
+  "tenant_id": "tenant6_demo_services",
+  "industry_template": "services",
+  "started_at": "2026-08-26T16:33:18.4446662+07:00",
+  "finished_at": "2026-08-26T16:33:46.6571692+07:00",
+  "elapsed_seconds": 28.213,
+  "config_validation_seconds": 0.245,
+  "target_seconds": 1800,
+  "passed": true,
+  "scope": "Tạo YAML phần riêng từ template services và load/validate config; không gồm crawl/index vì thuộc H3-03."
+}

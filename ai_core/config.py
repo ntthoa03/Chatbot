@@ -17,6 +17,7 @@ from pydantic import BaseModel, ConfigDict, Field, ValidationError, field_valida
 
 
 TENANTS_DIR = Path(__file__).resolve().parent.parent / "tenants"
+INDUSTRY_TEMPLATES_DIR = Path(__file__).resolve().parent.parent / "templates"
 GUARDRAIL_PROFILES_DIR = Path(__file__).resolve().parent.parent / "guardrail_profiles"
 # Chỉ cho phép tenant ID an toàn trước khi dùng giá trị này để tạo đường dẫn file.
 TENANT_ID_PATTERN = re.compile(r"^[a-z0-9][a-z0-9_-]{0,63}$")
@@ -361,6 +362,8 @@ class AgentConfig(BaseModel):
 
     tenant_id: str = Field(min_length=1)
     config_version: int = 1
+    # Giữ lại template đã dùng để log/debug quá trình onboard tenant.
+    industry_template: str | None = Field(default=None, pattern=r"^[a-z0-9][a-z0-9_-]{0,63}$")
     guardrail_profile: str | None = Field(default=None, pattern=r"^[a-z0-9][a-z0-9_-]{0,63}$")
 
     persona: PersonaConfig
@@ -429,6 +432,76 @@ def _load_yaml(tenant_id: str) -> dict:
         )
 
     return data
+
+
+def _deep_merge_config(base: dict, override: dict) -> dict:
+    """Ghép config theo tầng; dict ghi đè sâu, list/scalar lấy trọn tầng tenant.
+
+    List không được nối tự động vì có thể vô tình bật thêm tool hoặc luật cấm mà
+    tenant không chủ ý. Muốn thay danh sách, tenant phải khai báo toàn bộ danh sách đó.
+    """
+
+    merged = deepcopy(base)
+    for key, value in override.items():
+        if isinstance(value, dict) and isinstance(merged.get(key), dict):
+            merged[key] = _deep_merge_config(merged[key], value)
+        else:
+            merged[key] = deepcopy(value)
+    return merged
+
+
+def _load_industry_template(template_id: str) -> dict:
+    """Đọc một template ngành đã được allow-list bằng định dạng tenant_id."""
+
+    template_id = validate_tenant_id(template_id)
+    path = INDUSTRY_TEMPLATES_DIR / f"{template_id}.yaml"
+    if not path.exists():
+        raise ConfigError(
+            f"Không tìm thấy industry_template '{template_id}' tại {path}."
+        )
+    with path.open("r", encoding="utf-8") as file:
+        try:
+            template = yaml.safe_load(file)
+        except yaml.YAMLError as exc:
+            raise ConfigError(
+                f"Industry template '{template_id}' bị lỗi cú pháp: {exc}"
+            ) from exc
+    if not isinstance(template, dict):
+        raise ConfigError(f"Industry template '{template_id}' phải là YAML object.")
+    unknown_keys = set(template) - {"template_id", "description", "defaults"}
+    if unknown_keys:
+        raise ConfigError(
+            f"Industry template '{template_id}' có trường không hỗ trợ: "
+            + ", ".join(sorted(unknown_keys))
+        )
+    if template.get("template_id") != template_id:
+        raise ConfigError(
+            f"File templates/{template_id}.yaml phải khai báo template_id='{template_id}'."
+        )
+    defaults = template.get("defaults")
+    if not isinstance(defaults, dict):
+        raise ConfigError(f"Industry template '{template_id}'.defaults phải là YAML object.")
+    # Template ngành không được sở hữu danh tính tenant; đây luôn là phần riêng.
+    forbidden_identity = {"tenant_id", "industry_template"}.intersection(defaults)
+    if forbidden_identity:
+        raise ConfigError(
+            f"Industry template '{template_id}' không được khai báo: "
+            + ", ".join(sorted(forbidden_identity))
+        )
+    return deepcopy(defaults)
+
+
+def _apply_industry_template(data: dict) -> dict:
+    """Nạp template ngành làm nền rồi để YAML tenant ghi đè phần riêng."""
+
+    resolved = deepcopy(data)
+    template_id = resolved.get("industry_template")
+    if template_id is None:
+        return resolved
+    if not isinstance(template_id, str) or not template_id.strip():
+        raise ConfigError("industry_template phải là chuỗi không rỗng.")
+    defaults = _load_industry_template(template_id.strip())
+    return _deep_merge_config(defaults, resolved)
 
 
 def _merge_mapping(base: dict, override: dict) -> dict:
@@ -619,7 +692,8 @@ def load_config(
             config sai schema hoặc version không khớp.
     """
 
-    data = _apply_guardrail_profile(_load_yaml(tenant_id))
+    # Thứ tự cố định: template ngành -> override tenant -> profile guardrail -> schema.
+    data = _apply_guardrail_profile(_apply_industry_template(_load_yaml(tenant_id)))
 
     # --------------------------------------------------------
     # Pydantic validation

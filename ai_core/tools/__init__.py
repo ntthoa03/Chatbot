@@ -11,11 +11,13 @@ from ai_core.tools.base import (
     ToolValidationError,
 )
 from ai_core.tools.check_domain import CHECK_DOMAIN_TOOL, extract_domain
+from ai_core.tools.check_order import CHECK_ORDER_TOOL
 from ai_core.tools.request_appointment import REQUEST_APPOINTMENT_TOOL
 from ai_core.tools.registry import TOOL_REGISTRY, ToolRegistry
 
 
 TOOL_REGISTRY.register(CHECK_DOMAIN_TOOL)
+TOOL_REGISTRY.register(CHECK_ORDER_TOOL)
 TOOL_REGISTRY.register(REQUEST_APPOINTMENT_TOOL)
 
 

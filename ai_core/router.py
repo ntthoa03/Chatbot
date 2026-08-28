@@ -7,6 +7,8 @@ import unicodedata
 from dataclasses import dataclass
 from typing import Literal
 
+from ai_core.guardrail.pricing import customer_budget_amounts
+
 
 @dataclass(frozen=True)
 class ModelRoute:
@@ -90,11 +92,25 @@ def is_pricing_catalogue_query(message: str) -> bool:
             normalized,
         )
     )
+    # Một mức tiền như "khoảng 8tr" được hiểu là ngân sách tối đa. Trước đây chỉ
+    # khoảng hai đầu như "15-30tr" mới vào nhánh catalogue, khiến ngân sách đơn
+    # bị giao cho model tự chọn gói và đôi lúc tự tính thêm chênh lệch ngoài RAG.
+    has_budget_constraint = bool(customer_budget_amounts([message]))
+    has_budget_catalogue_request = bool(
+        has_budget_constraint
+        and re.search(
+            r"\b(?:khoang|tam|toi da|duoi|tren|khong qua|budget|max budget|"
+            r"goi nao|dich vu|tu van|lam duoc|phu hop|lua chon)\b",
+            normalized,
+        )
+    )
     # "gói Basic giá bao nhiêu" là lookup một gói; "các gói/gói nào" vẫn là catalogue.
     names_one_package = bool(
         re.search(r"\bgoi\s+(?!(?:nao|gi|dich vu|web|website)\b)[a-z0-9]+", normalized)
     )
-    return (has_price_intent or has_service_budget_band) and not names_one_package
+    return (
+        has_price_intent or has_service_budget_band or has_budget_catalogue_request
+    ) and not names_one_package
 
 
 def decide_need_human(message: str, consecutive_misses: int = 0) -> bool:

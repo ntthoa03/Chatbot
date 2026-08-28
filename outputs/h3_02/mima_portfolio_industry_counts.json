@@ -1,0 +1,14 @@
+{
+  "schema_version": "h3-02.portfolio-industry-counts.v1",
+  "source": "https://mimadigi.com/du-an",
+  "checked_at": "2026-08-26",
+  "scope_note": "Số dự án công khai theo category trên portfolio MIMA, không thay thế số khách trong CRM.",
+  "primary_templates": ["construction", "commerce", "services"],
+  "counts": [
+    {"rank": 1, "category": "Xây dựng", "template_id": "construction", "projects": 13},
+    {"rank": 2, "category": "Thương mại", "template_id": "commerce", "projects": 11},
+    {"rank": 3, "category": "Dịch vụ", "template_id": "services", "projects": 10},
+    {"rank": 4, "category": "Cơ khí", "template_id": null, "projects": 7},
+    {"rank": 5, "category": "Ăn uống", "template_id": null, "projects": 4}
+  ]
+}

@@ -96,15 +96,17 @@ def build_budget_catalogue_fallback(
 ) -> str | None:
     """Lọc gói theo khoảng tiền chỉ từ giá có thật trong các chunk RAG.
 
-    Hàm này là đường dự phòng khi model từ chối nhầm một câu hỏi ngân sách hợp lệ.
-    Không có giá phù hợp hoặc không đọc được đủ hai đầu khoảng thì trả ``None`` để
-    luồng gọi tiếp tục dùng fallback an toàn hiện có.
+    Một mức tiền được hiểu là ngân sách tối đa (0 → mức khách nêu); hai mức tiền
+    được hiểu là khoảng min → max. Không có giá phù hợp thì trả ``None`` để luồng
+    gọi tiếp tục dùng fallback an toàn hiện có.
     """
 
     budgets = sorted(customer_budget_amounts([question]))
-    if len(budgets) < 2:
+    if not budgets:
         return None
-    minimum, maximum = budgets[0], budgets[-1]
+    single_maximum = len(budgets) == 1
+    minimum = 0 if single_maximum else budgets[0]
+    maximum = budgets[-1]
 
     matches: list[tuple[str, int]] = []
     seen: set[tuple[str, int]] = set()
@@ -132,9 +134,14 @@ def build_budget_catalogue_fallback(
     bullets = "\n".join(
         f"- {title}: {format_vnd(amount)}." for title, amount in matches
     )
+    budget_description = (
+        f"ngân sách tối đa {format_vnd(maximum)}"
+        if single_maximum
+        else f"khoảng ngân sách {format_vnd(minimum)}–{format_vnd(maximum)}"
+    )
     return (
-        f"Dạ, với khoảng ngân sách {format_vnd(minimum)}–{format_vnd(maximum)}, "
-        "dữ liệu hiện có cho thấy các lựa chọn phù hợp gồm:\n"
+        f"Dạ, với {budget_description}, dữ liệu hiện có cho thấy các lựa chọn "
+        "có giá phù hợp gồm:\n"
         f"{bullets}\n\n"
         "Anh/chị muốn em mô tả chi tiết lựa chọn nào ạ?"
     )

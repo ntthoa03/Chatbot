@@ -1,0 +1,15 @@
+# H3-02 acceptance: chỉ phần riêng của tenant, phần chung kế thừa từ templates/services.yaml.
+tenant_id: tenant6_demo_services
+industry_template: services
+persona:
+  bot_name: Trợ lý Dịch vụ Tenant 6
+pricing:
+  can_quote:
+    - dich_vu_co_gia_cong_khai
+  must_contact:
+    - dich_vu_theo_yeu_cau
+contact:
+  hotline: null
+  zalo: null
+knowledge:
+  local_index_dir: outputs/h3_02/index_tenant6_demo_services
