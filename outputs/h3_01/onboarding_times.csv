@@ -1,5 +1,4 @@
-
-Virgin Bride Bound to the Dragon Kingtenant_order,tenant_id,industry,source_url,status,crawl_failed_attempt_seconds,crawl_success_seconds,config_validate_seconds,index_seconds,smoke_seconds,onboarding_technical_seconds,pages,chunks,embedding_provider,note
+tenant_order,tenant_id,industry,source_url,status,crawl_failed_attempt_seconds,crawl_success_seconds,config_validate_seconds,index_seconds,smoke_seconds,onboarding_technical_seconds,pages,chunks,embedding_provider,note
 1,mima_internal,digital_agency,https://mimadigi.com/,legacy_verified,,,,,4.495,,,40,gemini,"Tenant có sẵn từ tuần 1; H3-01 chỉ đo lại smoke, không bịa thời gian onboarding cũ"
 2,phongkham_hyhy,medical_clinic,https://phongkhamhyhy.com/,legacy_verified,,,,,3.885,,100,776,openai,"Tenant có sẵn từ tuần 2; H3-01 chỉ đo lại smoke, không bịa thời gian onboarding cũ"
 3,bat_dong_san_phuoc_thinh,real_estate,https://www.nhabanphuocthinh.com/,onboarded,47.436,44.821,0.305,8.277,4.644,105.483,74,52,gemini,"Tổng có tính lần đầu đặt ngưỡng 100 chunk không đạt; chạy lại ngưỡng 40 theo tiêu chí H3-01"
