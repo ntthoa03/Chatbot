@@ -1,0 +1,70 @@
+schema_version: h3-11.log-review.v2
+review_date: "2026-08-27"
+reviewer: "HOA"
+verification:
+  run_report: outputs/h3_11/discovery_run/20260827T083351.008708Z.json
+  total_tested: 20
+  passed: 16
+  failed_confirmed: 4
+  infrastructure_errors: 0
+  total_cost_usd: 0.01722220
+source_scope:
+  - outputs/traces.jsonl
+  - outputs/h3_11/discovery_run/20260827T083351.008708Z.json
+allowed_error_groups:
+  - thieu_du_lieu
+  - hieu_sai_y
+  - tra_loi_kho_cung
+  - guardrail_chan_nham
+cases:
+  - case_id: H311D01
+    tenant_id: mima_internal
+    error_group: tra_loi_kho_cung
+    error_label: "Trả lời khô cứng"
+    source_log: outputs/traces.jsonl
+    source_logged_at: "2026-08-27T08:33:24.903338+00:00"
+    trace_id: 530f4b7b-c063-4901-8f73-21e4151e4bdd
+    question: "hello"
+    observed_reply: "Bot báo chưa đủ dữ liệu, gợi ý các bài RAG không liên quan rồi nói xin phép kết nối chuyên viên."
+    expected_behavior: "Chào lại tự nhiên và hỏi khách cần hỗ trợ dịch vụ gì; không truy xuất RAG hoặc dùng fallback thiếu dữ liệu cho lời chào."
+    root_cause_hint: "Small-talk chưa có nhánh phản hồi trước retrieval/no-data fallback."
+    status: confirmed_fail
+
+  - case_id: H311D05
+    tenant_id: mima_internal
+    error_group: guardrail_chan_nham
+    error_label: "Guardrail chặn nhầm"
+    source_log: outputs/traces.jsonl
+    source_logged_at: "2026-08-27T08:33:33.365998+00:00"
+    trace_id: 12d4fc49-7095-48b8-81f5-023d883953f2
+    question: "anh có khoảng 8tr thì làm được web gói nào em"
+    observed_reply: "Bot chuyển chuyên viên và xin tên, số điện thoại; output bị chặn với reason unauthorized_price."
+    expected_behavior: "Tư vấn gói Phổ thông 6 triệu hoặc Basic 2 triệu nằm trong ngân sách 8 triệu; không chuyển người."
+    root_cause_hint: "Ngân sách đơn 8tr bị hiểu nhầm là giá dịch vụ không được phép dù RAG có giá công khai."
+    status: confirmed_fail
+
+  - case_id: H311D16
+    tenant_id: mima_internal
+    error_group: guardrail_chan_nham
+    error_label: "Guardrail chặn nhầm"
+    source_log: outputs/traces.jsonl
+    source_logged_at: "2026-08-27T08:33:46.316340+00:00"
+    trace_id: 0f6e9213-2842-43fa-a6b0-2abbdea9620d
+    question: "bên em có hỗ trợ đăng ký với quản lý tên miền luôn không"
+    observed_reply: "Bot chuyển chuyên viên và xin tên, số điện thoại; output bị chặn với reason ungrounded_claim."
+    expected_behavior: "Trả lời có hỗ trợ đăng ký và quản lý tên miền dựa trên chunk dịch vụ tên miền; không chuyển người."
+    root_cause_hint: "Guardrail không liên kết đúng claim đầu ra với bằng chứng tên miền đã retrieve."
+    status: confirmed_fail
+
+  - case_id: H311D17
+    tenant_id: mima_internal
+    error_group: hieu_sai_y
+    error_label: "Hiểu sai ý"
+    source_log: outputs/traces.jsonl
+    source_logged_at: "2026-08-27T08:33:50.635084+00:00"
+    trace_id: fcfe27d5-8119-4e9e-9b36-bcfe7964c161
+    question: "anh muốn gặp sale nói chuyện trực tiếp"
+    observed_reply: "Bot nói sẽ kết nối chuyên viên và đưa hotline/Zalo nhưng response trả need_human=false."
+    expected_behavior: "Trả lời tự nhiên và bắt buộc trả need_human=true để backend tạo luồng handoff."
+    root_cause_hint: "Ý định gặp người thật được model diễn đạt đúng nhưng không được bộ định tuyến chuyển thành cờ handoff."
+    status: confirmed_fail

@@ -1,0 +1,37 @@
+{
+  "task": "H3-11",
+  "review_date": "2026-08-27",
+  "total_new_cases": 4,
+  "minimum_required": 2,
+  "definition_of_done_met": true,
+  "verification": {
+    "run_report": "outputs/h3_11/discovery_run/20260827T083351.008708Z.json",
+    "total_tested": 20,
+    "passed": 16,
+    "failed_confirmed": 4,
+    "infrastructure_errors": 0,
+    "total_cost_usd": 0.0172222
+  },
+  "counts": [
+    {
+      "error_group": "thieu_du_lieu",
+      "error_label": "Thiếu dữ liệu",
+      "count": 0
+    },
+    {
+      "error_group": "hieu_sai_y",
+      "error_label": "Hiểu sai ý",
+      "count": 1
+    },
+    {
+      "error_group": "tra_loi_kho_cung",
+      "error_label": "Trả lời khô cứng",
+      "count": 1
+    },
+    {
+      "error_group": "guardrail_chan_nham",
+      "error_label": "Guardrail chặn nhầm",
+      "count": 2
+    }
+  ]
+}

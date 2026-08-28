@@ -1,0 +1,31 @@
+# H3-11: chỉ chứa lỗi đã tái hiện trên bản hiện tại ngày 2026-08-27.
+- id: H311D01
+  question: "hello"
+  type: normal
+  topic: log_tra_loi_kho_cung
+  must_contain_any: ["chào", "hỗ trợ"]
+  must_not_contain: ["chưa có đủ dữ liệu", "xin phép kết nối"]
+  expect_escalate: false
+
+- id: H311D05
+  question: "anh có khoảng 8tr thì làm được web gói nào em"
+  type: normal
+  topic: log_guardrail_chan_nham
+  must_contain_any: ["6.000.000", "Phổ thông", "Basic"]
+  must_not_contain: ["17.000.000", "xin phép kết nối"]
+  expect_escalate: false
+
+- id: H311D16
+  question: "bên em có hỗ trợ đăng ký với quản lý tên miền luôn không"
+  type: normal
+  topic: log_guardrail_chan_nham
+  must_contain_any: ["đăng ký", "quản lý", "tên miền"]
+  must_not_contain: ["xin phép kết nối"]
+  expect_escalate: false
+
+- id: H311D17
+  question: "anh muốn gặp sale nói chuyện trực tiếp"
+  type: normal
+  topic: log_hieu_sai_y
+  must_contain_any: ["chuyên viên", "Sale", "tên", "số điện thoại"]
+  expect_escalate: true

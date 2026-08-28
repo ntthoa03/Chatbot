@@ -50,6 +50,7 @@ from ai_core.guardrail.pricing_semantic import (
     may_contain_customer_budget,
     pricing_semantic_is_enabled,
 )
+from ai_core.guardrail.pricing import customer_budget_amounts
 from ai_core.lead import (
     append_handoff_acknowledgement,
     append_handoff_contact_request,
@@ -106,6 +107,28 @@ _RETRIEVAL_GENERIC_WORDS = {
     "a", "anh", "ban", "chi", "co", "di", "em", "gi", "giup", "k", "khong",
     "lai", "mac", "minh", "nhe", "noi", "ro", "sao", "the", "them", "vay",
 }
+_RETRIEVAL_BUDGET_WORDS = {
+    "budget", "duoi", "hon", "khoang", "max", "ngan", "qua", "sach", "tam",
+    "toi", "tren", "trieu",
+}
+
+
+def _is_budget_only_follow_up(normalized: str) -> bool:
+    """Nhận câu chỉ bổ sung ngân sách để kế thừa chủ đề ở lượt trước.
+
+    Từ ngữ được lọc là trung tính theo ngành. Vì vậy tenant mới không phải thêm
+    tên dịch vụ vào code; câu có chủ đề riêng vẫn được retrieve độc lập.
+    """
+
+    if not customer_budget_amounts([normalized]):
+        return False
+    remaining = set(normalized.split()) - _RETRIEVAL_GENERIC_WORDS - _RETRIEVAL_BUDGET_WORDS
+    remaining = {
+        token
+        for token in remaining
+        if not re.fullmatch(r"\d+(?:[.,]\d+)?(?:k|tr|m|mil|million)?", token)
+    }
+    return not remaining
 
 
 def _select_model_role(
@@ -306,7 +329,7 @@ def build_retrieval_query(request: ChatRequest) -> str:
     tokens = set(normalized.split()) - _RETRIEVAL_GENERIC_WORDS
     is_follow_up = any(
         re.search(pattern, normalized) for pattern in _RETRIEVAL_FOLLOW_UP_PATTERNS
-    ) or not tokens
+    ) or not tokens or _is_budget_only_follow_up(normalized)
 
     context: str | None = None
     if is_follow_up:
@@ -1529,6 +1552,17 @@ def _execute_chat(
             ),
             pricing_catalogue=pricing_catalogue_query,
         )
+    # Lọc catalogue bằng code trước khi gọi model để cùng một ngân sách luôn cho
+    # cùng tập gói. Một mức tiền là trần ngân sách; hai mức là khoảng min-max.
+    # Giá vẫn chỉ được lấy từ chunk RAG đã retrieve, không đọc từ config/persona.
+    deterministic_catalogue_reply = (
+        build_budget_catalogue_fallback(
+            question=request.message,
+            sources=prepared.sources,
+        )
+        if pricing_catalogue_query
+        else None
+    )
 
     # Với intent tool, model được phép gọi tool hoặc hỏi lại tham số còn thiếu.
     # Ngoài trường hợp đó, retriever rỗng vẫn là tín hiệu không có tri thức.
@@ -1542,6 +1576,16 @@ def _execute_chat(
             reply_text = generated.text
         elif config_contact_answer is not None:
             generated = LLMResult(config_contact_answer, config.model_primary, 0, 0)
+            reply_text = generated.text
+        elif deterministic_catalogue_reply is not None:
+            # Câu trả lời xác định không cần model, tránh model thêm phép tính chênh
+            # lệch (ví dụ 9tr - 8tr = 1tr) rồi bị guardrail hiểu là giá tự tạo.
+            generated = LLMResult(
+                deterministic_catalogue_reply,
+                config.model_primary,
+                0,
+                0,
+            )
             reply_text = generated.text
         elif prepared.sources or tool_candidate:
             direct_tool_result = (
@@ -1591,14 +1635,7 @@ def _execute_chat(
     ):
         # Với câu hỏi khoảng ngân sách, ưu tiên câu trả lời xác định từ chính các
         # chunk RAG thay vì biến một yêu cầu hợp lệ thành thông báo "chưa đủ dữ liệu".
-        catalogue_reply = (
-            build_budget_catalogue_fallback(
-                question=request.message,
-                sources=prepared.sources,
-            )
-            if pricing_catalogue_query
-            else None
-        )
+        catalogue_reply = deterministic_catalogue_reply
         if catalogue_reply is not None:
             reply_text = catalogue_reply
         elif len(fallback_suggestions) < 2:
