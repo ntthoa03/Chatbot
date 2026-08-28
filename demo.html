@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>H3-06 — Demo widget MIMA</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: system-ui, sans-serif; color: #172033; background: #f4f5fa; }
+    header { padding: 22px max(24px, 7vw); background: #fff; border-bottom: 1px solid #e2e5ed; }
+    main { max-width: 980px; margin: 0 auto; padding: 64px 24px; }
+    .hero { padding: clamp(28px, 6vw, 68px); background: linear-gradient(135deg, #fff, #eeeaff); border-radius: 24px; }
+    h1 { margin: 0 0 16px; font-size: clamp(32px, 6vw, 58px); line-height: 1.05; }
+    p { max-width: 680px; font-size: 18px; line-height: 1.65; }
+    code { padding: 3px 7px; border-radius: 6px; background: #e8e4ff; }
+  </style>
+</head>
+<body>
+  <header><strong>Website khách hàng — trang demo tĩnh</strong></header>
+  <main>
+    <section class="hero">
+      <h1>Widget tư vấn nhúng một dòng</h1>
+      <p>Nhấn nút chat ở góc phải để kiểm tra H3-06. Trang này chỉ minh họa cách widget hoạt động trên website desktop và mobile.</p>
+      <p>API cần chạy tại <code>http://127.0.0.1:8000</code> với public key demo đã cấu hình.</p>
+    </section>
+  </main>
+
+  <!-- H3-06: đúng một dòng nhúng, tải bất đồng bộ, không framework. -->
+  <script async src="widget/embed.js" data-api-url="auto" data-public-key="demo-mima-key" data-tenant-id="mima_internal" data-title="Trợ lý MIMA"></script>
+</body>
+</html>
