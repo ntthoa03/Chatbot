@@ -10,3 +10,7 @@ google-genai
 
 # HOA-09 — giao diện test nội bộ:
 streamlit>=1.40,<2
+
+# H3-05 — HTTP adapter tạm để backend/browser gọi đúng contract tuần 1:
+fastapi>=0.115,<1
+uvicorn>=0.30,<1
