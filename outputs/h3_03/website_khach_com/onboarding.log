@@ -1,0 +1,203 @@
+2026-08-27 09:50:01,480 | INFO | Onboard tenant=website_khach_com | ngành=construction | bắt đầu từ bước=config
+2026-08-27 09:50:01,485 | INFO | [1/4] BẮT ĐẦU config
+2026-08-27 09:50:01,516 | INFO | [config] HOÀN THÀNH trong 0.029s
+2026-08-27 09:50:01,518 | INFO | [2/4] BẮT ĐẦU crawl
+2026-08-27 09:50:01,518 | INFO | Lệnh: C:\Python314\python.exe crawl_chunks.py --base-url https://website-khach.com --tenant-id website_khach_com --output outputs\h3_03\website_khach_com\chunks.json --manifest outputs\h3_03\website_khach_com\crawl_manifest.json --max-pages 50 --min-chunks 10 --chunk-size 900 --chunk-overlap 120 --min-chars 160 --delay-seconds 0.1 --timeout 20.0
+2026-08-27 09:50:02,692 | INFO |   Traceback (most recent call last):
+2026-08-27 09:50:02,694 | INFO |     File "C:\Python314\Lib\urllib\request.py", line 1321, in do_open
+2026-08-27 09:50:02,694 | INFO |       h.request(req.get_method(), req.selector, req.data, headers,
+2026-08-27 09:50:02,694 | INFO |       ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-08-27 09:50:02,695 | INFO |                 encode_chunked=req.has_header('Transfer-encoding'))
+2026-08-27 09:50:02,695 | INFO |                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-08-27 09:50:02,695 | INFO |     File "C:\Python314\Lib\http\client.py", line 1367, in request
+2026-08-27 09:50:02,695 | INFO |       self._send_request(method, url, body, headers, encode_chunked)
+2026-08-27 09:50:02,695 | INFO |       ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-08-27 09:50:02,695 | INFO |     File "C:\Python314\Lib\http\client.py", line 1413, in _send_request
+2026-08-27 09:50:02,695 | INFO |       self.endheaders(body, encode_chunked=encode_chunked)
+2026-08-27 09:50:02,695 | INFO |       ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-08-27 09:50:02,695 | INFO |     File "C:\Python314\Lib\http\client.py", line 1362, in endheaders
+2026-08-27 09:50:02,695 | INFO |       self._send_output(message_body, encode_chunked=encode_chunked)
+2026-08-27 09:50:02,695 | INFO |       ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-08-27 09:50:02,695 | INFO |     File "C:\Python314\Lib\http\client.py", line 1122, in _send_output
+2026-08-27 09:50:02,695 | INFO |       self.send(msg)
+2026-08-27 09:50:02,696 | INFO |       ~~~~~~~~~^^^^^
+2026-08-27 09:50:02,696 | INFO |     File "C:\Python314\Lib\http\client.py", line 1066, in send
+2026-08-27 09:50:02,696 | INFO |       self.connect()
+2026-08-27 09:50:02,696 | INFO |       ~~~~~~~~~~~~^^
+2026-08-27 09:50:02,696 | INFO |     File "C:\Python314\Lib\http\client.py", line 1501, in connect
+2026-08-27 09:50:02,697 | INFO |       super().connect()
+2026-08-27 09:50:02,697 | INFO |       ~~~~~~~~~~~~~~~^^
+2026-08-27 09:50:02,697 | INFO |     File "C:\Python314\Lib\http\client.py", line 1032, in connect
+2026-08-27 09:50:02,697 | INFO |       self.sock = self._create_connection(
+2026-08-27 09:50:02,697 | INFO |                   ~~~~~~~~~~~~~~~~~~~~~~~^
+2026-08-27 09:50:02,697 | INFO |           (self.host,self.port), self.timeout, self.source_address)
+2026-08-27 09:50:02,698 | INFO |           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-08-27 09:50:02,698 | INFO |     File "C:\Python314\Lib\socket.py", line 850, in create_connection
+2026-08-27 09:50:02,698 | INFO |       for res in getaddrinfo(host, port, 0, SOCK_STREAM):
+2026-08-27 09:50:02,698 | INFO |                  ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-08-27 09:50:02,698 | INFO |     File "C:\Python314\Lib\socket.py", line 987, in getaddrinfo
+2026-08-27 09:50:02,698 | INFO |       for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+2026-08-27 09:50:02,699 | INFO |                  ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-08-27 09:50:02,699 | INFO |   socket.gaierror: [Errno 11001] getaddrinfo failed
+2026-08-27 09:50:02,699 | INFO |   
+2026-08-27 09:50:02,699 | INFO |   During handling of the above exception, another exception occurred:
+2026-08-27 09:50:02,699 | INFO |   
+2026-08-27 09:50:02,700 | INFO |   Traceback (most recent call last):
+2026-08-27 09:50:02,700 | INFO |     File "C:\Users\nghoa\Desktop\Chatbot - miama\crawl_chunks.py", line 317, in crawl
+2026-08-27 09:50:02,700 | INFO |       robots.read()
+2026-08-27 09:50:02,700 | INFO |       ~~~~~~~~~~~^^
+2026-08-27 09:50:02,700 | INFO |     File "C:\Python314\Lib\urllib\robotparser.py", line 65, in read
+2026-08-27 09:50:02,701 | INFO |       f = urllib.request.urlopen(self.url)
+2026-08-27 09:50:02,701 | INFO |     File "C:\Python314\Lib\urllib\request.py", line 187, in urlopen
+2026-08-27 09:50:02,701 | INFO |       return opener.open(url, data, timeout)
+2026-08-27 09:50:02,701 | INFO |              ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+2026-08-27 09:50:02,701 | INFO |     File "C:\Python314\Lib\urllib\request.py", line 487, in open
+2026-08-27 09:50:02,702 | INFO |       response = self._open(req, data)
+2026-08-27 09:50:02,703 | INFO |     File "C:\Python314\Lib\urllib\request.py", line 504, in _open
+2026-08-27 09:50:02,703 | INFO |       result = self._call_chain(self.handle_open, protocol, protocol +
+2026-08-27 09:50:02,703 | INFO |                                 '_open', req)
+2026-08-27 09:50:02,703 | INFO |     File "C:\Python314\Lib\urllib\request.py", line 464, in _call_chain
+2026-08-27 09:50:02,703 | INFO |       result = func(*args)
+2026-08-27 09:50:02,703 | INFO |     File "C:\Python314\Lib\urllib\request.py", line 1369, in https_open
+2026-08-27 09:50:02,703 | INFO |       return self.do_open(http.client.HTTPSConnection, req,
+2026-08-27 09:50:02,703 | INFO |              ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-08-27 09:50:02,704 | INFO |                           context=self._context)
+2026-08-27 09:50:02,704 | INFO |                           ^^^^^^^^^^^^^^^^^^^^^^
+2026-08-27 09:50:02,704 | INFO |     File "C:\Python314\Lib\urllib\request.py", line 1324, in do_open
+2026-08-27 09:50:02,705 | INFO |       raise URLError(err)
+2026-08-27 09:50:02,705 | INFO |   urllib.error.URLError: <urlopen error [Errno 11001] getaddrinfo failed>
+2026-08-27 09:50:02,705 | INFO |   
+2026-08-27 09:50:02,705 | INFO |   The above exception was the direct cause of the following exception:
+2026-08-27 09:50:02,705 | INFO |   
+2026-08-27 09:50:02,705 | INFO |   Traceback (most recent call last):
+2026-08-27 09:50:02,705 | INFO |     File "C:\Users\nghoa\Desktop\Chatbot - miama\crawl_chunks.py", line 415, in main
+2026-08-27 09:50:02,706 | INFO |       chunks, manifest = crawl(
+2026-08-27 09:50:02,706 | INFO |                          ~~~~~^
+2026-08-27 09:50:02,706 | INFO |           base_url=args.base_url,
+2026-08-27 09:50:02,706 | INFO |           ^^^^^^^^^^^^^^^^^^^^^^^
+2026-08-27 09:50:02,707 | INFO |       ...<7 lines>...
+2026-08-27 09:50:02,707 | INFO |           min_chunks=max(1, args.min_chunks),
+2026-08-27 09:50:02,707 | INFO |           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-08-27 09:50:02,707 | INFO |       )
+2026-08-27 09:50:02,707 | INFO |       ^
+2026-08-27 09:50:02,708 | INFO |     File "C:\Users\nghoa\Desktop\Chatbot - miama\crawl_chunks.py", line 319, in crawl
+2026-08-27 09:50:02,708 | INFO |       raise CrawlError(f"Kh�ng \u0111\u1ecdc \u0111\u01b0\u1ee3c robots.txt; d\u1eebng \u0111\u1ec3 tr�nh crawl sai ph�p: {exc}") from exc
+2026-08-27 09:50:02,708 | INFO |   CrawlError: Kh�ng \u0111\u1ecdc \u0111\u01b0\u1ee3c robots.txt; d\u1eebng \u0111\u1ec3 tr�nh crawl sai ph�p: <urlopen error [Errno 11001] getaddrinfo failed>
+2026-08-27 09:50:02,708 | INFO |   
+2026-08-27 09:50:02,708 | INFO |   During handling of the above exception, another exception occurred:
+2026-08-27 09:50:02,708 | INFO |   
+2026-08-27 09:50:02,708 | INFO |   Traceback (most recent call last):
+2026-08-27 09:50:02,709 | INFO |     File "C:\Users\nghoa\Desktop\Chatbot - miama\crawl_chunks.py", line 444, in <module>
+2026-08-27 09:50:02,709 | INFO |       main()
+2026-08-27 09:50:02,709 | INFO |       ~~~~^^
+2026-08-27 09:50:02,709 | INFO |     File "C:\Users\nghoa\Desktop\Chatbot - miama\crawl_chunks.py", line 429, in main
+2026-08-27 09:50:02,710 | INFO |       print(f"\u274c L\u1ed7i crawl: {exc}")
+2026-08-27 09:50:02,710 | INFO |       ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+2026-08-27 09:50:02,710 | INFO |     File "C:\Python314\Lib\encodings\cp1252.py", line 19, in encode
+2026-08-27 09:50:02,710 | INFO |       return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+2026-08-27 09:50:02,710 | INFO |              ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-08-27 09:50:02,710 | INFO |   UnicodeEncodeError: 'charmap' codec can't encode character '\u274c' in position 0: character maps to <undefined>
+2026-08-27 09:50:02,748 | ERROR | [crawl] THẤT BẠI: OnboardingError: Lệnh thất bại với exit code 1
+2026-08-27 09:50:02,750 | ERROR | Pipeline dừng có kiểm soát. Báo cáo: C:\Users\nghoa\Desktop\Chatbot - miama\outputs\h3_03\website_khach_com\summary.json
+2026-08-27 09:50:02,750 | ERROR | Chạy lại: python scripts/onboard_tenant.py --url "https://website-khach.com" --industry construction --tenant-id website_khach_com --resume
+2026-08-27 09:50:12,449 | ERROR | Tenant đã có checkpoint. Dùng --resume hoặc --from-step <step>.
+2026-08-27 09:50:45,938 | INFO | Onboard tenant=website_khach_com | ngành=construction | bắt đầu từ bước=crawl
+2026-08-27 09:50:45,939 | INFO | [2/4] BẮT ĐẦU crawl
+2026-08-27 09:50:45,940 | INFO | Lệnh: C:\Python314\python.exe crawl_chunks.py --base-url https://website-khach.com --tenant-id website_khach_com --output outputs\h3_03\website_khach_com\chunks.json --manifest outputs\h3_03\website_khach_com\crawl_manifest.json --max-pages 50 --min-chunks 10 --chunk-size 900 --chunk-overlap 120 --min-chars 160 --delay-seconds 0.1 --timeout 20.0
+2026-08-27 09:50:46,359 | INFO |   Traceback (most recent call last):
+2026-08-27 09:50:46,360 | INFO |     File "C:\Python314\Lib\urllib\request.py", line 1321, in do_open
+2026-08-27 09:50:46,360 | INFO |       h.request(req.get_method(), req.selector, req.data, headers,
+2026-08-27 09:50:46,360 | INFO |       ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-08-27 09:50:46,361 | INFO |                 encode_chunked=req.has_header('Transfer-encoding'))
+2026-08-27 09:50:46,361 | INFO |                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-08-27 09:50:46,361 | INFO |     File "C:\Python314\Lib\http\client.py", line 1367, in request
+2026-08-27 09:50:46,361 | INFO |       self._send_request(method, url, body, headers, encode_chunked)
+2026-08-27 09:50:46,361 | INFO |       ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-08-27 09:50:46,361 | INFO |     File "C:\Python314\Lib\http\client.py", line 1413, in _send_request
+2026-08-27 09:50:46,361 | INFO |       self.endheaders(body, encode_chunked=encode_chunked)
+2026-08-27 09:50:46,361 | INFO |       ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-08-27 09:50:46,361 | INFO |     File "C:\Python314\Lib\http\client.py", line 1362, in endheaders
+2026-08-27 09:50:46,362 | INFO |       self._send_output(message_body, encode_chunked=encode_chunked)
+2026-08-27 09:50:46,362 | INFO |       ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-08-27 09:50:46,362 | INFO |     File "C:\Python314\Lib\http\client.py", line 1122, in _send_output
+2026-08-27 09:50:46,362 | INFO |       self.send(msg)
+2026-08-27 09:50:46,362 | INFO |       ~~~~~~~~~^^^^^
+2026-08-27 09:50:46,362 | INFO |     File "C:\Python314\Lib\http\client.py", line 1066, in send
+2026-08-27 09:50:46,362 | INFO |       self.connect()
+2026-08-27 09:50:46,362 | INFO |       ~~~~~~~~~~~~^^
+2026-08-27 09:50:46,362 | INFO |     File "C:\Python314\Lib\http\client.py", line 1501, in connect
+2026-08-27 09:50:46,362 | INFO |       super().connect()
+2026-08-27 09:50:46,362 | INFO |       ~~~~~~~~~~~~~~~^^
+2026-08-27 09:50:46,362 | INFO |     File "C:\Python314\Lib\http\client.py", line 1032, in connect
+2026-08-27 09:50:46,362 | INFO |       self.sock = self._create_connection(
+2026-08-27 09:50:46,363 | INFO |                   ~~~~~~~~~~~~~~~~~~~~~~~^
+2026-08-27 09:50:46,363 | INFO |           (self.host,self.port), self.timeout, self.source_address)
+2026-08-27 09:50:46,363 | INFO |           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-08-27 09:50:46,363 | INFO |     File "C:\Python314\Lib\socket.py", line 850, in create_connection
+2026-08-27 09:50:46,363 | INFO |       for res in getaddrinfo(host, port, 0, SOCK_STREAM):
+2026-08-27 09:50:46,363 | INFO |                  ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-08-27 09:50:46,363 | INFO |     File "C:\Python314\Lib\socket.py", line 987, in getaddrinfo
+2026-08-27 09:50:46,363 | INFO |       for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+2026-08-27 09:50:46,363 | INFO |                  ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-08-27 09:50:46,363 | INFO |   socket.gaierror: [Errno 11001] getaddrinfo failed
+2026-08-27 09:50:46,363 | INFO |   
+2026-08-27 09:50:46,363 | INFO |   During handling of the above exception, another exception occurred:
+2026-08-27 09:50:46,363 | INFO |   
+2026-08-27 09:50:46,363 | INFO |   Traceback (most recent call last):
+2026-08-27 09:50:46,364 | INFO |     File "C:\Users\nghoa\Desktop\Chatbot - miama\crawl_chunks.py", line 317, in crawl
+2026-08-27 09:50:46,364 | INFO |       robots.read()
+2026-08-27 09:50:46,364 | INFO |       ~~~~~~~~~~~^^
+2026-08-27 09:50:46,364 | INFO |     File "C:\Python314\Lib\urllib\robotparser.py", line 65, in read
+2026-08-27 09:50:46,364 | INFO |       f = urllib.request.urlopen(self.url)
+2026-08-27 09:50:46,364 | INFO |     File "C:\Python314\Lib\urllib\request.py", line 187, in urlopen
+2026-08-27 09:50:46,364 | INFO |       return opener.open(url, data, timeout)
+2026-08-27 09:50:46,364 | INFO |              ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^
+2026-08-27 09:50:46,364 | INFO |     File "C:\Python314\Lib\urllib\request.py", line 487, in open
+2026-08-27 09:50:46,364 | INFO |       response = self._open(req, data)
+2026-08-27 09:50:46,364 | INFO |     File "C:\Python314\Lib\urllib\request.py", line 504, in _open
+2026-08-27 09:50:46,364 | INFO |       result = self._call_chain(self.handle_open, protocol, protocol +
+2026-08-27 09:50:46,365 | INFO |                                 '_open', req)
+2026-08-27 09:50:46,365 | INFO |     File "C:\Python314\Lib\urllib\request.py", line 464, in _call_chain
+2026-08-27 09:50:46,365 | INFO |       result = func(*args)
+2026-08-27 09:50:46,365 | INFO |     File "C:\Python314\Lib\urllib\request.py", line 1369, in https_open
+2026-08-27 09:50:46,365 | INFO |       return self.do_open(http.client.HTTPSConnection, req,
+2026-08-27 09:50:46,365 | INFO |              ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-08-27 09:50:46,365 | INFO |                           context=self._context)
+2026-08-27 09:50:46,365 | INFO |                           ^^^^^^^^^^^^^^^^^^^^^^
+2026-08-27 09:50:46,365 | INFO |     File "C:\Python314\Lib\urllib\request.py", line 1324, in do_open
+2026-08-27 09:50:46,365 | INFO |       raise URLError(err)
+2026-08-27 09:50:46,365 | INFO |   urllib.error.URLError: <urlopen error [Errno 11001] getaddrinfo failed>
+2026-08-27 09:50:46,365 | INFO |   
+2026-08-27 09:50:46,365 | INFO |   The above exception was the direct cause of the following exception:
+2026-08-27 09:50:46,365 | INFO |   
+2026-08-27 09:50:46,365 | INFO |   Traceback (most recent call last):
+2026-08-27 09:50:46,365 | INFO |     File "C:\Users\nghoa\Desktop\Chatbot - miama\crawl_chunks.py", line 415, in main
+2026-08-27 09:50:46,365 | INFO |       chunks, manifest = crawl(
+2026-08-27 09:50:46,365 | INFO |                          ~~~~~^
+2026-08-27 09:50:46,366 | INFO |           base_url=args.base_url,
+2026-08-27 09:50:46,366 | INFO |           ^^^^^^^^^^^^^^^^^^^^^^^
+2026-08-27 09:50:46,366 | INFO |       ...<7 lines>...
+2026-08-27 09:50:46,366 | INFO |           min_chunks=max(1, args.min_chunks),
+2026-08-27 09:50:46,366 | INFO |           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-08-27 09:50:46,366 | INFO |       )
+2026-08-27 09:50:46,366 | INFO |       ^
+2026-08-27 09:50:46,367 | INFO |     File "C:\Users\nghoa\Desktop\Chatbot - miama\crawl_chunks.py", line 319, in crawl
+2026-08-27 09:50:46,367 | INFO |       raise CrawlError(f"Kh�ng \u0111\u1ecdc \u0111\u01b0\u1ee3c robots.txt; d\u1eebng \u0111\u1ec3 tr�nh crawl sai ph�p: {exc}") from exc
+2026-08-27 09:50:46,367 | INFO |   CrawlError: Kh�ng \u0111\u1ecdc \u0111\u01b0\u1ee3c robots.txt; d\u1eebng \u0111\u1ec3 tr�nh crawl sai ph�p: <urlopen error [Errno 11001] getaddrinfo failed>
+2026-08-27 09:50:46,367 | INFO |   
+2026-08-27 09:50:46,367 | INFO |   During handling of the above exception, another exception occurred:
+2026-08-27 09:50:46,367 | INFO |   
+2026-08-27 09:50:46,368 | INFO |   Traceback (most recent call last):
+2026-08-27 09:50:46,368 | INFO |     File "C:\Users\nghoa\Desktop\Chatbot - miama\crawl_chunks.py", line 444, in <module>
+2026-08-27 09:50:46,368 | INFO |       main()
+2026-08-27 09:50:46,368 | INFO |       ~~~~^^
+2026-08-27 09:50:46,368 | INFO |     File "C:\Users\nghoa\Desktop\Chatbot - miama\crawl_chunks.py", line 429, in main
+2026-08-27 09:50:46,369 | INFO |       print(f"\u274c L\u1ed7i crawl: {exc}")
+2026-08-27 09:50:46,369 | INFO |       ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^
+2026-08-27 09:50:46,369 | INFO |     File "C:\Python314\Lib\encodings\cp1252.py", line 19, in encode
+2026-08-27 09:50:46,369 | INFO |       return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+2026-08-27 09:50:46,370 | INFO |              ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-08-27 09:50:46,370 | INFO |   UnicodeEncodeError: 'charmap' codec can't encode character '\u274c' in position 0: character maps to <undefined>
+2026-08-27 09:50:46,407 | ERROR | [crawl] THẤT BẠI: OnboardingError: Lệnh thất bại với exit code 1
+2026-08-27 09:50:46,411 | ERROR | Pipeline dừng có kiểm soát. Báo cáo: C:\Users\nghoa\Desktop\Chatbot - miama\outputs\h3_03\website_khach_com\summary.json
+2026-08-27 09:50:46,411 | ERROR | Chạy lại: python scripts/onboard_tenant.py --url "https://website-khach.com" --industry construction --tenant-id website_khach_com --resume

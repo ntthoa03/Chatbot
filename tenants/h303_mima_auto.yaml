@@ -1,0 +1,9 @@
+tenant_id: h303_mima_auto
+industry_template: services
+persona:
+  bot_name: Trợ lý MIMA Auto
+contact:
+  hotline: null
+  zalo: null
+knowledge:
+  local_index_dir: outputs/h3_03/h303_mima_auto/index

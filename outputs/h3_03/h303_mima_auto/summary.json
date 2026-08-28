@@ -1,0 +1,52 @@
+{
+  "schema_version": "h3-03.onboarding-summary.v1",
+  "generated_at": "2026-08-26T10:18:19.290286+00:00",
+  "tenant_id": "h303_mima_auto",
+  "url": "https://mimadigi.com",
+  "industry_template": "services",
+  "status": "succeeded",
+  "total_elapsed_seconds_this_run": 77.309,
+  "target_seconds": 900,
+  "under_15_minutes_this_run": true,
+  "smoke": {
+    "question_count": 10,
+    "queries_with_results": 10,
+    "isolation_passed": true,
+    "passed": true
+  },
+  "steps": {
+    "config": {
+      "status": "succeeded",
+      "attempts": 1,
+      "started_at": "2026-08-26T10:16:11.472523+00:00",
+      "finished_at": "2026-08-26T10:16:11.539186+00:00",
+      "elapsed_seconds": 0.039,
+      "error": null
+    },
+    "crawl": {
+      "status": "succeeded",
+      "attempts": 2,
+      "started_at": "2026-08-26T10:17:02.007439+00:00",
+      "finished_at": "2026-08-26T10:17:58.373912+00:00",
+      "elapsed_seconds": 56.363,
+      "error": null
+    },
+    "index": {
+      "status": "succeeded",
+      "attempts": 1,
+      "started_at": "2026-08-26T10:17:58.380430+00:00",
+      "finished_at": "2026-08-26T10:18:06.276916+00:00",
+      "elapsed_seconds": 7.892,
+      "error": null
+    },
+    "smoke": {
+      "status": "succeeded",
+      "attempts": 1,
+      "started_at": "2026-08-26T10:18:06.280551+00:00",
+      "finished_at": "2026-08-26T10:18:19.285519+00:00",
+      "elapsed_seconds": 13.002,
+      "error": null
+    }
+  },
+  "resume_command": "python scripts/onboard_tenant.py --url \"https://mimadigi.com\" --industry services --tenant-id h303_mima_auto --resume"
+}

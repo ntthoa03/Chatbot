@@ -1,0 +1,9 @@
+tenant_id: mimadigi_com
+industry_template: services
+persona:
+  bot_name: Trợ lý Mimadigi
+contact:
+  hotline: null
+  zalo: null
+knowledge:
+  local_index_dir: outputs/h3_03/mimadigi_com/index

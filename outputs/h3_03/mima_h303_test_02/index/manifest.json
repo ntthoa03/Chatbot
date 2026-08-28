@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "provider": "openai",
+  "model": "text-embedding-3-small",
+  "dimension": 1536,
+  "record_count": 393,
+  "tenants": [
+    "mima_h303_test_02"
+  ]
+}

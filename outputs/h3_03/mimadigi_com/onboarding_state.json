@@ -1,0 +1,42 @@
+{
+  "schema_version": "h3-03.onboarding-state.v1",
+  "url": "https://mimadigi.com",
+  "tenant_id": "mimadigi_com",
+  "industry_template": "services",
+  "created_at": "2026-08-26T10:19:31.318959+00:00",
+  "updated_at": "2026-08-26T10:21:19.557587+00:00",
+  "steps": {
+    "config": {
+      "status": "succeeded",
+      "attempts": 1,
+      "started_at": "2026-08-26T10:19:31.322768+00:00",
+      "finished_at": "2026-08-26T10:19:31.399010+00:00",
+      "elapsed_seconds": 0.049,
+      "error": null
+    },
+    "crawl": {
+      "status": "succeeded",
+      "attempts": 1,
+      "started_at": "2026-08-26T10:19:31.402602+00:00",
+      "finished_at": "2026-08-26T10:20:40.956056+00:00",
+      "elapsed_seconds": 69.55,
+      "error": null
+    },
+    "index": {
+      "status": "succeeded",
+      "attempts": 1,
+      "started_at": "2026-08-26T10:20:40.960238+00:00",
+      "finished_at": "2026-08-26T10:21:08.653955+00:00",
+      "elapsed_seconds": 27.69,
+      "error": null
+    },
+    "smoke": {
+      "status": "succeeded",
+      "attempts": 1,
+      "started_at": "2026-08-26T10:21:08.659009+00:00",
+      "finished_at": "2026-08-26T10:21:19.557546+00:00",
+      "elapsed_seconds": 10.895,
+      "error": null
+    }
+  }
+}

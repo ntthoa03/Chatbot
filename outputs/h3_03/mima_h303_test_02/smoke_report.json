@@ -1,0 +1,255 @@
+{
+  "schema_version": "h2-04.index-smoke.v1",
+  "tested_at": "2026-08-27T02:53:37.780901+00:00",
+  "index_dir": "outputs\\h3_03\\mima_h303_test_02\\index",
+  "tenant_id": "mima_h303_test_02",
+  "threshold": 0.3,
+  "top_k": 3,
+  "queries": [
+    {
+      "query": "Bên mình đang cung cấp những dịch vụ nào?",
+      "result_count": 3,
+      "results": [
+        {
+          "score": 0.521955,
+          "title": "Top 10 Dịch Vụ Thiết Kế Website Trên Google",
+          "url": "https://mimadigi.com/top-10-dich-vu-thiet-ke-website-tren-google",
+          "content_preview": "Mima cam kết mang đến các gói dịch vụ thiết kế website trọn gói phù hợp nhu cầu từng ngành nghề, tối ưu tốc độ tải, giao diện hiển thị tốt trên mọi thiết bị di động, dễ quản lý sản phẩm, bài viết, dịch vụ chăm sóc website, bảo trì, backup đ"
+        },
+        {
+          "score": 0.521039,
+          "title": "Top 10 Dịch Vụ Thiết Kế Website Trên Google",
+          "url": "https://mimadigi.com/top-10-dich-vu-thiet-ke-website-tren-google",
+          "content_preview": "Quản lý nội dung (CMS): Hệ thống quản lý nội dung TRUST CMS được thiết kế hiện đại, dễ sử dụng và tối ưu hóa cho mọi thiết bị. Giao diện quản trị thân thiện, hỗ trợ nhiều tính năng như quản lý bài viết, hình ảnh, video và các nội dung khác."
+        },
+        {
+          "score": 0.518436,
+          "title": "Top 10 Dịch Vụ Thiết Kế Website Trên Google",
+          "url": "https://mimadigi.com/top-10-dich-vu-thiet-ke-website-tren-google",
+          "content_preview": "Tiện ích: Kết nối sàn Shopee, Lazada, Tiktok Shop.\n📞 Liên hệ với Seo Việt\nEmail: khachhang@seoviet.vn\nHotline: 034.304.5557\nWebsite: https://seoviet.vn/\nLợi ích khi sử dụng dịch vụ thiết kế website chuyên nghiệp\n✅ Website dễ dàng lên top Go"
+        }
+      ]
+    },
+    {
+      "query": "Quy trình đăng ký dịch vụ gồm những bước nào?",
+      "result_count": 3,
+      "results": [
+        {
+          "score": 0.541045,
+          "title": "Hướng dẫn tạo và cách khắc phục bị tạm ngưng Google Maps Doanh Nghiệp",
+          "url": "https://mimadigi.com/huong-dan-tao-va-cach-khac-phuc-bi-tam-ngung-google-maps-doanh-nghiep",
+          "content_preview": "- Qua điện thoại: Một số ngành nghề có thể xác minh qua cuộc gọi hoặc tin nhắn.\n- Qua email: Nếu đủ điều kiện, bạn sẽ thấy tùy chọn này.\n- Qua video trực tiếp hoặc video quay sẵn: Gần đây Google có yêu cầu quay video xung quanh doanh nghiệp"
+        },
+        {
+          "score": 0.507677,
+          "title": "Hướng dẫn tạo và cách khắc phục bị tạm ngưng Google Maps Doanh Nghiệp",
+          "url": "https://mimadigi.com/huong-dan-tao-va-cach-khac-phuc-bi-tam-ngung-google-maps-doanh-nghiep",
+          "content_preview": "- Nhập chính xác địa chỉ để hiện thị đúng vị trí trên Google Maps .\nNếu bạn cung cấp dịch vụ tại nhà khách hàng (ví dụ: giao hàng, sửa chữa tại nhà...), hãy chọn “Tôi cung cấp hàng hóa và dịch vụ đến khách hàng của tôi”.\n- Đây có phải là do"
+        },
+        {
+          "score": 0.488816,
+          "title": "Hướng dẫn tạo và cách khắc phục bị tạm ngưng Google Maps Doanh Nghiệp",
+          "url": "https://mimadigi.com/huong-dan-tao-va-cach-khac-phuc-bi-tam-ngung-google-maps-doanh-nghiep",
+          "content_preview": "Sau bước này chúng ta đã hoàn tất đăng ký thông tin và bấm \"Tiếp tục\"\n⚠️ Hãy làm theo đúng hướng dẫn xác minh để tránh bị từ chối hoặc tạm ngưng. Chúng ta đợi 5 ngày làm việc để google duyệt và xác minh hiển thị. Khi hiển thị \"Đã xác minh\" "
+        }
+      ]
+    },
+    {
+      "query": "Tôi cần cung cấp thông tin gì để được tư vấn?",
+      "result_count": 3,
+      "results": [
+        {
+          "score": 0.498469,
+          "title": "Thiết kế website Đà Nẵng",
+          "url": "https://mimadigi.com/thiet-ke-website-da-nang",
+          "content_preview": "Hãy liên hệ ngay hôm nay để nhận tư vấn miễn phí và báo giá chi tiết – không ràng buộc, không áp lực.\nHoàng Thị Ngọc Ngân là một chuyên viên content marketing với nhiều năm kinh nghiệm trong lĩnh vực thiết kế website, tối ưu hóa SEO, quản l"
+        },
+        {
+          "score": 0.492306,
+          "title": "Thiết kế website Thành phố Huế",
+          "url": "https://mimadigi.com/thiet-ke-website-thanh-pho-hue",
+          "content_preview": "Để được tư vấn miễn phí về giải pháp thiết kế website phù hợp nhất cho doanh nghiệp của bạn tại Huế, hãy liên hệ ngay với MIMA Digi qua Hotline/Zalo 0909 035 333 hoặc truy cập https://mimadigi.com/ để nhận báo giá chi tiết và tư vấn chuyên "
+        },
+        {
+          "score": 0.462399,
+          "title": "Hướng dẫn tạo và cách khắc phục bị tạm ngưng Google Maps Doanh Nghiệp",
+          "url": "https://mimadigi.com/huong-dan-tao-va-cach-khac-phuc-bi-tam-ngung-google-maps-doanh-nghiep",
+          "content_preview": "Lượt đánh giá 5 sao từ khách hàng thật (có kèm nội dung và ảnh) giúp hồ sơ uy tín và ít bị kiểm duyệt.\nNếu bạn chưa làm được theo hướng dẫn ở trên hoặc không có thời gian Tạo và khắc phục trang doanh nghiệp google Maps. Hãy liên hệ với chún"
+        }
+      ]
+    },
+    {
+      "query": "Dịch vụ nào phù hợp với doanh nghiệp nhỏ?",
+      "result_count": 3,
+      "results": [
+        {
+          "score": 0.553385,
+          "title": "Thiết kế website Thành phố Huế",
+          "url": "https://mimadigi.com/thiet-ke-website-thanh-pho-hue",
+          "content_preview": "Nội Dung Là Vua – Content Marketing Cho Doanh Nghiệp Huế\nGoogle ngày càng ưu tiên các website có nội dung thực sự hữu ích, chuyên sâu và được cập nhật thường xuyên. Một blog doanh nghiệp được duy trì đều đặn với các bài viết chất lượng về n"
+        },
+        {
+          "score": 0.550854,
+          "title": "Thiết kế website Thành phố Huế",
+          "url": "https://mimadigi.com/thiet-ke-website-thanh-pho-hue",
+          "content_preview": "Website Thương Mại Điện Tử\nDành cho các doanh nghiệp bán hàng trực tuyến: đặc sản Huế, thủ công mỹ nghệ, thời trang, đồ gia dụng… Cần tích hợp giỏ hàng, cổng thanh toán đa dạng (ATM, Visa, ví điện tử), quản lý kho hàng và hệ thống xử lý đơn"
+        },
+        {
+          "score": 0.534361,
+          "title": "Hướng dẫn tạo và cách khắc phục bị tạm ngưng Google Maps Doanh Nghiệp",
+          "url": "https://mimadigi.com/huong-dan-tao-va-cach-khac-phuc-bi-tam-ngung-google-maps-doanh-nghiep",
+          "content_preview": "Lượt đánh giá 5 sao từ khách hàng thật (có kèm nội dung và ảnh) giúp hồ sơ uy tín và ít bị kiểm duyệt.\nNếu bạn chưa làm được theo hướng dẫn ở trên hoặc không có thời gian Tạo và khắc phục trang doanh nghiệp google Maps. Hãy liên hệ với chún"
+        }
+      ]
+    },
+    {
+      "query": "Tôi có thể liên hệ tư vấn bằng cách nào?",
+      "result_count": 3,
+      "results": [
+        {
+          "score": 0.491475,
+          "title": "Hướng dẫn tạo và cách khắc phục bị tạm ngưng Google Maps Doanh Nghiệp",
+          "url": "https://mimadigi.com/huong-dan-tao-va-cach-khac-phuc-bi-tam-ngung-google-maps-doanh-nghiep",
+          "content_preview": "- Qua điện thoại: Một số ngành nghề có thể xác minh qua cuộc gọi hoặc tin nhắn.\n- Qua email: Nếu đủ điều kiện, bạn sẽ thấy tùy chọn này.\n- Qua video trực tiếp hoặc video quay sẵn: Gần đây Google có yêu cầu quay video xung quanh doanh nghiệp"
+        },
+        {
+          "score": 0.479557,
+          "title": "Thiết kế website Đà Nẵng",
+          "url": "https://mimadigi.com/thiet-ke-website-da-nang",
+          "content_preview": "Hãy liên hệ ngay hôm nay để nhận tư vấn miễn phí và báo giá chi tiết – không ràng buộc, không áp lực.\nHoàng Thị Ngọc Ngân là một chuyên viên content marketing với nhiều năm kinh nghiệm trong lĩnh vực thiết kế website, tối ưu hóa SEO, quản l"
+        },
+        {
+          "score": 0.459026,
+          "title": "Thiết kế website Thành phố Huế",
+          "url": "https://mimadigi.com/thiet-ke-website-thanh-pho-hue",
+          "content_preview": "Để được tư vấn miễn phí về giải pháp thiết kế website phù hợp nhất cho doanh nghiệp của bạn tại Huế, hãy liên hệ ngay với MIMA Digi qua Hotline/Zalo 0909 035 333 hoặc truy cập https://mimadigi.com/ để nhận báo giá chi tiết và tư vấn chuyên "
+        }
+      ]
+    },
+    {
+      "query": "Anh/chị cho tôi biết thông tin về MIMA Giải Cứu Website - Biến Web Thành 1000 Nhân Viên Bán Hàng được không?",
+      "result_count": 3,
+      "results": [
+        {
+          "score": 0.666772,
+          "title": "MIMA Giải Cứu Website - Biến Web Thành 1000 Nhân Viên Bán Hàng",
+          "url": "https://mimadigi.com/",
+          "content_preview": "MIMA Giải Cứu Website - Biến Web Thành 1000 Nhân Viên Bán Hàng\nMIMA - CÁNH TAY ĐẮC LỰC CHO DOANH NGHIỆP TRONG THỜI ĐẠI SỐ\nCác Dịch Vụ MiMa Hoàn Hảo Nhất Dành Cho Bạn\nĐồng hành cùng doanh nghiệp khởi sự cho đến thương hiệu bậc nhất, MIMA có "
+        },
+        {
+          "score": 0.582794,
+          "title": "Dịch vụ chuyển đổi nền tảng website sang MIMA",
+          "url": "https://mimadigi.com/dich-vu-chuyen-doi-nen-tang-website-sang-mima",
+          "content_preview": "Chúng tôi thực hiện chuyển toàn bộ dữ liệu từ nền tảng cũ sang hệ thống mới, xây dựng nền tảng công nghệ hiện đại, tối ưu cấu trúc SEO, tích hợp hạ tầng Hosting và AI Content SEO để website sẵn sàng phát triển ngay sau khi đưa vào vận hành."
+        },
+        {
+          "score": 0.570093,
+          "title": "Thiết kế website Đà Nẵng",
+          "url": "https://mimadigi.com/thiet-ke-website-da-nang",
+          "content_preview": "Giải pháp toàn diện dưới một mái nhà: Không cần thuê nhiều đơn vị khác nhau, MIMA Digi cung cấp trọn gói từ thiết kế website bản quyền, thiết kế website theo yêu cầu, dịch vụ SEO, chăm sóc website đến AI Content tất cả được đồng bộ trong mộ"
+        }
+      ]
+    },
+    {
+      "query": "Anh/chị cho tôi biết thông tin về Huỳnh Ngọc Thảo Tiên được không?",
+      "result_count": 3,
+      "results": [
+        {
+          "score": 0.390986,
+          "title": "Huỳnh Ngọc Thảo Tiên",
+          "url": "https://mimadigi.com/huynh-ngoc-thao-tien",
+          "content_preview": "Tác giả tại MIMA DIGI\nHuỳnh Ngọc Thảo Tiên là chuyên gia Content Marketing chuẩn SEO, tập trung xây dựng nội dung thu hút, tối ưu trải nghiệm người dùng và tỷ lệ chuyển đổi. Với phong cách làm việc chỉn chu, sáng tạo và hiệu quả, Thảo Tiên "
+        },
+        {
+          "score": 0.325723,
+          "title": "Nguyễn Lê Cảnh Hoàng",
+          "url": "https://mimadigi.com/nguyen-le-canh-hoang",
+          "content_preview": "Nguyễn Lê Cảnh Hoàng\nTác giả tại MIMA DIGI\nAnh Hoàng đảm nhận vai trò xây dựng – tối ưu nội dung website cho khách hàng tại MIMA Digi . Anh chuyên nghiên cứu từ khóa, triển khai bài viết chuẩn SEO, lên chiến lược nội dung phù hợp từng ngành"
+        },
+        {
+          "score": 0.317967,
+          "title": "Thiết kế website Thành phố Huế",
+          "url": "https://mimadigi.com/thiet-ke-website-thanh-pho-hue",
+          "content_preview": "Website Là Tài Sản Số, Không Phải Chi Phí\nNhiều chủ doanh nghiệp tại Huế vẫn còn nhầm lẫn giữa \"chi phí\" và \"đầu tư\" khi nói đến thiết kế website. Thực tế, một website được xây dựng bài bản sẽ hoạt động như một nhân viên kinh doanh làm việc"
+        }
+      ]
+    },
+    {
+      "query": "Anh/chị cho tôi biết thông tin về Hoàng Thị Ngọc Ngân được không?",
+      "result_count": 3,
+      "results": [
+        {
+          "score": 0.420151,
+          "title": "Hoàng Thị Ngọc Ngân",
+          "url": "https://mimadigi.com/hoang-thi-ngoc-ngan",
+          "content_preview": "Tác giả tại MIMA DIGI\nHoàng Thị Ngọc Ngân là một chuyên viên Content Marketing giàu kinh nghiệm, tốt nghiệp chuyên ngành Quản trị Marketing. Với nhiều năm hoạt động trong lĩnh vực truyền thông số, cô đã xây dựng được nền tảng vững chắc về c"
+        },
+        {
+          "score": 0.393758,
+          "title": "Thiết kế website Đà Nẵng",
+          "url": "https://mimadigi.com/thiet-ke-website-da-nang",
+          "content_preview": "Hãy liên hệ ngay hôm nay để nhận tư vấn miễn phí và báo giá chi tiết – không ràng buộc, không áp lực.\nHoàng Thị Ngọc Ngân là một chuyên viên content marketing với nhiều năm kinh nghiệm trong lĩnh vực thiết kế website, tối ưu hóa SEO, quản l"
+        },
+        {
+          "score": 0.385625,
+          "title": "Hoang Thi Ngoc Ngan",
+          "url": "https://mimadigi.com/ngoc-ngan-hoang",
+          "content_preview": "Hoang Thi Ngoc Ngan is an experienced Content Marketing Specialist with a strong academic background in Marketing Management. Over the years, she has built solid expertise in digital content strategy, website design, SEO optimization, fanpa"
+        }
+      ]
+    },
+    {
+      "query": "Anh/chị cho tôi biết thông tin về Hoang Thi Ngoc Ngan được không?",
+      "result_count": 3,
+      "results": [
+        {
+          "score": 0.492577,
+          "title": "Hoang Thi Ngoc Ngan",
+          "url": "https://mimadigi.com/ngoc-ngan-hoang",
+          "content_preview": "Hoang Thi Ngoc Ngan is an experienced Content Marketing Specialist with a strong academic background in Marketing Management. Over the years, she has built solid expertise in digital content strategy, website design, SEO optimization, fanpa"
+        },
+        {
+          "score": 0.411072,
+          "title": "Hoàng Thị Ngọc Ngân",
+          "url": "https://mimadigi.com/hoang-thi-ngoc-ngan",
+          "content_preview": "Tác giả tại MIMA DIGI\nHoàng Thị Ngọc Ngân là một chuyên viên Content Marketing giàu kinh nghiệm, tốt nghiệp chuyên ngành Quản trị Marketing. Với nhiều năm hoạt động trong lĩnh vực truyền thông số, cô đã xây dựng được nền tảng vững chắc về c"
+        },
+        {
+          "score": 0.406902,
+          "title": "Thiết kế website Đà Nẵng",
+          "url": "https://mimadigi.com/thiet-ke-website-da-nang",
+          "content_preview": "Hãy liên hệ ngay hôm nay để nhận tư vấn miễn phí và báo giá chi tiết – không ràng buộc, không áp lực.\nHoàng Thị Ngọc Ngân là một chuyên viên content marketing với nhiều năm kinh nghiệm trong lĩnh vực thiết kế website, tối ưu hóa SEO, quản l"
+        }
+      ]
+    },
+    {
+      "query": "Anh/chị cho tôi biết thông tin về Phan Võ Mỹ Huyền được không?",
+      "result_count": 3,
+      "results": [
+        {
+          "score": 0.418081,
+          "title": "Hướng Dẫn Phân Quyền Google Maps cho Doanh Nghiệp",
+          "url": "https://mimadigi.com/huong-dan-phan-quyen-google-maps-cho-doanh-nghiep",
+          "content_preview": "Mã số thuế: 0318672839\nĐịa chỉ: 31/3B ấp 43, Xã Đông Thạnh, TP Hồ Chí Minh\nPhan Võ Mỹ Huyền là một chuyên viên content marketing với nhiều năm kinh nghiệm trong lĩnh vực thiết kế website, SEO website, quản lý fanpage và tối ưu hóa Google Ma"
+        },
+        {
+          "score": 0.411101,
+          "title": "Phan Võ Mỹ Huyền",
+          "url": "https://mimadigi.com/phan-vo-my-huyen",
+          "content_preview": "Tác giả tại MIMA DIGI\nPhan Võ Mỹ Huyền là một chuyên viên content với nền tảng chuyên môn vững chắc trong cả hai lĩnh vực lập trình và marketing. Cô tốt nghiệp Trường Đại học Công nghệ Thông tin, chuyên ngành kết hợp giữa công nghệ và truyề"
+        },
+        {
+          "score": 0.365052,
+          "title": "Hướng dẫn phân quyền tài khoản Google Ads",
+          "url": "https://mimadigi.com/huong-dan-phan-quyen-tai-khoan-google-ads",
+          "content_preview": "MIMA giúp doanh nghiệp tiếp cận đúng khách hàng tiềm năng thông qua:\nPhân tích từ khóa, thị trường và đối thủ\nTối ưu nội dung, hình ảnh, tốc độ và kỹ thuật web\nXây dựng chiến lược SEO theo ngành hàng, mục tiêu cụ thể\nTheo dõi, đo lường và đ"
+        }
+      ]
+    }
+  ],
+  "isolation_probe": {
+    "wrong_tenant": "mima_internal",
+    "result_count": 0,
+    "passed": true
+  }
+}

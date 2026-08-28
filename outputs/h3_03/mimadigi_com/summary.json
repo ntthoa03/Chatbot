@@ -1,0 +1,68 @@
+{
+  "schema_version": "h3-03.onboarding-summary.v1",
+  "generated_at": "2026-08-26T10:21:19.562653+00:00",
+  "tenant_id": "mimadigi_com",
+  "url": "https://mimadigi.com",
+  "industry_template": "services",
+  "status": "succeeded",
+  "total_elapsed_seconds_this_run": 108.246,
+  "target_seconds": 900,
+  "under_15_minutes_this_run": true,
+  "result": {
+    "fetched_pages": 50,
+    "chunks": 393,
+    "index_records": 393,
+    "embedding_provider": "openai",
+    "embedding_model": "text-embedding-3-small"
+  },
+  "smoke": {
+    "question_count": 10,
+    "queries_with_results": 10,
+    "isolation_passed": true,
+    "passed": true
+  },
+  "steps": {
+    "config": {
+      "status": "succeeded",
+      "attempts": 1,
+      "started_at": "2026-08-26T10:19:31.322768+00:00",
+      "finished_at": "2026-08-26T10:19:31.399010+00:00",
+      "elapsed_seconds": 0.049,
+      "error": null
+    },
+    "crawl": {
+      "status": "succeeded",
+      "attempts": 1,
+      "started_at": "2026-08-26T10:19:31.402602+00:00",
+      "finished_at": "2026-08-26T10:20:40.956056+00:00",
+      "elapsed_seconds": 69.55,
+      "error": null
+    },
+    "index": {
+      "status": "succeeded",
+      "attempts": 1,
+      "started_at": "2026-08-26T10:20:40.960238+00:00",
+      "finished_at": "2026-08-26T10:21:08.653955+00:00",
+      "elapsed_seconds": 27.69,
+      "error": null
+    },
+    "smoke": {
+      "status": "succeeded",
+      "attempts": 1,
+      "started_at": "2026-08-26T10:21:08.659009+00:00",
+      "finished_at": "2026-08-26T10:21:19.557546+00:00",
+      "elapsed_seconds": 10.895,
+      "error": null
+    }
+  },
+  "artifacts": {
+    "tenant_config": "tenants/mimadigi_com.yaml",
+    "chunks": "outputs/h3_03/mimadigi_com/chunks.json",
+    "crawl_manifest": "outputs/h3_03/mimadigi_com/crawl_manifest.json",
+    "index": "outputs/h3_03/mimadigi_com/index",
+    "smoke_questions": "outputs/h3_03/mimadigi_com/smoke_questions.json",
+    "smoke_report": "outputs/h3_03/mimadigi_com/smoke_report.json",
+    "log": "outputs/h3_03/mimadigi_com/onboarding.log"
+  },
+  "resume_command": "python scripts/onboard_tenant.py --url \"https://mimadigi.com\" --industry services --tenant-id mimadigi_com --resume"
+}

@@ -1,0 +1,68 @@
+{
+  "schema_version": "h3-03.onboarding-summary.v1",
+  "generated_at": "2026-08-27T02:50:46.408773+00:00",
+  "tenant_id": "website_khach_com",
+  "url": "https://website-khach.com",
+  "industry_template": "construction",
+  "status": "failed",
+  "total_elapsed_seconds_this_run": 0.471,
+  "target_seconds": 900,
+  "under_15_minutes_this_run": false,
+  "result": {
+    "fetched_pages": 0,
+    "chunks": 0,
+    "index_records": 0,
+    "embedding_provider": null,
+    "embedding_model": null
+  },
+  "smoke": {
+    "question_count": 0,
+    "queries_with_results": 0,
+    "isolation_passed": false,
+    "passed": false
+  },
+  "steps": {
+    "config": {
+      "status": "succeeded",
+      "attempts": 1,
+      "started_at": "2026-08-27T02:50:01.481097+00:00",
+      "finished_at": "2026-08-27T02:50:01.514736+00:00",
+      "elapsed_seconds": 0.029,
+      "error": null
+    },
+    "crawl": {
+      "status": "failed",
+      "attempts": 2,
+      "started_at": "2026-08-27T02:50:45.938367+00:00",
+      "finished_at": "2026-08-27T02:50:46.405320+00:00",
+      "elapsed_seconds": 0.466,
+      "error": "OnboardingError: Lệnh thất bại với exit code 1"
+    },
+    "index": {
+      "status": "pending",
+      "attempts": 0,
+      "started_at": null,
+      "finished_at": null,
+      "elapsed_seconds": null,
+      "error": null
+    },
+    "smoke": {
+      "status": "pending",
+      "attempts": 0,
+      "started_at": null,
+      "finished_at": null,
+      "elapsed_seconds": null,
+      "error": null
+    }
+  },
+  "artifacts": {
+    "tenant_config": "tenants/website_khach_com.yaml",
+    "chunks": "outputs/h3_03/website_khach_com/chunks.json",
+    "crawl_manifest": "outputs/h3_03/website_khach_com/crawl_manifest.json",
+    "index": "outputs/h3_03/website_khach_com/index",
+    "smoke_questions": "outputs/h3_03/website_khach_com/smoke_questions.json",
+    "smoke_report": "outputs/h3_03/website_khach_com/smoke_report.json",
+    "log": "outputs/h3_03/website_khach_com/onboarding.log"
+  },
+  "resume_command": "python scripts/onboard_tenant.py --url \"https://website-khach.com\" --industry construction --tenant-id website_khach_com --resume"
+}

@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "provider": "gemini",
+  "model": "gemini-embedding-001",
+  "dimension": 3072,
+  "record_count": 54,
+  "tenants": [
+    "h303_mima_auto"
+  ]
+}

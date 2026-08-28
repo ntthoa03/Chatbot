@@ -1,0 +1,9 @@
+tenant_id: website_khach_com
+industry_template: construction
+persona:
+  bot_name: Trợ lý Website Khach
+contact:
+  hotline: null
+  zalo: null
+knowledge:
+  local_index_dir: outputs/h3_03/website_khach_com/index

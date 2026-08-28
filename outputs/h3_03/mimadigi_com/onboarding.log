@@ -1,0 +1,28 @@
+2026-08-26 17:19:31,322 | INFO | Onboard tenant=mimadigi_com | ngành=services | bắt đầu từ bước=config
+2026-08-26 17:19:31,349 | INFO | [1/4] BẮT ĐẦU config
+2026-08-26 17:19:31,402 | INFO | [config] HOÀN THÀNH trong 0.049s
+2026-08-26 17:19:31,406 | INFO | [2/4] BẮT ĐẦU crawl
+2026-08-26 17:19:31,407 | INFO | Lệnh: C:\Python314\python.exe crawl_chunks.py --base-url https://mimadigi.com --tenant-id mimadigi_com --output outputs\h3_03\mimadigi_com\chunks.json --manifest outputs\h3_03\mimadigi_com\crawl_manifest.json --max-pages 50 --min-chunks 10 --chunk-size 900 --chunk-overlap 120 --min-chars 160 --delay-seconds 0.1 --timeout 20.0
+2026-08-26 17:20:40,878 | INFO |   Xong: 50 trang, 393 chunks cho tenant 'mimadigi_com'. Chunks: outputs\h3_03\mimadigi_com\chunks.json; manifest: outputs\h3_03\mimadigi_com\crawl_manifest.json
+2026-08-26 17:20:40,959 | INFO | [crawl] HOÀN THÀNH trong 69.550s
+2026-08-26 17:20:40,964 | INFO | [3/4] BẮT ĐẦU index
+2026-08-26 17:20:40,965 | INFO | Lệnh: C:\Python314\python.exe index_chunks.py --tenant-id mimadigi_com --input outputs\h3_03\mimadigi_com\chunks.json --out-dir outputs\h3_03\mimadigi_com\index
+2026-08-26 17:21:07,545 | INFO |   Embedding primary gemini/gemini-embedding-001 thất bại; đang thử tuyến kế tiếp.
+2026-08-26 17:21:07,546 | INFO |   Xong: 393 chunk tổng cộng — 393 embed mới, 0 lấy từ cache. Provider/model: openai/text-embedding-3-small. Index lưu tại outputs\h3_03\mimadigi_com\index/
+2026-08-26 17:21:08,658 | INFO | [index] HOÀN THÀNH trong 27.690s
+2026-08-26 17:21:08,662 | INFO | [4/4] BẮT ĐẦU smoke
+2026-08-26 17:21:08,686 | INFO | Lệnh: C:\Python314\python.exe eval/smoke_tenant_index.py --index-dir outputs\h3_03\mimadigi_com\index --tenant-id mimadigi_com --wrong-tenant mima_internal --output outputs\h3_03\mimadigi_com\smoke_report.json --threshold 0.3 --top-k 3 --query "Bên mình đang cung cấp những dịch vụ nào?" --query "Quy trình đăng ký dịch vụ gồm những bước nào?" --query "Tôi cần cung cấp thông tin gì để được tư vấn?" --query "Dịch vụ nào phù hợp với doanh nghiệp nhỏ?" --query "Tôi có thể liên hệ tư vấn bằng cách nào?" --query "Anh/chị cho tôi biết thông tin về MIMA Giải Cứu Website - Biến Web Thành 1000 Nhân Viên Bán Hàng được không?" --query "Anh/chị cho tôi biết thông tin về Huỳnh Ngọc Thảo Tiên được không?" --query "Anh/chị cho tôi biết thông tin về Hoàng Thị Ngọc Ngân được không?" --query "Anh/chị cho tôi biết thông tin về Hoang Thi Ngoc Ngan được không?" --query "Anh/chị cho tôi biết thông tin về Phan Võ Mỹ Huyền được không?"
+2026-08-26 17:21:18,948 | INFO |   Bên mình đang cung cấp những dịch vụ nào? -> 3 kết quả; top=Top 10 Dịch Vụ Thiết Kế Website Trên Google
+2026-08-26 17:21:18,948 | INFO |   Quy trình đăng ký dịch vụ gồm những bước nào? -> 3 kết quả; top=Hướng dẫn tạo và cách khắc phục bị tạm ngưng Google Maps Doanh Nghiệp
+2026-08-26 17:21:18,948 | INFO |   Tôi cần cung cấp thông tin gì để được tư vấn? -> 3 kết quả; top=Thiết kế website Đà Nẵng
+2026-08-26 17:21:18,948 | INFO |   Dịch vụ nào phù hợp với doanh nghiệp nhỏ? -> 3 kết quả; top=Thiết kế website Thành phố Huế
+2026-08-26 17:21:18,949 | INFO |   Tôi có thể liên hệ tư vấn bằng cách nào? -> 3 kết quả; top=Hướng dẫn tạo và cách khắc phục bị tạm ngưng Google Maps Doanh Nghiệp
+2026-08-26 17:21:18,949 | INFO |   Anh/chị cho tôi biết thông tin về MIMA Giải Cứu Website - Biến Web Thành 1000 Nhân Viên Bán Hàng được không? -> 3 kết quả; top=MIMA Giải Cứu Website - Biến Web Thành 1000 Nhân Viên Bán Hàng
+2026-08-26 17:21:18,949 | INFO |   Anh/chị cho tôi biết thông tin về Huỳnh Ngọc Thảo Tiên được không? -> 3 kết quả; top=Huỳnh Ngọc Thảo Tiên
+2026-08-26 17:21:18,949 | INFO |   Anh/chị cho tôi biết thông tin về Hoàng Thị Ngọc Ngân được không? -> 3 kết quả; top=Hoàng Thị Ngọc Ngân
+2026-08-26 17:21:18,949 | INFO |   Anh/chị cho tôi biết thông tin về Hoang Thi Ngoc Ngan được không? -> 3 kết quả; top=Hoang Thi Ngoc Ngan
+2026-08-26 17:21:18,949 | INFO |   Anh/chị cho tôi biết thông tin về Phan Võ Mỹ Huyền được không? -> 3 kết quả; top=Hướng Dẫn Phân Quyền Google Maps cho Doanh Nghiệp
+2026-08-26 17:21:18,949 | INFO |   Tenant isolation: PASS
+2026-08-26 17:21:19,561 | INFO | [smoke] HOÀN THÀNH trong 10.895s
+2026-08-26 17:21:19,565 | INFO | HOÀN TẤT tenant=mimadigi_com trong 108.246s | smoke=10/10 | isolation=PASS
+2026-08-26 17:23:35,388 | INFO | Tenant đã hoàn tất trước đó: succeeded

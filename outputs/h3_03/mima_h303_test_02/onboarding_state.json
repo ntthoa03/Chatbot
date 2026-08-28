@@ -1,0 +1,43 @@
+{
+  "schema_version": "h3-03.onboarding-state.v1",
+  "url": "https://mimadigi.com",
+  "tenant_id": "mima_h303_test_02",
+  "industry_template": "services",
+  "bot_name": "Trợ lý Mimadigi",
+  "created_at": "2026-08-27T02:51:52.491228+00:00",
+  "updated_at": "2026-08-27T02:53:38.182181+00:00",
+  "steps": {
+    "config": {
+      "status": "succeeded",
+      "attempts": 1,
+      "started_at": "2026-08-27T02:51:52.492223+00:00",
+      "finished_at": "2026-08-27T02:51:52.529827+00:00",
+      "elapsed_seconds": 0.036,
+      "error": null
+    },
+    "crawl": {
+      "status": "succeeded",
+      "attempts": 1,
+      "started_at": "2026-08-27T02:51:52.531109+00:00",
+      "finished_at": "2026-08-27T02:53:05.103925+00:00",
+      "elapsed_seconds": 72.572,
+      "error": null
+    },
+    "index": {
+      "status": "succeeded",
+      "attempts": 1,
+      "started_at": "2026-08-27T02:53:05.105257+00:00",
+      "finished_at": "2026-08-27T02:53:31.154176+00:00",
+      "elapsed_seconds": 26.048,
+      "error": null
+    },
+    "smoke": {
+      "status": "succeeded",
+      "attempts": 1,
+      "started_at": "2026-08-27T02:53:31.157582+00:00",
+      "finished_at": "2026-08-27T02:53:38.182161+00:00",
+      "elapsed_seconds": 7.023,
+      "error": null
+    }
+  }
+}

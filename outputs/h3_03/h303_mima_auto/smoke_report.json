@@ -1,0 +1,255 @@
+{
+  "schema_version": "h2-04.index-smoke.v1",
+  "tested_at": "2026-08-26T10:18:18.629224+00:00",
+  "index_dir": "outputs\\h3_03\\h303_mima_auto\\index",
+  "tenant_id": "h303_mima_auto",
+  "threshold": 0.3,
+  "top_k": 3,
+  "queries": [
+    {
+      "query": "Bên mình đang cung cấp những dịch vụ nào?",
+      "result_count": 3,
+      "results": [
+        {
+          "score": 0.72695,
+          "title": "MIMA Giải Cứu Website - Biến Web Thành 1000 Nhân Viên Bán Hàng",
+          "url": "https://mimadigi.com/",
+          "content_preview": "MIMA Giải Cứu Website - Biến Web Thành 1000 Nhân Viên Bán Hàng\nMIMA - CÁNH TAY ĐẮC LỰC CHO DOANH NGHIỆP TRONG THỜI ĐẠI SỐ\nCác Dịch Vụ MiMa Hoàn Hảo Nhất Dành Cho Bạn\nĐồng hành cùng doanh nghiệp khởi sự cho đến thương hiệu bậc nhất, MIMA có "
+        },
+        {
+          "score": 0.724075,
+          "title": "Chương trình tuần lễ vàng 2026",
+          "url": "https://mimadigi.com/chuong-trinh-tuan-le-vang-2026",
+          "content_preview": "Chúng tôi luôn chú trọng đến việc cung cấp những giải pháp tối ưu giúp bạn tiếp cận khách hàng mục tiêu, tăng cường chiến lược marketing và duy trì sự phát triển bền vững cho thương hiệu. Với Dịch Vụ SEO và chiến lược quảng cáo thông minh, "
+        },
+        {
+          "score": 0.718729,
+          "title": "Chương trình tuần lễ vàng 2026",
+          "url": "https://mimadigi.com/chuong-trinh-tuan-le-vang-2026",
+          "content_preview": "Chiến lược SEO thông minh và hiệu quả từ đội ngũ chuyên gia SEO của MIMA, được thiết kế riêng biệt cho từng website của khách hàng.\nHỗ trợ tăng trưởng doanh thu bền vững, thông qua việc tiếp cận chính xác đối tượng khách hàng mục tiêu và tố"
+        }
+      ]
+    },
+    {
+      "query": "Quy trình đăng ký dịch vụ gồm những bước nào?",
+      "result_count": 3,
+      "results": [
+        {
+          "score": 0.68214,
+          "title": "Chương trình tuần lễ vàng 2026",
+          "url": "https://mimadigi.com/chuong-trinh-tuan-le-vang-2026",
+          "content_preview": "Nhanh tay đăng ký để nhận ưu đãi! Thời gian có hạn, đừng bỏ lỡ cơ hội vàng này để mang đến cho doanh nghiệp một bước tiến mạnh mẽ trong việc phát triển website và gia tăng doanh thu!\n👉 Liên hệ ngay với chúng tôi để đăng ký và nhận ưu đãi:\n📞"
+        },
+        {
+          "score": 0.674281,
+          "title": "Golden Week Program 2026",
+          "url": "https://mimadigi.com/golden-week-program-2026",
+          "content_preview": "Register quickly to receive the offer! Time is limited, don't miss this golden opportunity to give your business a strong step forward in website development and increased revenue!\n👉 Contact us now to register and receive the offer:\n📞 MIMAD"
+        },
+        {
+          "score": 0.657899,
+          "title": "Chương trình tuần lễ vàng 2026",
+          "url": "https://mimadigi.com/chuong-trinh-tuan-le-vang-2026",
+          "content_preview": "Ngày đăng: 13/07/2026\nCách ký chữ ký số trên file PDF trên phần mềm Foxit Reader\nTìm hiểu cách ký chữ ký số trên file PDF trên phần mềm Foxit Reader với hướng dẫn chi tiết từng bước. Dễ thực hiện, hỗ trợ USB Token và chữ ký số từ xa.\nNgày đ"
+        }
+      ]
+    },
+    {
+      "query": "Tôi cần cung cấp thông tin gì để được tư vấn?",
+      "result_count": 3,
+      "results": [
+        {
+          "score": 0.677154,
+          "title": "Chương trình tuần lễ vàng 2026",
+          "url": "https://mimadigi.com/chuong-trinh-tuan-le-vang-2026",
+          "content_preview": "Ngày đăng: 13/07/2026\nCách ký chữ ký số trên file PDF trên phần mềm Foxit Reader\nTìm hiểu cách ký chữ ký số trên file PDF trên phần mềm Foxit Reader với hướng dẫn chi tiết từng bước. Dễ thực hiện, hỗ trợ USB Token và chữ ký số từ xa.\nNgày đ"
+        },
+        {
+          "score": 0.669644,
+          "title": "Blog Kiến Thức Thiết Kế Website, SEO, Marketing Online - MIMA",
+          "url": "https://mimadigi.com/tin-tuc",
+          "content_preview": "Cẩm nang Hosting-Email\nWebsite mạnh không thể thiếu nền tảng lưu trữ (hosting) ổn định và email doanh nghiệp chuyên nghiệp. “Cẩm nang Hosting – Email” mang đến cho bạn cái nhìn toàn diện về cách lựa chọn gói hosting phù hợp với nhu cầu, tối"
+        },
+        {
+          "score": 0.669459,
+          "title": "Golden Week Program 2026",
+          "url": "https://mimadigi.com/golden-week-program-2026",
+          "content_preview": "Register quickly to receive the offer! Time is limited, don't miss this golden opportunity to give your business a strong step forward in website development and increased revenue!\n👉 Contact us now to register and receive the offer:\n📞 MIMAD"
+        }
+      ]
+    },
+    {
+      "query": "Dịch vụ nào phù hợp với doanh nghiệp nhỏ?",
+      "result_count": 3,
+      "results": [
+        {
+          "score": 0.697804,
+          "title": "MIMA Giải Cứu Website - Biến Web Thành 1000 Nhân Viên Bán Hàng",
+          "url": "https://mimadigi.com/",
+          "content_preview": "MIMA Giải Cứu Website - Biến Web Thành 1000 Nhân Viên Bán Hàng\nMIMA - CÁNH TAY ĐẮC LỰC CHO DOANH NGHIỆP TRONG THỜI ĐẠI SỐ\nCác Dịch Vụ MiMa Hoàn Hảo Nhất Dành Cho Bạn\nĐồng hành cùng doanh nghiệp khởi sự cho đến thương hiệu bậc nhất, MIMA có "
+        },
+        {
+          "score": 0.697366,
+          "title": "Golden Week Program 2026",
+          "url": "https://mimadigi.com/golden-week-program-2026",
+          "content_preview": "Register quickly to receive the offer! Time is limited, don't miss this golden opportunity to give your business a strong step forward in website development and increased revenue!\n👉 Contact us now to register and receive the offer:\n📞 MIMAD"
+        },
+        {
+          "score": 0.691944,
+          "title": "Chương trình tuần lễ vàng 2026",
+          "url": "https://mimadigi.com/chuong-trinh-tuan-le-vang-2026",
+          "content_preview": "Chúng tôi luôn chú trọng đến việc cung cấp những giải pháp tối ưu giúp bạn tiếp cận khách hàng mục tiêu, tăng cường chiến lược marketing và duy trì sự phát triển bền vững cho thương hiệu. Với Dịch Vụ SEO và chiến lược quảng cáo thông minh, "
+        }
+      ]
+    },
+    {
+      "query": "Tôi có thể liên hệ tư vấn bằng cách nào?",
+      "result_count": 3,
+      "results": [
+        {
+          "score": 0.68442,
+          "title": "Chương trình tuần lễ vàng 2026",
+          "url": "https://mimadigi.com/chuong-trinh-tuan-le-vang-2026",
+          "content_preview": "Ngày đăng: 13/07/2026\nCách ký chữ ký số trên file PDF trên phần mềm Foxit Reader\nTìm hiểu cách ký chữ ký số trên file PDF trên phần mềm Foxit Reader với hướng dẫn chi tiết từng bước. Dễ thực hiện, hỗ trợ USB Token và chữ ký số từ xa.\nNgày đ"
+        },
+        {
+          "score": 0.682734,
+          "title": "Chương trình tuần lễ vàng 2026",
+          "url": "https://mimadigi.com/chuong-trinh-tuan-le-vang-2026",
+          "content_preview": "Nhanh tay đăng ký để nhận ưu đãi! Thời gian có hạn, đừng bỏ lỡ cơ hội vàng này để mang đến cho doanh nghiệp một bước tiến mạnh mẽ trong việc phát triển website và gia tăng doanh thu!\n👉 Liên hệ ngay với chúng tôi để đăng ký và nhận ưu đãi:\n📞"
+        },
+        {
+          "score": 0.671181,
+          "title": "Hướng dẫn phân quyền tài khoản Google Ads",
+          "url": "https://mimadigi.com/huong-dan-phan-quyen-tai-khoan-google-ads",
+          "content_preview": "MIMA giúp doanh nghiệp tiếp cận đúng khách hàng tiềm năng thông qua:\nPhân tích từ khóa, thị trường và đối thủ\nTối ưu nội dung, hình ảnh, tốc độ và kỹ thuật web\nXây dựng chiến lược SEO theo ngành hàng, mục tiêu cụ thể\nTheo dõi, đo lường và đ"
+        }
+      ]
+    },
+    {
+      "query": "Anh/chị cho tôi biết thông tin về MIMA Giải Cứu Website - Biến Web Thành 1000 Nhân Viên Bán Hàng được không?",
+      "result_count": 3,
+      "results": [
+        {
+          "score": 0.85602,
+          "title": "MIMA Giải Cứu Website - Biến Web Thành 1000 Nhân Viên Bán Hàng",
+          "url": "https://mimadigi.com/",
+          "content_preview": "MIMA Giải Cứu Website - Biến Web Thành 1000 Nhân Viên Bán Hàng\nMIMA - CÁNH TAY ĐẮC LỰC CHO DOANH NGHIỆP TRONG THỜI ĐẠI SỐ\nCác Dịch Vụ MiMa Hoàn Hảo Nhất Dành Cho Bạn\nĐồng hành cùng doanh nghiệp khởi sự cho đến thương hiệu bậc nhất, MIMA có "
+        },
+        {
+          "score": 0.803852,
+          "title": "MIMA Giải Cứu Website - Biến Web Thành 1000 Nhân Viên Bán Hàng",
+          "url": "https://mimadigi.com/",
+          "content_preview": "MiMA được đúc kết từ kinh nghiệm hơn 10 năm của 2000+ khách hàng, sẽ giúp bạn tiết kiệm thời gian và kinh doanh hiệu quả.\nHệ sinh thái dịch vụ\nHơn 2000+ Khách Hàng Đã Tin Tưởng Sử Dụng Dịch Vụ MIMA\nKhách Hàng Nói Gì Về MIMA Digi\nƯu Điểm Nổi"
+        },
+        {
+          "score": 0.78847,
+          "title": "Chương trình tuần lễ vàng 2026",
+          "url": "https://mimadigi.com/chuong-trinh-tuan-le-vang-2026",
+          "content_preview": "Chiến lược SEO thông minh và hiệu quả từ đội ngũ chuyên gia SEO của MIMA, được thiết kế riêng biệt cho từng website của khách hàng.\nHỗ trợ tăng trưởng doanh thu bền vững, thông qua việc tiếp cận chính xác đối tượng khách hàng mục tiêu và tố"
+        }
+      ]
+    },
+    {
+      "query": "Anh/chị cho tôi biết thông tin về Huỳnh Ngọc Thảo Tiên được không?",
+      "result_count": 3,
+      "results": [
+        {
+          "score": 0.755147,
+          "title": "Huỳnh Ngọc Thảo Tiên",
+          "url": "https://mimadigi.com/huynh-ngoc-thao-tien",
+          "content_preview": "Huỳnh Ngọc Thảo Tiên\nTác giả tại MIMA DIGI\nHuỳnh Ngọc Thảo Tiên là chuyên gia Content Marketing chuẩn SEO, tập trung xây dựng nội dung thu hút, tối ưu trải nghiệm người dùng và tỷ lệ chuyển đổi. Với phong cách làm việc chỉn chu, sáng tạo và"
+        },
+        {
+          "score": 0.651949,
+          "title": "Hoang Thi Ngoc Ngan",
+          "url": "https://mimadigi.com/ngoc-ngan-hoang",
+          "content_preview": "Hoang Thi Ngoc Ngan is an experienced Content Marketing Specialist with a strong academic background in Marketing Management. Over the years, she has built solid expertise in digital content strategy, website design, SEO optimization, fanpa"
+        },
+        {
+          "score": 0.6326,
+          "title": "Hoàng Thị Ngọc Ngân",
+          "url": "https://mimadigi.com/hoang-thi-ngoc-ngan",
+          "content_preview": "Tác giả tại MIMA DIGI\nHoàng Thị Ngọc Ngân là một chuyên viên Content Marketing giàu kinh nghiệm, tốt nghiệp chuyên ngành Quản trị Marketing. Với nhiều năm hoạt động trong lĩnh vực truyền thông số, cô đã xây dựng được nền tảng vững chắc về c"
+        }
+      ]
+    },
+    {
+      "query": "Anh/chị cho tôi biết thông tin về Hoàng Thị Ngọc Ngân được không?",
+      "result_count": 3,
+      "results": [
+        {
+          "score": 0.749639,
+          "title": "Hoàng Thị Ngọc Ngân",
+          "url": "https://mimadigi.com/hoang-thi-ngoc-ngan",
+          "content_preview": "Tác giả tại MIMA DIGI\nHoàng Thị Ngọc Ngân là một chuyên viên Content Marketing giàu kinh nghiệm, tốt nghiệp chuyên ngành Quản trị Marketing. Với nhiều năm hoạt động trong lĩnh vực truyền thông số, cô đã xây dựng được nền tảng vững chắc về c"
+        },
+        {
+          "score": 0.739786,
+          "title": "Hoang Thi Ngoc Ngan",
+          "url": "https://mimadigi.com/ngoc-ngan-hoang",
+          "content_preview": "Hoang Thi Ngoc Ngan is an experienced Content Marketing Specialist with a strong academic background in Marketing Management. Over the years, she has built solid expertise in digital content strategy, website design, SEO optimization, fanpa"
+        },
+        {
+          "score": 0.651139,
+          "title": "Huỳnh Ngọc Thảo Tiên",
+          "url": "https://mimadigi.com/huynh-ngoc-thao-tien",
+          "content_preview": "Huỳnh Ngọc Thảo Tiên\nTác giả tại MIMA DIGI\nHuỳnh Ngọc Thảo Tiên là chuyên gia Content Marketing chuẩn SEO, tập trung xây dựng nội dung thu hút, tối ưu trải nghiệm người dùng và tỷ lệ chuyển đổi. Với phong cách làm việc chỉn chu, sáng tạo và"
+        }
+      ]
+    },
+    {
+      "query": "Anh/chị cho tôi biết thông tin về Hoang Thi Ngoc Ngan được không?",
+      "result_count": 3,
+      "results": [
+        {
+          "score": 0.760555,
+          "title": "Hoang Thi Ngoc Ngan",
+          "url": "https://mimadigi.com/ngoc-ngan-hoang",
+          "content_preview": "Hoang Thi Ngoc Ngan is an experienced Content Marketing Specialist with a strong academic background in Marketing Management. Over the years, she has built solid expertise in digital content strategy, website design, SEO optimization, fanpa"
+        },
+        {
+          "score": 0.734579,
+          "title": "Hoàng Thị Ngọc Ngân",
+          "url": "https://mimadigi.com/hoang-thi-ngoc-ngan",
+          "content_preview": "Tác giả tại MIMA DIGI\nHoàng Thị Ngọc Ngân là một chuyên viên Content Marketing giàu kinh nghiệm, tốt nghiệp chuyên ngành Quản trị Marketing. Với nhiều năm hoạt động trong lĩnh vực truyền thông số, cô đã xây dựng được nền tảng vững chắc về c"
+        },
+        {
+          "score": 0.657462,
+          "title": "Nguyễn Lê Cảnh Hoàng",
+          "url": "https://mimadigi.com/nguyen-le-canh-hoang",
+          "content_preview": "Nguyễn Lê Cảnh Hoàng\nTác giả tại MIMA DIGI\nAnh Hoàng đảm nhận vai trò xây dựng – tối ưu nội dung website cho khách hàng tại MIMA Digi . Anh chuyên nghiên cứu từ khóa, triển khai bài viết chuẩn SEO, lên chiến lược nội dung phù hợp từng ngành"
+        }
+      ]
+    },
+    {
+      "query": "Anh/chị cho tôi biết thông tin về Phan Võ Mỹ Huyền được không?",
+      "result_count": 3,
+      "results": [
+        {
+          "score": 0.751989,
+          "title": "Phan Võ Mỹ Huyền",
+          "url": "https://mimadigi.com/phan-vo-my-huyen",
+          "content_preview": "Tác giả tại MIMA DIGI\nPhan Võ Mỹ Huyền là một chuyên viên content với nền tảng chuyên môn vững chắc trong cả hai lĩnh vực lập trình và marketing. Cô tốt nghiệp Trường Đại học Công nghệ Thông tin, chuyên ngành kết hợp giữa công nghệ và truyề"
+        },
+        {
+          "score": 0.67533,
+          "title": "Hướng dẫn phân quyền tài khoản Google Ads",
+          "url": "https://mimadigi.com/huong-dan-phan-quyen-tai-khoan-google-ads",
+          "content_preview": "MIMA giúp doanh nghiệp tiếp cận đúng khách hàng tiềm năng thông qua:\nPhân tích từ khóa, thị trường và đối thủ\nTối ưu nội dung, hình ảnh, tốc độ và kỹ thuật web\nXây dựng chiến lược SEO theo ngành hàng, mục tiêu cụ thể\nTheo dõi, đo lường và đ"
+        },
+        {
+          "score": 0.640247,
+          "title": "Huỳnh Ngọc Thảo Tiên",
+          "url": "https://mimadigi.com/huynh-ngoc-thao-tien",
+          "content_preview": "Huỳnh Ngọc Thảo Tiên\nTác giả tại MIMA DIGI\nHuỳnh Ngọc Thảo Tiên là chuyên gia Content Marketing chuẩn SEO, tập trung xây dựng nội dung thu hút, tối ưu trải nghiệm người dùng và tỷ lệ chuyển đổi. Với phong cách làm việc chỉn chu, sáng tạo và"
+        }
+      ]
+    }
+  ],
+  "isolation_probe": {
+    "wrong_tenant": "mima_internal",
+    "result_count": 0,
+    "passed": true
+  }
+}
