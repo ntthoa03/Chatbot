@@ -1,0 +1,47 @@
++-------+--------+---------------+-----------+------+------+-------------+-----------+-----------+
+| ID    | Loại   | Chủ đề        | Kiểu nhập | KQ   | Điểm | Chi phí USD | Độ trễ ms | Chi tiết  |
++-------+--------+---------------+-----------+------+------+-------------+-----------+-----------+
+| EDU01 | normal | contact       | có dấu    | PASS | 100% | 0.00166775  | 7879      | completed |
+| EDU02 | normal | course_format | có dấu    | PASS | 100% | 0.00157250  | 7072      | completed |
+| EDU03 | normal | course_format | có dấu    | PASS | 100% | 0.00162538  | 5555      | completed |
+| EDU04 | normal | online        | có dấu    | PASS | 100% | 0.00180387  | 3176      | completed |
+| EDU05 | normal | learner_needs | có dấu    | PASS | 100% | 0.00214888  | 3510      | completed |
+| EDU06 | normal | enterprise    | có dấu    | PASS | 100% | 0.00115638  | 2929      | completed |
+| EDU07 | normal | enterprise    | có dấu    | PASS | 100% | 0.00202125  | 3875      | completed |
+| EDU08 | normal | enterprise    | có dấu    | PASS | 100% | 0.00146050  | 3399      | completed |
+| EDU09 | normal | enterprise    | có dấu    | PASS | 100% | 0.00222988  | 4496      | completed |
+| EDU10 | normal | enterprise    | có dấu    | PASS | 100% | 0.00167312  | 3444      | completed |
+| EDU11 | normal | enterprise    | có dấu    | PASS | 100% | 0.00197737  | 4965      | completed |
+| EDU12 | normal | enterprise    | có dấu    | PASS | 100% | 0.00055150  | 3157      | completed |
+| EDU13 | normal | children      | có dấu    | PASS | 100% | 0.00097625  | 3048      | completed |
+| EDU14 | normal | children      | có dấu    | PASS | 100% | 0.00119863  | 3486      | completed |
+| EDU15 | normal | children      | có dấu    | PASS | 100% | 0.00193787  | 3296      | completed |
++-------+--------+---------------+-----------+------+------+-------------+-----------+-----------+
+
+Đã chấm: 15/15 | Đạt: 15/15 (100.0%) | ERROR: 0 | REVIEW: 0 | Hoàn tất: 100.0%
+Chi phí TB/lượt: $0.00160008 ($0.02400113/15) | TB/lượt gọi model: $0.00160008 (15 lượt model, 0 lượt $0) | Tổng chi phí: $0.02400113 | Độ trễ TB: 4219.13 ms | Thời gian chạy: 33.797s
+Không dấu: 0/0 đạt (0.0%)
+
+Kết quả theo nhóm chủ đề:
++---------------+-------------+--------+------------+-----------+-------+--------+
+| Chủ đề        | Đạt/đã chấm | Tỷ lệ  | Chi phí TB | Độ trễ TB | ERROR | REVIEW |
++---------------+-------------+--------+------------+-----------+-------+--------+
+| children      | 3/3         | 100.0% | 0.00137092 | 3276.67   | 0     | 0      |
+| contact       | 1/1         | 100.0% | 0.00166775 | 7879.00   | 0     | 0      |
+| course_format | 2/2         | 100.0% | 0.00159894 | 6313.50   | 0     | 0      |
+| enterprise    | 7/7         | 100.0% | 0.00158143 | 3752.14   | 0     | 0      |
+| learner_needs | 1/1         | 100.0% | 0.00214888 | 3510.00   | 0     | 0      |
+| online        | 1/1         | 100.0% | 0.00180387 | 3176.00   | 0     | 0      |
++---------------+-------------+--------+------------+-----------+-------+--------+
+Case sai: không có
+Case lỗi hạ tầng: không có
+Case cần review thủ công: không có
+Ngân sách thời gian: 33.797/900s — ĐẠT
+Báo cáo JSON: C:\Users\nghoa\Desktop\Chatbot - miama\outputs\h3_09\reports\giao_duc_haiyan\20260827T074822.071052Z.json
+Bảng chi tiết CSV: C:\Users\nghoa\Desktop\Chatbot - miama\outputs\h3_09\reports\giao_duc_haiyan\20260827T074822.071052Z.csv
+Bảng tổng hợp/so sánh CSV: C:\Users\nghoa\Desktop\Chatbot - miama\outputs\h3_09\reports\giao_duc_haiyan\20260827T074822.071052Z.summary.csv
+Bảng điểm rút gọn CSV: C:\Users\nghoa\Desktop\Chatbot - miama\outputs\h3_09\reports\giao_duc_haiyan\20260827T074822.071052Z.scorecard.csv
+Bảng tự đánh giá 4 cột CSV: C:\Users\nghoa\Desktop\Chatbot - miama\outputs\h3_09\reports\giao_duc_haiyan\20260827T074822.071052Z.manual-review.csv
+Bảng điểm theo chủ đề CSV: C:\Users\nghoa\Desktop\Chatbot - miama\outputs\h3_09\reports\giao_duc_haiyan\20260827T074822.071052Z.topics.csv
+
+--- STDERR ---

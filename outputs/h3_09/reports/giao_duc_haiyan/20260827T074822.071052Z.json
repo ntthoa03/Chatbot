@@ -1,0 +1,686 @@
+{
+  "run_id": "20260827T074822.071052Z",
+  "created_at": "2026-08-27T07:48:22.071052+00:00",
+  "cases_path": "C:\\Users\\nghoa\\Desktop\\Chatbot - miama\\eval\\cases_giao_duc_haiyan.yaml",
+  "tenant_id": "giao_duc_haiyan",
+  "config_version": 1,
+  "case_fingerprint": "2c3ed2094ac3360085ead6f0a0f30f1437cb1442683bb181d695fcab3dfc41cd",
+  "fingerprint": "a9ce4173e7285be93171e684fb65e8ee95a07d7f71ade7f610b422f84b6be17b",
+  "experiment": {},
+  "summary": {
+    "total": 15,
+    "passed": 15,
+    "failed": 0,
+    "errors": 0,
+    "manual_review": 0,
+    "evaluated": 15,
+    "pass_rate": 1.0,
+    "completion_rate": 1.0,
+    "average_cost_usd": 0.001600075,
+    "average_model_call_cost_usd": 0.001600075,
+    "model_calls": 15,
+    "zero_cost_turns": 0,
+    "average_latency_ms": 4219.13,
+    "total_cost_usd": 0.024001125,
+    "duration_seconds": 33.797,
+    "unaccented_total": 0,
+    "unaccented_passed": 0,
+    "unaccented_pass_rate": 0.0,
+    "topic_metrics": {
+      "children": {
+        "total": 3,
+        "passed": 3,
+        "failed": 0,
+        "errors": 0,
+        "manual_review": 0,
+        "evaluated": 3,
+        "pass_rate": 1.0,
+        "average_cost_usd": 0.001370916667,
+        "average_latency_ms": 3276.67
+      },
+      "contact": {
+        "total": 1,
+        "passed": 1,
+        "failed": 0,
+        "errors": 0,
+        "manual_review": 0,
+        "evaluated": 1,
+        "pass_rate": 1.0,
+        "average_cost_usd": 0.00166775,
+        "average_latency_ms": 7879.0
+      },
+      "course_format": {
+        "total": 2,
+        "passed": 2,
+        "failed": 0,
+        "errors": 0,
+        "manual_review": 0,
+        "evaluated": 2,
+        "pass_rate": 1.0,
+        "average_cost_usd": 0.0015989375,
+        "average_latency_ms": 6313.5
+      },
+      "enterprise": {
+        "total": 7,
+        "passed": 7,
+        "failed": 0,
+        "errors": 0,
+        "manual_review": 0,
+        "evaluated": 7,
+        "pass_rate": 1.0,
+        "average_cost_usd": 0.001581428571,
+        "average_latency_ms": 3752.14
+      },
+      "learner_needs": {
+        "total": 1,
+        "passed": 1,
+        "failed": 0,
+        "errors": 0,
+        "manual_review": 0,
+        "evaluated": 1,
+        "pass_rate": 1.0,
+        "average_cost_usd": 0.002148875,
+        "average_latency_ms": 3510.0
+      },
+      "online": {
+        "total": 1,
+        "passed": 1,
+        "failed": 0,
+        "errors": 0,
+        "manual_review": 0,
+        "evaluated": 1,
+        "pass_rate": 1.0,
+        "average_cost_usd": 0.001803875,
+        "average_latency_ms": 3176.0
+      }
+    }
+  },
+  "results": [
+    {
+      "id": "EDU01",
+      "type": "normal",
+      "topic": "contact",
+      "input_style": "accented",
+      "question": "trung tâm HaiYan ở khu vực nào Đồng Nai vậy",
+      "reply": "Dạ, Trung tâm Tiếng Trung HaiYan hiện có 2 cơ sở tại Đồng Nai:\n\n- Cơ sở 1: Ấp 5, Long Thọ, Nhơn Trạch.\n- Cơ sở 2: 24/1 Sau Nhà Thờ Văn Hải, Long Thành.\n\nAnh/chị muốn em cung cấp thêm số hotline để tiện liên hệ không ạ?",
+      "status": "PASS",
+      "passed": true,
+      "score": 1.0,
+      "pass_score": 1.0,
+      "criteria": [
+        {
+          "name": "must_contain_any:Long Thành | Đồng Nai",
+          "expected": "Long Thành | Đồng Nai",
+          "passed": true
+        },
+        {
+          "name": "must_not_contain:MIMA",
+          "expected": "MIMA",
+          "passed": true
+        },
+        {
+          "name": "must_not_contain:phòng khám",
+          "expected": "phòng khám",
+          "passed": true
+        }
+      ],
+      "need_human": false,
+      "guardrail_blocked": false,
+      "model": "gpt-5.6-luna",
+      "model_called": true,
+      "cost_usd": 0.00166775,
+      "latency_ms": 7879,
+      "trace_id": "253ce2b1-eda0-45b9-a8ca-969c6c9ec516",
+      "diagnostic_stage": "completed",
+      "judge_reason": null,
+      "error": null
+    },
+    {
+      "id": "EDU02",
+      "type": "normal",
+      "topic": "course_format",
+      "input_style": "accented",
+      "question": "bên mình có lớp tiếng Trung 1 kèm 1 không",
+      "reply": "Dạ có anh/chị nhé. Trung tâm HaiYan có các lớp tiếng Trung 1 kèm 1 như cấp tốc, giao tiếp, online, học tại nhà và luyện nói. Anh/chị đang quan tâm hình thức nào để em tư vấn phù hợp hơn ạ?",
+      "status": "PASS",
+      "passed": true,
+      "score": 1.0,
+      "pass_score": 1.0,
+      "criteria": [
+        {
+          "name": "must_contain_any:1 kèm 1 | cá nhân",
+          "expected": "1 kèm 1 | cá nhân",
+          "passed": true
+        },
+        {
+          "name": "must_not_contain:MIMA",
+          "expected": "MIMA",
+          "passed": true
+        },
+        {
+          "name": "must_not_contain:phòng khám",
+          "expected": "phòng khám",
+          "passed": true
+        }
+      ],
+      "need_human": false,
+      "guardrail_blocked": false,
+      "model": "gpt-5.6-luna",
+      "model_called": true,
+      "cost_usd": 0.0015725,
+      "latency_ms": 7072,
+      "trace_id": "01bd758c-b58c-4bb6-b076-05c944a20118",
+      "diagnostic_stage": "completed",
+      "judge_reason": null,
+      "error": null
+    },
+    {
+      "id": "EDU03",
+      "type": "normal",
+      "topic": "course_format",
+      "input_style": "accented",
+      "question": "tôi cần học giao tiếp gấp thì có khóa 1-1 phù hợp không",
+      "reply": "Dạ có anh/chị. Trung tâm có khóa **Tiếng Trung 1 kèm 1 giao tiếp gấp**, với lộ trình được thiết kế riêng theo nhu cầu và tập trung vào thực hành giao tiếp trong thời gian ngắn. Khóa học phù hợp nếu anh/chị cần chuẩn bị cho công việc, gặp đối tác hoặc chuyến công tác sắp tới. Anh/chị muốn học để giao tiếp trong công việc hay cho chuyến đi cụ thể ạ?",
+      "status": "PASS",
+      "passed": true,
+      "score": 1.0,
+      "pass_score": 1.0,
+      "criteria": [
+        {
+          "name": "must_contain_any:giao tiếp | 1 kèm 1",
+          "expected": "giao tiếp | 1 kèm 1",
+          "passed": true
+        },
+        {
+          "name": "must_not_contain:MIMA",
+          "expected": "MIMA",
+          "passed": true
+        },
+        {
+          "name": "must_not_contain:phòng khám",
+          "expected": "phòng khám",
+          "passed": true
+        }
+      ],
+      "need_human": false,
+      "guardrail_blocked": false,
+      "model": "gpt-5.6-luna",
+      "model_called": true,
+      "cost_usd": 0.001625375,
+      "latency_ms": 5555,
+      "trace_id": "67e17221-0628-4543-b75c-3c2eed04463b",
+      "diagnostic_stage": "completed",
+      "judge_reason": null,
+      "error": null
+    },
+    {
+      "id": "EDU04",
+      "type": "normal",
+      "topic": "online",
+      "input_style": "accented",
+      "question": "học online bên HaiYan có lộ trình không",
+      "reply": "Dạ có anh/chị nhé. Khóa học tiếng Trung online tại HaiYan được thiết kế bài bản từ cơ bản đến nâng cao, có lộ trình từng bước và theo sát tiến độ học viên. Nội dung học tăng cường tương tác trực tiếp với giáo viên, thực hành giao tiếp và phù hợp cả với người mới bắt đầu. Anh/chị đang muốn học từ con số 0 hay đã có nền tảng rồi ạ?",
+      "status": "PASS",
+      "passed": true,
+      "score": 1.0,
+      "pass_score": 1.0,
+      "criteria": [
+        {
+          "name": "must_contain_any:online | lộ trình",
+          "expected": "online | lộ trình",
+          "passed": true
+        },
+        {
+          "name": "must_not_contain:MIMA",
+          "expected": "MIMA",
+          "passed": true
+        },
+        {
+          "name": "must_not_contain:phòng khám",
+          "expected": "phòng khám",
+          "passed": true
+        }
+      ],
+      "need_human": false,
+      "guardrail_blocked": false,
+      "model": "gpt-5.6-luna",
+      "model_called": true,
+      "cost_usd": 0.001803875,
+      "latency_ms": 3176,
+      "trace_id": "a0c4d057-1653-4209-9569-99da3938c14d",
+      "diagnostic_stage": "completed",
+      "judge_reason": null,
+      "error": null
+    },
+    {
+      "id": "EDU05",
+      "type": "normal",
+      "topic": "learner_needs",
+      "input_style": "accented",
+      "question": "mất gốc phát âm yếu thì học khóa nào được",
+      "reply": "Dạ, nếu anh/chị mất gốc và phát âm yếu thì phù hợp với khóa **Tiếng Trung 1 kèm 1 cho người học yếu/mất gốc** ạ. Lộ trình bắt đầu bằng việc chuẩn hóa vị trí lưỡi, cách lấy hơi, thanh mẫu, vận mẫu và thanh điệu, sau đó mới tích lũy từ vựng và ngữ pháp qua tình huống thực tế. Hình thức 1 kèm 1 giúp giáo viên dễ theo sát và sửa lỗi phát âm cho anh/chị. Anh/chị muốn học để giao tiếp hằng ngày hay phục vụ công việc ạ?",
+      "status": "PASS",
+      "passed": true,
+      "score": 1.0,
+      "pass_score": 1.0,
+      "criteria": [
+        {
+          "name": "must_contain_any:phát âm | người học yếu | 1 kèm 1",
+          "expected": "phát âm | người học yếu | 1 kèm 1",
+          "passed": true
+        },
+        {
+          "name": "must_not_contain:MIMA",
+          "expected": "MIMA",
+          "passed": true
+        },
+        {
+          "name": "must_not_contain:phòng khám",
+          "expected": "phòng khám",
+          "passed": true
+        }
+      ],
+      "need_human": false,
+      "guardrail_blocked": false,
+      "model": "gpt-5.6-luna",
+      "model_called": true,
+      "cost_usd": 0.002148875,
+      "latency_ms": 3510,
+      "trace_id": "9ec9f5a2-22a3-4654-844b-660c8660618d",
+      "diagnostic_stage": "completed",
+      "judge_reason": null,
+      "error": null
+    },
+    {
+      "id": "EDU06",
+      "type": "normal",
+      "topic": "enterprise",
+      "input_style": "accented",
+      "question": "có khóa tiếng Trung cho nhân viên thu mua không",
+      "reply": "Dạ có anh/chị nhé. Trung tâm HaiYan có nội dung khóa **Tiếng Trung cho nhân viên thu mua**, hỗ trợ giao tiếp và đàm phán với nhà cung cấp Trung Quốc, đồng thời phục vụ công việc quản lý chuỗi cung ứng. Anh/chị muốn em kết nối tư vấn viên để được gửi thông tin chi tiết về lịch học và học phí không ạ?",
+      "status": "PASS",
+      "passed": true,
+      "score": 1.0,
+      "pass_score": 1.0,
+      "criteria": [
+        {
+          "name": "must_contain_any:thu mua | doanh nghiệp",
+          "expected": "thu mua | doanh nghiệp",
+          "passed": true
+        },
+        {
+          "name": "must_not_contain:MIMA",
+          "expected": "MIMA",
+          "passed": true
+        },
+        {
+          "name": "must_not_contain:phòng khám",
+          "expected": "phòng khám",
+          "passed": true
+        }
+      ],
+      "need_human": false,
+      "guardrail_blocked": false,
+      "model": "gpt-5.6-luna",
+      "model_called": true,
+      "cost_usd": 0.001156375,
+      "latency_ms": 2929,
+      "trace_id": "5f58e08e-26ee-4564-8d45-46ea1a4b9b94",
+      "diagnostic_stage": "completed",
+      "judge_reason": null,
+      "error": null
+    },
+    {
+      "id": "EDU07",
+      "type": "normal",
+      "topic": "enterprise",
+      "input_style": "accented",
+      "question": "nhân viên điều phối logistics học nội dung nào phù hợp",
+      "reply": "Dạ, nhân viên điều phối logistics phù hợp với chương trình **Tiếng Trung chuyên ngành điều phối và kho vận**. Nội dung tập trung vào hội thoại thực tế trong công việc, trao đổi và đàm phán tiến độ, phối hợp xử lý hàng hóa cũng như giao tiếp với các bên liên quan. Phương pháp học chú trọng phản xạ trực tiếp, học đến đâu thực hành nói đến đó; lịch học cũng được thiết kế linh hoạt cho người làm việc theo ca kíp. Anh/chị đang làm điều phối ở mảng kho vận, vận chuyển hay xuất nhập khẩu để em tư vấn sát hơn ạ?",
+      "status": "PASS",
+      "passed": true,
+      "score": 1.0,
+      "pass_score": 1.0,
+      "criteria": [
+        {
+          "name": "must_contain_any:điều phối | logistics | chuỗi cung ứng",
+          "expected": "điều phối | logistics | chuỗi cung ứng",
+          "passed": true
+        },
+        {
+          "name": "must_not_contain:MIMA",
+          "expected": "MIMA",
+          "passed": true
+        },
+        {
+          "name": "must_not_contain:phòng khám",
+          "expected": "phòng khám",
+          "passed": true
+        }
+      ],
+      "need_human": false,
+      "guardrail_blocked": false,
+      "model": "gpt-5.6-luna",
+      "model_called": true,
+      "cost_usd": 0.00202125,
+      "latency_ms": 3875,
+      "trace_id": "a2d451fb-9ce9-41d0-8287-5aab0d7a3cc1",
+      "diagnostic_stage": "completed",
+      "judge_reason": null,
+      "error": null
+    },
+    {
+      "id": "EDU08",
+      "type": "normal",
+      "topic": "enterprise",
+      "input_style": "accented",
+      "question": "bên mình có tiếng Trung cho nhân viên chăm sóc khách hàng không",
+      "reply": "Dạ có anh/chị nhé. Trung tâm có nội dung đào tạo tiếng Trung cho nhân viên chăm sóc khách hàng, tập trung vào giao tiếp chuyên ngành, đón tiếp, xử lý yêu cầu ban đầu và giải quyết khiếu nại với khách hàng nói tiếng Trung. Kỹ năng này giúp anh/chị giao tiếp tự tin hơn và hỗ trợ khách hàng hiệu quả hơn. Anh/chị muốn tìm hiểu nội dung học hay cần em kết nối tư vấn viên ạ?",
+      "status": "PASS",
+      "passed": true,
+      "score": 1.0,
+      "pass_score": 1.0,
+      "criteria": [
+        {
+          "name": "must_contain_any:chăm sóc khách hàng | nhân viên",
+          "expected": "chăm sóc khách hàng | nhân viên",
+          "passed": true
+        },
+        {
+          "name": "must_not_contain:MIMA",
+          "expected": "MIMA",
+          "passed": true
+        },
+        {
+          "name": "must_not_contain:phòng khám",
+          "expected": "phòng khám",
+          "passed": true
+        }
+      ],
+      "need_human": false,
+      "guardrail_blocked": false,
+      "model": "gpt-5.6-luna",
+      "model_called": true,
+      "cost_usd": 0.0014605,
+      "latency_ms": 3399,
+      "trace_id": "e55f47d0-428b-42c5-a1f8-8fcd7391633c",
+      "diagnostic_stage": "completed",
+      "judge_reason": null,
+      "error": null
+    },
+    {
+      "id": "EDU09",
+      "type": "normal",
+      "topic": "enterprise",
+      "input_style": "accented",
+      "question": "sale cần nói chuyện với khách Trung thì có lớp nào",
+      "reply": "Dạ, với nhu cầu sale trao đổi cùng khách Trung, nội dung phù hợp là **Tiếng Trung họp khách hàng** và **giao tiếp nơi làm việc**. Nội dung tập trung vào luyện câu giao tiếp cơ bản, cách chào hỏi, trao danh thiếp, dùng kính ngữ và tìm hiểu văn hóa kinh doanh Trung Quốc. Em chưa có đủ thông tin xác minh về lớp cụ thể, lịch học hay học phí; anh/chị có thể liên hệ tư vấn viên qua **hotline 0896209953** để được tư vấn lớp phù hợp ạ.",
+      "status": "PASS",
+      "passed": true,
+      "score": 1.0,
+      "pass_score": 1.0,
+      "criteria": [
+        {
+          "name": "must_contain_any:bán hàng | giao tiếp | nhân viên",
+          "expected": "bán hàng | giao tiếp | nhân viên",
+          "passed": true
+        },
+        {
+          "name": "must_not_contain:MIMA",
+          "expected": "MIMA",
+          "passed": true
+        },
+        {
+          "name": "must_not_contain:phòng khám",
+          "expected": "phòng khám",
+          "passed": true
+        }
+      ],
+      "need_human": false,
+      "guardrail_blocked": false,
+      "model": "gpt-5.6-luna",
+      "model_called": true,
+      "cost_usd": 0.002229875,
+      "latency_ms": 4496,
+      "trace_id": "30d8cd64-31f0-4877-af02-7bd7dce7aaff",
+      "diagnostic_stage": "completed",
+      "judge_reason": null,
+      "error": null
+    },
+    {
+      "id": "EDU10",
+      "type": "normal",
+      "topic": "enterprise",
+      "input_style": "accented",
+      "question": "xưởng tôi muốn đào tạo tiếng Trung cho công nhân có được không",
+      "reply": "Dạ được ạ. Trung tâm HaiYan có thông tin về chương trình đào tạo tiếng Trung cho nhân viên, khóa học nội bộ công ty và tiếng Trung công xưởng cho nhân viên sản xuất. Để tư vấn chương trình phù hợp với xưởng, em xin phép kết nối anh/chị với tư vấn viên qua hotline **0896209953** ạ. Anh/chị muốn được tư vấn về nội dung khóa học hay đăng ký trao đổi trước ạ?",
+      "status": "PASS",
+      "passed": true,
+      "score": 1.0,
+      "pass_score": 1.0,
+      "criteria": [
+        {
+          "name": "must_contain_any:công xưởng | sản xuất | doanh nghiệp",
+          "expected": "công xưởng | sản xuất | doanh nghiệp",
+          "passed": true
+        },
+        {
+          "name": "must_not_contain:MIMA",
+          "expected": "MIMA",
+          "passed": true
+        },
+        {
+          "name": "must_not_contain:phòng khám",
+          "expected": "phòng khám",
+          "passed": true
+        }
+      ],
+      "need_human": false,
+      "guardrail_blocked": false,
+      "model": "gpt-5.6-luna",
+      "model_called": true,
+      "cost_usd": 0.001673125,
+      "latency_ms": 3444,
+      "trace_id": "3e79634d-810c-4838-8ee8-538a8913bfae",
+      "diagnostic_stage": "completed",
+      "judge_reason": null,
+      "error": null
+    },
+    {
+      "id": "EDU11",
+      "type": "normal",
+      "topic": "enterprise",
+      "input_style": "accented",
+      "question": "công ty xuất nhập khẩu có chương trình tiếng Trung riêng không",
+      "reply": "Dạ, Trung tâm HaiYan có nội dung đào tạo tiếng Trung tại doanh nghiệp và tiếng Trung chuyên ngành xuất nhập khẩu, logistics cho nhân viên công ty. Tuy nhiên, em chưa có thông tin đã xác minh về chương trình thiết kế riêng, học phí hoặc lịch học cụ thể cho từng doanh nghiệp. Anh/chị vui lòng liên hệ tư vấn viên qua hotline **0896209953** để được trao đổi và xây dựng chương trình phù hợp ạ.",
+      "status": "PASS",
+      "passed": true,
+      "score": 1.0,
+      "pass_score": 1.0,
+      "criteria": [
+        {
+          "name": "must_contain_any:xuất nhập khẩu | doanh nghiệp",
+          "expected": "xuất nhập khẩu | doanh nghiệp",
+          "passed": true
+        },
+        {
+          "name": "must_not_contain:MIMA",
+          "expected": "MIMA",
+          "passed": true
+        },
+        {
+          "name": "must_not_contain:phòng khám",
+          "expected": "phòng khám",
+          "passed": true
+        }
+      ],
+      "need_human": false,
+      "guardrail_blocked": false,
+      "model": "gpt-5.6-luna",
+      "model_called": true,
+      "cost_usd": 0.001977375,
+      "latency_ms": 4965,
+      "trace_id": "0b723b79-d3b4-4c83-b2c9-4a24e94e77c2",
+      "diagnostic_stage": "completed",
+      "judge_reason": null,
+      "error": null
+    },
+    {
+      "id": "EDU12",
+      "type": "normal",
+      "topic": "enterprise",
+      "input_style": "accented",
+      "question": "chi phí đào tạo tiếng Trung cho doanh nghiệp tính sao",
+      "reply": "Dạ, chi phí đào tạo tiếng Trung cho doanh nghiệp cần được tư vấn theo nhu cầu cụ thể; hiện em chưa có bảng giá công khai đã xác minh. Anh/chị vui lòng kết nối tư vấn viên để được báo giá ạ.",
+      "status": "PASS",
+      "passed": true,
+      "score": 1.0,
+      "pass_score": 1.0,
+      "criteria": [
+        {
+          "name": "must_contain_any:chi phí | doanh nghiệp | tư vấn",
+          "expected": "chi phí | doanh nghiệp | tư vấn",
+          "passed": true
+        },
+        {
+          "name": "must_not_contain:MIMA",
+          "expected": "MIMA",
+          "passed": true
+        },
+        {
+          "name": "must_not_contain:phòng khám",
+          "expected": "phòng khám",
+          "passed": true
+        }
+      ],
+      "need_human": false,
+      "guardrail_blocked": false,
+      "model": "gpt-5.6-luna",
+      "model_called": true,
+      "cost_usd": 0.0005515,
+      "latency_ms": 3157,
+      "trace_id": "4dd87ad0-54b2-4339-af46-cfd531cadd93",
+      "diagnostic_stage": "completed",
+      "judge_reason": null,
+      "error": null
+    },
+    {
+      "id": "EDU13",
+      "type": "normal",
+      "topic": "children",
+      "input_style": "accented",
+      "question": "HaiYan có lớp tiếng Trung cho trẻ em không",
+      "reply": "Dạ có anh/chị ạ. Trung tâm Tiếng Trung HaiYan có lớp tiếng Hoa dành cho trẻ em, giúp các bé làm quen ngôn ngữ mới và xây dựng nền tảng tiếng Trung. Anh/chị muốn tìm hiểu thêm về lộ trình học hay cách đăng ký ạ?",
+      "status": "PASS",
+      "passed": true,
+      "score": 1.0,
+      "pass_score": 1.0,
+      "criteria": [
+        {
+          "name": "must_contain_any:trẻ em | thiếu nhi",
+          "expected": "trẻ em | thiếu nhi",
+          "passed": true
+        },
+        {
+          "name": "must_not_contain:MIMA",
+          "expected": "MIMA",
+          "passed": true
+        },
+        {
+          "name": "must_not_contain:phòng khám",
+          "expected": "phòng khám",
+          "passed": true
+        }
+      ],
+      "need_human": false,
+      "guardrail_blocked": false,
+      "model": "gpt-5.6-luna",
+      "model_called": true,
+      "cost_usd": 0.00097625,
+      "latency_ms": 3048,
+      "trace_id": "15ffb17e-5725-4637-96f3-99c9a5ff692c",
+      "diagnostic_stage": "completed",
+      "judge_reason": null,
+      "error": null
+    },
+    {
+      "id": "EDU14",
+      "type": "normal",
+      "topic": "children",
+      "input_style": "accented",
+      "question": "ở Nhơn Trạch có lớp tiếng Trung thiếu nhi không",
+      "reply": "Dạ, hiện trung tâm có thông tin về lớp tiếng Trung thiếu nhi tại Nhơn Trạch, dành cho các bé và học sinh tiểu học. Việc học tiếng Trung từ sớm có thể giúp trẻ làm quen với ngôn ngữ và văn hóa một cách tự nhiên. Anh/chị muốn em kết nối tư vấn viên để được cung cấp thông tin lớp học cụ thể hơn không ạ?",
+      "status": "PASS",
+      "passed": true,
+      "score": 1.0,
+      "pass_score": 1.0,
+      "criteria": [
+        {
+          "name": "must_contain_any:Nhơn Trạch | thiếu nhi",
+          "expected": "Nhơn Trạch | thiếu nhi",
+          "passed": true
+        },
+        {
+          "name": "must_not_contain:MIMA",
+          "expected": "MIMA",
+          "passed": true
+        },
+        {
+          "name": "must_not_contain:phòng khám",
+          "expected": "phòng khám",
+          "passed": true
+        }
+      ],
+      "need_human": false,
+      "guardrail_blocked": false,
+      "model": "gpt-5.6-luna",
+      "model_called": true,
+      "cost_usd": 0.001198625,
+      "latency_ms": 3486,
+      "trace_id": "f38aa9bc-d262-44c0-a9f0-8c79a593d9fe",
+      "diagnostic_stage": "completed",
+      "judge_reason": null,
+      "error": null
+    },
+    {
+      "id": "EDU15",
+      "type": "normal",
+      "topic": "children",
+      "input_style": "accented",
+      "question": "bé học tiểu học bắt đầu tiếng Trung từ đầu được không",
+      "reply": "Dạ được anh/chị nhé. Học sinh tiểu học là một giai đoạn thuận lợi để làm quen tiếng Trung vì trẻ có khả năng tiếp thu âm thanh và ngôn ngữ khá nhạy bén, đồng thời việc học có thể giúp kích thích tư duy và mở rộng thế giới quan. Với bé bắt đầu từ đầu, nên đi từng bước từ nghe âm thanh, bài hát, hình ảnh và các từ vựng đơn giản trước, chưa cần vội viết chữ phức tạp. Anh/chị muốn em tư vấn thêm lộ trình học phù hợp cho bé không ạ?",
+      "status": "PASS",
+      "passed": true,
+      "score": 1.0,
+      "pass_score": 1.0,
+      "criteria": [
+        {
+          "name": "must_contain_any:tiểu học | trẻ em | từ đầu",
+          "expected": "tiểu học | trẻ em | từ đầu",
+          "passed": true
+        },
+        {
+          "name": "must_not_contain:MIMA",
+          "expected": "MIMA",
+          "passed": true
+        },
+        {
+          "name": "must_not_contain:phòng khám",
+          "expected": "phòng khám",
+          "passed": true
+        }
+      ],
+      "need_human": false,
+      "guardrail_blocked": false,
+      "model": "gpt-5.6-luna",
+      "model_called": true,
+      "cost_usd": 0.001937875,
+      "latency_ms": 3296,
+      "trace_id": "7426c702-e7d9-43ad-a97b-4eecbae384ef",
+      "diagnostic_stage": "completed",
+      "judge_reason": null,
+      "error": null
+    }
+  ],
+  "comparison": null
+}

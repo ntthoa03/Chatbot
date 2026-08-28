@@ -1,0 +1,46 @@
++--------+--------+------------+-----------+------+------+------------------------+-----------+----------------------------------------------------+
+| ID     | Loại   | Chủ đề     | Kiểu nhập | KQ   | Điểm | Chi phí USD            | Độ trễ ms | Chi tiết                                           |
++--------+--------+------------+-----------+------+------+------------------------+-----------+----------------------------------------------------+
+| MIMA01 | normal | pricing    | có dấu    | FAIL | 50%  | 0.00194500             | 12419     | must_contain_any:2.000.000 | 6.000.000 | 9.000.000 |
+| MIMA02 | normal | pricing    | có dấu    | PASS | 100% | 0.00043180             | 2958      | completed                                          |
+| MIMA03 | normal | pricing    | có dấu    | PASS | 100% | 0.00042490             | 3000      | completed                                          |
+| MIMA04 | normal | pricing    | có dấu    | PASS | 100% | 0.00102738             | 4677      | completed                                          |
+| MIMA05 | normal | pricing    | có dấu    | PASS | 100% | 0.00034060             | 2297      | completed                                          |
+| MIMA06 | normal | pricing    | có dấu    | PASS | 100% | 0.00151150             | 4789      | completed                                          |
+| MIMA07 | normal | process    | có dấu    | PASS | 100% | 0.00157488             | 3387      | completed                                          |
+| MIMA08 | normal | services   | có dấu    | PASS | 100% | 0.00073170             | 4755      | completed                                          |
+| MIMA09 | normal | services   | có dấu    | FAIL | 50%  | 0.00024520             | 1369      | must_contain_any:đăng ký | quản lý tên miền        |
+| MIMA10 | normal | services   | có dấu    | PASS | 100% | 0.00052490             | 2787      | completed                                          |
+| MIMA11 | normal | services   | có dấu    | PASS | 100% | 0.00033940             | 3178      | completed                                          |
+| MIMA12 | normal | contact    | có dấu    | PASS | 100% | 0.00 (không gọi model) | 831       | completed                                          |
+| MIMA13 | normal | contact    | có dấu    | PASS | 100% | 0.00106687             | 2962      | completed                                          |
+| MIMA14 | normal | services   | có dấu    | PASS | 100% | 0.00165650             | 3799      | completed                                          |
+| MIMA15 | normal | technology | có dấu    | PASS | 100% | 0.00053250             | 3288      | completed                                          |
++--------+--------+------------+-----------+------+------+------------------------+-----------+----------------------------------------------------+
+
+Đã chấm: 15/15 | Đạt: 13/15 (86.7%) | ERROR: 0 | REVIEW: 0 | Hoàn tất: 100.0%
+Chi phí TB/lượt: $0.00082354 ($0.01235312/15) | TB/lượt gọi model: $0.00088237 (14 lượt model, 1 lượt $0) | Tổng chi phí: $0.01235312 | Độ trễ TB: 3766.40 ms | Thời gian chạy: 32.091s
+Không dấu: 0/0 đạt (0.0%)
+
+Kết quả theo nhóm chủ đề:
++------------+-------------+--------+------------+-----------+-------+--------+
+| Chủ đề     | Đạt/đã chấm | Tỷ lệ  | Chi phí TB | Độ trễ TB | ERROR | REVIEW |
++------------+-------------+--------+------------+-----------+-------+--------+
+| contact    | 2/2         | 100.0% | 0.00053344 | 1896.50   | 0     | 0      |
+| pricing    | 5/6         | 83.3%  | 0.00094686 | 5023.33   | 0     | 0      |
+| process    | 1/1         | 100.0% | 0.00157488 | 3387.00   | 0     | 0      |
+| services   | 4/5         | 80.0%  | 0.00069954 | 3177.60   | 0     | 0      |
+| technology | 1/1         | 100.0% | 0.00053250 | 3288.00   | 0     | 0      |
++------------+-------------+--------+------------+-----------+-------+--------+
+Case sai: MIMA01, MIMA09
+Case lỗi hạ tầng: không có
+Case cần review thủ công: không có
+Ngân sách thời gian: 32.091/900s — ĐẠT
+Báo cáo JSON: C:\Users\nghoa\Desktop\Chatbot - miama\outputs\h3_09\reports\mima_internal\20260827T074820.446609Z.json
+Bảng chi tiết CSV: C:\Users\nghoa\Desktop\Chatbot - miama\outputs\h3_09\reports\mima_internal\20260827T074820.446609Z.csv
+Bảng tổng hợp/so sánh CSV: C:\Users\nghoa\Desktop\Chatbot - miama\outputs\h3_09\reports\mima_internal\20260827T074820.446609Z.summary.csv
+Bảng điểm rút gọn CSV: C:\Users\nghoa\Desktop\Chatbot - miama\outputs\h3_09\reports\mima_internal\20260827T074820.446609Z.scorecard.csv
+Bảng tự đánh giá 4 cột CSV: C:\Users\nghoa\Desktop\Chatbot - miama\outputs\h3_09\reports\mima_internal\20260827T074820.446609Z.manual-review.csv
+Bảng điểm theo chủ đề CSV: C:\Users\nghoa\Desktop\Chatbot - miama\outputs\h3_09\reports\mima_internal\20260827T074820.446609Z.topics.csv
+
+--- STDERR ---

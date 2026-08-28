@@ -1,0 +1,91 @@
+# H3-09: 15 câu tự nhiên, chấm nội dung MIMA và rò chéo tenant.
+- id: MIMA01
+  question: "Bên mình có mấy gói làm web, giá từng gói sao em?"
+  type: normal
+  topic: pricing
+  must_contain_any: ["2.000.000", "6.000.000", "9.000.000"]
+  must_not_contain: ["Phòng khám Hỷ Hỷ"]
+- id: MIMA02
+  question: "gói basic 2tr gồm những gì vậy"
+  type: normal
+  topic: pricing
+  must_contain_any: ["2.000.000", "giao diện mẫu"]
+  must_not_contain: ["Phòng khám Hỷ Hỷ"]
+- id: MIMA03
+  question: "gói phổ thông giá nhiêu, có bàn giao code không em"
+  type: normal
+  topic: pricing
+  must_contain_any: ["6.000.000", "source code"]
+  must_not_contain: ["Phòng khám Hỷ Hỷ"]
+- id: MIMA04
+  question: "web khởi nghiệp bên em có bản mobile chưa"
+  type: normal
+  topic: pricing
+  must_contain_any: ["mobile", "9.000.000"]
+  must_not_contain: ["Phòng khám Hỷ Hỷ"]
+- id: MIMA05
+  question: "gói chuyên nghiệp 12 triệu đã có ssl đúng không"
+  type: normal
+  topic: pricing
+  must_contain_any: ["SSL", "12.000.000"]
+  must_not_contain: ["Phòng khám Hỷ Hỷ"]
+- id: MIMA06
+  question: "gói cao cấp khác chuyên nghiệp chỗ nào"
+  type: normal
+  topic: pricing
+  must_contain_any: ["giỏ hàng", "song ngữ", "17.000.000"]
+  must_not_contain: ["Phòng khám Hỷ Hỷ"]
+- id: MIMA07
+  question: "trước khi code anh có được duyệt và sửa giao diện không"
+  type: normal
+  topic: process
+  must_contain_any: ["giao diện", "5 bước", "lấy ý tưởng"]
+  must_not_contain: ["Phòng khám Hỷ Hỷ"]
+- id: MIMA08
+  question: "hosting seo bên mình có uptime bao nhiêu"
+  type: normal
+  topic: services
+  must_contain_any: ["99.9", "Hosting SEO"]
+  must_not_contain: ["Phòng khám Hỷ Hỷ"]
+- id: MIMA09
+  question: "mima có hỗ trợ đăng ký với quản lý tên miền không"
+  type: normal
+  topic: services
+  must_contain_any: ["đăng ký", "quản lý tên miền"]
+  must_not_contain: ["Phòng khám Hỷ Hỷ"]
+- id: MIMA10
+  question: "seo tổng thể bên em làm những hạng mục nào vậy"
+  type: normal
+  topic: services
+  must_contain_any: ["nghiên cứu từ khóa", "link building", "entity SEO"]
+  must_not_contain: ["Phòng khám Hỷ Hỷ"]
+- id: MIMA11
+  question: "làm backlink thì giúp web cái gì"
+  type: normal
+  topic: services
+  must_contain_any: ["uy tín", "thứ hạng", "liên kết"]
+  must_not_contain: ["Phòng khám Hỷ Hỷ"]
+- id: MIMA12
+  question: "cho anh xin hotline của công ty"
+  type: normal
+  topic: contact
+  must_contain_any: ["0909 035 333", "0909035333"]
+  must_not_contain: ["Phòng khám Hỷ Hỷ"]
+- id: MIMA13
+  question: "văn phòng mima ở địa chỉ nào em"
+  type: normal
+  topic: contact
+  must_contain_any: ["31/3B", "Đông Thạnh"]
+  must_not_contain: ["Phòng khám Hỷ Hỷ"]
+- id: MIMA14
+  question: "bên mình ngoài làm web còn dịch vụ gì nữa"
+  type: normal
+  topic: services
+  must_contain_any: ["thiết kế app", "SEO", "hosting"]
+  must_not_contain: ["Phòng khám Hỷ Hỷ"]
+- id: MIMA15
+  question: "MIMA dùng công nghệ nào để làm website"
+  type: normal
+  topic: technology
+  must_contain_any: ["CMS", "PHP", "công nghệ"]
+  must_not_contain: ["Phòng khám Hỷ Hỷ"]

@@ -1,0 +1,91 @@
+# H3-09: 15 câu theo catalog Thực phẩm thực dưỡng Thiện Minh.
+- id: FOOD01
+  question: "Thiện Minh đang bán nhóm thực phẩm nào vậy"
+  type: normal
+  topic: catalogue
+  must_contain_any: ["thực dưỡng", "ngũ cốc", "gia vị"]
+  must_not_contain: ["MIMA", "phòng khám"]
+- id: FOOD02
+  question: "sản phẩm bên mình có ghi nguồn gốc với hạn sử dụng không"
+  type: normal
+  topic: policy
+  must_contain_any: ["nguồn gốc", "hạn sử dụng", "bao bì"]
+  must_not_contain: ["MIMA", "phòng khám"]
+- id: FOOD03
+  question: "shop có giao hàng không, giao nhanh chứ"
+  type: normal
+  topic: delivery
+  must_contain_any: ["giao hàng", "nhanh chóng"]
+  must_not_contain: ["MIMA", "phòng khám"]
+- id: FOOD04
+  question: "bên mình có bán đường mía hữu cơ không"
+  type: normal
+  topic: seasonings
+  must_contain_any: ["đường mía", "hữu cơ"]
+  must_not_contain: ["MIMA", "phòng khám"]
+- id: FOOD05
+  question: "có dầu hướng dương ép lạnh không shop"
+  type: normal
+  topic: seasonings
+  must_contain_any: ["dầu hướng dương", "ép lạnh"]
+  must_not_contain: ["MIMA", "phòng khám"]
+- id: FOOD06
+  question: "shop có nhóm nước tương nước mắm hạt nêm không"
+  type: normal
+  topic: seasonings
+  must_contain_any: ["nước tương", "nước mắm", "hạt nêm"]
+  must_not_contain: ["MIMA", "phòng khám"]
+- id: FOOD07
+  question: "Suto Meal bên mình có bán không"
+  type: normal
+  topic: nutrition
+  must_contain_any: ["SUTO MEAL", "dinh dưỡng"]
+  must_not_contain: ["MIMA", "phòng khám"]
+- id: FOOD08
+  question: "có sữa thực vật Glucose Plan Canxi loại 900g không"
+  type: normal
+  topic: nutrition
+  must_contain_any: ["Glucose Plan", "900"]
+  must_not_contain: ["MIMA", "phòng khám"]
+- id: FOOD09
+  question: "phở gạo lứt Fuma gói bao nhiêu gram vậy"
+  type: normal
+  topic: fuma
+  must_contain_any: ["400g", "Fuma"]
+  must_not_contain: ["MIMA", "phòng khám"]
+- id: FOOD10
+  question: "nui gạo trắng Fuma có loại 400g không"
+  type: normal
+  topic: fuma
+  must_contain_any: ["400g", "nui gạo trắng"]
+  must_not_contain: ["MIMA", "phòng khám"]
+- id: FOOD11
+  question: "bánh gạo lứt Ohsawa vị hạt điều có chiên không"
+  type: normal
+  topic: snacks
+  must_contain_any: ["không chiên", "hạt điều"]
+  must_not_contain: ["MIMA", "phòng khám"]
+- id: FOOD12
+  question: "bánh Ohsawa hạt điều rong biển có bán không"
+  type: normal
+  topic: snacks
+  must_contain_any: ["rong biển", "hạt điều"]
+  must_not_contain: ["MIMA", "phòng khám"]
+- id: FOOD13
+  question: "bánh gạo lứt có đường tinh luyện hay chất bảo quản không"
+  type: normal
+  topic: snacks
+  must_contain_any: ["không đường tinh luyện", "không chất bảo quản"]
+  must_not_contain: ["MIMA", "phòng khám"]
+- id: FOOD14
+  question: "Thiện Minh có trà hoa cúc hữu cơ không"
+  type: normal
+  topic: catalogue
+  must_contain_any: ["trà hoa cúc", "hữu cơ"]
+  must_not_contain: ["MIMA", "phòng khám"]
+- id: FOOD15
+  question: "có gạo lứt đỏ Điện Biên không shop"
+  type: normal
+  topic: catalogue
+  must_contain_any: ["gạo lứt đỏ", "Điện Biên"]
+  must_not_contain: ["MIMA", "phòng khám"]

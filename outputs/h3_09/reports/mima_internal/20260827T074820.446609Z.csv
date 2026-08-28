@@ -1,0 +1,32 @@
+﻿id,type,topic,input_style,status,passed,score,pass_score,question,reply,failed_checks,need_human,guardrail_blocked,model,cost_usd,model_called,latency_ms,trace_id,diagnostic_stage,judge_reason,error
+MIMA01,normal,pricing,accented,FAIL,False,0.5,1.0,"Bên mình có mấy gói làm web, giá từng gói sao em?","Phần này em xin phép kết nối anh/chị với chuyên viên tư vấn ạ.
+
+Để em chuyển yêu cầu đến chuyên viên, anh/chị vui lòng cho em xin tên và số điện thoại liên hệ ạ. Em sẽ đọc lại để anh/chị xác nhận trước khi ghi nhận.",must_contain_any:2.000.000 | 6.000.000 | 9.000.000,True,True,gpt-5.6-luna,0.0019450000000000001,True,12419,5bd91e9e-8dbb-4cf8-b17b-8cd89e8c4d54,blocked_output,,
+MIMA02,normal,pricing,accented,PASS,True,1.0,1.0,gói basic 2tr gồm những gì vậy,"Dạ, gói Website Basic 2.000.000đ gồm: giao diện mẫu, kết nối mạng xã hội, khách tự cập nhật nội dung, tiện ích Zalo/nút gọi/chat ngay, livechat, chống copy, đóng dấu sản phẩm và popup đầu trang. Gói chưa có mã nguồn, tối ưu SEO hay giỏ hàng ạ. 
+
+Anh/chị có muốn đăng ký gói này không ạ?",,False,False,gemini-3.5-flash-lite,0.0004318,True,2958,e7dc7a98-287f-4b53-8e62-e01b63b81d53,completed,,
+MIMA03,normal,pricing,accented,PASS,True,1.0,1.0,"gói phổ thông giá nhiêu, có bàn giao code không em","Dạ, gói website phổ thông có giá 6.000.000đ và có bàn giao source code anh/chị nhé. 
+
+Anh/chị có muốn em tư vấn chi tiết hơn về gói này không ạ?",,False,False,gemini-3.5-flash-lite,0.0004249,True,3000,31eaf272-a3c1-4fcf-809d-2219677bc154,completed,,
+MIMA04,normal,pricing,accented,PASS,True,1.0,1.0,web khởi nghiệp bên em có bản mobile chưa,"Dạ có anh/chị nhé. Gói Website khởi nghiệp có phiên bản tương thích mobile và tablet, đồng thời thiết kế giao diện theo yêu cầu. Anh/chị muốn em tư vấn thêm về các hạng mục của gói này không ạ?",,False,False,gpt-5.6-luna,0.001027375,True,4677,1a4936e6-0594-4525-b0bc-a558b5ff5d78,completed,,
+MIMA05,normal,pricing,accented,PASS,True,1.0,1.0,gói chuyên nghiệp 12 triệu đã có ssl đúng không,"Dạ đúng rồi anh/chị ạ, gói Website chuyên nghiệp giá 12.000.000đ đã được tích hợp chứng chỉ số SSL anh/chị nhé. 
+
+Anh/chị có muốn em tư vấn thêm chi tiết về gói này không ạ?",,False,False,gemini-3.5-flash-lite,0.0003406,True,2297,60ea6d2f-2d0b-404f-b65e-5af2a4cd605f,completed,,
+MIMA06,normal,pricing,accented,PASS,True,1.0,1.0,gói cao cấp khác chuyên nghiệp chỗ nào,"Gói Website cao cấp có giá **17.000.000đ**, cao hơn gói chuyên nghiệp **12.000.000đ**. Ngoài các tính năng của gói chuyên nghiệp, gói cao cấp được bổ sung **giỏ hàng**, **hỗ trợ song ngữ**, đồng thời tặng **30 bài viết chuẩn SEO** và **500 chủ đề SEO**. Gói chuyên nghiệp có **SSL**, tặng **20 bài viết chuẩn SEO** và **500 chủ đề SEO**, nhưng chưa hỗ trợ giỏ hàng và song ngữ. Anh/chị muốn em tư vấn gói phù hợp theo loại website của mình không ạ?",,False,False,gpt-5.6-luna,0.0015115,True,4789,702e058d-344e-4c80-86d4-aa3e79d283a6,completed,,
+MIMA07,normal,process,accented,PASS,True,1.0,1.0,trước khi code anh có được duyệt và sửa giao diện không,"Dạ có anh/chị. Trước khi lập trình, anh/chị sẽ được duyệt giao diện và có thể chỉnh sửa màu sắc, bố cục phù hợp với nhận diện thương hiệu. Quy trình gồm bước thiết kế UX/UI trước rồi mới chuyển sang lập trình. Anh/chị muốn ưu tiên chỉnh phần màu sắc, bố cục hay tính năng nào trước ạ?",,False,False,gpt-5.6-luna,0.001574875,True,3387,98af333c-9e97-4e43-867b-eecdbea82796,completed,,
+MIMA08,normal,services,accented,PASS,True,1.0,1.0,hosting seo bên mình có uptime bao nhiêu,"Dạ, dịch vụ Hosting SEO của MIMA có uptime 99,9% ạ.",,False,False,gpt-5.6-luna,0.0007317000000000001,True,4755,755b9814-0e40-46f2-b406-e6e75b4a897f,completed,,
+MIMA09,normal,services,accented,FAIL,False,0.5,1.0,mima có hỗ trợ đăng ký với quản lý tên miền không,"Phần này em xin phép kết nối anh/chị với chuyên viên tư vấn ạ.
+
+Để em chuyển yêu cầu đến chuyên viên, anh/chị vui lòng cho em xin tên và số điện thoại liên hệ ạ. Em sẽ đọc lại để anh/chị xác nhận trước khi ghi nhận.",must_contain_any:đăng ký | quản lý tên miền,True,True,gemini-3.5-flash-lite,0.0002452,True,1369,53938a92-2f51-4bf0-aa53-3a03ec22a4dd,blocked_output,,
+MIMA10,normal,services,accented,PASS,True,1.0,1.0,seo tổng thể bên em làm những hạng mục nào vậy,"Dạ, dịch vụ SEO tổng thể của MIMA bao gồm: nghiên cứu từ khóa, tối ưu cấu trúc website, viết bài chuẩn SEO, link building, entity SEO, schema markup, tăng traffic người dùng thật và xây dựng backlink ạ. 
+
+Anh/chị có muốn em tư vấn chi tiết hơn về quy trình không ạ?",,False,False,gemini-3.5-flash-lite,0.0005249,True,2787,e0b8cfee-de90-43b2-b517-e63df0d90dfd,completed,,
+MIMA11,normal,services,accented,PASS,True,1.0,1.0,làm backlink thì giúp web cái gì,"Dạ, dịch vụ Backlink của MIMA giúp tăng uy tín với Google, cải thiện thứ hạng từ khóa và hỗ trợ SEO bền vững, ổn định lâu dài ạ. 
+
+Anh/chị có muốn em kết nối với chuyên viên tư vấn để trao đổi chi tiết hơn không ạ?",,False,False,gemini-3.5-flash-lite,0.0003394,True,3178,f51ab876-4112-4fb3-a37f-c8effc5b3fdd,completed,,
+MIMA12,normal,contact,accented,PASS,True,1.0,1.0,cho anh xin hotline của công ty,"Dạ, anh/chị có thể liên hệ qua hotline 0909 035 333 ạ. Anh/chị cần em hỗ trợ thêm nội dung gì không ạ?",,False,False,gemini-3.5-flash-lite,0.0,False,831,af056618-e37c-461f-9aef-2cdb91defc4a,completed,,
+MIMA13,normal,contact,accented,PASS,True,1.0,1.0,văn phòng mima ở địa chỉ nào em,"Văn phòng MIMA tại: **31/3B Ấp Thới Tứ 1, Xã Đông Thạnh, TP. Hồ Chí Minh**.  
+Anh/chị cần em hỗ trợ thêm thông tin liên hệ không ạ?",,False,False,gpt-5.6-luna,0.001066875,True,2962,3eebe890-dfa2-4eb7-863c-7f05ffcd1574,completed,,
+MIMA14,normal,services,accented,PASS,True,1.0,1.0,bên mình ngoài làm web còn dịch vụ gì nữa,"Dạ, ngoài thiết kế website, MIMA còn cung cấp các dịch vụ: thiết kế app, hosting, tên miền, SEO website/fanpage/maps, chăm sóc website và fanpage, tạo profile & Google Maps, chạy quảng cáo, email hosting và sản xuất video giới thiệu.  
+Anh/chị đang quan tâm thêm dịch vụ nào để em tư vấn cụ thể hơn ạ?",,False,False,gpt-5.6-luna,0.0016565,True,3799,4a71bfa0-ea0a-4c8b-a839-5e99c2aedb24,completed,,
+MIMA15,normal,technology,accented,PASS,True,1.0,1.0,MIMA dùng công nghệ nào để làm website,"MIMA sử dụng CMS, công cụ quản lý source code và tiến độ, ngôn ngữ lập trình web động, cùng Framework kết hợp các thư viện như Redux, React Router, Axios và Material-UI. Anh/chị cần tư vấn thêm, hãy liên hệ MIMA ạ.",,False,False,gpt-5.6-luna,0.0005325,True,3288,24d13c95-bde1-4888-9a8b-7825ffacf0bf,completed,,

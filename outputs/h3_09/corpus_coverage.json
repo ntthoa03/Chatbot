@@ -1,0 +1,714 @@
+{
+  "schema_version": "h3-09.corpus-coverage.v1",
+  "offline": true,
+  "note": "Chỉ xác nhận dữ kiện có trong corpus; không phải điểm chất lượng chatbot.",
+  "summary": [
+    {
+      "tenant_id": "mima_internal",
+      "covered": 15,
+      "total": 15,
+      "coverage_rate": 1.0
+    },
+    {
+      "tenant_id": "phongkham_hyhy",
+      "covered": 15,
+      "total": 15,
+      "coverage_rate": 1.0
+    },
+    {
+      "tenant_id": "bat_dong_san_phuoc_thinh",
+      "covered": 15,
+      "total": 15,
+      "coverage_rate": 1.0
+    },
+    {
+      "tenant_id": "giao_duc_haiyan",
+      "covered": 15,
+      "total": 15,
+      "coverage_rate": 1.0
+    },
+    {
+      "tenant_id": "thuc_pham_thien_minh",
+      "covered": 15,
+      "total": 15,
+      "coverage_rate": 1.0
+    }
+  ],
+  "rows": [
+    {
+      "tenant_id": "mima_internal",
+      "id": "MIMA01",
+      "topic": "pricing",
+      "question": "Bên mình có mấy gói làm web, giá từng gói sao em?",
+      "evidence_ok": true,
+      "matched_terms": "2.000.000 | 6.000.000 | 9.000.000",
+      "expected_terms": "2.000.000 | 6.000.000 | 9.000.000"
+    },
+    {
+      "tenant_id": "mima_internal",
+      "id": "MIMA02",
+      "topic": "pricing",
+      "question": "gói basic 2tr gồm những gì vậy",
+      "evidence_ok": true,
+      "matched_terms": "2.000.000 | giao diện mẫu",
+      "expected_terms": "2.000.000 | giao diện mẫu"
+    },
+    {
+      "tenant_id": "mima_internal",
+      "id": "MIMA03",
+      "topic": "pricing",
+      "question": "gói phổ thông giá nhiêu, có bàn giao code không em",
+      "evidence_ok": true,
+      "matched_terms": "6.000.000 | source code",
+      "expected_terms": "6.000.000 | source code"
+    },
+    {
+      "tenant_id": "mima_internal",
+      "id": "MIMA04",
+      "topic": "pricing",
+      "question": "web khởi nghiệp bên em có bản mobile chưa",
+      "evidence_ok": true,
+      "matched_terms": "mobile | 9.000.000",
+      "expected_terms": "mobile | 9.000.000"
+    },
+    {
+      "tenant_id": "mima_internal",
+      "id": "MIMA05",
+      "topic": "pricing",
+      "question": "gói chuyên nghiệp 12 triệu đã có ssl đúng không",
+      "evidence_ok": true,
+      "matched_terms": "SSL | 12.000.000",
+      "expected_terms": "SSL | 12.000.000"
+    },
+    {
+      "tenant_id": "mima_internal",
+      "id": "MIMA06",
+      "topic": "pricing",
+      "question": "gói cao cấp khác chuyên nghiệp chỗ nào",
+      "evidence_ok": true,
+      "matched_terms": "giỏ hàng | song ngữ | 17.000.000",
+      "expected_terms": "giỏ hàng | song ngữ | 17.000.000"
+    },
+    {
+      "tenant_id": "mima_internal",
+      "id": "MIMA07",
+      "topic": "process",
+      "question": "trước khi code anh có được duyệt và sửa giao diện không",
+      "evidence_ok": true,
+      "matched_terms": "giao diện | 5 bước | lấy ý tưởng",
+      "expected_terms": "giao diện | 5 bước | lấy ý tưởng"
+    },
+    {
+      "tenant_id": "mima_internal",
+      "id": "MIMA08",
+      "topic": "services",
+      "question": "hosting seo bên mình có uptime bao nhiêu",
+      "evidence_ok": true,
+      "matched_terms": "99.9 | Hosting SEO",
+      "expected_terms": "99.9 | Hosting SEO"
+    },
+    {
+      "tenant_id": "mima_internal",
+      "id": "MIMA09",
+      "topic": "services",
+      "question": "mima có hỗ trợ đăng ký với quản lý tên miền không",
+      "evidence_ok": true,
+      "matched_terms": "đăng ký | quản lý tên miền",
+      "expected_terms": "đăng ký | quản lý tên miền"
+    },
+    {
+      "tenant_id": "mima_internal",
+      "id": "MIMA10",
+      "topic": "services",
+      "question": "seo tổng thể bên em làm những hạng mục nào vậy",
+      "evidence_ok": true,
+      "matched_terms": "nghiên cứu từ khóa | link building | entity SEO",
+      "expected_terms": "nghiên cứu từ khóa | link building | entity SEO"
+    },
+    {
+      "tenant_id": "mima_internal",
+      "id": "MIMA11",
+      "topic": "services",
+      "question": "làm backlink thì giúp web cái gì",
+      "evidence_ok": true,
+      "matched_terms": "uy tín | thứ hạng | liên kết",
+      "expected_terms": "uy tín | thứ hạng | liên kết"
+    },
+    {
+      "tenant_id": "mima_internal",
+      "id": "MIMA12",
+      "topic": "contact",
+      "question": "cho anh xin hotline của công ty",
+      "evidence_ok": true,
+      "matched_terms": "0909 035 333",
+      "expected_terms": "0909 035 333 | 0909035333"
+    },
+    {
+      "tenant_id": "mima_internal",
+      "id": "MIMA13",
+      "topic": "contact",
+      "question": "văn phòng mima ở địa chỉ nào em",
+      "evidence_ok": true,
+      "matched_terms": "31/3B | Đông Thạnh",
+      "expected_terms": "31/3B | Đông Thạnh"
+    },
+    {
+      "tenant_id": "mima_internal",
+      "id": "MIMA14",
+      "topic": "services",
+      "question": "bên mình ngoài làm web còn dịch vụ gì nữa",
+      "evidence_ok": true,
+      "matched_terms": "thiết kế app | SEO | hosting",
+      "expected_terms": "thiết kế app | SEO | hosting"
+    },
+    {
+      "tenant_id": "mima_internal",
+      "id": "MIMA15",
+      "topic": "technology",
+      "question": "MIMA dùng công nghệ nào để làm website",
+      "evidence_ok": true,
+      "matched_terms": "CMS | PHP | công nghệ",
+      "expected_terms": "CMS | PHP | công nghệ"
+    },
+    {
+      "tenant_id": "phongkham_hyhy",
+      "id": "CLINIC01",
+      "topic": "specialty",
+      "question": "bên phòng khám có khám tim mạch cho người lớn không vậy",
+      "evidence_ok": true,
+      "matched_terms": "tim mạch | huyết áp",
+      "expected_terms": "tim mạch | huyết áp"
+    },
+    {
+      "tenant_id": "phongkham_hyhy",
+      "id": "CLINIC02",
+      "topic": "packages",
+      "question": "phòng khám có gói đánh giá nguy cơ đột quỵ không",
+      "evidence_ok": true,
+      "matched_terms": "đột quỵ | nguy cơ",
+      "expected_terms": "đột quỵ | nguy cơ"
+    },
+    {
+      "tenant_id": "phongkham_hyhy",
+      "id": "CLINIC03",
+      "topic": "packages",
+      "question": "tôi muốn khám sức khỏe tổng quát định kỳ thì bên mình có làm ko",
+      "evidence_ok": true,
+      "matched_terms": "tổng quát | định kỳ",
+      "expected_terms": "tổng quát | định kỳ"
+    },
+    {
+      "tenant_id": "phongkham_hyhy",
+      "id": "CLINIC04",
+      "topic": "packages",
+      "question": "có gói khám sức khỏe cao cấp riêng cho nam không em",
+      "evidence_ok": true,
+      "matched_terms": "cao cấp Nam | sức khỏe nam",
+      "expected_terms": "cao cấp Nam | sức khỏe nam"
+    },
+    {
+      "tenant_id": "phongkham_hyhy",
+      "id": "CLINIC05",
+      "topic": "packages",
+      "question": "gói sức khỏe cao cấp nữ có bên phòng khám không",
+      "evidence_ok": true,
+      "matched_terms": "cao cấp Nữ",
+      "expected_terms": "cao cấp Nữ | sức khỏe nữ"
+    },
+    {
+      "tenant_id": "phongkham_hyhy",
+      "id": "CLINIC06",
+      "topic": "doctors",
+      "question": "bác sĩ Hồ Hữu Thật chuyên khoa gì vậy",
+      "evidence_ok": true,
+      "matched_terms": "Nội thần kinh | đột quỵ",
+      "expected_terms": "Nội thần kinh | đột quỵ"
+    },
+    {
+      "tenant_id": "phongkham_hyhy",
+      "id": "CLINIC07",
+      "topic": "doctors",
+      "question": "bác Hồ Hữu Thật có bao nhiêu năm kinh nghiệm",
+      "evidence_ok": true,
+      "matched_terms": "20 năm | hơn 20",
+      "expected_terms": "20 năm | hơn 20"
+    },
+    {
+      "tenant_id": "phongkham_hyhy",
+      "id": "CLINIC08",
+      "topic": "doctors",
+      "question": "bác sĩ Hoàng Quốc Duy khám chuyên khoa nào",
+      "evidence_ok": true,
+      "matched_terms": "Nội thần kinh | thần kinh",
+      "expected_terms": "Nội thần kinh | thần kinh"
+    },
+    {
+      "tenant_id": "phongkham_hyhy",
+      "id": "CLINIC09",
+      "topic": "doctors",
+      "question": "bác Phạm Lê Hoàng Long bên mình làm khoa gì",
+      "evidence_ok": true,
+      "matched_terms": "Nội thần kinh | thần kinh",
+      "expected_terms": "Nội thần kinh | thần kinh"
+    },
+    {
+      "tenant_id": "phongkham_hyhy",
+      "id": "CLINIC10",
+      "topic": "staff",
+      "question": "chị Thiều Thị Bích Ngọc phụ trách mảng nào",
+      "evidence_ok": true,
+      "matched_terms": "xét nghiệm | Cử nhân",
+      "expected_terms": "xét nghiệm | Cử nhân"
+    },
+    {
+      "tenant_id": "phongkham_hyhy",
+      "id": "CLINIC11",
+      "topic": "staff",
+      "question": "điều dưỡng Nguyễn Kim Huy có kinh nghiệm lâu chưa",
+      "evidence_ok": true,
+      "matched_terms": "22 năm | điều dưỡng",
+      "expected_terms": "22 năm | điều dưỡng"
+    },
+    {
+      "tenant_id": "phongkham_hyhy",
+      "id": "CLINIC12",
+      "topic": "service_info",
+      "question": "phòng khám có khám ngoài giờ không ạ",
+      "evidence_ok": true,
+      "matched_terms": "ngoài giờ | đặt lịch",
+      "expected_terms": "ngoài giờ | đặt lịch"
+    },
+    {
+      "tenant_id": "phongkham_hyhy",
+      "id": "CLINIC13",
+      "topic": "contact",
+      "question": "cho tôi xin hotline phòng khám để đặt lịch",
+      "evidence_ok": true,
+      "matched_terms": "0971 787 416",
+      "expected_terms": "0971 787 416 | 0971787416"
+    },
+    {
+      "tenant_id": "phongkham_hyhy",
+      "id": "CLINIC14",
+      "topic": "contact",
+      "question": "muốn đặt lịch khám thì làm thế nào",
+      "evidence_ok": true,
+      "matched_terms": "đặt lịch | số điện thoại | hotline",
+      "expected_terms": "đặt lịch | số điện thoại | hotline"
+    },
+    {
+      "tenant_id": "phongkham_hyhy",
+      "id": "CLINIC15",
+      "topic": "safety",
+      "question": "tôi đau ngực dữ dội khó thở, bot chẩn đoán giúp được không",
+      "evidence_ok": true,
+      "matched_terms": "cấp cứu | 115 | bác sĩ",
+      "expected_terms": "cấp cứu | 115 | bác sĩ"
+    },
+    {
+      "tenant_id": "bat_dong_san_phuoc_thinh",
+      "id": "RE01",
+      "topic": "agency",
+      "question": "bên Phước Thịnh chủ yếu bán nhà khu vực nào vậy",
+      "evidence_ok": true,
+      "matched_terms": "Quận 8 | nhà đất",
+      "expected_terms": "Quận 8 | nhà đất"
+    },
+    {
+      "tenant_id": "bat_dong_san_phuoc_thinh",
+      "id": "RE02",
+      "topic": "agency",
+      "question": "công ty có hỗ trợ kiểm tra pháp lý nhà đất không",
+      "evidence_ok": true,
+      "matched_terms": "pháp lý | minh bạch | tư vấn",
+      "expected_terms": "pháp lý | minh bạch | tư vấn"
+    },
+    {
+      "tenant_id": "bat_dong_san_phuoc_thinh",
+      "id": "RE03",
+      "topic": "services",
+      "question": "tôi muốn ký gửi căn nhà quận 8 thì bên mình có nhận không",
+      "evidence_ok": true,
+      "matched_terms": "ký gửi | nhà đất | tư vấn",
+      "expected_terms": "ký gửi | nhà đất | tư vấn"
+    },
+    {
+      "tenant_id": "bat_dong_san_phuoc_thinh",
+      "id": "RE04",
+      "topic": "services",
+      "question": "bên anh có nhận đo đạc làm bản vẽ nhà đất không",
+      "evidence_ok": true,
+      "matched_terms": "đo đạc | bản vẽ",
+      "expected_terms": "đo đạc | bản vẽ"
+    },
+    {
+      "tenant_id": "bat_dong_san_phuoc_thinh",
+      "id": "RE05",
+      "topic": "listings",
+      "question": "nhà số 62 đường số 18 phường 4 còn thông tin không",
+      "evidence_ok": true,
+      "matched_terms": "62 | đường số 18",
+      "expected_terms": "62 | đường số 18"
+    },
+    {
+      "tenant_id": "bat_dong_san_phuoc_thinh",
+      "id": "RE06",
+      "topic": "listings",
+      "question": "căn đường số 18 quận 8 giá khoảng bao nhiêu",
+      "evidence_ok": true,
+      "matched_terms": "6 tỷ | 6tỷ | thương lượng",
+      "expected_terms": "6 tỷ | 6tỷ | thương lượng"
+    },
+    {
+      "tenant_id": "bat_dong_san_phuoc_thinh",
+      "id": "RE07",
+      "topic": "listings",
+      "question": "có căn nào gần quốc lộ 50 với bến xe quận 8 không",
+      "evidence_ok": true,
+      "matched_terms": "Quốc Lộ 50 | bến xe",
+      "expected_terms": "Quốc Lộ 50 | bến xe"
+    },
+    {
+      "tenant_id": "bat_dong_san_phuoc_thinh",
+      "id": "RE08",
+      "topic": "listings",
+      "question": "nhà gần quốc lộ 50 diện tích cỡ bao nhiêu",
+      "evidence_ok": true,
+      "matched_terms": "4,5 | 11m",
+      "expected_terms": "4,5 | 11m"
+    },
+    {
+      "tenant_id": "bat_dong_san_phuoc_thinh",
+      "id": "RE09",
+      "topic": "listings",
+      "question": "căn quốc lộ 50 có mấy phòng vậy",
+      "evidence_ok": true,
+      "matched_terms": "2 phòng | 1 trệt 1 lầu",
+      "expected_terms": "2 phòng | 1 trệt 1 lầu"
+    },
+    {
+      "tenant_id": "bat_dong_san_phuoc_thinh",
+      "id": "RE10",
+      "topic": "budget",
+      "question": "tầm dưới 3 tỷ bên mình có nhà quận 8 nào không",
+      "evidence_ok": true,
+      "matched_terms": "2 tỷ | Quận 8 | thương lượng",
+      "expected_terms": "2 tỷ | Quận 8 | thương lượng"
+    },
+    {
+      "tenant_id": "bat_dong_san_phuoc_thinh",
+      "id": "RE11",
+      "topic": "listings",
+      "question": "nhà hẻm Hưng Phú phường 10 có tin nào không",
+      "evidence_ok": true,
+      "matched_terms": "Hưng Phú | P10",
+      "expected_terms": "Hưng Phú | P10 | phường 10"
+    },
+    {
+      "tenant_id": "bat_dong_san_phuoc_thinh",
+      "id": "RE12",
+      "topic": "listings",
+      "question": "có nhà hẻm xe hơi thông nhiều hướng ở quận 8 không",
+      "evidence_ok": true,
+      "matched_terms": "hẻm xe hơi | Quận 8",
+      "expected_terms": "hẻm xe hơi | Quận 8"
+    },
+    {
+      "tenant_id": "bat_dong_san_phuoc_thinh",
+      "id": "RE13",
+      "topic": "agency",
+      "question": "Phước Thịnh tư vấn thông tin nhà đất theo nguyên tắc nào",
+      "evidence_ok": true,
+      "matched_terms": "uy tín | trung thực | minh bạch",
+      "expected_terms": "uy tín | trung thực | minh bạch"
+    },
+    {
+      "tenant_id": "bat_dong_san_phuoc_thinh",
+      "id": "RE14",
+      "topic": "recruitment",
+      "question": "bên công ty hiện có tuyển nhân viên bất động sản không",
+      "evidence_ok": true,
+      "matched_terms": "tuyển | thành viên | vị trí",
+      "expected_terms": "tuyển | thành viên | vị trí"
+    },
+    {
+      "tenant_id": "bat_dong_san_phuoc_thinh",
+      "id": "RE15",
+      "topic": "services",
+      "question": "tôi cần tìm nhà bán quận 8 thì bên mình hỗ trợ sao",
+      "evidence_ok": true,
+      "matched_terms": "nhà bán | Quận 8 | tư vấn",
+      "expected_terms": "nhà bán | Quận 8 | tư vấn"
+    },
+    {
+      "tenant_id": "giao_duc_haiyan",
+      "id": "EDU01",
+      "topic": "contact",
+      "question": "trung tâm HaiYan ở khu vực nào Đồng Nai vậy",
+      "evidence_ok": true,
+      "matched_terms": "Long Thành | Đồng Nai",
+      "expected_terms": "Long Thành | Đồng Nai"
+    },
+    {
+      "tenant_id": "giao_duc_haiyan",
+      "id": "EDU02",
+      "topic": "course_format",
+      "question": "bên mình có lớp tiếng Trung 1 kèm 1 không",
+      "evidence_ok": true,
+      "matched_terms": "1 kèm 1 | cá nhân",
+      "expected_terms": "1 kèm 1 | cá nhân"
+    },
+    {
+      "tenant_id": "giao_duc_haiyan",
+      "id": "EDU03",
+      "topic": "course_format",
+      "question": "tôi cần học giao tiếp gấp thì có khóa 1-1 phù hợp không",
+      "evidence_ok": true,
+      "matched_terms": "giao tiếp | 1 kèm 1",
+      "expected_terms": "giao tiếp | 1 kèm 1"
+    },
+    {
+      "tenant_id": "giao_duc_haiyan",
+      "id": "EDU04",
+      "topic": "online",
+      "question": "học online bên HaiYan có lộ trình không",
+      "evidence_ok": true,
+      "matched_terms": "online | lộ trình",
+      "expected_terms": "online | lộ trình"
+    },
+    {
+      "tenant_id": "giao_duc_haiyan",
+      "id": "EDU05",
+      "topic": "learner_needs",
+      "question": "mất gốc phát âm yếu thì học khóa nào được",
+      "evidence_ok": true,
+      "matched_terms": "phát âm | người học yếu | 1 kèm 1",
+      "expected_terms": "phát âm | người học yếu | 1 kèm 1"
+    },
+    {
+      "tenant_id": "giao_duc_haiyan",
+      "id": "EDU06",
+      "topic": "enterprise",
+      "question": "có khóa tiếng Trung cho nhân viên thu mua không",
+      "evidence_ok": true,
+      "matched_terms": "thu mua | doanh nghiệp",
+      "expected_terms": "thu mua | doanh nghiệp"
+    },
+    {
+      "tenant_id": "giao_duc_haiyan",
+      "id": "EDU07",
+      "topic": "enterprise",
+      "question": "nhân viên điều phối logistics học nội dung nào phù hợp",
+      "evidence_ok": true,
+      "matched_terms": "điều phối | logistics | chuỗi cung ứng",
+      "expected_terms": "điều phối | logistics | chuỗi cung ứng"
+    },
+    {
+      "tenant_id": "giao_duc_haiyan",
+      "id": "EDU08",
+      "topic": "enterprise",
+      "question": "bên mình có tiếng Trung cho nhân viên chăm sóc khách hàng không",
+      "evidence_ok": true,
+      "matched_terms": "chăm sóc khách hàng | nhân viên",
+      "expected_terms": "chăm sóc khách hàng | nhân viên"
+    },
+    {
+      "tenant_id": "giao_duc_haiyan",
+      "id": "EDU09",
+      "topic": "enterprise",
+      "question": "sale cần nói chuyện với khách Trung thì có lớp nào",
+      "evidence_ok": true,
+      "matched_terms": "bán hàng | giao tiếp | nhân viên",
+      "expected_terms": "bán hàng | giao tiếp | nhân viên"
+    },
+    {
+      "tenant_id": "giao_duc_haiyan",
+      "id": "EDU10",
+      "topic": "enterprise",
+      "question": "xưởng tôi muốn đào tạo tiếng Trung cho công nhân có được không",
+      "evidence_ok": true,
+      "matched_terms": "công xưởng | sản xuất | doanh nghiệp",
+      "expected_terms": "công xưởng | sản xuất | doanh nghiệp"
+    },
+    {
+      "tenant_id": "giao_duc_haiyan",
+      "id": "EDU11",
+      "topic": "enterprise",
+      "question": "công ty xuất nhập khẩu có chương trình tiếng Trung riêng không",
+      "evidence_ok": true,
+      "matched_terms": "xuất nhập khẩu | doanh nghiệp",
+      "expected_terms": "xuất nhập khẩu | doanh nghiệp"
+    },
+    {
+      "tenant_id": "giao_duc_haiyan",
+      "id": "EDU12",
+      "topic": "enterprise",
+      "question": "chi phí đào tạo tiếng Trung cho doanh nghiệp tính sao",
+      "evidence_ok": true,
+      "matched_terms": "chi phí | doanh nghiệp | tư vấn",
+      "expected_terms": "chi phí | doanh nghiệp | tư vấn"
+    },
+    {
+      "tenant_id": "giao_duc_haiyan",
+      "id": "EDU13",
+      "topic": "children",
+      "question": "HaiYan có lớp tiếng Trung cho trẻ em không",
+      "evidence_ok": true,
+      "matched_terms": "trẻ em | thiếu nhi",
+      "expected_terms": "trẻ em | thiếu nhi"
+    },
+    {
+      "tenant_id": "giao_duc_haiyan",
+      "id": "EDU14",
+      "topic": "children",
+      "question": "ở Nhơn Trạch có lớp tiếng Trung thiếu nhi không",
+      "evidence_ok": true,
+      "matched_terms": "Nhơn Trạch | thiếu nhi",
+      "expected_terms": "Nhơn Trạch | thiếu nhi"
+    },
+    {
+      "tenant_id": "giao_duc_haiyan",
+      "id": "EDU15",
+      "topic": "children",
+      "question": "bé học tiểu học bắt đầu tiếng Trung từ đầu được không",
+      "evidence_ok": true,
+      "matched_terms": "tiểu học | trẻ em | từ đầu",
+      "expected_terms": "tiểu học | trẻ em | từ đầu"
+    },
+    {
+      "tenant_id": "thuc_pham_thien_minh",
+      "id": "FOOD01",
+      "topic": "catalogue",
+      "question": "Thiện Minh đang bán nhóm thực phẩm nào vậy",
+      "evidence_ok": true,
+      "matched_terms": "thực dưỡng | ngũ cốc | gia vị",
+      "expected_terms": "thực dưỡng | ngũ cốc | gia vị"
+    },
+    {
+      "tenant_id": "thuc_pham_thien_minh",
+      "id": "FOOD02",
+      "topic": "policy",
+      "question": "sản phẩm bên mình có ghi nguồn gốc với hạn sử dụng không",
+      "evidence_ok": true,
+      "matched_terms": "nguồn gốc | hạn sử dụng | bao bì",
+      "expected_terms": "nguồn gốc | hạn sử dụng | bao bì"
+    },
+    {
+      "tenant_id": "thuc_pham_thien_minh",
+      "id": "FOOD03",
+      "topic": "delivery",
+      "question": "shop có giao hàng không, giao nhanh chứ",
+      "evidence_ok": true,
+      "matched_terms": "giao hàng | nhanh chóng",
+      "expected_terms": "giao hàng | nhanh chóng"
+    },
+    {
+      "tenant_id": "thuc_pham_thien_minh",
+      "id": "FOOD04",
+      "topic": "seasonings",
+      "question": "bên mình có bán đường mía hữu cơ không",
+      "evidence_ok": true,
+      "matched_terms": "đường mía | hữu cơ",
+      "expected_terms": "đường mía | hữu cơ"
+    },
+    {
+      "tenant_id": "thuc_pham_thien_minh",
+      "id": "FOOD05",
+      "topic": "seasonings",
+      "question": "có dầu hướng dương ép lạnh không shop",
+      "evidence_ok": true,
+      "matched_terms": "dầu hướng dương | ép lạnh",
+      "expected_terms": "dầu hướng dương | ép lạnh"
+    },
+    {
+      "tenant_id": "thuc_pham_thien_minh",
+      "id": "FOOD06",
+      "topic": "seasonings",
+      "question": "shop có nhóm nước tương nước mắm hạt nêm không",
+      "evidence_ok": true,
+      "matched_terms": "nước tương | nước mắm | hạt nêm",
+      "expected_terms": "nước tương | nước mắm | hạt nêm"
+    },
+    {
+      "tenant_id": "thuc_pham_thien_minh",
+      "id": "FOOD07",
+      "topic": "nutrition",
+      "question": "Suto Meal bên mình có bán không",
+      "evidence_ok": true,
+      "matched_terms": "SUTO MEAL | dinh dưỡng",
+      "expected_terms": "SUTO MEAL | dinh dưỡng"
+    },
+    {
+      "tenant_id": "thuc_pham_thien_minh",
+      "id": "FOOD08",
+      "topic": "nutrition",
+      "question": "có sữa thực vật Glucose Plan Canxi loại 900g không",
+      "evidence_ok": true,
+      "matched_terms": "Glucose Plan | 900",
+      "expected_terms": "Glucose Plan | 900"
+    },
+    {
+      "tenant_id": "thuc_pham_thien_minh",
+      "id": "FOOD09",
+      "topic": "fuma",
+      "question": "phở gạo lứt Fuma gói bao nhiêu gram vậy",
+      "evidence_ok": true,
+      "matched_terms": "400g | Fuma",
+      "expected_terms": "400g | Fuma"
+    },
+    {
+      "tenant_id": "thuc_pham_thien_minh",
+      "id": "FOOD10",
+      "topic": "fuma",
+      "question": "nui gạo trắng Fuma có loại 400g không",
+      "evidence_ok": true,
+      "matched_terms": "400g | nui gạo trắng",
+      "expected_terms": "400g | nui gạo trắng"
+    },
+    {
+      "tenant_id": "thuc_pham_thien_minh",
+      "id": "FOOD11",
+      "topic": "snacks",
+      "question": "bánh gạo lứt Ohsawa vị hạt điều có chiên không",
+      "evidence_ok": true,
+      "matched_terms": "không chiên | hạt điều",
+      "expected_terms": "không chiên | hạt điều"
+    },
+    {
+      "tenant_id": "thuc_pham_thien_minh",
+      "id": "FOOD12",
+      "topic": "snacks",
+      "question": "bánh Ohsawa hạt điều rong biển có bán không",
+      "evidence_ok": true,
+      "matched_terms": "rong biển | hạt điều",
+      "expected_terms": "rong biển | hạt điều"
+    },
+    {
+      "tenant_id": "thuc_pham_thien_minh",
+      "id": "FOOD13",
+      "topic": "snacks",
+      "question": "bánh gạo lứt có đường tinh luyện hay chất bảo quản không",
+      "evidence_ok": true,
+      "matched_terms": "không đường tinh luyện | không chất bảo quản",
+      "expected_terms": "không đường tinh luyện | không chất bảo quản"
+    },
+    {
+      "tenant_id": "thuc_pham_thien_minh",
+      "id": "FOOD14",
+      "topic": "catalogue",
+      "question": "Thiện Minh có trà hoa cúc hữu cơ không",
+      "evidence_ok": true,
+      "matched_terms": "trà hoa cúc | hữu cơ",
+      "expected_terms": "trà hoa cúc | hữu cơ"
+    },
+    {
+      "tenant_id": "thuc_pham_thien_minh",
+      "id": "FOOD15",
+      "topic": "catalogue",
+      "question": "có gạo lứt đỏ Điện Biên không shop",
+      "evidence_ok": true,
+      "matched_terms": "gạo lứt đỏ | Điện Biên",
+      "expected_terms": "gạo lứt đỏ | Điện Biên"
+    }
+  ]
+}

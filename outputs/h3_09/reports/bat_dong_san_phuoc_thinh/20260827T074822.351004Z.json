@@ -1,0 +1,675 @@
+{
+  "run_id": "20260827T074822.351004Z",
+  "created_at": "2026-08-27T07:48:22.351004+00:00",
+  "cases_path": "C:\\Users\\nghoa\\Desktop\\Chatbot - miama\\eval\\cases_bat_dong_san_phuoc_thinh.yaml",
+  "tenant_id": "bat_dong_san_phuoc_thinh",
+  "config_version": 1,
+  "case_fingerprint": "05eff0663c793c74bee4bbc8a7a337d59dc1ce007854b8cf3a10fe36f4d57cf9",
+  "fingerprint": "888a7e42248dc5dd3d9fbf2a72b10e2c046d3f90a0208caf104a33b067b84aa3",
+  "experiment": {},
+  "summary": {
+    "total": 15,
+    "passed": 12,
+    "failed": 3,
+    "errors": 0,
+    "manual_review": 0,
+    "evaluated": 15,
+    "pass_rate": 0.8,
+    "completion_rate": 1.0,
+    "average_cost_usd": 0.001721711667,
+    "average_model_call_cost_usd": 0.001721711667,
+    "model_calls": 15,
+    "zero_cost_turns": 0,
+    "average_latency_ms": 4773.67,
+    "total_cost_usd": 0.025825675,
+    "duration_seconds": 34.07,
+    "unaccented_total": 0,
+    "unaccented_passed": 0,
+    "unaccented_pass_rate": 0.0,
+    "topic_metrics": {
+      "agency": {
+        "total": 3,
+        "passed": 3,
+        "failed": 0,
+        "errors": 0,
+        "manual_review": 0,
+        "evaluated": 3,
+        "pass_rate": 1.0,
+        "average_cost_usd": 0.001558716667,
+        "average_latency_ms": 6097.33
+      },
+      "budget": {
+        "total": 1,
+        "passed": 1,
+        "failed": 0,
+        "errors": 0,
+        "manual_review": 0,
+        "evaluated": 1,
+        "pass_rate": 1.0,
+        "average_cost_usd": 0.002613125,
+        "average_latency_ms": 5966.0
+      },
+      "listings": {
+        "total": 7,
+        "passed": 5,
+        "failed": 2,
+        "errors": 0,
+        "manual_review": 0,
+        "evaluated": 7,
+        "pass_rate": 0.7143,
+        "average_cost_usd": 0.001808035714,
+        "average_latency_ms": 4594.71
+      },
+      "recruitment": {
+        "total": 1,
+        "passed": 1,
+        "failed": 0,
+        "errors": 0,
+        "manual_review": 0,
+        "evaluated": 1,
+        "pass_rate": 1.0,
+        "average_cost_usd": 0.002027625,
+        "average_latency_ms": 4108.0
+      },
+      "services": {
+        "total": 3,
+        "passed": 2,
+        "failed": 1,
+        "errors": 0,
+        "manual_review": 0,
+        "evaluated": 3,
+        "pass_rate": 0.6667,
+        "average_cost_usd": 0.001284175,
+        "average_latency_ms": 3692.0
+      }
+    }
+  },
+  "results": [
+    {
+      "id": "RE01",
+      "type": "normal",
+      "topic": "agency",
+      "input_style": "accented",
+      "question": "bên Phước Thịnh chủ yếu bán nhà khu vực nào vậy",
+      "reply": "Dạ, theo thông tin em có, Phước Thịnh tập trung chủ yếu ở **Quận 8, TP. Hồ Chí Minh**, đặc biệt là các tin nhà tại những khu vực như Minh Phụng, Hoàng Minh Đạo, Chánh Hưng và Phạm Hùng. Công ty cũng có hoạt động tại TP. Hồ Chí Minh nói chung. Anh/chị đang quan tâm mua nhà ở khu vực nào để em kiểm tra thêm thông tin phù hợp ạ?",
+      "status": "PASS",
+      "passed": true,
+      "score": 1.0,
+      "pass_score": 1.0,
+      "criteria": [
+        {
+          "name": "must_contain_any:Quận 8 | nhà đất",
+          "expected": "Quận 8 | nhà đất",
+          "passed": true
+        },
+        {
+          "name": "must_not_contain:MIMA",
+          "expected": "MIMA",
+          "passed": true
+        },
+        {
+          "name": "must_not_contain:phòng khám",
+          "expected": "phòng khám",
+          "passed": true
+        }
+      ],
+      "need_human": false,
+      "guardrail_blocked": false,
+      "model": "gpt-5.6-luna",
+      "model_called": true,
+      "cost_usd": 0.001986875,
+      "latency_ms": 10175,
+      "trace_id": "e06dcea3-ec2c-44b1-ae07-f9fbb2c8f121",
+      "diagnostic_stage": "completed",
+      "judge_reason": null,
+      "error": null
+    },
+    {
+      "id": "RE02",
+      "type": "normal",
+      "topic": "agency",
+      "input_style": "accented",
+      "question": "công ty có hỗ trợ kiểm tra pháp lý nhà đất không",
+      "reply": "Dạ, bên em có hỗ trợ các dịch vụ pháp lý như đo vẽ nhà đất, trích lục, chuyển quyền sử dụng đất, chuyển thổ cư, cấp mới sổ đỏ, sang tên, tách thửa và hoàn công ạ. \n\nAnh/chị có muốn em kết nối chuyên viên để tư vấn chi tiết hơn không ạ?",
+      "status": "PASS",
+      "passed": true,
+      "score": 1.0,
+      "pass_score": 1.0,
+      "criteria": [
+        {
+          "name": "must_contain_any:pháp lý | minh bạch | tư vấn",
+          "expected": "pháp lý | minh bạch | tư vấn",
+          "passed": true
+        },
+        {
+          "name": "must_not_contain:MIMA",
+          "expected": "MIMA",
+          "passed": true
+        },
+        {
+          "name": "must_not_contain:phòng khám",
+          "expected": "phòng khám",
+          "passed": true
+        }
+      ],
+      "need_human": false,
+      "guardrail_blocked": false,
+      "model": "gemini-3.5-flash-lite",
+      "model_called": true,
+      "cost_usd": 0.0007639,
+      "latency_ms": 3018,
+      "trace_id": "c87c562a-1be3-4cb1-aa47-0e997cd86807",
+      "diagnostic_stage": "completed",
+      "judge_reason": null,
+      "error": null
+    },
+    {
+      "id": "RE03",
+      "type": "normal",
+      "topic": "services",
+      "input_style": "accented",
+      "question": "tôi muốn ký gửi căn nhà quận 8 thì bên mình có nhận không",
+      "reply": "Dạ, bên em có nhận ký gửi nhà đất Quận 8 anh/chị nhé. \n\nAnh/chị có thể liên hệ số điện thoại 0906070939 hoặc 0909070939 để được hỗ trợ chi tiết ạ.",
+      "status": "PASS",
+      "passed": true,
+      "score": 1.0,
+      "pass_score": 1.0,
+      "criteria": [
+        {
+          "name": "must_contain_any:ký gửi | nhà đất | tư vấn",
+          "expected": "ký gửi | nhà đất | tư vấn",
+          "passed": true
+        },
+        {
+          "name": "must_not_contain:MIMA",
+          "expected": "MIMA",
+          "passed": true
+        },
+        {
+          "name": "must_not_contain:phòng khám",
+          "expected": "phòng khám",
+          "passed": true
+        }
+      ],
+      "need_human": false,
+      "guardrail_blocked": false,
+      "model": "gemini-3.5-flash-lite",
+      "model_called": true,
+      "cost_usd": 0.0007129,
+      "latency_ms": 2768,
+      "trace_id": "800a3e11-3ce9-43a2-bef7-21c231f7d620",
+      "diagnostic_stage": "completed",
+      "judge_reason": null,
+      "error": null
+    },
+    {
+      "id": "RE04",
+      "type": "normal",
+      "topic": "services",
+      "input_style": "accented",
+      "question": "bên anh có nhận đo đạc làm bản vẽ nhà đất không",
+      "reply": "Dạ, bên em có cung cấp dịch vụ đo vẽ nhà đất, đo bản vẽ địa chính trích lục, trích đo và các dịch vụ pháp lý liên quan ạ. \n\nAnh/chị có muốn em hướng dẫn thêm chi tiết không ạ?",
+      "status": "PASS",
+      "passed": true,
+      "score": 1.0,
+      "pass_score": 1.0,
+      "criteria": [
+        {
+          "name": "must_contain_any:đo đạc | bản vẽ",
+          "expected": "đo đạc | bản vẽ",
+          "passed": true
+        },
+        {
+          "name": "must_not_contain:MIMA",
+          "expected": "MIMA",
+          "passed": true
+        },
+        {
+          "name": "must_not_contain:phòng khám",
+          "expected": "phòng khám",
+          "passed": true
+        }
+      ],
+      "need_human": false,
+      "guardrail_blocked": false,
+      "model": "gemini-3.5-flash-lite",
+      "model_called": true,
+      "cost_usd": 0.0007455,
+      "latency_ms": 2831,
+      "trace_id": "ea19ac18-13f1-4a74-957a-3eae259f2de5",
+      "diagnostic_stage": "completed",
+      "judge_reason": null,
+      "error": null
+    },
+    {
+      "id": "RE05",
+      "type": "normal",
+      "topic": "listings",
+      "input_style": "accented",
+      "question": "nhà số 62 đường số 18 phường 4 còn thông tin không",
+      "reply": "Dạ, em vẫn có thông tin đăng về căn nhà số 62 đường số 18, Phường 4, Quận 8: diện tích 4,4m x 9,5m, trệt 2 lầu, 4 phòng ngủ, giá đăng 6,27 tỷ và thương lượng nhẹ. Tuy nhiên, em chưa có dữ liệu xác minh tình trạng hiện tại còn bán hay đã giao dịch. Anh/chị vui lòng liên hệ chuyên viên Phước Thịnh qua hotline **0906070939** để kiểm tra trực tiếp ạ.",
+      "status": "PASS",
+      "passed": true,
+      "score": 1.0,
+      "pass_score": 1.0,
+      "criteria": [
+        {
+          "name": "must_contain_any:62 | đường số 18",
+          "expected": "62 | đường số 18",
+          "passed": true
+        },
+        {
+          "name": "must_not_contain:MIMA",
+          "expected": "MIMA",
+          "passed": true
+        },
+        {
+          "name": "must_not_contain:phòng khám",
+          "expected": "phòng khám",
+          "passed": true
+        }
+      ],
+      "need_human": false,
+      "guardrail_blocked": false,
+      "model": "gpt-5.6-luna",
+      "model_called": true,
+      "cost_usd": 0.001669125,
+      "latency_ms": 5045,
+      "trace_id": "6faa3cd4-d453-435e-a2ce-d5d4e9da0215",
+      "diagnostic_stage": "completed",
+      "judge_reason": null,
+      "error": null
+    },
+    {
+      "id": "RE06",
+      "type": "normal",
+      "topic": "listings",
+      "input_style": "accented",
+      "question": "căn đường số 18 quận 8 giá khoảng bao nhiêu",
+      "reply": "Dạ, nhà đường số 18 Phường 4 Quận 8 có các lựa chọn: căn 4.4m x 9.5m giá 6 tỷ 270 (thương lượng) và căn ở Chánh Hưng giá 4 tỷ 979 (bớt lộc). \n\nAnh/chị muốn xem chi tiết lựa chọn nào ạ?",
+      "status": "PASS",
+      "passed": true,
+      "score": 1.0,
+      "pass_score": 1.0,
+      "criteria": [
+        {
+          "name": "must_contain_any:6 tỷ | 6tỷ | thương lượng",
+          "expected": "6 tỷ | 6tỷ | thương lượng",
+          "passed": true
+        },
+        {
+          "name": "must_not_contain:MIMA",
+          "expected": "MIMA",
+          "passed": true
+        },
+        {
+          "name": "must_not_contain:phòng khám",
+          "expected": "phòng khám",
+          "passed": true
+        }
+      ],
+      "need_human": false,
+      "guardrail_blocked": false,
+      "model": "gemini-3.5-flash-lite",
+      "model_called": true,
+      "cost_usd": 0.0007987,
+      "latency_ms": 2535,
+      "trace_id": "258ec4df-84e3-4604-981e-a2a4f5b53894",
+      "diagnostic_stage": "completed",
+      "judge_reason": null,
+      "error": null
+    },
+    {
+      "id": "RE07",
+      "type": "normal",
+      "topic": "listings",
+      "input_style": "accented",
+      "question": "có căn nào gần quốc lộ 50 với bến xe quận 8 không",
+      "reply": "Dạ có anh/chị, hiện em thấy 2 căn gần Quốc lộ 50 và Bến xe Quận 8:\n\n- **Căn 1:** Giá bán nhanh **2,85 tỷ**, diện tích **4,5 × 11m**, 1 trệt 1 lầu, 2 phòng, hẻm xe hơi thông nhiều hướng.\n- **Căn 2:** Giá bán nhanh **2,79 tỷ**, diện tích **4 × 16m**, 1 trệt 1 lầu, có sân thượng, hẻm xe hơi 5m, nhà mới ở liền.\n\nCả hai đều gần khu dân cư Bình Hưng, cầu Nhị Thiên Đường và các tiện ích khu vực. Anh/chị muốn em gửi thêm thông tin căn **2,79 tỷ** hay **2,85 tỷ** ạ?",
+      "status": "PASS",
+      "passed": true,
+      "score": 1.0,
+      "pass_score": 1.0,
+      "criteria": [
+        {
+          "name": "must_contain_any:Quốc Lộ 50 | bến xe",
+          "expected": "Quốc Lộ 50 | bến xe",
+          "passed": true
+        },
+        {
+          "name": "must_not_contain:MIMA",
+          "expected": "MIMA",
+          "passed": true
+        },
+        {
+          "name": "must_not_contain:phòng khám",
+          "expected": "phòng khám",
+          "passed": true
+        }
+      ],
+      "need_human": false,
+      "guardrail_blocked": false,
+      "model": "gpt-5.6-luna",
+      "model_called": true,
+      "cost_usd": 0.00244375,
+      "latency_ms": 5704,
+      "trace_id": "55d349ac-860f-4bd9-b2e3-a1732a144471",
+      "diagnostic_stage": "completed",
+      "judge_reason": null,
+      "error": null
+    },
+    {
+      "id": "RE08",
+      "type": "normal",
+      "topic": "listings",
+      "input_style": "accented",
+      "question": "nhà gần quốc lộ 50 diện tích cỡ bao nhiêu",
+      "reply": "Dạ, các căn nhà gần Quốc lộ 50 có diện tích khoảng 4x16m (1 trệt, 1 lầu, sân thượng) và 4,5x11m (1 trệt, 1 lầu, 2 phòng ạ).\n\nAnh/chị có muốn em gửi thêm thông tin chi tiết về các căn này không ạ?",
+      "status": "PASS",
+      "passed": true,
+      "score": 1.0,
+      "pass_score": 1.0,
+      "criteria": [
+        {
+          "name": "must_contain_any:4,5 | 11m",
+          "expected": "4,5 | 11m",
+          "passed": true
+        },
+        {
+          "name": "must_not_contain:MIMA",
+          "expected": "MIMA",
+          "passed": true
+        },
+        {
+          "name": "must_not_contain:phòng khám",
+          "expected": "phòng khám",
+          "passed": true
+        }
+      ],
+      "need_human": false,
+      "guardrail_blocked": false,
+      "model": "gemini-3.5-flash-lite",
+      "model_called": true,
+      "cost_usd": 0.0007298,
+      "latency_ms": 2742,
+      "trace_id": "21131a8a-2f24-4374-93f5-1e664627b062",
+      "diagnostic_stage": "completed",
+      "judge_reason": null,
+      "error": null
+    },
+    {
+      "id": "RE09",
+      "type": "normal",
+      "topic": "listings",
+      "input_style": "accented",
+      "question": "căn quốc lộ 50 có mấy phòng vậy",
+      "reply": "Dạ, khu Quốc lộ 50 gần Bến xe Quận 8 hiện có 2 căn trong thông tin em tra được. Căn 2 tỷ 790 có 1 trệt, 1 lầu, sân thượng nhưng chưa ghi rõ số phòng; căn 2 tỷ 850 có 1 trệt, 1 lầu và **2 phòng**. Anh/chị đang hỏi căn giá 2 tỷ 790 hay 2 tỷ 850 ạ?",
+      "status": "PASS",
+      "passed": true,
+      "score": 1.0,
+      "pass_score": 1.0,
+      "criteria": [
+        {
+          "name": "must_contain_any:2 phòng | 1 trệt 1 lầu",
+          "expected": "2 phòng | 1 trệt 1 lầu",
+          "passed": true
+        },
+        {
+          "name": "must_not_contain:MIMA",
+          "expected": "MIMA",
+          "passed": true
+        },
+        {
+          "name": "must_not_contain:phòng khám",
+          "expected": "phòng khám",
+          "passed": true
+        }
+      ],
+      "need_human": false,
+      "guardrail_blocked": false,
+      "model": "gpt-5.6-luna",
+      "model_called": true,
+      "cost_usd": 0.002090375,
+      "latency_ms": 4780,
+      "trace_id": "71971d86-96aa-401e-8c21-975b1482fad2",
+      "diagnostic_stage": "completed",
+      "judge_reason": null,
+      "error": null
+    },
+    {
+      "id": "RE10",
+      "type": "normal",
+      "topic": "budget",
+      "input_style": "accented",
+      "question": "tầm dưới 3 tỷ bên mình có nhà quận 8 nào không",
+      "reply": "Dạ, hiện em thấy Quận 8 có 2 căn dưới 3 tỷ:\n\n- **1,68 tỷ (thương lượng):** đường Lưu Hữu Phước, P.15; diện tích 3,5 × 7m, 1 trệt 1 lầu, 2 phòng.\n- **2,89 tỷ (thương lượng):** đường Lương Văn Can, P.15 (P. Phú Định); diện tích 4 × 6m, 1 trệt 2 lầu, 3 phòng, căn góc 2 mặt tiền.\n\nGiá và tình trạng nhà có thể cần chuyên viên kiểm tra lại; anh/chị muốn em kết nối chuyên viên Phước Thịnh qua hotline **0906070939** để hỏi căn phù hợp hoặc đặt lịch xem nhà không ạ?",
+      "status": "PASS",
+      "passed": true,
+      "score": 1.0,
+      "pass_score": 1.0,
+      "criteria": [
+        {
+          "name": "must_contain_any:2 tỷ | Quận 8 | thương lượng",
+          "expected": "2 tỷ | Quận 8 | thương lượng",
+          "passed": true
+        },
+        {
+          "name": "must_not_contain:MIMA",
+          "expected": "MIMA",
+          "passed": true
+        },
+        {
+          "name": "must_not_contain:phòng khám",
+          "expected": "phòng khám",
+          "passed": true
+        }
+      ],
+      "need_human": false,
+      "guardrail_blocked": false,
+      "model": "gpt-5.6-luna",
+      "model_called": true,
+      "cost_usd": 0.002613125,
+      "latency_ms": 5966,
+      "trace_id": "2e03a836-5043-4cd2-9add-7e742cea3f28",
+      "diagnostic_stage": "completed",
+      "judge_reason": null,
+      "error": null
+    },
+    {
+      "id": "RE11",
+      "type": "normal",
+      "topic": "listings",
+      "input_style": "accented",
+      "question": "nhà hẻm Hưng Phú phường 10 có tin nào không",
+      "reply": "Dạ, em chưa có đủ thông tin đã xác minh để trả lời chính xác. Em xin phép kết nối anh/chị với chuyên viên Phước Thịnh để kiểm tra trực tiếp ạ.\n\nĐể em chuyển yêu cầu đến chuyên viên, anh/chị vui lòng cho em xin tên và số điện thoại liên hệ ạ. Em sẽ đọc lại để anh/chị xác nhận trước khi ghi nhận.",
+      "status": "FAIL",
+      "passed": false,
+      "score": 0.6667,
+      "pass_score": 1.0,
+      "criteria": [
+        {
+          "name": "must_contain_any:Hưng Phú | P10 | phường 10",
+          "expected": "Hưng Phú | P10 | phường 10",
+          "passed": false
+        },
+        {
+          "name": "must_not_contain:MIMA",
+          "expected": "MIMA",
+          "passed": true
+        },
+        {
+          "name": "must_not_contain:phòng khám",
+          "expected": "phòng khám",
+          "passed": true
+        }
+      ],
+      "need_human": true,
+      "guardrail_blocked": true,
+      "model": "gpt-5.6-luna",
+      "model_called": true,
+      "cost_usd": 0.00237675,
+      "latency_ms": 5476,
+      "trace_id": "c2315dd8-441d-442d-9d29-e92425907683",
+      "diagnostic_stage": "blocked_output",
+      "judge_reason": null,
+      "error": null
+    },
+    {
+      "id": "RE12",
+      "type": "normal",
+      "topic": "listings",
+      "input_style": "accented",
+      "question": "có nhà hẻm xe hơi thông nhiều hướng ở quận 8 không",
+      "reply": "Dạ, em chưa có đủ thông tin đã xác minh để trả lời chính xác. Em xin phép kết nối anh/chị với chuyên viên Phước Thịnh để kiểm tra trực tiếp ạ.\n\nĐể em chuyển yêu cầu đến chuyên viên, anh/chị vui lòng cho em xin tên và số điện thoại liên hệ ạ. Em sẽ đọc lại để anh/chị xác nhận trước khi ghi nhận.",
+      "status": "FAIL",
+      "passed": false,
+      "score": 0.6667,
+      "pass_score": 1.0,
+      "criteria": [
+        {
+          "name": "must_contain_any:hẻm xe hơi | Quận 8",
+          "expected": "hẻm xe hơi | Quận 8",
+          "passed": false
+        },
+        {
+          "name": "must_not_contain:MIMA",
+          "expected": "MIMA",
+          "passed": true
+        },
+        {
+          "name": "must_not_contain:phòng khám",
+          "expected": "phòng khám",
+          "passed": true
+        }
+      ],
+      "need_human": true,
+      "guardrail_blocked": true,
+      "model": "gpt-5.6-luna",
+      "model_called": true,
+      "cost_usd": 0.00254775,
+      "latency_ms": 5881,
+      "trace_id": "4ec9c3e9-1d5d-4557-a43e-83f9142cb873",
+      "diagnostic_stage": "blocked_output",
+      "judge_reason": null,
+      "error": null
+    },
+    {
+      "id": "RE13",
+      "type": "normal",
+      "topic": "agency",
+      "input_style": "accented",
+      "question": "Phước Thịnh tư vấn thông tin nhà đất theo nguyên tắc nào",
+      "reply": "Dạ, Phước Thịnh tư vấn nhà đất theo các nguyên tắc chính: lấy chữ tín, sự trung thực và minh bạch làm đầu; chia sẻ thông tin chính xác đến khách hàng. Công ty định hướng tư vấn các bất động sản có pháp lý rõ ràng, không quy hoạch hoặc tranh chấp theo thông tin giới thiệu. Bên cạnh đó, Phước Thịnh đề cao sự tận tâm, hỗ trợ khách hàng tìm nhà đất phù hợp với chi phí hợp lý và hợp pháp. Anh/chị đang quan tâm mua nhà, bán nhà hay cần hỗ trợ thủ tục nhà đất ạ?",
+      "status": "PASS",
+      "passed": true,
+      "score": 1.0,
+      "pass_score": 1.0,
+      "criteria": [
+        {
+          "name": "must_contain_any:uy tín | trung thực | minh bạch",
+          "expected": "uy tín | trung thực | minh bạch",
+          "passed": true
+        },
+        {
+          "name": "must_not_contain:MIMA",
+          "expected": "MIMA",
+          "passed": true
+        },
+        {
+          "name": "must_not_contain:phòng khám",
+          "expected": "phòng khám",
+          "passed": true
+        }
+      ],
+      "need_human": false,
+      "guardrail_blocked": false,
+      "model": "gpt-5.6-luna",
+      "model_called": true,
+      "cost_usd": 0.001925375,
+      "latency_ms": 5099,
+      "trace_id": "7d413c58-5802-492c-a350-c15653e7b633",
+      "diagnostic_stage": "completed",
+      "judge_reason": null,
+      "error": null
+    },
+    {
+      "id": "RE14",
+      "type": "normal",
+      "topic": "recruitment",
+      "input_style": "accented",
+      "question": "bên công ty hiện có tuyển nhân viên bất động sản không",
+      "reply": "Dạ hiện công ty Phước Thịnh có tuyển thêm nhân viên kinh doanh bất động sản. Vị trí này không yêu cầu kinh nghiệm, sẽ được đào tạo và hướng dẫn; công việc gồm tìm kiếm nguồn nhà, dẫn khách xem nhà và tư vấn khách hàng. Địa điểm làm việc tại Quận 8 và Quận 10, TP.HCM; mức lương thỏa thuận, có thưởng và hoa hồng. Anh/chị có muốn em kết nối chuyên viên qua hotline 0906070939 để được tư vấn chi tiết không ạ?",
+      "status": "PASS",
+      "passed": true,
+      "score": 1.0,
+      "pass_score": 1.0,
+      "criteria": [
+        {
+          "name": "must_contain_any:tuyển | thành viên | vị trí",
+          "expected": "tuyển | thành viên | vị trí",
+          "passed": true
+        },
+        {
+          "name": "must_not_contain:MIMA",
+          "expected": "MIMA",
+          "passed": true
+        },
+        {
+          "name": "must_not_contain:phòng khám",
+          "expected": "phòng khám",
+          "passed": true
+        }
+      ],
+      "need_human": false,
+      "guardrail_blocked": false,
+      "model": "gpt-5.6-luna",
+      "model_called": true,
+      "cost_usd": 0.002027625,
+      "latency_ms": 4108,
+      "trace_id": "85deb319-9b94-4d2a-b7a7-84675851fd78",
+      "diagnostic_stage": "completed",
+      "judge_reason": null,
+      "error": null
+    },
+    {
+      "id": "RE15",
+      "type": "normal",
+      "topic": "services",
+      "input_style": "accented",
+      "question": "tôi cần tìm nhà bán quận 8 thì bên mình hỗ trợ sao",
+      "reply": "Dạ, em chưa có đủ thông tin đã xác minh để trả lời chính xác. Em xin phép kết nối anh/chị với chuyên viên Phước Thịnh để kiểm tra trực tiếp ạ.\n\nĐể em chuyển yêu cầu đến chuyên viên, anh/chị vui lòng cho em xin tên và số điện thoại liên hệ ạ. Em sẽ đọc lại để anh/chị xác nhận trước khi ghi nhận.",
+      "status": "FAIL",
+      "passed": false,
+      "score": 0.6667,
+      "pass_score": 1.0,
+      "criteria": [
+        {
+          "name": "must_contain_any:nhà bán | Quận 8 | tư vấn",
+          "expected": "nhà bán | Quận 8 | tư vấn",
+          "passed": false
+        },
+        {
+          "name": "must_not_contain:MIMA",
+          "expected": "MIMA",
+          "passed": true
+        },
+        {
+          "name": "must_not_contain:phòng khám",
+          "expected": "phòng khám",
+          "passed": true
+        }
+      ],
+      "need_human": true,
+      "guardrail_blocked": true,
+      "model": "gpt-5.6-luna",
+      "model_called": true,
+      "cost_usd": 0.002394125,
+      "latency_ms": 5477,
+      "trace_id": "53a42f89-c6b8-4675-9e0f-b879dac6213a",
+      "diagnostic_stage": "blocked_output",
+      "judge_reason": null,
+      "error": null
+    }
+  ],
+  "comparison": null
+}

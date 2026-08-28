@@ -1,0 +1,91 @@
+# H3-09: 15 câu theo nội dung Trung tâm tiếng Trung HaiYan.
+- id: EDU01
+  question: "trung tâm HaiYan ở khu vực nào Đồng Nai vậy"
+  type: normal
+  topic: contact
+  must_contain_any: ["Long Thành", "Đồng Nai"]
+  must_not_contain: ["MIMA", "phòng khám"]
+- id: EDU02
+  question: "bên mình có lớp tiếng Trung 1 kèm 1 không"
+  type: normal
+  topic: course_format
+  must_contain_any: ["1 kèm 1", "cá nhân"]
+  must_not_contain: ["MIMA", "phòng khám"]
+- id: EDU03
+  question: "tôi cần học giao tiếp gấp thì có khóa 1-1 phù hợp không"
+  type: normal
+  topic: course_format
+  must_contain_any: ["giao tiếp", "1 kèm 1"]
+  must_not_contain: ["MIMA", "phòng khám"]
+- id: EDU04
+  question: "học online bên HaiYan có lộ trình không"
+  type: normal
+  topic: online
+  must_contain_any: ["online", "lộ trình"]
+  must_not_contain: ["MIMA", "phòng khám"]
+- id: EDU05
+  question: "mất gốc phát âm yếu thì học khóa nào được"
+  type: normal
+  topic: learner_needs
+  must_contain_any: ["phát âm", "người học yếu", "1 kèm 1"]
+  must_not_contain: ["MIMA", "phòng khám"]
+- id: EDU06
+  question: "có khóa tiếng Trung cho nhân viên thu mua không"
+  type: normal
+  topic: enterprise
+  must_contain_any: ["thu mua", "doanh nghiệp"]
+  must_not_contain: ["MIMA", "phòng khám"]
+- id: EDU07
+  question: "nhân viên điều phối logistics học nội dung nào phù hợp"
+  type: normal
+  topic: enterprise
+  must_contain_any: ["điều phối", "logistics", "chuỗi cung ứng"]
+  must_not_contain: ["MIMA", "phòng khám"]
+- id: EDU08
+  question: "bên mình có tiếng Trung cho nhân viên chăm sóc khách hàng không"
+  type: normal
+  topic: enterprise
+  must_contain_any: ["chăm sóc khách hàng", "nhân viên"]
+  must_not_contain: ["MIMA", "phòng khám"]
+- id: EDU09
+  question: "sale cần nói chuyện với khách Trung thì có lớp nào"
+  type: normal
+  topic: enterprise
+  must_contain_any: ["bán hàng", "giao tiếp", "nhân viên"]
+  must_not_contain: ["MIMA", "phòng khám"]
+- id: EDU10
+  question: "xưởng tôi muốn đào tạo tiếng Trung cho công nhân có được không"
+  type: normal
+  topic: enterprise
+  must_contain_any: ["công xưởng", "sản xuất", "doanh nghiệp"]
+  must_not_contain: ["MIMA", "phòng khám"]
+- id: EDU11
+  question: "công ty xuất nhập khẩu có chương trình tiếng Trung riêng không"
+  type: normal
+  topic: enterprise
+  must_contain_any: ["xuất nhập khẩu", "doanh nghiệp"]
+  must_not_contain: ["MIMA", "phòng khám"]
+- id: EDU12
+  question: "chi phí đào tạo tiếng Trung cho doanh nghiệp tính sao"
+  type: normal
+  topic: enterprise
+  must_contain_any: ["chi phí", "doanh nghiệp", "tư vấn"]
+  must_not_contain: ["MIMA", "phòng khám"]
+- id: EDU13
+  question: "HaiYan có lớp tiếng Trung cho trẻ em không"
+  type: normal
+  topic: children
+  must_contain_any: ["trẻ em", "thiếu nhi"]
+  must_not_contain: ["MIMA", "phòng khám"]
+- id: EDU14
+  question: "ở Nhơn Trạch có lớp tiếng Trung thiếu nhi không"
+  type: normal
+  topic: children
+  must_contain_any: ["Nhơn Trạch", "thiếu nhi"]
+  must_not_contain: ["MIMA", "phòng khám"]
+- id: EDU15
+  question: "bé học tiểu học bắt đầu tiếng Trung từ đầu được không"
+  type: normal
+  topic: children
+  must_contain_any: ["tiểu học", "trẻ em", "từ đầu"]
+  must_not_contain: ["MIMA", "phòng khám"]

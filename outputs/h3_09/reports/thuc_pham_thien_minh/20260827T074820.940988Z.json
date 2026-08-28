@@ -1,0 +1,697 @@
+{
+  "run_id": "20260827T074820.940988Z",
+  "created_at": "2026-08-27T07:48:20.940988+00:00",
+  "cases_path": "C:\\Users\\nghoa\\Desktop\\Chatbot - miama\\eval\\cases_thuc_pham_thien_minh.yaml",
+  "tenant_id": "thuc_pham_thien_minh",
+  "config_version": 1,
+  "case_fingerprint": "ac2e46b672984aba10ca4dea33152362713e9a48b658d75077316e7803b69c81",
+  "fingerprint": "cdcf3bf71c923c7e8c0ddca8e1efb89fc06c9995b323107850122ac61b147d6f",
+  "experiment": {},
+  "summary": {
+    "total": 15,
+    "passed": 13,
+    "failed": 1,
+    "errors": 1,
+    "manual_review": 0,
+    "evaluated": 14,
+    "pass_rate": 0.9286,
+    "completion_rate": 0.9333,
+    "average_cost_usd": 0.00153915,
+    "average_model_call_cost_usd": 0.001649089286,
+    "model_calls": 14,
+    "zero_cost_turns": 1,
+    "average_latency_ms": 4299.6,
+    "total_cost_usd": 0.02308725,
+    "duration_seconds": 32.667,
+    "unaccented_total": 0,
+    "unaccented_passed": 0,
+    "unaccented_pass_rate": 0.0,
+    "topic_metrics": {
+      "catalogue": {
+        "total": 3,
+        "passed": 2,
+        "failed": 0,
+        "errors": 1,
+        "manual_review": 0,
+        "evaluated": 2,
+        "pass_rate": 1.0,
+        "average_cost_usd": 0.001317916667,
+        "average_latency_ms": 5525.0
+      },
+      "delivery": {
+        "total": 1,
+        "passed": 1,
+        "failed": 0,
+        "errors": 0,
+        "manual_review": 0,
+        "evaluated": 1,
+        "pass_rate": 1.0,
+        "average_cost_usd": 0.001983875,
+        "average_latency_ms": 5851.0
+      },
+      "fuma": {
+        "total": 2,
+        "passed": 2,
+        "failed": 0,
+        "errors": 0,
+        "manual_review": 0,
+        "evaluated": 2,
+        "pass_rate": 1.0,
+        "average_cost_usd": 0.001293525,
+        "average_latency_ms": 3215.5
+      },
+      "nutrition": {
+        "total": 2,
+        "passed": 2,
+        "failed": 0,
+        "errors": 0,
+        "manual_review": 0,
+        "evaluated": 2,
+        "pass_rate": 1.0,
+        "average_cost_usd": 0.0015371875,
+        "average_latency_ms": 3385.5
+      },
+      "policy": {
+        "total": 1,
+        "passed": 1,
+        "failed": 0,
+        "errors": 0,
+        "manual_review": 0,
+        "evaluated": 1,
+        "pass_rate": 1.0,
+        "average_cost_usd": 0.001834,
+        "average_latency_ms": 6859.0
+      },
+      "seasonings": {
+        "total": 3,
+        "passed": 3,
+        "failed": 0,
+        "errors": 0,
+        "manual_review": 0,
+        "evaluated": 3,
+        "pass_rate": 1.0,
+        "average_cost_usd": 0.001673958333,
+        "average_latency_ms": 3226.33
+      },
+      "snacks": {
+        "total": 3,
+        "passed": 2,
+        "failed": 1,
+        "errors": 0,
+        "manual_review": 0,
+        "evaluated": 3,
+        "pass_rate": 0.6667,
+        "average_cost_usd": 0.001544108333,
+        "average_latency_ms": 4109.33
+      }
+    }
+  },
+  "results": [
+    {
+      "id": "FOOD01",
+      "type": "normal",
+      "topic": "catalogue",
+      "input_style": "accented",
+      "question": "Thiện Minh đang bán nhóm thực phẩm nào vậy",
+      "reply": "Dạ, Thiện Minh hiện có các nhóm thực phẩm chính:\n\n- Gạo lứt, hạt ngũ cốc, các loại đậu và gia vị chay tự nhiên.\n- Thực phẩm chế biến sẵn như chả lụa chay, nem rán chay, xúc xích chay, đậu hũ non và các món kho, xào đóng gói.\n- Đồ ăn vặt, bánh quy, mứt và kẹo chay không chứa nguyên liệu động vật.\n- Sản phẩm thực dưỡng, Ohsawa như bánh gạo lứt, bột ngũ cốc, sữa hạt và bún gạo lứt.\n\nAnh/chị đang quan tâm nhóm nào để em tư vấn cụ thể hơn ạ?",
+      "status": "PASS",
+      "passed": true,
+      "score": 1.0,
+      "pass_score": 1.0,
+      "criteria": [
+        {
+          "name": "must_contain_any:thực dưỡng | ngũ cốc | gia vị",
+          "expected": "thực dưỡng | ngũ cốc | gia vị",
+          "passed": true
+        },
+        {
+          "name": "must_not_contain:MIMA",
+          "expected": "MIMA",
+          "passed": true
+        },
+        {
+          "name": "must_not_contain:phòng khám",
+          "expected": "phòng khám",
+          "passed": true
+        }
+      ],
+      "need_human": false,
+      "guardrail_blocked": false,
+      "model": "gpt-5.6-luna",
+      "model_called": true,
+      "cost_usd": 0.002188875,
+      "latency_ms": 12534,
+      "trace_id": "d0376cda-64ae-4c9a-84cb-02f55ff29cb4",
+      "diagnostic_stage": "completed",
+      "judge_reason": null,
+      "error": null
+    },
+    {
+      "id": "FOOD02",
+      "type": "normal",
+      "topic": "policy",
+      "input_style": "accented",
+      "question": "sản phẩm bên mình có ghi nguồn gốc với hạn sử dụng không",
+      "reply": "Dạ có anh/chị. Theo thông tin sản phẩm, Phở Gạo Lứt Fuma 400g có thông tin ngày sản xuất, hạn sử dụng, nhà sản xuất và đơn vị phân phối; hạn sử dụng lên đến 12 tháng kể từ ngày sản xuất. Nui Gạo Trắng Fuma 400g cũng in rõ ngày sản xuất trên bao bì và có hạn sử dụng lên đến 12 tháng kể từ ngày sản xuất. Anh/chị đang quan tâm sản phẩm nào để em kiểm tra thông tin cụ thể hơn ạ?",
+      "status": "PASS",
+      "passed": true,
+      "score": 1.0,
+      "pass_score": 1.0,
+      "criteria": [
+        {
+          "name": "must_contain_any:nguồn gốc | hạn sử dụng | bao bì",
+          "expected": "nguồn gốc | hạn sử dụng | bao bì",
+          "passed": true
+        },
+        {
+          "name": "must_not_contain:MIMA",
+          "expected": "MIMA",
+          "passed": true
+        },
+        {
+          "name": "must_not_contain:phòng khám",
+          "expected": "phòng khám",
+          "passed": true
+        }
+      ],
+      "need_human": false,
+      "guardrail_blocked": false,
+      "model": "gpt-5.6-luna",
+      "model_called": true,
+      "cost_usd": 0.001834,
+      "latency_ms": 6859,
+      "trace_id": "83ec5fb7-caca-418b-9ec4-754d3ccc6d60",
+      "diagnostic_stage": "completed",
+      "judge_reason": null,
+      "error": null
+    },
+    {
+      "id": "FOOD03",
+      "type": "normal",
+      "topic": "delivery",
+      "input_style": "accented",
+      "question": "shop có giao hàng không, giao nhanh chứ",
+      "reply": "Dạ có anh/chị nhé, Thiện Minh có giao hàng toàn quốc. Sản phẩm được đóng gói cẩn thận và hỗ trợ giao hàng nhanh chóng, tuy nhiên em chưa có thông tin thời gian giao cụ thể cho từng khu vực. Anh/chị muốn em kết nối nhân viên để kiểm tra thời gian giao đến địa chỉ của mình không ạ?",
+      "status": "PASS",
+      "passed": true,
+      "score": 1.0,
+      "pass_score": 1.0,
+      "criteria": [
+        {
+          "name": "must_contain_any:giao hàng | nhanh chóng",
+          "expected": "giao hàng | nhanh chóng",
+          "passed": true
+        },
+        {
+          "name": "must_not_contain:MIMA",
+          "expected": "MIMA",
+          "passed": true
+        },
+        {
+          "name": "must_not_contain:phòng khám",
+          "expected": "phòng khám",
+          "passed": true
+        }
+      ],
+      "need_human": false,
+      "guardrail_blocked": false,
+      "model": "gpt-5.6-luna",
+      "model_called": true,
+      "cost_usd": 0.001983875,
+      "latency_ms": 5851,
+      "trace_id": "b994a0f8-7127-4411-a48d-427616e0c1f4",
+      "diagnostic_stage": "completed",
+      "judge_reason": null,
+      "error": null
+    },
+    {
+      "id": "FOOD04",
+      "type": "normal",
+      "topic": "seasonings",
+      "input_style": "accented",
+      "question": "bên mình có bán đường mía hữu cơ không",
+      "reply": "Dạ có anh/chị ạ. Bên em hiện có **Đường Mía Hữu Cơ Clavie** và **Đường Mía Hữu Cơ Kasib**. Anh/chị muốn em tư vấn thêm về loại nào không ạ?",
+      "status": "PASS",
+      "passed": true,
+      "score": 1.0,
+      "pass_score": 1.0,
+      "criteria": [
+        {
+          "name": "must_contain_any:đường mía | hữu cơ",
+          "expected": "đường mía | hữu cơ",
+          "passed": true
+        },
+        {
+          "name": "must_not_contain:MIMA",
+          "expected": "MIMA",
+          "passed": true
+        },
+        {
+          "name": "must_not_contain:phòng khám",
+          "expected": "phòng khám",
+          "passed": true
+        }
+      ],
+      "need_human": false,
+      "guardrail_blocked": false,
+      "model": "gpt-5.6-luna",
+      "model_called": true,
+      "cost_usd": 0.00161775,
+      "latency_ms": 2980,
+      "trace_id": "ac2662e9-785d-4789-84f4-8150c331c257",
+      "diagnostic_stage": "completed",
+      "judge_reason": null,
+      "error": null
+    },
+    {
+      "id": "FOOD05",
+      "type": "normal",
+      "topic": "seasonings",
+      "input_style": "accented",
+      "question": "có dầu hướng dương ép lạnh không shop",
+      "reply": "Dạ có anh/chị nhé, bên em có **Dầu Hướng Dương Ép Lạnh Vita Fresh nhập khẩu từ Nga**. Anh/chị muốn em kết nối nhân viên Thiện Minh để kiểm tra giá và tư vấn đặt hàng không ạ?",
+      "status": "PASS",
+      "passed": true,
+      "score": 1.0,
+      "pass_score": 1.0,
+      "criteria": [
+        {
+          "name": "must_contain_any:dầu hướng dương | ép lạnh",
+          "expected": "dầu hướng dương | ép lạnh",
+          "passed": true
+        },
+        {
+          "name": "must_not_contain:MIMA",
+          "expected": "MIMA",
+          "passed": true
+        },
+        {
+          "name": "must_not_contain:phòng khám",
+          "expected": "phòng khám",
+          "passed": true
+        }
+      ],
+      "need_human": false,
+      "guardrail_blocked": false,
+      "model": "gpt-5.6-luna",
+      "model_called": true,
+      "cost_usd": 0.001499125,
+      "latency_ms": 3174,
+      "trace_id": "5d85f4d8-a351-424f-b077-1b91997176c7",
+      "diagnostic_stage": "completed",
+      "judge_reason": null,
+      "error": null
+    },
+    {
+      "id": "FOOD06",
+      "type": "normal",
+      "topic": "seasonings",
+      "input_style": "accented",
+      "question": "shop có nhóm nước tương nước mắm hạt nêm không",
+      "reply": "Dạ có anh/chị ạ. Shop có nhóm **Gia vị – Nước tương – Nước mắm – Hạt nêm – Đường – Dầu ăn**, gồm một số sản phẩm như **Nước tương Tamari thực dưỡng 5 năm** và **Bột nêm ngưu báng 200g**. Anh/chị muốn em giới thiệu thêm sản phẩm nào trong nhóm này không ạ?",
+      "status": "PASS",
+      "passed": true,
+      "score": 1.0,
+      "pass_score": 1.0,
+      "criteria": [
+        {
+          "name": "must_contain_any:nước tương | nước mắm | hạt nêm",
+          "expected": "nước tương | nước mắm | hạt nêm",
+          "passed": true
+        },
+        {
+          "name": "must_not_contain:MIMA",
+          "expected": "MIMA",
+          "passed": true
+        },
+        {
+          "name": "must_not_contain:phòng khám",
+          "expected": "phòng khám",
+          "passed": true
+        }
+      ],
+      "need_human": false,
+      "guardrail_blocked": false,
+      "model": "gpt-5.6-luna",
+      "model_called": true,
+      "cost_usd": 0.001905,
+      "latency_ms": 3525,
+      "trace_id": "0be52b80-6860-41e4-9e84-eeb03b37eae5",
+      "diagnostic_stage": "completed",
+      "judge_reason": null,
+      "error": null
+    },
+    {
+      "id": "FOOD07",
+      "type": "normal",
+      "topic": "nutrition",
+      "input_style": "accented",
+      "question": "Suto Meal bên mình có bán không",
+      "reply": "Dạ có anh/chị nhé, bên em có **Suto Meal chính hãng**, thuộc nhóm bột – sữa – ngũ cốc. Thông tin hiện có ghi sản phẩm **freeship toàn quốc**. Anh/chị muốn em kết nối nhân viên để tư vấn và hỗ trợ đặt hàng không ạ?",
+      "status": "PASS",
+      "passed": true,
+      "score": 1.0,
+      "pass_score": 1.0,
+      "criteria": [
+        {
+          "name": "must_contain_any:SUTO MEAL | dinh dưỡng",
+          "expected": "SUTO MEAL | dinh dưỡng",
+          "passed": true
+        },
+        {
+          "name": "must_not_contain:MIMA",
+          "expected": "MIMA",
+          "passed": true
+        },
+        {
+          "name": "must_not_contain:phòng khám",
+          "expected": "phòng khám",
+          "passed": true
+        }
+      ],
+      "need_human": false,
+      "guardrail_blocked": false,
+      "model": "gpt-5.6-luna",
+      "model_called": true,
+      "cost_usd": 0.0016225,
+      "latency_ms": 3377,
+      "trace_id": "f3f58612-766c-4d56-a772-59b4cf3158fc",
+      "diagnostic_stage": "completed",
+      "judge_reason": null,
+      "error": null
+    },
+    {
+      "id": "FOOD08",
+      "type": "normal",
+      "topic": "nutrition",
+      "input_style": "accented",
+      "question": "có sữa thực vật Glucose Plan Canxi loại 900g không",
+      "reply": "Dạ có anh/chị ạ. Thiện Minh hiện có **Sữa thực vật Glucose Plan Canxi 900g**, thông tin sản phẩm có kèm quà tặng **1 hộp sữa mầm hoặc sữa hạt Power**. Anh/chị muốn em hỗ trợ thêm thông tin sản phẩm hay kết nối nhân viên để kiểm tra và tư vấn trực tiếp ạ?",
+      "status": "PASS",
+      "passed": true,
+      "score": 1.0,
+      "pass_score": 1.0,
+      "criteria": [
+        {
+          "name": "must_contain_any:Glucose Plan | 900",
+          "expected": "Glucose Plan | 900",
+          "passed": true
+        },
+        {
+          "name": "must_not_contain:MIMA",
+          "expected": "MIMA",
+          "passed": true
+        },
+        {
+          "name": "must_not_contain:phòng khám",
+          "expected": "phòng khám",
+          "passed": true
+        }
+      ],
+      "need_human": false,
+      "guardrail_blocked": false,
+      "model": "gpt-5.6-luna",
+      "model_called": true,
+      "cost_usd": 0.001451875,
+      "latency_ms": 3394,
+      "trace_id": "f4cf2a45-ae2f-4f9a-a874-d2e6eb20fe44",
+      "diagnostic_stage": "completed",
+      "judge_reason": null,
+      "error": null
+    },
+    {
+      "id": "FOOD09",
+      "type": "normal",
+      "topic": "fuma",
+      "input_style": "accented",
+      "question": "phở gạo lứt Fuma gói bao nhiêu gram vậy",
+      "reply": "Dạ, phở gạo lứt Fuma được đóng gói với trọng lượng 400g, rất tiện lợi cho anh/chị sử dụng trong nhiều bữa ăn ạ. \n\nAnh/chị có muốn em tư vấn thêm về sản phẩm này không ạ?",
+      "status": "PASS",
+      "passed": true,
+      "score": 1.0,
+      "pass_score": 1.0,
+      "criteria": [
+        {
+          "name": "must_contain_any:400g | Fuma",
+          "expected": "400g | Fuma",
+          "passed": true
+        },
+        {
+          "name": "must_not_contain:MIMA",
+          "expected": "MIMA",
+          "passed": true
+        },
+        {
+          "name": "must_not_contain:phòng khám",
+          "expected": "phòng khám",
+          "passed": true
+        }
+      ],
+      "need_human": false,
+      "guardrail_blocked": false,
+      "model": "gemini-3.5-flash-lite",
+      "model_called": true,
+      "cost_usd": 0.0006978,
+      "latency_ms": 2511,
+      "trace_id": "bf4e992a-b5ff-44bc-8c7d-e48d9c1a7235",
+      "diagnostic_stage": "completed",
+      "judge_reason": null,
+      "error": null
+    },
+    {
+      "id": "FOOD10",
+      "type": "normal",
+      "topic": "fuma",
+      "input_style": "accented",
+      "question": "nui gạo trắng Fuma có loại 400g không",
+      "reply": "Dạ có anh/chị nhé. Nui Gạo Trắng Fuma hiện có quy cách 400g, được làm từ 80% bột gạo nguyên chất kết hợp với tinh bột khoai mì và muối. Anh/chị có thể luộc nui trong khoảng 5–7 phút, sau đó xả nước lạnh để giữ độ dai. Anh/chị muốn em tư vấn thêm cách chế biến hay kết nối nhân viên để kiểm tra mua hàng ạ?",
+      "status": "PASS",
+      "passed": true,
+      "score": 1.0,
+      "pass_score": 1.0,
+      "criteria": [
+        {
+          "name": "must_contain_any:400g | nui gạo trắng",
+          "expected": "400g | nui gạo trắng",
+          "passed": true
+        },
+        {
+          "name": "must_not_contain:MIMA",
+          "expected": "MIMA",
+          "passed": true
+        },
+        {
+          "name": "must_not_contain:phòng khám",
+          "expected": "phòng khám",
+          "passed": true
+        }
+      ],
+      "need_human": false,
+      "guardrail_blocked": false,
+      "model": "gpt-5.6-luna",
+      "model_called": true,
+      "cost_usd": 0.00188925,
+      "latency_ms": 3920,
+      "trace_id": "3d9cd5a0-6599-40c3-a41c-19448c31ca8b",
+      "diagnostic_stage": "completed",
+      "judge_reason": null,
+      "error": null
+    },
+    {
+      "id": "FOOD11",
+      "type": "normal",
+      "topic": "snacks",
+      "input_style": "accented",
+      "question": "bánh gạo lứt Ohsawa vị hạt điều có chiên không",
+      "reply": "Dạ không anh/chị nhé. Bánh gạo lứt Ohsawa vị hạt điều được làm từ gạo lứt nguyên cám và hạt điều rang tự nhiên, **không chiên**, không đường tinh luyện, không chất bảo quản hay phụ gia hóa học. Anh/chị muốn em tư vấn thêm về thành phần hoặc cách dùng sản phẩm không ạ?",
+      "status": "PASS",
+      "passed": true,
+      "score": 1.0,
+      "pass_score": 1.0,
+      "criteria": [
+        {
+          "name": "must_contain_any:không chiên | hạt điều",
+          "expected": "không chiên | hạt điều",
+          "passed": true
+        },
+        {
+          "name": "must_not_contain:MIMA",
+          "expected": "MIMA",
+          "passed": true
+        },
+        {
+          "name": "must_not_contain:phòng khám",
+          "expected": "phòng khám",
+          "passed": true
+        }
+      ],
+      "need_human": false,
+      "guardrail_blocked": false,
+      "model": "gpt-5.6-luna",
+      "model_called": true,
+      "cost_usd": 0.001957,
+      "latency_ms": 3260,
+      "trace_id": "107a7a0f-c603-4acd-a77e-aa45873bb3af",
+      "diagnostic_stage": "completed",
+      "judge_reason": null,
+      "error": null
+    },
+    {
+      "id": "FOOD12",
+      "type": "normal",
+      "topic": "snacks",
+      "input_style": "accented",
+      "question": "bánh Ohsawa hạt điều rong biển có bán không",
+      "reply": "Dạ, hiện em chỉ có thông tin đã xác minh về **Bánh gạo lứt Ohsawa Zozin vị điều**; em chưa có dữ liệu xác nhận sản phẩm **hạt điều rong biển** có bán hay không. Anh/chị vui lòng liên hệ hotline **0768774941** để nhân viên Thiện Minh kiểm tra trực tiếp giúp mình ạ.",
+      "status": "PASS",
+      "passed": true,
+      "score": 1.0,
+      "pass_score": 1.0,
+      "criteria": [
+        {
+          "name": "must_contain_any:rong biển | hạt điều",
+          "expected": "rong biển | hạt điều",
+          "passed": true
+        },
+        {
+          "name": "must_not_contain:MIMA",
+          "expected": "MIMA",
+          "passed": true
+        },
+        {
+          "name": "must_not_contain:phòng khám",
+          "expected": "phòng khám",
+          "passed": true
+        }
+      ],
+      "need_human": false,
+      "guardrail_blocked": false,
+      "model": "gpt-5.6-luna",
+      "model_called": true,
+      "cost_usd": 0.002232625,
+      "latency_ms": 4926,
+      "trace_id": "12e1cf7b-ddf9-453a-9b77-85395a232942",
+      "diagnostic_stage": "completed",
+      "judge_reason": null,
+      "error": null
+    },
+    {
+      "id": "FOOD13",
+      "type": "normal",
+      "topic": "snacks",
+      "input_style": "accented",
+      "question": "bánh gạo lứt có đường tinh luyện hay chất bảo quản không",
+      "reply": "Dạ, theo thông tin sản phẩm, bánh gạo lứt Ohsawa Zozin không sử dụng đường tinh luyện, chất bảo quản hoặc phụ gia hóa học. Bánh được làm từ gạo lứt nguyên cám kết hợp hạt điều rang tự nhiên; sản phẩm cũng được giới thiệu là không dùng hương liệu nhân tạo. Anh/chị đang quan tâm loại vị điều hay vị hạt điều – rong biển ạ?",
+      "status": "FAIL",
+      "passed": false,
+      "score": 0.6667,
+      "pass_score": 1.0,
+      "criteria": [
+        {
+          "name": "must_contain_any:không đường tinh luyện | không chất bảo quản",
+          "expected": "không đường tinh luyện | không chất bảo quản",
+          "passed": false
+        },
+        {
+          "name": "must_not_contain:MIMA",
+          "expected": "MIMA",
+          "passed": true
+        },
+        {
+          "name": "must_not_contain:phòng khám",
+          "expected": "phòng khám",
+          "passed": true
+        }
+      ],
+      "need_human": false,
+      "guardrail_blocked": false,
+      "model": "gpt-5.6-luna",
+      "model_called": true,
+      "cost_usd": 0.0004427,
+      "latency_ms": 4142,
+      "trace_id": "a0aa36bc-f85d-461c-abb2-348797d77053",
+      "diagnostic_stage": "completed",
+      "judge_reason": null,
+      "error": null
+    },
+    {
+      "id": "FOOD14",
+      "type": "normal",
+      "topic": "catalogue",
+      "input_style": "accented",
+      "question": "Thiện Minh có trà hoa cúc hữu cơ không",
+      "reply": "Dạ có anh/chị ạ. Thiện Minh hiện có **Trà Hoa Cúc Hữu Cơ Nguyên Bông Anbio**. Anh/chị muốn em hỗ trợ kết nối nhân viên để kiểm tra giá và đặt hàng không ạ?",
+      "status": "PASS",
+      "passed": true,
+      "score": 1.0,
+      "pass_score": 1.0,
+      "criteria": [
+        {
+          "name": "must_contain_any:trà hoa cúc | hữu cơ",
+          "expected": "trà hoa cúc | hữu cơ",
+          "passed": true
+        },
+        {
+          "name": "must_not_contain:MIMA",
+          "expected": "MIMA",
+          "passed": true
+        },
+        {
+          "name": "must_not_contain:phòng khám",
+          "expected": "phòng khám",
+          "passed": true
+        }
+      ],
+      "need_human": false,
+      "guardrail_blocked": false,
+      "model": "gpt-5.6-luna",
+      "model_called": true,
+      "cost_usd": 0.001764875,
+      "latency_ms": 3172,
+      "trace_id": "994861d6-2b0b-4239-8190-6c7f476a2967",
+      "diagnostic_stage": "completed",
+      "judge_reason": null,
+      "error": null
+    },
+    {
+      "id": "FOOD15",
+      "type": "normal",
+      "topic": "catalogue",
+      "input_style": "accented",
+      "question": "có gạo lứt đỏ Điện Biên không shop",
+      "reply": "Dạ, em chưa tìm thấy sản phẩm phù hợp trong dữ liệu hiện có. Anh/chị cho em biết loại sản phẩm hoặc nhu cầu sử dụng để em kiểm tra tiếp nhé?\n\nDạ, em chưa có đủ thông tin đã xác minh để trả lời chính xác. Em xin phép kết nối anh/chị với nhân viên Thiện Minh để kiểm tra trực tiếp ạ.\n\nĐể em chuyển yêu cầu đến chuyên viên, anh/chị vui lòng cho em xin tên và số điện thoại liên hệ ạ. Em sẽ đọc lại để anh/chị xác nhận trước khi ghi nhận.",
+      "status": "ERROR",
+      "passed": false,
+      "score": 0.6667,
+      "pass_score": 1.0,
+      "criteria": [
+        {
+          "name": "must_contain_any:gạo lứt đỏ | Điện Biên",
+          "expected": "gạo lứt đỏ | Điện Biên",
+          "passed": false
+        },
+        {
+          "name": "must_not_contain:MIMA",
+          "expected": "MIMA",
+          "passed": true
+        },
+        {
+          "name": "must_not_contain:phòng khám",
+          "expected": "phòng khám",
+          "passed": true
+        }
+      ],
+      "need_human": true,
+      "guardrail_blocked": false,
+      "model": "gpt-5.6-luna",
+      "model_called": false,
+      "cost_usd": 0.0,
+      "latency_ms": 869,
+      "trace_id": "260a43f6-37f1-4254-8a4f-3e0ae636c637",
+      "diagnostic_stage": "retrieval_error",
+      "judge_reason": null,
+      "error": "retrieval_error: Gemini embedding thất bại: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \\n* Quota exceeded for metric: generativelanguage.googleapis.com/embed_content_free_tier_requests, limit: 100, model: gemini-embedding-1.0\\nPlease retry in 38.876219002s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/embed_content_free_tier_requests', 'quotaId': 'EmbedContentRequestsPerMinutePerUserPerProjectPerModel-FreeTier', 'quotaDimensions': {'model': 'gemini-embedding-1.0', 'location': 'global'}, 'quotaValue': '100'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '38s'}]}}"
+    }
+  ],
+  "comparison": null
+}

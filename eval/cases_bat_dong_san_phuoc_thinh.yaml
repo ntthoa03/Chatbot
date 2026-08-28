@@ -1,0 +1,91 @@
+# H3-09: 15 câu theo index Nhà đất Phước Thịnh, ưu tiên cách hỏi của khách mua nhà.
+- id: RE01
+  question: "bên Phước Thịnh chủ yếu bán nhà khu vực nào vậy"
+  type: normal
+  topic: agency
+  must_contain_any: ["Quận 8", "nhà đất"]
+  must_not_contain: ["MIMA", "phòng khám"]
+- id: RE02
+  question: "công ty có hỗ trợ kiểm tra pháp lý nhà đất không"
+  type: normal
+  topic: agency
+  must_contain_any: ["pháp lý", "minh bạch", "tư vấn"]
+  must_not_contain: ["MIMA", "phòng khám"]
+- id: RE03
+  question: "tôi muốn ký gửi căn nhà quận 8 thì bên mình có nhận không"
+  type: normal
+  topic: services
+  must_contain_any: ["ký gửi", "nhà đất", "tư vấn"]
+  must_not_contain: ["MIMA", "phòng khám"]
+- id: RE04
+  question: "bên anh có nhận đo đạc làm bản vẽ nhà đất không"
+  type: normal
+  topic: services
+  must_contain_any: ["đo đạc", "bản vẽ"]
+  must_not_contain: ["MIMA", "phòng khám"]
+- id: RE05
+  question: "nhà số 62 đường số 18 phường 4 còn thông tin không"
+  type: normal
+  topic: listings
+  must_contain_any: ["62", "đường số 18"]
+  must_not_contain: ["MIMA", "phòng khám"]
+- id: RE06
+  question: "căn đường số 18 quận 8 giá khoảng bao nhiêu"
+  type: normal
+  topic: listings
+  must_contain_any: ["6 tỷ", "6tỷ", "thương lượng"]
+  must_not_contain: ["MIMA", "phòng khám"]
+- id: RE07
+  question: "có căn nào gần quốc lộ 50 với bến xe quận 8 không"
+  type: normal
+  topic: listings
+  must_contain_any: ["Quốc Lộ 50", "bến xe"]
+  must_not_contain: ["MIMA", "phòng khám"]
+- id: RE08
+  question: "nhà gần quốc lộ 50 diện tích cỡ bao nhiêu"
+  type: normal
+  topic: listings
+  must_contain_any: ["4,5", "11m"]
+  must_not_contain: ["MIMA", "phòng khám"]
+- id: RE09
+  question: "căn quốc lộ 50 có mấy phòng vậy"
+  type: normal
+  topic: listings
+  must_contain_any: ["2 phòng", "1 trệt 1 lầu"]
+  must_not_contain: ["MIMA", "phòng khám"]
+- id: RE10
+  question: "tầm dưới 3 tỷ bên mình có nhà quận 8 nào không"
+  type: normal
+  topic: budget
+  must_contain_any: ["2 tỷ", "Quận 8", "thương lượng"]
+  must_not_contain: ["MIMA", "phòng khám"]
+- id: RE11
+  question: "nhà hẻm Hưng Phú phường 10 có tin nào không"
+  type: normal
+  topic: listings
+  must_contain_any: ["Hưng Phú", "P10", "phường 10"]
+  must_not_contain: ["MIMA", "phòng khám"]
+- id: RE12
+  question: "có nhà hẻm xe hơi thông nhiều hướng ở quận 8 không"
+  type: normal
+  topic: listings
+  must_contain_any: ["hẻm xe hơi", "Quận 8"]
+  must_not_contain: ["MIMA", "phòng khám"]
+- id: RE13
+  question: "Phước Thịnh tư vấn thông tin nhà đất theo nguyên tắc nào"
+  type: normal
+  topic: agency
+  must_contain_any: ["uy tín", "trung thực", "minh bạch"]
+  must_not_contain: ["MIMA", "phòng khám"]
+- id: RE14
+  question: "bên công ty hiện có tuyển nhân viên bất động sản không"
+  type: normal
+  topic: recruitment
+  must_contain_any: ["tuyển", "thành viên", "vị trí"]
+  must_not_contain: ["MIMA", "phòng khám"]
+- id: RE15
+  question: "tôi cần tìm nhà bán quận 8 thì bên mình hỗ trợ sao"
+  type: normal
+  topic: services
+  must_contain_any: ["nhà bán", "Quận 8", "tư vấn"]
+  must_not_contain: ["MIMA", "phòng khám"]

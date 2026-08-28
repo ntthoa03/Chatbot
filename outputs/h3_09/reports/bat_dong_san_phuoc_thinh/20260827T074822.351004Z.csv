@@ -1,0 +1,42 @@
+﻿id,type,topic,input_style,status,passed,score,pass_score,question,reply,failed_checks,need_human,guardrail_blocked,model,cost_usd,model_called,latency_ms,trace_id,diagnostic_stage,judge_reason,error
+RE01,normal,agency,accented,PASS,True,1.0,1.0,bên Phước Thịnh chủ yếu bán nhà khu vực nào vậy,"Dạ, theo thông tin em có, Phước Thịnh tập trung chủ yếu ở **Quận 8, TP. Hồ Chí Minh**, đặc biệt là các tin nhà tại những khu vực như Minh Phụng, Hoàng Minh Đạo, Chánh Hưng và Phạm Hùng. Công ty cũng có hoạt động tại TP. Hồ Chí Minh nói chung. Anh/chị đang quan tâm mua nhà ở khu vực nào để em kiểm tra thêm thông tin phù hợp ạ?",,False,False,gpt-5.6-luna,0.001986875,True,10175,e06dcea3-ec2c-44b1-ae07-f9fbb2c8f121,completed,,
+RE02,normal,agency,accented,PASS,True,1.0,1.0,công ty có hỗ trợ kiểm tra pháp lý nhà đất không,"Dạ, bên em có hỗ trợ các dịch vụ pháp lý như đo vẽ nhà đất, trích lục, chuyển quyền sử dụng đất, chuyển thổ cư, cấp mới sổ đỏ, sang tên, tách thửa và hoàn công ạ. 
+
+Anh/chị có muốn em kết nối chuyên viên để tư vấn chi tiết hơn không ạ?",,False,False,gemini-3.5-flash-lite,0.0007639,True,3018,c87c562a-1be3-4cb1-aa47-0e997cd86807,completed,,
+RE03,normal,services,accented,PASS,True,1.0,1.0,tôi muốn ký gửi căn nhà quận 8 thì bên mình có nhận không,"Dạ, bên em có nhận ký gửi nhà đất Quận 8 anh/chị nhé. 
+
+Anh/chị có thể liên hệ số điện thoại 0906070939 hoặc 0909070939 để được hỗ trợ chi tiết ạ.",,False,False,gemini-3.5-flash-lite,0.0007129,True,2768,800a3e11-3ce9-43a2-bef7-21c231f7d620,completed,,
+RE04,normal,services,accented,PASS,True,1.0,1.0,bên anh có nhận đo đạc làm bản vẽ nhà đất không,"Dạ, bên em có cung cấp dịch vụ đo vẽ nhà đất, đo bản vẽ địa chính trích lục, trích đo và các dịch vụ pháp lý liên quan ạ. 
+
+Anh/chị có muốn em hướng dẫn thêm chi tiết không ạ?",,False,False,gemini-3.5-flash-lite,0.0007455,True,2831,ea19ac18-13f1-4a74-957a-3eae259f2de5,completed,,
+RE05,normal,listings,accented,PASS,True,1.0,1.0,nhà số 62 đường số 18 phường 4 còn thông tin không,"Dạ, em vẫn có thông tin đăng về căn nhà số 62 đường số 18, Phường 4, Quận 8: diện tích 4,4m x 9,5m, trệt 2 lầu, 4 phòng ngủ, giá đăng 6,27 tỷ và thương lượng nhẹ. Tuy nhiên, em chưa có dữ liệu xác minh tình trạng hiện tại còn bán hay đã giao dịch. Anh/chị vui lòng liên hệ chuyên viên Phước Thịnh qua hotline **0906070939** để kiểm tra trực tiếp ạ.",,False,False,gpt-5.6-luna,0.001669125,True,5045,6faa3cd4-d453-435e-a2ce-d5d4e9da0215,completed,,
+RE06,normal,listings,accented,PASS,True,1.0,1.0,căn đường số 18 quận 8 giá khoảng bao nhiêu,"Dạ, nhà đường số 18 Phường 4 Quận 8 có các lựa chọn: căn 4.4m x 9.5m giá 6 tỷ 270 (thương lượng) và căn ở Chánh Hưng giá 4 tỷ 979 (bớt lộc). 
+
+Anh/chị muốn xem chi tiết lựa chọn nào ạ?",,False,False,gemini-3.5-flash-lite,0.0007987,True,2535,258ec4df-84e3-4604-981e-a2a4f5b53894,completed,,
+RE07,normal,listings,accented,PASS,True,1.0,1.0,có căn nào gần quốc lộ 50 với bến xe quận 8 không,"Dạ có anh/chị, hiện em thấy 2 căn gần Quốc lộ 50 và Bến xe Quận 8:
+
+- **Căn 1:** Giá bán nhanh **2,85 tỷ**, diện tích **4,5 × 11m**, 1 trệt 1 lầu, 2 phòng, hẻm xe hơi thông nhiều hướng.
+- **Căn 2:** Giá bán nhanh **2,79 tỷ**, diện tích **4 × 16m**, 1 trệt 1 lầu, có sân thượng, hẻm xe hơi 5m, nhà mới ở liền.
+
+Cả hai đều gần khu dân cư Bình Hưng, cầu Nhị Thiên Đường và các tiện ích khu vực. Anh/chị muốn em gửi thêm thông tin căn **2,79 tỷ** hay **2,85 tỷ** ạ?",,False,False,gpt-5.6-luna,0.00244375,True,5704,55d349ac-860f-4bd9-b2e3-a1732a144471,completed,,
+RE08,normal,listings,accented,PASS,True,1.0,1.0,nhà gần quốc lộ 50 diện tích cỡ bao nhiêu,"Dạ, các căn nhà gần Quốc lộ 50 có diện tích khoảng 4x16m (1 trệt, 1 lầu, sân thượng) và 4,5x11m (1 trệt, 1 lầu, 2 phòng ạ).
+
+Anh/chị có muốn em gửi thêm thông tin chi tiết về các căn này không ạ?",,False,False,gemini-3.5-flash-lite,0.0007298,True,2742,21131a8a-2f24-4374-93f5-1e664627b062,completed,,
+RE09,normal,listings,accented,PASS,True,1.0,1.0,căn quốc lộ 50 có mấy phòng vậy,"Dạ, khu Quốc lộ 50 gần Bến xe Quận 8 hiện có 2 căn trong thông tin em tra được. Căn 2 tỷ 790 có 1 trệt, 1 lầu, sân thượng nhưng chưa ghi rõ số phòng; căn 2 tỷ 850 có 1 trệt, 1 lầu và **2 phòng**. Anh/chị đang hỏi căn giá 2 tỷ 790 hay 2 tỷ 850 ạ?",,False,False,gpt-5.6-luna,0.002090375,True,4780,71971d86-96aa-401e-8c21-975b1482fad2,completed,,
+RE10,normal,budget,accented,PASS,True,1.0,1.0,tầm dưới 3 tỷ bên mình có nhà quận 8 nào không,"Dạ, hiện em thấy Quận 8 có 2 căn dưới 3 tỷ:
+
+- **1,68 tỷ (thương lượng):** đường Lưu Hữu Phước, P.15; diện tích 3,5 × 7m, 1 trệt 1 lầu, 2 phòng.
+- **2,89 tỷ (thương lượng):** đường Lương Văn Can, P.15 (P. Phú Định); diện tích 4 × 6m, 1 trệt 2 lầu, 3 phòng, căn góc 2 mặt tiền.
+
+Giá và tình trạng nhà có thể cần chuyên viên kiểm tra lại; anh/chị muốn em kết nối chuyên viên Phước Thịnh qua hotline **0906070939** để hỏi căn phù hợp hoặc đặt lịch xem nhà không ạ?",,False,False,gpt-5.6-luna,0.002613125,True,5966,2e03a836-5043-4cd2-9add-7e742cea3f28,completed,,
+RE11,normal,listings,accented,FAIL,False,0.6667,1.0,nhà hẻm Hưng Phú phường 10 có tin nào không,"Dạ, em chưa có đủ thông tin đã xác minh để trả lời chính xác. Em xin phép kết nối anh/chị với chuyên viên Phước Thịnh để kiểm tra trực tiếp ạ.
+
+Để em chuyển yêu cầu đến chuyên viên, anh/chị vui lòng cho em xin tên và số điện thoại liên hệ ạ. Em sẽ đọc lại để anh/chị xác nhận trước khi ghi nhận.",must_contain_any:Hưng Phú | P10 | phường 10,True,True,gpt-5.6-luna,0.00237675,True,5476,c2315dd8-441d-442d-9d29-e92425907683,blocked_output,,
+RE12,normal,listings,accented,FAIL,False,0.6667,1.0,có nhà hẻm xe hơi thông nhiều hướng ở quận 8 không,"Dạ, em chưa có đủ thông tin đã xác minh để trả lời chính xác. Em xin phép kết nối anh/chị với chuyên viên Phước Thịnh để kiểm tra trực tiếp ạ.
+
+Để em chuyển yêu cầu đến chuyên viên, anh/chị vui lòng cho em xin tên và số điện thoại liên hệ ạ. Em sẽ đọc lại để anh/chị xác nhận trước khi ghi nhận.",must_contain_any:hẻm xe hơi | Quận 8,True,True,gpt-5.6-luna,0.00254775,True,5881,4ec9c3e9-1d5d-4557-a43e-83f9142cb873,blocked_output,,
+RE13,normal,agency,accented,PASS,True,1.0,1.0,Phước Thịnh tư vấn thông tin nhà đất theo nguyên tắc nào,"Dạ, Phước Thịnh tư vấn nhà đất theo các nguyên tắc chính: lấy chữ tín, sự trung thực và minh bạch làm đầu; chia sẻ thông tin chính xác đến khách hàng. Công ty định hướng tư vấn các bất động sản có pháp lý rõ ràng, không quy hoạch hoặc tranh chấp theo thông tin giới thiệu. Bên cạnh đó, Phước Thịnh đề cao sự tận tâm, hỗ trợ khách hàng tìm nhà đất phù hợp với chi phí hợp lý và hợp pháp. Anh/chị đang quan tâm mua nhà, bán nhà hay cần hỗ trợ thủ tục nhà đất ạ?",,False,False,gpt-5.6-luna,0.001925375,True,5099,7d413c58-5802-492c-a350-c15653e7b633,completed,,
+RE14,normal,recruitment,accented,PASS,True,1.0,1.0,bên công ty hiện có tuyển nhân viên bất động sản không,"Dạ hiện công ty Phước Thịnh có tuyển thêm nhân viên kinh doanh bất động sản. Vị trí này không yêu cầu kinh nghiệm, sẽ được đào tạo và hướng dẫn; công việc gồm tìm kiếm nguồn nhà, dẫn khách xem nhà và tư vấn khách hàng. Địa điểm làm việc tại Quận 8 và Quận 10, TP.HCM; mức lương thỏa thuận, có thưởng và hoa hồng. Anh/chị có muốn em kết nối chuyên viên qua hotline 0906070939 để được tư vấn chi tiết không ạ?",,False,False,gpt-5.6-luna,0.002027625,True,4108,85deb319-9b94-4d2a-b7a7-84675851fd78,completed,,
+RE15,normal,services,accented,FAIL,False,0.6667,1.0,tôi cần tìm nhà bán quận 8 thì bên mình hỗ trợ sao,"Dạ, em chưa có đủ thông tin đã xác minh để trả lời chính xác. Em xin phép kết nối anh/chị với chuyên viên Phước Thịnh để kiểm tra trực tiếp ạ.
+
+Để em chuyển yêu cầu đến chuyên viên, anh/chị vui lòng cho em xin tên và số điện thoại liên hệ ạ. Em sẽ đọc lại để anh/chị xác nhận trước khi ghi nhận.",must_contain_any:nhà bán | Quận 8 | tư vấn,True,True,gpt-5.6-luna,0.002394125,True,5477,53a42f89-c6b8-4675-9e0f-b879dac6213a,blocked_output,,

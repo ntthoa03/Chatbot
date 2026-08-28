@@ -1,0 +1,46 @@
++------+--------+-------------+-----------+------+------+-------------+-----------+---------------------------------------------+
+| ID   | Loại   | Chủ đề      | Kiểu nhập | KQ   | Điểm | Chi phí USD | Độ trễ ms | Chi tiết                                    |
++------+--------+-------------+-----------+------+------+-------------+-----------+---------------------------------------------+
+| RE01 | normal | agency      | có dấu    | PASS | 100% | 0.00198687  | 10175     | completed                                   |
+| RE02 | normal | agency      | có dấu    | PASS | 100% | 0.00076390  | 3018      | completed                                   |
+| RE03 | normal | services    | có dấu    | PASS | 100% | 0.00071290  | 2768      | completed                                   |
+| RE04 | normal | services    | có dấu    | PASS | 100% | 0.00074550  | 2831      | completed                                   |
+| RE05 | normal | listings    | có dấu    | PASS | 100% | 0.00166913  | 5045      | completed                                   |
+| RE06 | normal | listings    | có dấu    | PASS | 100% | 0.00079870  | 2535      | completed                                   |
+| RE07 | normal | listings    | có dấu    | PASS | 100% | 0.00244375  | 5704      | completed                                   |
+| RE08 | normal | listings    | có dấu    | PASS | 100% | 0.00072980  | 2742      | completed                                   |
+| RE09 | normal | listings    | có dấu    | PASS | 100% | 0.00209037  | 4780      | completed                                   |
+| RE10 | normal | budget      | có dấu    | PASS | 100% | 0.00261312  | 5966      | completed                                   |
+| RE11 | normal | listings    | có dấu    | FAIL | 67%  | 0.00237675  | 5476      | must_contain_any:Hưng Phú | P10 | phường 10 |
+| RE12 | normal | listings    | có dấu    | FAIL | 67%  | 0.00254775  | 5881      | must_contain_any:hẻm xe hơi | Quận 8        |
+| RE13 | normal | agency      | có dấu    | PASS | 100% | 0.00192538  | 5099      | completed                                   |
+| RE14 | normal | recruitment | có dấu    | PASS | 100% | 0.00202762  | 4108      | completed                                   |
+| RE15 | normal | services    | có dấu    | FAIL | 67%  | 0.00239412  | 5477      | must_contain_any:nhà bán | Quận 8 | tư vấn  |
++------+--------+-------------+-----------+------+------+-------------+-----------+---------------------------------------------+
+
+Đã chấm: 15/15 | Đạt: 12/15 (80.0%) | ERROR: 0 | REVIEW: 0 | Hoàn tất: 100.0%
+Chi phí TB/lượt: $0.00172171 ($0.02582567/15) | TB/lượt gọi model: $0.00172171 (15 lượt model, 0 lượt $0) | Tổng chi phí: $0.02582567 | Độ trễ TB: 4773.67 ms | Thời gian chạy: 34.070s
+Không dấu: 0/0 đạt (0.0%)
+
+Kết quả theo nhóm chủ đề:
++-------------+-------------+--------+------------+-----------+-------+--------+
+| Chủ đề      | Đạt/đã chấm | Tỷ lệ  | Chi phí TB | Độ trễ TB | ERROR | REVIEW |
++-------------+-------------+--------+------------+-----------+-------+--------+
+| agency      | 3/3         | 100.0% | 0.00155872 | 6097.33   | 0     | 0      |
+| budget      | 1/1         | 100.0% | 0.00261312 | 5966.00   | 0     | 0      |
+| listings    | 5/7         | 71.4%  | 0.00180804 | 4594.71   | 0     | 0      |
+| recruitment | 1/1         | 100.0% | 0.00202762 | 4108.00   | 0     | 0      |
+| services    | 2/3         | 66.7%  | 0.00128418 | 3692.00   | 0     | 0      |
++-------------+-------------+--------+------------+-----------+-------+--------+
+Case sai: RE11, RE12, RE15
+Case lỗi hạ tầng: không có
+Case cần review thủ công: không có
+Ngân sách thời gian: 34.070/900s — ĐẠT
+Báo cáo JSON: C:\Users\nghoa\Desktop\Chatbot - miama\outputs\h3_09\reports\bat_dong_san_phuoc_thinh\20260827T074822.351004Z.json
+Bảng chi tiết CSV: C:\Users\nghoa\Desktop\Chatbot - miama\outputs\h3_09\reports\bat_dong_san_phuoc_thinh\20260827T074822.351004Z.csv
+Bảng tổng hợp/so sánh CSV: C:\Users\nghoa\Desktop\Chatbot - miama\outputs\h3_09\reports\bat_dong_san_phuoc_thinh\20260827T074822.351004Z.summary.csv
+Bảng điểm rút gọn CSV: C:\Users\nghoa\Desktop\Chatbot - miama\outputs\h3_09\reports\bat_dong_san_phuoc_thinh\20260827T074822.351004Z.scorecard.csv
+Bảng tự đánh giá 4 cột CSV: C:\Users\nghoa\Desktop\Chatbot - miama\outputs\h3_09\reports\bat_dong_san_phuoc_thinh\20260827T074822.351004Z.manual-review.csv
+Bảng điểm theo chủ đề CSV: C:\Users\nghoa\Desktop\Chatbot - miama\outputs\h3_09\reports\bat_dong_san_phuoc_thinh\20260827T074822.351004Z.topics.csv
+
+--- STDERR ---

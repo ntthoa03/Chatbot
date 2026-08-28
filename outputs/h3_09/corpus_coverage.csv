@@ -1,0 +1,76 @@
+﻿tenant_id,id,topic,question,evidence_ok,matched_terms,expected_terms
+mima_internal,MIMA01,pricing,"Bên mình có mấy gói làm web, giá từng gói sao em?",True,2.000.000 | 6.000.000 | 9.000.000,2.000.000 | 6.000.000 | 9.000.000
+mima_internal,MIMA02,pricing,gói basic 2tr gồm những gì vậy,True,2.000.000 | giao diện mẫu,2.000.000 | giao diện mẫu
+mima_internal,MIMA03,pricing,"gói phổ thông giá nhiêu, có bàn giao code không em",True,6.000.000 | source code,6.000.000 | source code
+mima_internal,MIMA04,pricing,web khởi nghiệp bên em có bản mobile chưa,True,mobile | 9.000.000,mobile | 9.000.000
+mima_internal,MIMA05,pricing,gói chuyên nghiệp 12 triệu đã có ssl đúng không,True,SSL | 12.000.000,SSL | 12.000.000
+mima_internal,MIMA06,pricing,gói cao cấp khác chuyên nghiệp chỗ nào,True,giỏ hàng | song ngữ | 17.000.000,giỏ hàng | song ngữ | 17.000.000
+mima_internal,MIMA07,process,trước khi code anh có được duyệt và sửa giao diện không,True,giao diện | 5 bước | lấy ý tưởng,giao diện | 5 bước | lấy ý tưởng
+mima_internal,MIMA08,services,hosting seo bên mình có uptime bao nhiêu,True,99.9 | Hosting SEO,99.9 | Hosting SEO
+mima_internal,MIMA09,services,mima có hỗ trợ đăng ký với quản lý tên miền không,True,đăng ký | quản lý tên miền,đăng ký | quản lý tên miền
+mima_internal,MIMA10,services,seo tổng thể bên em làm những hạng mục nào vậy,True,nghiên cứu từ khóa | link building | entity SEO,nghiên cứu từ khóa | link building | entity SEO
+mima_internal,MIMA11,services,làm backlink thì giúp web cái gì,True,uy tín | thứ hạng | liên kết,uy tín | thứ hạng | liên kết
+mima_internal,MIMA12,contact,cho anh xin hotline của công ty,True,0909 035 333,0909 035 333 | 0909035333
+mima_internal,MIMA13,contact,văn phòng mima ở địa chỉ nào em,True,31/3B | Đông Thạnh,31/3B | Đông Thạnh
+mima_internal,MIMA14,services,bên mình ngoài làm web còn dịch vụ gì nữa,True,thiết kế app | SEO | hosting,thiết kế app | SEO | hosting
+mima_internal,MIMA15,technology,MIMA dùng công nghệ nào để làm website,True,CMS | PHP | công nghệ,CMS | PHP | công nghệ
+phongkham_hyhy,CLINIC01,specialty,bên phòng khám có khám tim mạch cho người lớn không vậy,True,tim mạch | huyết áp,tim mạch | huyết áp
+phongkham_hyhy,CLINIC02,packages,phòng khám có gói đánh giá nguy cơ đột quỵ không,True,đột quỵ | nguy cơ,đột quỵ | nguy cơ
+phongkham_hyhy,CLINIC03,packages,tôi muốn khám sức khỏe tổng quát định kỳ thì bên mình có làm ko,True,tổng quát | định kỳ,tổng quát | định kỳ
+phongkham_hyhy,CLINIC04,packages,có gói khám sức khỏe cao cấp riêng cho nam không em,True,cao cấp Nam | sức khỏe nam,cao cấp Nam | sức khỏe nam
+phongkham_hyhy,CLINIC05,packages,gói sức khỏe cao cấp nữ có bên phòng khám không,True,cao cấp Nữ,cao cấp Nữ | sức khỏe nữ
+phongkham_hyhy,CLINIC06,doctors,bác sĩ Hồ Hữu Thật chuyên khoa gì vậy,True,Nội thần kinh | đột quỵ,Nội thần kinh | đột quỵ
+phongkham_hyhy,CLINIC07,doctors,bác Hồ Hữu Thật có bao nhiêu năm kinh nghiệm,True,20 năm | hơn 20,20 năm | hơn 20
+phongkham_hyhy,CLINIC08,doctors,bác sĩ Hoàng Quốc Duy khám chuyên khoa nào,True,Nội thần kinh | thần kinh,Nội thần kinh | thần kinh
+phongkham_hyhy,CLINIC09,doctors,bác Phạm Lê Hoàng Long bên mình làm khoa gì,True,Nội thần kinh | thần kinh,Nội thần kinh | thần kinh
+phongkham_hyhy,CLINIC10,staff,chị Thiều Thị Bích Ngọc phụ trách mảng nào,True,xét nghiệm | Cử nhân,xét nghiệm | Cử nhân
+phongkham_hyhy,CLINIC11,staff,điều dưỡng Nguyễn Kim Huy có kinh nghiệm lâu chưa,True,22 năm | điều dưỡng,22 năm | điều dưỡng
+phongkham_hyhy,CLINIC12,service_info,phòng khám có khám ngoài giờ không ạ,True,ngoài giờ | đặt lịch,ngoài giờ | đặt lịch
+phongkham_hyhy,CLINIC13,contact,cho tôi xin hotline phòng khám để đặt lịch,True,0971 787 416,0971 787 416 | 0971787416
+phongkham_hyhy,CLINIC14,contact,muốn đặt lịch khám thì làm thế nào,True,đặt lịch | số điện thoại | hotline,đặt lịch | số điện thoại | hotline
+phongkham_hyhy,CLINIC15,safety,"tôi đau ngực dữ dội khó thở, bot chẩn đoán giúp được không",True,cấp cứu | 115 | bác sĩ,cấp cứu | 115 | bác sĩ
+bat_dong_san_phuoc_thinh,RE01,agency,bên Phước Thịnh chủ yếu bán nhà khu vực nào vậy,True,Quận 8 | nhà đất,Quận 8 | nhà đất
+bat_dong_san_phuoc_thinh,RE02,agency,công ty có hỗ trợ kiểm tra pháp lý nhà đất không,True,pháp lý | minh bạch | tư vấn,pháp lý | minh bạch | tư vấn
+bat_dong_san_phuoc_thinh,RE03,services,tôi muốn ký gửi căn nhà quận 8 thì bên mình có nhận không,True,ký gửi | nhà đất | tư vấn,ký gửi | nhà đất | tư vấn
+bat_dong_san_phuoc_thinh,RE04,services,bên anh có nhận đo đạc làm bản vẽ nhà đất không,True,đo đạc | bản vẽ,đo đạc | bản vẽ
+bat_dong_san_phuoc_thinh,RE05,listings,nhà số 62 đường số 18 phường 4 còn thông tin không,True,62 | đường số 18,62 | đường số 18
+bat_dong_san_phuoc_thinh,RE06,listings,căn đường số 18 quận 8 giá khoảng bao nhiêu,True,6 tỷ | 6tỷ | thương lượng,6 tỷ | 6tỷ | thương lượng
+bat_dong_san_phuoc_thinh,RE07,listings,có căn nào gần quốc lộ 50 với bến xe quận 8 không,True,Quốc Lộ 50 | bến xe,Quốc Lộ 50 | bến xe
+bat_dong_san_phuoc_thinh,RE08,listings,nhà gần quốc lộ 50 diện tích cỡ bao nhiêu,True,"4,5 | 11m","4,5 | 11m"
+bat_dong_san_phuoc_thinh,RE09,listings,căn quốc lộ 50 có mấy phòng vậy,True,2 phòng | 1 trệt 1 lầu,2 phòng | 1 trệt 1 lầu
+bat_dong_san_phuoc_thinh,RE10,budget,tầm dưới 3 tỷ bên mình có nhà quận 8 nào không,True,2 tỷ | Quận 8 | thương lượng,2 tỷ | Quận 8 | thương lượng
+bat_dong_san_phuoc_thinh,RE11,listings,nhà hẻm Hưng Phú phường 10 có tin nào không,True,Hưng Phú | P10,Hưng Phú | P10 | phường 10
+bat_dong_san_phuoc_thinh,RE12,listings,có nhà hẻm xe hơi thông nhiều hướng ở quận 8 không,True,hẻm xe hơi | Quận 8,hẻm xe hơi | Quận 8
+bat_dong_san_phuoc_thinh,RE13,agency,Phước Thịnh tư vấn thông tin nhà đất theo nguyên tắc nào,True,uy tín | trung thực | minh bạch,uy tín | trung thực | minh bạch
+bat_dong_san_phuoc_thinh,RE14,recruitment,bên công ty hiện có tuyển nhân viên bất động sản không,True,tuyển | thành viên | vị trí,tuyển | thành viên | vị trí
+bat_dong_san_phuoc_thinh,RE15,services,tôi cần tìm nhà bán quận 8 thì bên mình hỗ trợ sao,True,nhà bán | Quận 8 | tư vấn,nhà bán | Quận 8 | tư vấn
+giao_duc_haiyan,EDU01,contact,trung tâm HaiYan ở khu vực nào Đồng Nai vậy,True,Long Thành | Đồng Nai,Long Thành | Đồng Nai
+giao_duc_haiyan,EDU02,course_format,bên mình có lớp tiếng Trung 1 kèm 1 không,True,1 kèm 1 | cá nhân,1 kèm 1 | cá nhân
+giao_duc_haiyan,EDU03,course_format,tôi cần học giao tiếp gấp thì có khóa 1-1 phù hợp không,True,giao tiếp | 1 kèm 1,giao tiếp | 1 kèm 1
+giao_duc_haiyan,EDU04,online,học online bên HaiYan có lộ trình không,True,online | lộ trình,online | lộ trình
+giao_duc_haiyan,EDU05,learner_needs,mất gốc phát âm yếu thì học khóa nào được,True,phát âm | người học yếu | 1 kèm 1,phát âm | người học yếu | 1 kèm 1
+giao_duc_haiyan,EDU06,enterprise,có khóa tiếng Trung cho nhân viên thu mua không,True,thu mua | doanh nghiệp,thu mua | doanh nghiệp
+giao_duc_haiyan,EDU07,enterprise,nhân viên điều phối logistics học nội dung nào phù hợp,True,điều phối | logistics | chuỗi cung ứng,điều phối | logistics | chuỗi cung ứng
+giao_duc_haiyan,EDU08,enterprise,bên mình có tiếng Trung cho nhân viên chăm sóc khách hàng không,True,chăm sóc khách hàng | nhân viên,chăm sóc khách hàng | nhân viên
+giao_duc_haiyan,EDU09,enterprise,sale cần nói chuyện với khách Trung thì có lớp nào,True,bán hàng | giao tiếp | nhân viên,bán hàng | giao tiếp | nhân viên
+giao_duc_haiyan,EDU10,enterprise,xưởng tôi muốn đào tạo tiếng Trung cho công nhân có được không,True,công xưởng | sản xuất | doanh nghiệp,công xưởng | sản xuất | doanh nghiệp
+giao_duc_haiyan,EDU11,enterprise,công ty xuất nhập khẩu có chương trình tiếng Trung riêng không,True,xuất nhập khẩu | doanh nghiệp,xuất nhập khẩu | doanh nghiệp
+giao_duc_haiyan,EDU12,enterprise,chi phí đào tạo tiếng Trung cho doanh nghiệp tính sao,True,chi phí | doanh nghiệp | tư vấn,chi phí | doanh nghiệp | tư vấn
+giao_duc_haiyan,EDU13,children,HaiYan có lớp tiếng Trung cho trẻ em không,True,trẻ em | thiếu nhi,trẻ em | thiếu nhi
+giao_duc_haiyan,EDU14,children,ở Nhơn Trạch có lớp tiếng Trung thiếu nhi không,True,Nhơn Trạch | thiếu nhi,Nhơn Trạch | thiếu nhi
+giao_duc_haiyan,EDU15,children,bé học tiểu học bắt đầu tiếng Trung từ đầu được không,True,tiểu học | trẻ em | từ đầu,tiểu học | trẻ em | từ đầu
+thuc_pham_thien_minh,FOOD01,catalogue,Thiện Minh đang bán nhóm thực phẩm nào vậy,True,thực dưỡng | ngũ cốc | gia vị,thực dưỡng | ngũ cốc | gia vị
+thuc_pham_thien_minh,FOOD02,policy,sản phẩm bên mình có ghi nguồn gốc với hạn sử dụng không,True,nguồn gốc | hạn sử dụng | bao bì,nguồn gốc | hạn sử dụng | bao bì
+thuc_pham_thien_minh,FOOD03,delivery,"shop có giao hàng không, giao nhanh chứ",True,giao hàng | nhanh chóng,giao hàng | nhanh chóng
+thuc_pham_thien_minh,FOOD04,seasonings,bên mình có bán đường mía hữu cơ không,True,đường mía | hữu cơ,đường mía | hữu cơ
+thuc_pham_thien_minh,FOOD05,seasonings,có dầu hướng dương ép lạnh không shop,True,dầu hướng dương | ép lạnh,dầu hướng dương | ép lạnh
+thuc_pham_thien_minh,FOOD06,seasonings,shop có nhóm nước tương nước mắm hạt nêm không,True,nước tương | nước mắm | hạt nêm,nước tương | nước mắm | hạt nêm
+thuc_pham_thien_minh,FOOD07,nutrition,Suto Meal bên mình có bán không,True,SUTO MEAL | dinh dưỡng,SUTO MEAL | dinh dưỡng
+thuc_pham_thien_minh,FOOD08,nutrition,có sữa thực vật Glucose Plan Canxi loại 900g không,True,Glucose Plan | 900,Glucose Plan | 900
+thuc_pham_thien_minh,FOOD09,fuma,phở gạo lứt Fuma gói bao nhiêu gram vậy,True,400g | Fuma,400g | Fuma
+thuc_pham_thien_minh,FOOD10,fuma,nui gạo trắng Fuma có loại 400g không,True,400g | nui gạo trắng,400g | nui gạo trắng
+thuc_pham_thien_minh,FOOD11,snacks,bánh gạo lứt Ohsawa vị hạt điều có chiên không,True,không chiên | hạt điều,không chiên | hạt điều
+thuc_pham_thien_minh,FOOD12,snacks,bánh Ohsawa hạt điều rong biển có bán không,True,rong biển | hạt điều,rong biển | hạt điều
+thuc_pham_thien_minh,FOOD13,snacks,bánh gạo lứt có đường tinh luyện hay chất bảo quản không,True,không đường tinh luyện | không chất bảo quản,không đường tinh luyện | không chất bảo quản
+thuc_pham_thien_minh,FOOD14,catalogue,Thiện Minh có trà hoa cúc hữu cơ không,True,trà hoa cúc | hữu cơ,trà hoa cúc | hữu cơ
+thuc_pham_thien_minh,FOOD15,catalogue,có gạo lứt đỏ Điện Biên không shop,True,gạo lứt đỏ | Điện Biên,gạo lứt đỏ | Điện Biên

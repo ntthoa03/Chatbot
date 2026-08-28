@@ -1,0 +1,8 @@
+{
+  "errors": [
+    "phongkham_hyhy: Eval phongkham_hyhy lỗi (exit=2); xem C:\\Users\\nghoa\\Desktop\\Chatbot - miama\\outputs\\h3_09\\reports\\phongkham_hyhy\\run.log",
+    "mima_internal: Eval mima_internal lỗi (exit=1); xem C:\\Users\\nghoa\\Desktop\\Chatbot - miama\\outputs\\h3_09\\reports\\mima_internal\\run.log",
+    "thuc_pham_thien_minh: Eval thuc_pham_thien_minh lỗi (exit=2); xem C:\\Users\\nghoa\\Desktop\\Chatbot - miama\\outputs\\h3_09\\reports\\thuc_pham_thien_minh\\run.log",
+    "bat_dong_san_phuoc_thinh: Eval bat_dong_san_phuoc_thinh lỗi (exit=1); xem C:\\Users\\nghoa\\Desktop\\Chatbot - miama\\outputs\\h3_09\\reports\\bat_dong_san_phuoc_thinh\\run.log"
+  ]
+}
