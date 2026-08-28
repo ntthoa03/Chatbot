@@ -1,0 +1,65 @@
+{
+  "schema_version": "h3-07.rehearsal.v1",
+  "generated_at": "2026-08-27T14:56:25.177343+00:00",
+  "offline": true,
+  "note": "Readiness rehearsal; live API demo remains a separate presenter step.",
+  "runs": [
+    {
+      "run": 1,
+      "passed": true,
+      "checks": {
+        "config:mima_internal": true,
+        "config_tenant_id:mima_internal": true,
+        "config:phongkham_hyhy": true,
+        "config_tenant_id:phongkham_hyhy": true,
+        "config:bat_dong_san_phuoc_thinh": true,
+        "config_tenant_id:bat_dong_san_phuoc_thinh": true,
+        "config:giao_duc_haiyan": true,
+        "config_tenant_id:giao_duc_haiyan": true,
+        "config:thuc_pham_thien_minh": true,
+        "config_tenant_id:thuc_pham_thien_minh": true,
+        "index_catalog:mima_internal": true,
+        "index_catalog:phongkham_hyhy": true,
+        "index_catalog:bat_dong_san_phuoc_thinh": true,
+        "index_catalog:giao_duc_haiyan": true,
+        "index_catalog:thuc_pham_thien_minh": true,
+        "metric_pass_rate": true,
+        "metric_cost_usd": true,
+        "metric_latency_ms": true,
+        "guardrail_30_of_30": true,
+        "artifact:H3-07-demo-script.md": true,
+        "artifact:H3-07-demo-5-slides.pptx": true,
+        "artifact:H3-07-backup-demo.mp4": true
+      }
+    },
+    {
+      "run": 2,
+      "passed": true,
+      "checks": {
+        "config:mima_internal": true,
+        "config_tenant_id:mima_internal": true,
+        "config:phongkham_hyhy": true,
+        "config_tenant_id:phongkham_hyhy": true,
+        "config:bat_dong_san_phuoc_thinh": true,
+        "config_tenant_id:bat_dong_san_phuoc_thinh": true,
+        "config:giao_duc_haiyan": true,
+        "config_tenant_id:giao_duc_haiyan": true,
+        "config:thuc_pham_thien_minh": true,
+        "config_tenant_id:thuc_pham_thien_minh": true,
+        "index_catalog:mima_internal": true,
+        "index_catalog:phongkham_hyhy": true,
+        "index_catalog:bat_dong_san_phuoc_thinh": true,
+        "index_catalog:giao_duc_haiyan": true,
+        "index_catalog:thuc_pham_thien_minh": true,
+        "metric_pass_rate": true,
+        "metric_cost_usd": true,
+        "metric_latency_ms": true,
+        "guardrail_30_of_30": true,
+        "artifact:H3-07-demo-script.md": true,
+        "artifact:H3-07-demo-5-slides.pptx": true,
+        "artifact:H3-07-backup-demo.mp4": true
+      }
+    }
+  ],
+  "passed": true
+}
