@@ -1,0 +1,47 @@
+{
+  "schema_version": "h3-14.crawl.v1",
+  "crawled_at": "2026-08-31T02:36:03.477392+00:00",
+  "base_url": "https://www.python.org/",
+  "tenant_id": "h3_14_www_python_org",
+  "user_agent": "TenantKnowledgeCrawler/1.0 (+internal evaluation)",
+  "robots_url": "https://www.python.org/robots.txt",
+  "robots_status": "loaded",
+  "sitemap_url": "https://www.python.org/sitemap.xml",
+  "sitemap_url_count": 0,
+  "allowed_candidate_count": 63,
+  "discovery_strategy": "homepage_links",
+  "discovery_errors": [
+    "headless_page:https://www.python.org/psf: HeadlessUnavailable: Chưa cài Playwright. Chạy: pip install playwright; playwright install chromium",
+    "headless_page:https://www.python.org/jobs: HeadlessUnavailable: Chưa cài Playwright. Chạy: pip install playwright; playwright install chromium"
+  ],
+  "headless_enabled": true,
+  "headless_max_pages": 2,
+  "headless_attempt_count": 2,
+  "headless_success_count": 0,
+  "requested_page_limit": 3,
+  "fetched_page_count": 1,
+  "chunk_count": 8,
+  "duplicate_content_chunks_removed": 0,
+  "minimum_required_chunks": 1,
+  "meets_minimum_chunks": true,
+  "chunk_size": 900,
+  "chunk_overlap": 120,
+  "min_chunk_chars": 80,
+  "sitemap_errors": [
+    "https://www.python.org/sitemap.xml: HTTPError: HTTP Error 404: Not Found"
+  ],
+  "page_errors": [],
+  "skipped": [
+    {
+      "url": "https://www.python.org/psf",
+      "reason": "too_little_public_text_after_fallback"
+    },
+    {
+      "url": "https://www.python.org/jobs",
+      "reason": "too_little_public_text_after_fallback"
+    }
+  ],
+  "source_urls": [
+    "https://www.python.org/"
+  ]
+}

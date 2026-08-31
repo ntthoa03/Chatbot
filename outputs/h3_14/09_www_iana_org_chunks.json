@@ -1,0 +1,101 @@
+[
+  {
+    "tenant_id": "h3_14_www_iana_org",
+    "chunk_id": "0fa0fe68-846e-5c24-bf50-b3fc6fc5fd6b",
+    "content": "Internet Assigned Numbers Authority\nThe global coordination of the DNS Root, IP addressing, and other Internet protocol resources is performed as the Internet Assigned Numbers Authority (IANA) functions. Learn more.\nManagement of the DNS Root Zone (assignments of ccTLDs and gTLDs) along with other functions such as the .int and .arpa zones.\nRoot Zone Management\nDatabase of Top Level Domains\nIDN Practices Repository\nCoordination of the global IP and AS number spaces, such as allocations made to Regional Internet Registries.\nIP Addresses & AS Numbers\nNetwork abuse information\nProtocol Assignments\nThe central repository for protocol name and number registries used in many Internet protocols.\nApply for an assignment\nRoot Zone Registry .INT Registry .ARPA Registry IDN Repository\nNumber Registries RIR Allocation Data Abuse Information\nProtocol Registries Time Zone Database",
+    "metadata": {
+      "url": "https://www.iana.org/",
+      "title": "Internet Assigned Numbers Authority",
+      "type": "blog",
+      "updated_at": "2026-08-31"
+    }
+  },
+  {
+    "tenant_id": "h3_14_www_iana_org",
+    "chunk_id": "1272b1f3-27c0-58a7-a183-ded8c3e4a669",
+    "content": "Number Registries RIR Allocation Data Abuse Information\nProtocol Registries Time Zone Database\nNews Performance The Organization Archive Contact Us\nThe IANA functions coordinate the Internet’s globally unique identifiers, and are provided by Public Technical Identifiers , an affiliate of ICANN .",
+    "metadata": {
+      "url": "https://www.iana.org/",
+      "title": "Internet Assigned Numbers Authority",
+      "type": "blog",
+      "updated_at": "2026-08-31"
+    }
+  },
+  {
+    "tenant_id": "h3_14_www_iana_org",
+    "chunk_id": "88ce822b-685c-583c-a653-a759621c173e",
+    "content": "For the Internet to work as a single seamless network, technical identifiers must mean the same thing everywhere: network identifiers like domain names and IP addresses must be assigned to a single party and have the same meaning globally, and communication protocols must use codes that have the same interpretation by every software implementation. The Internet Assigned Numbers Authority (IANA) maintains the authoritative public registries that record these allocations and definitions, providing a common global point of reference.",
+    "metadata": {
+      "url": "https://www.iana.org/about",
+      "title": "About us",
+      "type": "blog",
+      "updated_at": "2026-08-31"
+    }
+  },
+  {
+    "tenant_id": "h3_14_www_iana_org",
+    "chunk_id": "80ddf236-8364-56a8-829c-791e99c354a9",
+    "content": "Although the Internet is decentralized by design, a limited set of its technical elements require this globally coordinated administration. The IANA role is a public service. The registries we maintain are openly published, our services are provided without charge, and we act as a neutral steward implementing policies developed by the communities we serve. Much of our work involves processing requests for identifiers arising from technical standardization processes or submitted directly by users of IANA services. We assess each request carefully against the established policies governing the identifier’s allocation and use.",
+    "metadata": {
+      "url": "https://www.iana.org/about",
+      "title": "About us",
+      "type": "blog",
+      "updated_at": "2026-08-31"
+    }
+  },
+  {
+    "tenant_id": "h3_14_www_iana_org",
+    "chunk_id": "a504c16a-710d-5711-9ca4-cd91ddb12118",
+    "content": "Our responsibilities extend beyond maintaining the registries themselves. We also operate the systems used to publish the registries and their associated data, together with supporting operational services. These include infrastructure and events involved in producing, securing, and distributing key aspects of the DNS.\nThe need for the IANA functions dates to the record-keeping activities that accompanied the earliest experiments leading to today’s Internet, and their origins can be traced to the 1970s. Today, the functions are performed by Public Technical Identifiers , a purpose-built affiliate of ICANN dedicated exclusively to delivering the IANA services.\nNews Announcements, publications and consultations from across the IANA functions.\nPerformance How we are performing against our service level commitments, at a glance and in monthly reports.",
+    "metadata": {
+      "url": "https://www.iana.org/about",
+      "title": "About us",
+      "type": "blog",
+      "updated_at": "2026-08-31"
+    }
+  },
+  {
+    "tenant_id": "h3_14_www_iana_org",
+    "chunk_id": "5ffaae71-b49a-5be7-8006-6326b290b841",
+    "content": "Performance How we are performing against our service level commitments, at a glance and in monthly reports.\nThe Organization How the IANA functions are governed, overseen, planned, and continuously improved.\nArchive Historical documents from prior projects and services, and the master index of published reports.\nContact us How to reach us with questions, requests, and feedback.\nContinuous Improvement\nRoot Zone Registry .INT Registry .ARPA Registry IDN Repository\nNumber Registries RIR Allocation Data Abuse Information\nProtocol Registries Time Zone Database\nNews Performance The Organization Archive Contact Us\nThe IANA functions coordinate the Internet’s globally unique identifiers, and are provided by Public Technical Identifiers , an affiliate of ICANN .",
+    "metadata": {
+      "url": "https://www.iana.org/about",
+      "title": "About us",
+      "type": "blog",
+      "updated_at": "2026-08-31"
+    }
+  },
+  {
+    "tenant_id": "h3_14_www_iana_org",
+    "chunk_id": "97835a1d-5e9e-5070-b4ad-81535487864c",
+    "content": "Domain Name Services\nWe operate and maintain a number of key aspects of the DNS, including the root zone, and the .int and .arpa domains.\nThe DNS Root Zone The root is the upper-most part of the DNS hierarchy, and involves delegating administrative responsibility of “top-level domains”, which are the last segment of a domain name.\n.INT The .int top-level domain, designed for the sole use of cross-national organisations, such as treaty organisations, that do not naturally fit into a specific country’s top-level domain.\n.ARPA The .arpa domain is used internally by Internet protocols for purposes not designed to be directly accessed, as defined in various technical standards.\nIDN Practices Repository A repository of permissible characters for different languages and writing systems provided for registration by different domain registries, helping to foster internationalization.",
+    "metadata": {
+      "url": "https://www.iana.org/domains",
+      "title": "Domain Name Services",
+      "type": "blog",
+      "updated_at": "2026-08-31"
+    }
+  },
+  {
+    "tenant_id": "h3_14_www_iana_org",
+    "chunk_id": "3a91d28c-8160-5046-a8da-95cbd45d79e1",
+    "content": "Root Key Signing Key (DNSSEC) The Root Key Signing Key provides verification of the DNSSEC-signed root zone, administered through public key signing ceremonies and serving as the DNS trust anchor.\nReserved Domains Specially designated domains that are held to serve specialized purposes, such as avoiding conflicts with potential real-world usage.\nRoot Zone Management\nInstructions & Guides\nRegister/modify an .INT domain\nIDN Practices Repository\nRoot Key Signing Key (DNSSEC)\nTrust Anchors and Rollovers\nKey Signing Ceremonies\nPolicies & Procedures\nCommunity Representatives\nRoot Zone Registry .INT Registry .ARPA Registry IDN Repository\nNumber Registries RIR Allocation Data Abuse Information\nProtocol Registries Time Zone Database\nNews Performance The Organization Archive Contact Us",
+    "metadata": {
+      "url": "https://www.iana.org/domains",
+      "title": "Domain Name Services",
+      "type": "blog",
+      "updated_at": "2026-08-31"
+    }
+  },
+  {
+    "tenant_id": "h3_14_www_iana_org",
+    "chunk_id": "1d6a9730-6918-5cff-acee-941f0e86b7bc",
+    "content": "Protocol Registries Time Zone Database\nNews Performance The Organization Archive Contact Us\nThe IANA functions coordinate the Internet’s globally unique identifiers, and are provided by Public Technical Identifiers , an affiliate of ICANN .",
+    "metadata": {
+      "url": "https://www.iana.org/domains",
+      "title": "Domain Name Services",
+      "type": "blog",
+      "updated_at": "2026-08-31"
+    }
+  }
+]

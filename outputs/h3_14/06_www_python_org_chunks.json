@@ -1,0 +1,90 @@
+[
+  {
+    "tenant_id": "h3_14_www_python_org",
+    "chunk_id": "8f546206-d154-50d3-b355-171660ee9ccd",
+    "content": "Notice: This page displays a fallback because interactive scripts did not run. Possible causes include disabled JavaScript or failure to load scripts or stylesheets.\nA A Smaller Larger Reset\nSocialize LinkedIn Mastodon Chat on IRC Twitter\nAbout Applications Quotes Getting Started Help Python Brochure\nDownloads All releases Source code Windows macOS Android iOS Other Platforms License Alternative Implementations\nDocumentation Docs Audio/Visual Talks Beginner's Guide FAQ Non-English Docs PEP Index Python Books Python Essays\nCommunity Diversity Mailing Lists IRC Forums PSF Annual Impact Report Python Conferences Special Interest Groups Python Logo Python Wiki Code of Conduct Community Awards Get Involved Shared Stories\nSuccess Stories Arts Business Education Engineering Government Scientific Software Development\nNews Python News PSF Newsletter PSF News PyCon US News News from the Community",
+    "metadata": {
+      "url": "https://www.python.org/",
+      "title": "Welcome to Python.org",
+      "type": "blog",
+      "updated_at": "2026-08-31"
+    }
+  },
+  {
+    "tenant_id": "h3_14_www_python_org",
+    "chunk_id": "3f840a10-dc6c-5caf-97c7-f3a0bd460f81",
+    "content": "News Python News PSF Newsletter PSF News PyCon US News News from the Community\nEvents Python Events User Group Events Python Events Archive User Group Events Archive Submit an Event\n>_ Launch Interactive Shell\n# Simple arithmetic >>> 1 / 2 0.5 >>> 2 ** 3 8 >>> 17 / 3 # true division returns a float 5.666666666666667 >>> 17 // 3 # floor division 5 Intuitive Interpretation Calculations are simple with Python, and expression syntax is straightforward: the operators + , - , * and / work as expected; parentheses () can be used for grouping. More about simple math functions in Python 3 .",
+    "metadata": {
+      "url": "https://www.python.org/",
+      "title": "Welcome to Python.org",
+      "type": "blog",
+      "updated_at": "2026-08-31"
+    }
+  },
+  {
+    "tenant_id": "h3_14_www_python_org",
+    "chunk_id": "1d1fcb75-1881-5ae9-8392-6e4aa5a41168",
+    "content": "# Python 3: List comprehensions >>> fruits = [ 'Banana' , 'Apple' , 'Lime' ] >>> loud_fruits = [ fruit . upper () for fruit in fruits ] >>> print ( loud_fruits ) ['BANANA', 'APPLE', 'LIME'] # List and the enumerate function >>> list ( enumerate ( fruits )) [(0, 'Banana'), (1, 'Apple'), (2, 'Lime')] Compound Data Types Lists (known as arrays in other languages) are one of the compound data types that Python understands. Lists can be indexed, sliced and manipulated with other built-in functions. More about lists in Python 3",
+    "metadata": {
+      "url": "https://www.python.org/",
+      "title": "Welcome to Python.org",
+      "type": "blog",
+      "updated_at": "2026-08-31"
+    }
+  },
+  {
+    "tenant_id": "h3_14_www_python_org",
+    "chunk_id": "d571018a-1835-503c-8587-e1f523f5b7e4",
+    "content": "# For loop on a list >>> numbers = [ 2 , 4 , 6 , 8 ] >>> product = 1 >>> for number in numbers : ... product = product * number ... >>> print ( 'The product is:' , product ) The product is: 384 All the Flow You’d Expect Python knows the usual control flow statements that other languages speak — if , for , while and range — with some of its own twists, of course. More control flow tools in Python 3\n# Python 3: Fibonacci series up to n >>> def fib ( n ): >>> a , b = 0 , 1 >>> while a < n : >>> print ( a , end = ' ' ) >>> a , b = b , a + b >>> print () >>> fib ( 1000 ) 0 1 1 2 3 5 8 13 21 34 55 89 144 233 377 610 987 Functions Defined The core of extensible programming is defining functions. Python allows mandatory and optional arguments, keyword arguments, and even arbitrary argument lists. More about defining functions in Python 3",
+    "metadata": {
+      "url": "https://www.python.org/",
+      "title": "Welcome to Python.org",
+      "type": "blog",
+      "updated_at": "2026-08-31"
+    }
+  },
+  {
+    "tenant_id": "h3_14_www_python_org",
+    "chunk_id": "5bad8044-d8f6-5eca-88c0-9e03e0f08291",
+    "content": "# Simple output (with Unicode) >>> print ( \"Hello, I'm Python!\" ) Hello, I'm Python! # Input, assignment >>> name = input ( 'What is your name? \\n ' ) >>> print ( f 'Hi, { name } .' ) What is your name? Python Hi, Python. Quick & Easy to Learn Experienced programmers in any other language can pick up Python very quickly, and beginners find the clean syntax and indentation structure easy to learn. Whet your appetite with our Python 3 overview.\nPython is a programming language that lets you work quickly and integrate systems more effectively. Learn More\nWhether you're new to programming or an experienced developer, it's easy to learn and use Python.\nStart with our Beginner’s Guide\nPython source code and installers are available for download for all versions!\nLatest: Python 3.14.7\nDocumentation for Python's standard library, along with tutorials and guides, are available online.",
+    "metadata": {
+      "url": "https://www.python.org/",
+      "title": "Welcome to Python.org",
+      "type": "blog",
+      "updated_at": "2026-08-31"
+    }
+  },
+  {
+    "tenant_id": "h3_14_www_python_org",
+    "chunk_id": "21a536d7-9344-5e69-b5f5-a4dec7169128",
+    "content": "Documentation for Python's standard library, along with tutorials and guides, are available online.\nLooking for work or have a Python related position that you're trying to hire for? Our relaunched community-run job board is the place to go.\n2026- 08-25 Ramya Ravi: 2026 PSF Board Election Candidate Interview\n2026- 08-25 Petr Andreev: 2026 PSF Board Election Candidate Interview\n2026- 08-25 Nina Zakharenko: 2026 PSF Board Election Candidate Interview\n2026- 08-25 Keith Murray: 2026 PSF Board Election Candidate Interview\n2026- 08-25 Karo Ladino-Puerto: 2026 PSF Board Election Candidate Interview\n2026- 09-12 PyDay Boyacá 2026\n2026- 09-17 PyCon Cameroon 2026\n2026- 09-26 PythonCamp Rügen 2026\n2026- 10-03 PyBay 2026\n2026- 10-07 PyCon Africa 2026\nPython provides convenience and flexibility for scalable ML/AI by Dean Wampler",
+    "metadata": {
+      "url": "https://www.python.org/",
+      "title": "Welcome to Python.org",
+      "type": "blog",
+      "updated_at": "2026-08-31"
+    }
+  },
+  {
+    "tenant_id": "h3_14_www_python_org",
+    "chunk_id": "dcd7606a-2250-5eed-a64a-464f4756210e",
+    "content": "2026- 10-07 PyCon Africa 2026\nPython provides convenience and flexibility for scalable ML/AI by Dean Wampler\nWeb Development : Django , Pyramid , Bottle , Tornado , Flask , Litestar , FastAPI\nGUI Development : tkInter , PyGObject , PyQt , PySide , Kivy , wxPython , DearPyGui\nAI and Machine Learning : PyTorch , TensorFlow , scikit-learn , Transformers , Anthropic , LangChain\nScientific and Numeric : SciPy , Pandas , IPython\nSoftware Development : Buildbot , Trac , Roundup\nSystem Administration : Ansible , Salt , OpenStack , xonsh\n>>> Python Software Foundation\nThe mission of the Python Software Foundation is to promote, protect, and advance the Python programming language, and to support and facilitate the growth of a diverse and international community of Python programmers. Learn more\nBecome a Member Donate to the PSF",
+    "metadata": {
+      "url": "https://www.python.org/",
+      "title": "Welcome to Python.org",
+      "type": "blog",
+      "updated_at": "2026-08-31"
+    }
+  },
+  {
+    "tenant_id": "h3_14_www_python_org",
+    "chunk_id": "8108ebb9-c884-5fc4-a557-144895f26175",
+    "content": "Become a Member Donate to the PSF\nContributing Developer's Guide Issue Tracker python-dev list Core Mentorship Report a Security Issue\nHelp & General Contact\nDiversity Initiatives\nCopyright ©2001-2026. Python Software Foundation Legal Statements Privacy Notice",
+    "metadata": {
+      "url": "https://www.python.org/",
+      "title": "Welcome to Python.org",
+      "type": "blog",
+      "updated_at": "2026-08-31"
+    }
+  }
+]

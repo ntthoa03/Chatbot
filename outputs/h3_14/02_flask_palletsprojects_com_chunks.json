@@ -1,0 +1,101 @@
+[
+  {
+    "tenant_id": "h3_14_flask_palletsprojects_com",
+    "chunk_id": "fb28c34e-8538-5382-b034-26dc8847416d",
+    "content": "Flask Documentation (3.1.x) »\nWelcome to Flask’s documentation. Flask is a lightweight WSGI web application framework. It is designed to make getting started quick and easy, with the ability to scale up to complex applications.\nGet started with Installation and then get an overview with the Quickstart . There is also a more detailed Tutorial that shows how to create a small but complete application with Flask. Common patterns are described in the Patterns for Flask section. The rest of the docs describe each component of Flask in detail, with a full reference in the API section.\nFlask depends on the Werkzeug WSGI toolkit, the Jinja template engine, and the Click CLI toolkit. Be sure to check their documentation as well as Flask’s when looking for information.",
+    "metadata": {
+      "url": "https://flask.palletsprojects.com/en/stable",
+      "title": "Welcome to Flask — Flask Documentation (3.1.x)",
+      "type": "blog",
+      "updated_at": "2026-08-11"
+    }
+  },
+  {
+    "tenant_id": "h3_14_flask_palletsprojects_com",
+    "chunk_id": "baa0db19-cff5-56d1-9572-07d3def98a42",
+    "content": "Flask provides configuration and conventions, with sensible defaults, to get started. This section of the documentation explains the different parts of the Flask framework and how they can be used, customized, and extended. Beyond Flask itself, look for community-maintained extensions to add even more functionality.\nInstallation Python Version Dependencies Virtual environments Install Flask\nQuickstart A Minimal Application Debug Mode HTML Escaping Routing Static Files Rendering Templates Accessing Request Data Redirects and Errors About Responses Sessions Message Flashing Logging Hooking in WSGI Middleware Using Flask Extensions Deploying to a Web Server\nTutorial Project Layout Application Setup Define and Access the Database Blueprints and Views Templates Static Files Blog Blueprint Make the Project Installable Test Coverage Deploy to Production Keep Developing!",
+    "metadata": {
+      "url": "https://flask.palletsprojects.com/en/stable",
+      "title": "Welcome to Flask — Flask Documentation (3.1.x)",
+      "type": "blog",
+      "updated_at": "2026-08-11"
+    }
+  },
+  {
+    "tenant_id": "h3_14_flask_palletsprojects_com",
+    "chunk_id": "c496c5ef-4c39-55ae-8922-62ffa3073b0d",
+    "content": "Templates Jinja Setup Standard Context Controlling Autoescaping Registering Filters Context Processors Streaming\nTesting Flask Applications Identifying Tests Fixtures Sending Requests with the Test Client Following Redirects Accessing and Modifying the Session Running Commands with the CLI Runner Tests that depend on an Active Context\nHandling Application Errors Error Logging Tools Error Handlers Custom Error Pages Blueprint Error Handlers Returning API Errors as JSON Logging Debugging\nDebugging Application Errors In Production The Built-In Debugger External Debuggers\nLogging Basic Configuration Email Errors to Admins Injecting Request Information Other Libraries",
+    "metadata": {
+      "url": "https://flask.palletsprojects.com/en/stable",
+      "title": "Welcome to Flask — Flask Documentation (3.1.x)",
+      "type": "blog",
+      "updated_at": "2026-08-11"
+    }
+  },
+  {
+    "tenant_id": "h3_14_flask_palletsprojects_com",
+    "chunk_id": "0afb8d71-b64f-558c-8773-49ae09dea9f8",
+    "content": "Logging Basic Configuration Email Errors to Admins Injecting Request Information Other Libraries\nConfiguration Handling Configuration Basics Debug Mode Builtin Configuration Values Configuring from Python Files Configuring from Data Files Configuring from Environment Variables Configuration Best Practices Development / Production Instance Folders\nSignals Core Signals Subscribing to Signals Creating Signals Sending Signals Signals and Flask’s Request Context Decorator Based Signal Subscriptions\nClass-based Views Basic Reusable View URL Variables View Lifetime and self View Decorators Method Hints Method Dispatching and APIs\nApplication Structure and Lifecycle Application Setup Serving the Application How a Request is Handled\nThe Application Context Purpose of the Context Lifetime of the Context Manually Push a Context Storing Data Events and Signals",
+    "metadata": {
+      "url": "https://flask.palletsprojects.com/en/stable",
+      "title": "Welcome to Flask — Flask Documentation (3.1.x)",
+      "type": "blog",
+      "updated_at": "2026-08-11"
+    }
+  },
+  {
+    "tenant_id": "h3_14_flask_palletsprojects_com",
+    "chunk_id": "0c2dffe4-050b-5dc5-ad1b-025ad050c31d",
+    "content": "The Request Context Purpose of the Context Lifetime of the Context Manually Push a Context How the Context Works Callbacks and Errors Notes On Proxies\nModular Applications with Blueprints Why Blueprints? The Concept of Blueprints My First Blueprint Registering Blueprints Nesting Blueprints Blueprint Resources Building URLs Blueprint Error Handlers\nExtensions Finding Extensions Using Extensions Building Extensions\nCommand Line Interface Application Discovery Run the Development Server Open a Shell Environment Variables From dotenv Environment Variables From virtualenv Custom Commands Plugins Custom Scripts PyCharm Integration\nDevelopment Server Command Line In Code\nWorking with the Shell Command Line Interface Creating a Request Context Firing Before/After Request Further Improving the Shell Experience",
+    "metadata": {
+      "url": "https://flask.palletsprojects.com/en/stable",
+      "title": "Welcome to Flask — Flask Documentation (3.1.x)",
+      "type": "blog",
+      "updated_at": "2026-08-11"
+    }
+  },
+  {
+    "tenant_id": "h3_14_flask_palletsprojects_com",
+    "chunk_id": "238847d5-c679-574c-8e94-87769f294792",
+    "content": "Patterns for Flask Large Applications as Packages Application Factories Application Dispatching Using URL Processors Using SQLite 3 with Flask SQLAlchemy in Flask Uploading Files Caching View Decorators Form Validation with WTForms Template Inheritance Message Flashing JavaScript, fetch , and JSON Lazily Loading Views MongoDB with MongoEngine Adding a favicon Streaming Contents Deferred Request Callbacks Adding HTTP Method Overrides Request Content Checksums Background Tasks with Celery Subclassing Flask Single-Page Applications\nSecurity Considerations Resource Use Cross-Site Scripting (XSS) Cross-Site Request Forgery (CSRF) JSON Security Security Headers Host Header Validation Copy/Paste to Terminal\nDeploying to Production Self-Hosted Options Hosting Platforms\nAsync with Gevent Enabling gevent Combining with async / await",
+    "metadata": {
+      "url": "https://flask.palletsprojects.com/en/stable",
+      "title": "Welcome to Flask — Flask Documentation (3.1.x)",
+      "type": "blog",
+      "updated_at": "2026-08-11"
+    }
+  },
+  {
+    "tenant_id": "h3_14_flask_palletsprojects_com",
+    "chunk_id": "197f7040-2a0d-5808-8331-bcfc7b75398f",
+    "content": "Async with Gevent Enabling gevent Combining with async / await\nUsing async and await Performance Background tasks When to use Quart instead Extensions Other event loops\nIf you are looking for information on a specific function, class or method, this part of the documentation is for you.\nAPI Application Object Blueprint Objects Incoming Request Data Response Objects Sessions Session Interface Test Client Test CLI Runner Application Globals Useful Functions and Classes Message Flashing JSON Support Template Rendering Configuration Stream Helpers Useful Internals Signals Class-Based Views URL Route Registrations View Function Options Command Line Interface\nDesign Decisions in Flask The Explicit Application Object The Routing System One Template Engine What does “micro” mean? Thread Locals Async/await and ASGI support What Flask is, What Flask is Not",
+    "metadata": {
+      "url": "https://flask.palletsprojects.com/en/stable",
+      "title": "Welcome to Flask — Flask Documentation (3.1.x)",
+      "type": "blog",
+      "updated_at": "2026-08-11"
+    }
+  },
+  {
+    "tenant_id": "h3_14_flask_palletsprojects_com",
+    "chunk_id": "150ea5b9-531f-5386-a915-ce0e82e7661d",
+    "content": "Flask Extension Development Naming The Extension Class and Initialization Adding Behavior Configuration Techniques Data During a Request Views and Models Recommended Extension Guidelines\nBSD-3-Clause License",
+    "metadata": {
+      "url": "https://flask.palletsprojects.com/en/stable",
+      "title": "Welcome to Flask — Flask Documentation (3.1.x)",
+      "type": "blog",
+      "updated_at": "2026-08-11"
+    }
+  },
+  {
+    "tenant_id": "h3_14_flask_palletsprojects_com",
+    "chunk_id": "af6e2c06-e797-5abc-98e9-3f3e5b91b592",
+    "content": "BSD-3-Clause License\nChanges Version 3.1.3 Version 3.1.2 Version 3.1.1 Version 3.1.0 Version 3.0.3 Version 3.0.2 Version 3.0.1 Version 3.0.0 Version 2.3.3 Version 2.3.2 Version 2.3.1 Version 2.3.0 Version 2.2.5 Version 2.2.4 Version 2.2.3 Version 2.2.2 Version 2.2.1 Version 2.2.0 Version 2.1.3 Version 2.1.2 Version 2.1.1 Version 2.1.0 Version 2.0.3 Version 2.0.2 Version 2.0.1 Version 2.0.0 Version 1.1.4 Version 1.1.3 Version 1.1.2 Version 1.1.1 Version 1.1.0 Version 1.0.4 Version 1.0.3 Version 1.0.2 Version 1.0.1 Version 1.0 Version 0.12.5 Version 0.12.4 Version 0.12.3 Version 0.12.2 Version 0.12.1 Version 0.12 Version 0.11.1 Version 0.11 Version 0.10.1 Version 0.10 Version 0.9 Version 0.8.1 Version 0.8 Version 0.7.2 Version 0.7.1 Version 0.7 Version 0.6.1 Version 0.6 Version 0.5.2 Version 0.5.1 Version 0.5 Version 0.4 Version 0.3.1 Version 0.3 Version 0.2 Version 0.1",
+    "metadata": {
+      "url": "https://flask.palletsprojects.com/en/stable",
+      "title": "Welcome to Flask — Flask Documentation (3.1.x)",
+      "type": "blog",
+      "updated_at": "2026-08-11"
+    }
+  }
+]
