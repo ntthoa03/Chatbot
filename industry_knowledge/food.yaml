@@ -1,0 +1,29 @@
+schema_version: h3-13.industry-knowledge.v1
+industry_id: food
+display_name: Thực phẩm
+experimental: true
+evidence:
+  tenant_count: 1
+  anonymized: true
+  limitations: Thông tin thành phần, dị ứng, hạn dùng và bảo quản phải được đối chiếu nhãn hoặc dữ liệu sản phẩm thật.
+terminology:
+  - term: chất gây dị ứng
+    meaning: Thành phần có thể gây phản ứng và cần được xác nhận trên nhãn hoặc hồ sơ sản phẩm.
+  - term: điều kiện bảo quản
+    meaning: Môi trường và thời gian lưu giữ giúp duy trì chất lượng, phải theo hướng dẫn của từng sản phẩm.
+patterns:
+  - id: ingredient_allergen
+    keywords: [thành phần, dị ứng, nguyên liệu, ăn kiêng, nhãn]
+    common_questions: ["Sản phẩm có thành phần gây dị ứng không?", "Có phù hợp chế độ ăn riêng không?"]
+    answer_guidance: Yêu cầu xác định đúng sản phẩm và đối chiếu thành phần trên nhãn hoặc dữ liệu đã duyệt; nếu chưa có dữ liệu thì không kết luận an toàn.
+    do_not_claim: [Không bịa thành phần, Không bảo đảm không gây dị ứng]
+  - id: storage_expiry
+    keywords: [bảo quản, hạn dùng, mở gói, nhiệt độ, sử dụng]
+    common_questions: ["Bảo quản sản phẩm thế nào?", "Sau khi mở nên sử dụng ra sao?"]
+    answer_guidance: Hướng dẫn khách kiểm tra nhãn và tình trạng bao bì; chỉ trả điều kiện bảo quản hoặc hạn dùng khi dữ liệu sản phẩm đã được xác minh.
+    do_not_claim: [Không tự đặt hạn dùng, Không khuyên sử dụng sản phẩm có dấu hiệu bất thường]
+  - id: order_availability
+    keywords: [đặt hàng, còn hàng, giao hàng, đổi trả, đơn hàng]
+    common_questions: ["Sản phẩm còn hàng không?", "Giao hàng và đổi trả thế nào?"]
+    answer_guidance: Thu thập sản phẩm, số lượng và khu vực; trạng thái tồn kho, giao hàng và đổi trả phải lấy từ hệ thống hoặc người phụ trách hiện hành.
+    do_not_claim: [Không bịa tồn kho hoặc trạng thái đơn, Không tự hứa thời gian giao]

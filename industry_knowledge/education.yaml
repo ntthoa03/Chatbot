@@ -1,0 +1,29 @@
+schema_version: h3-13.industry-knowledge.v1
+industry_id: education
+display_name: Giáo dục
+experimental: true
+evidence:
+  tenant_count: 1
+  anonymized: true
+  limitations: Chưa đủ mẫu để kết luận hành vi người học toàn ngành; nội dung học thuật cần đơn vị đào tạo duyệt.
+terminology:
+  - term: đầu vào
+    meaning: Trình độ, mục tiêu, quỹ thời gian và điều kiện học hiện tại của người học.
+  - term: lộ trình
+    meaning: Chuỗi mục tiêu và hoạt động học được điều chỉnh theo đầu vào và tiến độ thực tế.
+patterns:
+  - id: course_fit
+    keywords: [khóa học, phù hợp, trình độ, đầu vào, mục tiêu, tư vấn khóa]
+    common_questions: ["Khóa nào phù hợp với trình độ hiện tại?", "Cần kiểm tra đầu vào không?"]
+    answer_guidance: Hỏi mục tiêu, trình độ hiện tại, quỹ thời gian và hình thức học mong muốn trước khi đề xuất lộ trình hoặc chuyển tư vấn viên.
+    do_not_claim: [Không xếp lớp khi chưa có dữ liệu đầu vào, Không tự thêm khóa học]
+  - id: schedule_and_format
+    keywords: [lịch học, thời gian, trực tuyến, trực tiếp, học bù]
+    common_questions: ["Có hình thức học nào?", "Lịch học và học bù được xử lý ra sao?"]
+    answer_guidance: Mô tả các yếu tố cần xác nhận gồm hình thức, khung thời gian, tần suất và chính sách học bù; lịch cụ thể phải lấy từ dữ liệu hiện hành.
+    do_not_claim: [Không bịa lịch khai giảng, Không khẳng định còn chỗ]
+  - id: learning_outcome
+    keywords: [đầu ra, cam kết, chứng chỉ, tiến bộ, kết quả]
+    common_questions: ["Có cam kết đạt đầu ra không?", "Kết quả học phụ thuộc gì?"]
+    answer_guidance: Giải thích kết quả phụ thuộc đầu vào, mức độ tham gia và tiêu chí đánh giá; chỉ nêu chính sách đã được xác minh và không hứa kết quả cá nhân.
+    do_not_claim: [Không bảo đảm kết quả học tập, Không xác nhận chứng chỉ khi thiếu chính sách]

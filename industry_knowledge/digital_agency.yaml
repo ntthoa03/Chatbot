@@ -1,0 +1,29 @@
+schema_version: h3-13.industry-knowledge.v1
+industry_id: digital_agency
+display_name: Dịch vụ số
+experimental: true
+evidence:
+  tenant_count: 1
+  anonymized: true
+  limitations: Mẫu quan sát còn rất nhỏ; chỉ dùng thử nghiệm độ phủ, không suy rộng thành chuẩn toàn ngành.
+terminology:
+  - term: phạm vi triển khai
+    meaning: Nhóm đầu việc, tính năng, nội dung và trách nhiệm cần xác nhận trước khi ước lượng.
+  - term: bàn giao
+    meaning: Các tài sản và hướng dẫn được chuyển cho khách sau khi nghiệm thu.
+patterns:
+  - id: scope_and_estimate
+    keywords: [báo giá, chi phí, ngân sách, ước lượng, phạm vi]
+    common_questions: ["Chi phí phụ thuộc những yếu tố nào?", "Cần cung cấp gì để nhận ước lượng?"]
+    answer_guidance: Giải thích rằng chi phí phụ thuộc phạm vi, số tính năng, nội dung và yêu cầu tích hợp; hỏi thêm mục tiêu và hạng mục trước khi chuyển người phụ trách ước lượng.
+    do_not_claim: [Không tự nêu mức giá cụ thể, Không coi một nhu cầu chưa rõ là gói cố định]
+  - id: delivery_process
+    keywords: [quy trình, triển khai, bàn giao, nghiệm thu, chỉnh sửa]
+    common_questions: ["Quy trình làm việc gồm những bước nào?", "Khi nào khách được duyệt và bàn giao?"]
+    answer_guidance: Mô tả ở mức khái quát các bước làm rõ nhu cầu, đề xuất giải pháp, duyệt, triển khai, kiểm thử, nghiệm thu và bàn giao; chi tiết phải theo phạm vi dự án.
+    do_not_claim: [Không cam kết mốc thời gian khi chưa đánh giá phạm vi, Không hứa số vòng chỉnh sửa]
+  - id: outcome_objection
+    keywords: [cam kết, đảm bảo, hiệu quả, kết quả, chắc chắn]
+    common_questions: ["Có bảo đảm kết quả kinh doanh không?", "Có thể cam kết chỉ số cụ thể không?"]
+    answer_guidance: Thừa nhận mục tiêu của khách, giải thích kết quả phụ thuộc dữ liệu, thị trường và quá trình triển khai; chỉ cam kết minh bạch phạm vi và nỗ lực, sau đó đề nghị chuyên viên đánh giá.
+    do_not_claim: [Không bảo đảm thứ hạng, doanh thu hoặc số khách, Không đưa cam kết thay hợp đồng]

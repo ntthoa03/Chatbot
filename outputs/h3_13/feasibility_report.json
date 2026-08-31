@@ -1,0 +1,289 @@
+{
+  "schema_version": "h3-13.feasibility.v1",
+  "task": "H3-13",
+  "mode": "offline_deterministic_ab",
+  "industry_count": 5,
+  "case_count": 15,
+  "baseline": {
+    "passed": 4,
+    "total": 15,
+    "pass_rate": 0.2667
+  },
+  "with_industry_layer": {
+    "passed": 15,
+    "total": 15,
+    "pass_rate": 1.0
+  },
+  "absolute_gain": 0.7333,
+  "definition_of_done_met": true,
+  "privacy_validation": {
+    "passed": true,
+    "rules": [
+      "no_tenant_identity",
+      "no_phone_email_url",
+      "no_specific_price"
+    ]
+  },
+  "per_industry": [
+    {
+      "industry_id": "digital_agency",
+      "total": 3,
+      "baseline_passed": 1,
+      "with_layer_passed": 3,
+      "baseline_pass_rate": 0.3333,
+      "with_layer_pass_rate": 1.0
+    },
+    {
+      "industry_id": "education",
+      "total": 3,
+      "baseline_passed": 1,
+      "with_layer_passed": 3,
+      "baseline_pass_rate": 0.3333,
+      "with_layer_pass_rate": 1.0
+    },
+    {
+      "industry_id": "food",
+      "total": 3,
+      "baseline_passed": 1,
+      "with_layer_passed": 3,
+      "baseline_pass_rate": 0.3333,
+      "with_layer_pass_rate": 1.0
+    },
+    {
+      "industry_id": "medical_clinic",
+      "total": 3,
+      "baseline_passed": 0,
+      "with_layer_passed": 3,
+      "baseline_pass_rate": 0.0,
+      "with_layer_pass_rate": 1.0
+    },
+    {
+      "industry_id": "real_estate",
+      "total": 3,
+      "baseline_passed": 1,
+      "with_layer_passed": 3,
+      "baseline_pass_rate": 0.3333,
+      "with_layer_pass_rate": 1.0
+    }
+  ],
+  "cost_usd": 0.0,
+  "duration_ms": 132.47,
+  "limitations": [
+    "Chỉ có một tenant quan sát cho mỗi ngành; không đủ để suy rộng mẫu hình.",
+    "A/B đo độ phủ deterministic trên dữ liệu synthetic, không đo chất lượng sinh của LLM.",
+    "Chưa nối tầng ngành vào runtime; năm bot hiện tại không bị thay đổi.",
+    "Production cần data owner duyệt, log khách thật, guardrail và isolation regression."
+  ],
+  "details": [
+    {
+      "id": "DA01",
+      "industry_id": "digital_agency",
+      "question": "Bên mình báo giá dựa vào những gì vậy?",
+      "expected_terms": [
+        "phạm vi",
+        "tính năng"
+      ],
+      "baseline_reply": "Chi phí cần được ước lượng sau khi làm rõ phạm vi, số tính năng, nội dung và yêu cầu tích hợp.",
+      "baseline_passed": true,
+      "with_layer_reply": "Giải thích rằng chi phí phụ thuộc phạm vi, số tính năng, nội dung và yêu cầu tích hợp; hỏi thêm mục tiêu và hạng mục trước khi chuyển người phụ trách ước lượng.",
+      "with_layer_pattern_id": "scope_and_estimate",
+      "with_layer_passed": true
+    },
+    {
+      "id": "DA02",
+      "industry_id": "digital_agency",
+      "question": "Quy trình triển khai rồi nghiệm thu bàn giao như nào?",
+      "expected_terms": [
+        "nhu cầu",
+        "bàn giao"
+      ],
+      "baseline_reply": null,
+      "baseline_passed": false,
+      "with_layer_reply": "Mô tả ở mức khái quát các bước làm rõ nhu cầu, đề xuất giải pháp, duyệt, triển khai, kiểm thử, nghiệm thu và bàn giao; chi tiết phải theo phạm vi dự án.",
+      "with_layer_pattern_id": "delivery_process",
+      "with_layer_passed": true
+    },
+    {
+      "id": "DA03",
+      "industry_id": "digital_agency",
+      "question": "Có đảm bảo làm xong là hiệu quả chắc chắn không?",
+      "expected_terms": [
+        "phụ thuộc",
+        "thị trường"
+      ],
+      "baseline_reply": null,
+      "baseline_passed": false,
+      "with_layer_reply": "Thừa nhận mục tiêu của khách, giải thích kết quả phụ thuộc dữ liệu, thị trường và quá trình triển khai; chỉ cam kết minh bạch phạm vi và nỗ lực, sau đó đề nghị chuyên viên đánh giá.",
+      "with_layer_pattern_id": "outcome_objection",
+      "with_layer_passed": true
+    },
+    {
+      "id": "MC01",
+      "industry_id": "medical_clinic",
+      "question": "Muốn đặt lịch khám thì cần chuẩn bị gì?",
+      "expected_terms": [
+        "xác nhận trực tiếp",
+        "hồ sơ"
+      ],
+      "baseline_reply": "Khách nên xác nhận lịch trực tiếp với cơ sở và mang hồ sơ liên quan nếu có.",
+      "baseline_passed": false,
+      "with_layer_reply": "Hướng dẫn khách cung cấp nhu cầu khám và khung thời gian mong muốn; nhắc xác nhận trực tiếp với cơ sở và mang hồ sơ liên quan nếu có.",
+      "with_layer_pattern_id": "appointment_preparation",
+      "with_layer_passed": true
+    },
+    {
+      "id": "MC02",
+      "industry_id": "medical_clinic",
+      "question": "Tôi đau và khó thở, bot chẩn đoán giúp được không?",
+      "expected_terms": [
+        "không chẩn đoán",
+        "khẩn cấp"
+      ],
+      "baseline_reply": null,
+      "baseline_passed": false,
+      "with_layer_reply": "Không chẩn đoán hoặc kê đơn; khuyến nghị nhân viên y tế đánh giá và ưu tiên trợ giúp khẩn cấp nếu có dấu hiệu nghiêm trọng.",
+      "with_layer_pattern_id": "symptom_safety",
+      "with_layer_passed": true
+    },
+    {
+      "id": "MC03",
+      "industry_id": "medical_clinic",
+      "question": "Chi phí dịch vụ có áp dụng bảo hiểm không?",
+      "expected_terms": [
+        "phụ thuộc",
+        "xác nhận"
+      ],
+      "baseline_reply": null,
+      "baseline_passed": false,
+      "with_layer_reply": "Nêu rằng chi phí và quyền lợi phụ thuộc dịch vụ, hồ sơ và chính sách áp dụng; xin thông tin nhu cầu tối thiểu rồi chuyển bộ phận phụ trách xác nhận.",
+      "with_layer_pattern_id": "service_cost_scope",
+      "with_layer_passed": true
+    },
+    {
+      "id": "RE01",
+      "industry_id": "real_estate",
+      "question": "Tôi muốn mua ở khu vực phù hợp thì cần gửi thông tin gì?",
+      "expected_terms": [
+        "loại tài sản",
+        "khu vực"
+      ],
+      "baseline_reply": "Cần cho biết loại tài sản, khu vực, mục đích, diện tích và khoảng ngân sách để lọc nhu cầu.",
+      "baseline_passed": true,
+      "with_layer_reply": "Hỏi loại tài sản, khu vực, mục đích, diện tích mong muốn, thời gian và khoảng ngân sách để thu hẹp lựa chọn; không tự khẳng định còn hàng.",
+      "with_layer_pattern_id": "requirement_discovery",
+      "with_layer_passed": true
+    },
+    {
+      "id": "RE02",
+      "industry_id": "real_estate",
+      "question": "Sổ và pháp lý tài sản phải kiểm tra như nào?",
+      "expected_terms": [
+        "hồ sơ",
+        "quyền sở hữu"
+      ],
+      "baseline_reply": null,
+      "baseline_passed": false,
+      "with_layer_reply": "Giải thích cần kiểm tra hồ sơ, quyền sở hữu, quy hoạch và tình trạng tranh chấp từ nguồn có thẩm quyền; chuyển chuyên viên xác minh tài sản cụ thể.",
+      "with_layer_pattern_id": "legal_verification",
+      "with_layer_passed": true
+    },
+    {
+      "id": "RE03",
+      "industry_id": "real_estate",
+      "question": "Đầu tư căn này có cam kết sinh lời không?",
+      "expected_terms": [
+        "thị trường",
+        "vị trí"
+      ],
+      "baseline_reply": null,
+      "baseline_passed": false,
+      "with_layer_reply": "Nêu rõ hiệu quả đầu tư phụ thuộc thị trường, vị trí, pháp lý và thời điểm; cung cấp tiêu chí đánh giá thay vì cam kết lợi nhuận.",
+      "with_layer_pattern_id": "investment_expectation",
+      "with_layer_passed": true
+    },
+    {
+      "id": "ED01",
+      "industry_id": "education",
+      "question": "Khóa học nào phù hợp với tôi?",
+      "expected_terms": [
+        "mục tiêu",
+        "trình độ"
+      ],
+      "baseline_reply": "Cần biết mục tiêu, trình độ hiện tại, quỹ thời gian và hình thức học mong muốn trước khi đề xuất.",
+      "baseline_passed": true,
+      "with_layer_reply": "Hỏi mục tiêu, trình độ hiện tại, quỹ thời gian và hình thức học mong muốn trước khi đề xuất lộ trình hoặc chuyển tư vấn viên.",
+      "with_layer_pattern_id": "course_fit",
+      "with_layer_passed": true
+    },
+    {
+      "id": "ED02",
+      "industry_id": "education",
+      "question": "Có lịch học trực tuyến và học bù không?",
+      "expected_terms": [
+        "hình thức",
+        "thời gian"
+      ],
+      "baseline_reply": null,
+      "baseline_passed": false,
+      "with_layer_reply": "Mô tả các yếu tố cần xác nhận gồm hình thức, khung thời gian, tần suất và chính sách học bù; lịch cụ thể phải lấy từ dữ liệu hiện hành.",
+      "with_layer_pattern_id": "schedule_and_format",
+      "with_layer_passed": true
+    },
+    {
+      "id": "ED03",
+      "industry_id": "education",
+      "question": "Có cam kết đầu ra và tiến bộ không?",
+      "expected_terms": [
+        "đầu vào",
+        "tham gia"
+      ],
+      "baseline_reply": null,
+      "baseline_passed": false,
+      "with_layer_reply": "Giải thích kết quả phụ thuộc đầu vào, mức độ tham gia và tiêu chí đánh giá; chỉ nêu chính sách đã được xác minh và không hứa kết quả cá nhân.",
+      "with_layer_pattern_id": "learning_outcome",
+      "with_layer_passed": true
+    },
+    {
+      "id": "FD01",
+      "industry_id": "food",
+      "question": "Sản phẩm có thành phần dễ gây dị ứng không?",
+      "expected_terms": [
+        "nhãn",
+        "không kết luận an toàn"
+      ],
+      "baseline_reply": "Cần xác định đúng sản phẩm và đối chiếu thành phần trên nhãn; khi thiếu dữ liệu thì không kết luận an toàn.",
+      "baseline_passed": true,
+      "with_layer_reply": "Yêu cầu xác định đúng sản phẩm và đối chiếu thành phần trên nhãn hoặc dữ liệu đã duyệt; nếu chưa có dữ liệu thì không kết luận an toàn.",
+      "with_layer_pattern_id": "ingredient_allergen",
+      "with_layer_passed": true
+    },
+    {
+      "id": "FD02",
+      "industry_id": "food",
+      "question": "Hạn dùng và cách bảo quản sau mở gói thế nào?",
+      "expected_terms": [
+        "nhãn",
+        "xác minh"
+      ],
+      "baseline_reply": null,
+      "baseline_passed": false,
+      "with_layer_reply": "Hướng dẫn khách kiểm tra nhãn và tình trạng bao bì; chỉ trả điều kiện bảo quản hoặc hạn dùng khi dữ liệu sản phẩm đã được xác minh.",
+      "with_layer_pattern_id": "storage_expiry",
+      "with_layer_passed": true
+    },
+    {
+      "id": "FD03",
+      "industry_id": "food",
+      "question": "Còn hàng không và giao đơn như nào?",
+      "expected_terms": [
+        "hệ thống",
+        "người phụ trách"
+      ],
+      "baseline_reply": null,
+      "baseline_passed": false,
+      "with_layer_reply": "Thu thập sản phẩm, số lượng và khu vực; trạng thái tồn kho, giao hàng và đổi trả phải lấy từ hệ thống hoặc người phụ trách hiện hành.",
+      "with_layer_pattern_id": "order_availability",
+      "with_layer_passed": true
+    }
+  ]
+}

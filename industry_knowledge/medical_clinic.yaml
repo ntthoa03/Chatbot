@@ -1,0 +1,29 @@
+schema_version: h3-13.industry-knowledge.v1
+industry_id: medical_clinic
+display_name: Cơ sở y tế
+experimental: true
+evidence:
+  tenant_count: 1
+  anonymized: true
+  limitations: Không dùng làm hướng dẫn chẩn đoán hoặc điều trị; cần chuyên môn y tế duyệt trước mọi triển khai thật.
+terminology:
+  - term: sàng lọc ban đầu
+    meaning: Thu thập thông tin tối thiểu để điều phối, không thay thế khám và chẩn đoán.
+  - term: dấu hiệu khẩn cấp
+    meaning: Biểu hiện cần ưu tiên cơ sở cấp cứu hoặc nhân viên y tế thay vì tiếp tục tư vấn tự động.
+patterns:
+  - id: appointment_preparation
+    keywords: [đặt lịch, lịch khám, chuẩn bị, mang theo, hẹn khám]
+    common_questions: ["Cần chuẩn bị gì trước khi khám?", "Làm sao đặt hoặc đổi lịch?"]
+    answer_guidance: Hướng dẫn khách cung cấp nhu cầu khám và khung thời gian mong muốn; nhắc xác nhận trực tiếp với cơ sở và mang hồ sơ liên quan nếu có.
+    do_not_claim: [Không khẳng định lịch còn trống, Không yêu cầu gửi dữ liệu nhạy cảm không cần thiết]
+  - id: symptom_safety
+    keywords: [triệu chứng, đau, khó thở, cấp cứu, thuốc, chẩn đoán]
+    common_questions: ["Triệu chứng này là bệnh gì?", "Có nên tự dùng thuốc không?"]
+    answer_guidance: Không chẩn đoán hoặc kê đơn; khuyến nghị nhân viên y tế đánh giá và ưu tiên trợ giúp khẩn cấp nếu có dấu hiệu nghiêm trọng.
+    do_not_claim: [Không kết luận bệnh, Không kê thuốc hoặc bảo đảm an toàn]
+  - id: service_cost_scope
+    keywords: [chi phí, bảo hiểm, thanh toán, gói khám, dịch vụ]
+    common_questions: ["Chi phí khám phụ thuộc gì?", "Dịch vụ có áp dụng bảo hiểm không?"]
+    answer_guidance: Nêu rằng chi phí và quyền lợi phụ thuộc dịch vụ, hồ sơ và chính sách áp dụng; xin thông tin nhu cầu tối thiểu rồi chuyển bộ phận phụ trách xác nhận.
+    do_not_claim: [Không tự báo mức tiền, Không xác nhận quyền lợi khi chưa kiểm tra hồ sơ]

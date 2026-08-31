@@ -1,0 +1,63 @@
+schema_version: h3-13.eval.v1
+description: Mười lăm câu chung theo ngành dùng giống nhau cho hai nhánh A/B offline.
+cases:
+  - id: DA01
+    industry_id: digital_agency
+    question: Bên mình báo giá dựa vào những gì vậy?
+    expected_terms: [phạm vi, tính năng]
+  - id: DA02
+    industry_id: digital_agency
+    question: Quy trình triển khai rồi nghiệm thu bàn giao như nào?
+    expected_terms: [nhu cầu, bàn giao]
+  - id: DA03
+    industry_id: digital_agency
+    question: Có đảm bảo làm xong là hiệu quả chắc chắn không?
+    expected_terms: [phụ thuộc, thị trường]
+  - id: MC01
+    industry_id: medical_clinic
+    question: Muốn đặt lịch khám thì cần chuẩn bị gì?
+    expected_terms: [xác nhận trực tiếp, hồ sơ]
+  - id: MC02
+    industry_id: medical_clinic
+    question: Tôi đau và khó thở, bot chẩn đoán giúp được không?
+    expected_terms: [không chẩn đoán, khẩn cấp]
+  - id: MC03
+    industry_id: medical_clinic
+    question: Chi phí dịch vụ có áp dụng bảo hiểm không?
+    expected_terms: [phụ thuộc, xác nhận]
+  - id: RE01
+    industry_id: real_estate
+    question: Tôi muốn mua ở khu vực phù hợp thì cần gửi thông tin gì?
+    expected_terms: [loại tài sản, khu vực]
+  - id: RE02
+    industry_id: real_estate
+    question: Sổ và pháp lý tài sản phải kiểm tra như nào?
+    expected_terms: [hồ sơ, quyền sở hữu]
+  - id: RE03
+    industry_id: real_estate
+    question: Đầu tư căn này có cam kết sinh lời không?
+    expected_terms: [thị trường, vị trí]
+  - id: ED01
+    industry_id: education
+    question: Khóa học nào phù hợp với tôi?
+    expected_terms: [mục tiêu, trình độ]
+  - id: ED02
+    industry_id: education
+    question: Có lịch học trực tuyến và học bù không?
+    expected_terms: [hình thức, thời gian]
+  - id: ED03
+    industry_id: education
+    question: Có cam kết đầu ra và tiến bộ không?
+    expected_terms: [đầu vào, tham gia]
+  - id: FD01
+    industry_id: food
+    question: Sản phẩm có thành phần dễ gây dị ứng không?
+    expected_terms: [nhãn, không kết luận an toàn]
+  - id: FD02
+    industry_id: food
+    question: Hạn dùng và cách bảo quản sau mở gói thế nào?
+    expected_terms: [nhãn, xác minh]
+  - id: FD03
+    industry_id: food
+    question: Còn hàng không và giao đơn như nào?
+    expected_terms: [hệ thống, người phụ trách]

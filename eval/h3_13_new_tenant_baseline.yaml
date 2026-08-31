@@ -1,0 +1,18 @@
+schema_version: h3-13.baseline.v1
+description: Dữ liệu tối thiểu giả lập của năm tenant mới; mỗi tenant chỉ có một mục FAQ chung trước khi bật tầng ngành.
+industries:
+  digital_agency:
+    - keywords: [báo giá, chi phí]
+      answer: Chi phí cần được ước lượng sau khi làm rõ phạm vi, số tính năng, nội dung và yêu cầu tích hợp.
+  medical_clinic:
+    - keywords: [đặt lịch, chuẩn bị]
+      answer: Khách nên xác nhận lịch trực tiếp với cơ sở và mang hồ sơ liên quan nếu có.
+  real_estate:
+    - keywords: [mua, khu vực]
+      answer: Cần cho biết loại tài sản, khu vực, mục đích, diện tích và khoảng ngân sách để lọc nhu cầu.
+  education:
+    - keywords: [khóa học, phù hợp]
+      answer: Cần biết mục tiêu, trình độ hiện tại, quỹ thời gian và hình thức học mong muốn trước khi đề xuất.
+  food:
+    - keywords: [thành phần, dị ứng]
+      answer: Cần xác định đúng sản phẩm và đối chiếu thành phần trên nhãn; khi thiếu dữ liệu thì không kết luận an toàn.

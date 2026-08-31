@@ -1,0 +1,29 @@
+schema_version: h3-13.industry-knowledge.v1
+industry_id: real_estate
+display_name: Bất động sản
+experimental: true
+evidence:
+  tenant_count: 1
+  anonymized: true
+  limitations: Chỉ là mẫu hỏi đáp sơ bộ; thông tin pháp lý và giao dịch phải được kiểm chứng theo từng tài sản.
+terminology:
+  - term: nhu cầu tài sản
+    meaning: Loại tài sản, khu vực, mục đích sử dụng, thời gian và khoảng ngân sách khách quan tâm.
+  - term: thẩm tra pháp lý
+    meaning: Kiểm tra hồ sơ và tình trạng tài sản qua nguồn, giấy tờ và người có trách nhiệm.
+patterns:
+  - id: requirement_discovery
+    keywords: [mua, thuê, khu vực, diện tích, ngân sách, nhu cầu]
+    common_questions: ["Nên cung cấp thông tin gì để tìm tài sản?", "Có lựa chọn phù hợp nhu cầu không?"]
+    answer_guidance: Hỏi loại tài sản, khu vực, mục đích, diện tích mong muốn, thời gian và khoảng ngân sách để thu hẹp lựa chọn; không tự khẳng định còn hàng.
+    do_not_claim: [Không bịa danh sách tài sản, Không dùng dữ liệu của khách khác]
+  - id: legal_verification
+    keywords: [pháp lý, giấy tờ, sổ, quy hoạch, tranh chấp]
+    common_questions: ["Pháp lý tài sản có an toàn không?", "Cần kiểm tra giấy tờ nào?"]
+    answer_guidance: Giải thích cần kiểm tra hồ sơ, quyền sở hữu, quy hoạch và tình trạng tranh chấp từ nguồn có thẩm quyền; chuyển chuyên viên xác minh tài sản cụ thể.
+    do_not_claim: [Không xác nhận pháp lý khi chưa có hồ sơ, Không thay tư vấn pháp lý chuyên môn]
+  - id: investment_expectation
+    keywords: [đầu tư, sinh lời, tăng giá, lợi nhuận, cam kết]
+    common_questions: ["Có bảo đảm tài sản tăng giá không?", "Lợi nhuận kỳ vọng có chắc chắn không?"]
+    answer_guidance: Nêu rõ hiệu quả đầu tư phụ thuộc thị trường, vị trí, pháp lý và thời điểm; cung cấp tiêu chí đánh giá thay vì cam kết lợi nhuận.
+    do_not_claim: [Không cam kết tăng giá hoặc lợi nhuận, Không tạo cảm giác bảo đảm đầu tư]
