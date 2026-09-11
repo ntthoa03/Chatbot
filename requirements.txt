@@ -4,6 +4,11 @@ pyyaml
 numpy
 python-dotenv
 
+# H4-04 — document upload; ảnh/PDF scan dùng model vision API:
+pypdf>=5,<7
+Pillow>=10,<13
+PyMuPDF>=1.24,<2
+
 # Cho embedding/LLM — cài cả hai để hỗ trợ primary Gemini và fallback OpenAI:
 openai
 google-genai
