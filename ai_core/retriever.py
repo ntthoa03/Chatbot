@@ -8,8 +8,11 @@ import os
 import re
 import unicodedata
 from collections.abc import Callable
+from contextlib import contextmanager
+from contextvars import ContextVar
 from functools import lru_cache
 from pathlib import Path
+from typing import Iterator
 
 import numpy as np
 
@@ -27,10 +30,27 @@ DEFAULT_INDEX_DIR = Path(__file__).resolve().parent.parent / "index"
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 DEFAULT_THRESHOLD = 0.65
 DEFAULT_RELATIVE_SCORE_MARGIN = 1.0
+_INDEX_DIR_OVERRIDE: ContextVar[str | None] = ContextVar("ai_core_index_dir_override", default=None)
 
 
 class RetrieverError(RuntimeError):
     """Raised when the on-disk index is missing or inconsistent."""
+
+
+@contextmanager
+def use_index_dir(index_dir: str | Path | None) -> Iterator[None]:
+    """Temporarily route retrieval to a local index for the current context.
+
+    ContextVar keeps Streamlit sessions/threads isolated; unlike an environment
+    variable, one tester cannot silently switch another tester's knowledge base.
+    """
+
+    resolved = str(Path(index_dir).resolve()) if index_dir else None
+    token = _INDEX_DIR_OVERRIDE.set(resolved)
+    try:
+        yield
+    finally:
+        _INDEX_DIR_OVERRIDE.reset(token)
 
 
 def normalize_query(query: str) -> str:
@@ -38,6 +58,26 @@ def normalize_query(query: str) -> str:
     normalized = unicodedata.normalize("NFKC", query).lower()
     normalized = re.sub(r"[^\w\s]", " ", normalized, flags=re.UNICODE)
     return " ".join(normalized.split())
+
+
+def _is_exact_tenant_answer(item: dict, normalized_query: str) -> bool:
+    metadata = item.get("metadata")
+    if not isinstance(metadata, dict) or metadata.get("source") != "tenant_provided":
+        return False
+    content = normalize_query(str(item.get("content", "")))
+    return bool(normalized_query and normalized_query in content)
+
+
+def _source_rank(item: dict, normalized_query: str) -> tuple[int, int, float]:
+    metadata = item.get("metadata") if isinstance(item.get("metadata"), dict) else {}
+    priority = metadata.get("source_priority", 0)
+    if isinstance(priority, bool) or not isinstance(priority, int):
+        priority = 0
+    return (
+        1 if _is_exact_tenant_answer(item, normalized_query) else 0,
+        priority if metadata.get("source") == "tenant_provided" else 0,
+        float(item.get("score", 0.0)),
+    )
 
 
 @lru_cache(maxsize=8)
@@ -140,7 +180,10 @@ def retrieve(
     if not normalized_query:
         return []
 
+    context_index_dir = _INDEX_DIR_OVERRIDE.get() if index_dir is None else None
     selected_backend = (backend or os.getenv("AI_CORE_VECTOR_STORE_BACKEND", "auto")).strip().lower()
+    if context_index_dir is not None:
+        selected_backend = "local"
     if selected_backend not in {"auto", "local", "remote"}:
         raise ValueError("backend phải là auto, local hoặc remote.")
     if vector_store is None:
@@ -159,11 +202,12 @@ def retrieve(
                 raise RetrieverError(str(exc)) from exc
         else:
             if index_dir is None:
-                # Mỗi tenant tự khai báo vị trí knowledge index trong YAML của mình.
-                configured_dir = (
-                    tenant_config.knowledge.local_index_dir
-                )
-                selected_index_dir = PROJECT_ROOT / configured_dir
+                if context_index_dir is not None:
+                    selected_index_dir = Path(context_index_dir)
+                else:
+                    # Mỗi tenant tự khai báo vị trí knowledge index trong YAML của mình.
+                    configured_dir = tenant_config.knowledge.local_index_dir
+                    selected_index_dir = PROJECT_ROOT / configured_dir
             else:
                 selected_index_dir = Path(index_dir)
             vector_store = LocalNumpyVectorStore(selected_index_dir, _load_index)
@@ -183,7 +227,11 @@ def retrieve(
         provider=selected_provider,
     )
     try:
-        ranked = vector_store.query(query_vector.tolist(), tenant_id=tenant_id, k=k)
+        # Over-fetch so a relevant tenant-provided correction cannot be hidden by
+        # several older crawl chunks before source-priority rules are applied.
+        ranked = vector_store.query(
+            query_vector.tolist(), tenant_id=tenant_id, k=min(max(k * 4, 20), 100)
+        )
     except VectorStoreError as exc:
         raise RetrieverError(str(exc)) from exc
     if not ranked:
@@ -191,11 +239,20 @@ def retrieve(
     relative_cutoff = ranked[0]["score"] - effective_margin
     score_cutoff = max(effective_threshold, relative_cutoff)
 
+    eligible = [
+        item
+        for item in ranked
+        if item["score"] >= effective_threshold
+        and (
+            item["score"] >= score_cutoff
+            or _is_exact_tenant_answer(item, normalized_query)
+        )
+    ]
+    eligible.sort(key=lambda item: _source_rank(item, normalized_query), reverse=True)
+
     results: list[dict] = []
-    for item in ranked:
+    for item in eligible:
         score = item["score"]
-        if score < score_cutoff:
-            continue
         result = dict(item)
         result["score"] = round(float(score), 6)
         results.append(result)
