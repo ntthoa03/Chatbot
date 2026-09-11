@@ -1,0 +1,32 @@
+{
+  "schema_version": "knowledge-gap-clusters.v1",
+  "source": "TEST/SYNTHETIC recorded gap fixture for H4-10 acceptance",
+  "source_data_label": "TEST/SYNTHETIC — không phải log khách thật",
+  "tenants": {
+    "mima_internal": {"clusters": [
+      {"cluster_id":"m1","tenant_id":"mima_internal","name":"Phí duy trì website","frequency":8,"representative_question":"Phí duy trì website mỗi năm là bao nhiêu?","examples":["Phí duy trì website mỗi năm là bao nhiêu?"]},
+      {"cluster_id":"m2","tenant_id":"mima_internal","name":"Thời gian làm website","frequency":5,"representative_question":"Thiết kế website mất khoảng bao lâu?","examples":["Thiết kế website mất khoảng bao lâu?"]},
+      {"cluster_id":"m3","tenant_id":"mima_internal","name":"Hỗ trợ sau bàn giao","frequency":3,"representative_question":"Sau bàn giao website có được hỗ trợ kỹ thuật không?","examples":["Sau bàn giao website có được hỗ trợ kỹ thuật không?"]}
+    ]},
+    "phongkham_hyhy": {"clusters": [
+      {"cluster_id":"p1","tenant_id":"phongkham_hyhy","name":"Khám Chủ nhật","frequency":7,"representative_question":"Phòng khám có làm việc Chủ nhật không?","examples":["Phòng khám có làm việc Chủ nhật không?"]},
+      {"cluster_id":"p2","tenant_id":"phongkham_hyhy","name":"Bảo hiểm","frequency":5,"representative_question":"Phòng khám có áp dụng bảo hiểm y tế không?","examples":["Phòng khám có áp dụng bảo hiểm y tế không?"]},
+      {"cluster_id":"p3","tenant_id":"phongkham_hyhy","name":"Chỗ đậu xe","frequency":3,"representative_question":"Đến khám có chỗ đậu ô tô không?","examples":["Đến khám có chỗ đậu ô tô không?"]}
+    ]},
+    "bat_dong_san_phuoc_thinh": {"clusters": [
+      {"cluster_id":"b1","tenant_id":"bat_dong_san_phuoc_thinh","name":"Giấy tờ pháp lý","frequency":9,"representative_question":"Nhà đang bán có những giấy tờ pháp lý nào?","examples":["Nhà đang bán có những giấy tờ pháp lý nào?"]},
+      {"cluster_id":"b2","tenant_id":"bat_dong_san_phuoc_thinh","name":"Phí môi giới","frequency":6,"representative_question":"Phí môi giới mua bán nhà được tính thế nào?","examples":["Phí môi giới mua bán nhà được tính thế nào?"]},
+      {"cluster_id":"b3","tenant_id":"bat_dong_san_phuoc_thinh","name":"Lịch xem nhà","frequency":4,"representative_question":"Tôi có thể đặt lịch xem nhà ngoài giờ không?","examples":["Tôi có thể đặt lịch xem nhà ngoài giờ không?"]}
+    ]},
+    "giao_duc_haiyan": {"clusters": [
+      {"cluster_id":"g1","tenant_id":"giao_duc_haiyan","name":"Lịch học","frequency":10,"representative_question":"Lớp tiếng Trung buổi tối học vào thứ mấy?","examples":["Lớp tiếng Trung buổi tối học vào thứ mấy?"]},
+      {"cluster_id":"g2","tenant_id":"giao_duc_haiyan","name":"Học thử","frequency":6,"representative_question":"Trung tâm có cho học thử trước khi đăng ký không?","examples":["Trung tâm có cho học thử trước khi đăng ký không?"]},
+      {"cluster_id":"g3","tenant_id":"giao_duc_haiyan","name":"Đóng học phí","frequency":4,"representative_question":"Học phí có được đóng thành nhiều đợt không?","examples":["Học phí có được đóng thành nhiều đợt không?"]}
+    ]},
+    "thuc_pham_thien_minh": {"clusters": [
+      {"cluster_id":"t1","tenant_id":"thuc_pham_thien_minh","name":"Điều kiện giao hàng","frequency":11,"representative_question":"Đơn tối thiểu bao nhiêu thì được giao hàng miễn phí?","examples":["Đơn tối thiểu bao nhiêu thì được giao hàng miễn phí?"]},
+      {"cluster_id":"t2","tenant_id":"thuc_pham_thien_minh","name":"Hạn sử dụng","frequency":7,"representative_question":"Sản phẩm sau khi mở gói bảo quản được bao lâu?","examples":["Sản phẩm sau khi mở gói bảo quản được bao lâu?"]},
+      {"cluster_id":"t3","tenant_id":"thuc_pham_thien_minh","name":"Giá bán sỉ","frequency":5,"representative_question":"Cửa hàng lấy sỉ thì bảng giá thế nào?","examples":["Cửa hàng lấy sỉ thì bảng giá thế nào?"]}
+    ]}
+  }
+}
