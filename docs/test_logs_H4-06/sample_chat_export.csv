@@ -1,0 +1,66 @@
+tenant_id,conversation_id,customer_name,timestamp,question,answer
+mima_internal,test-001,Nguyễn Văn Nam,2026-08-01T08:00:00+07:00,"Tôi là Nguyễn Văn Nam số 0909 123 456 muốn hỏi website cơ bản gồm gì?","Dạ gói website cơ bản dùng giao diện mẫu và phù hợp nhu cầu giới thiệu đơn giản ạ."
+mima_internal,test-002,Trần Thị Mai,2026-08-01T08:05:00+07:00,"Em là Trần Thị Mai email mai.test@example.com hỏi thời gian làm web?","Dạ thời gian triển khai phụ thuộc số trang và phạm vi chức năng đã thống nhất ạ."
+mima_internal,test-003,,2026-08-01T08:10:00+07:00,Khách cần chuẩn bị gì trước khi làm website?,Anh/chị nên chuẩn bị logo nội dung hình ảnh và danh sách chức năng mong muốn ạ.
+mima_internal,test-004,,2026-08-01T08:15:00+07:00,Quy trình thiết kế website bắt đầu từ đâu?,Bên em bắt đầu bằng bước khảo sát nhu cầu rồi thống nhất báo giá và phạm vi triển khai ạ.
+mima_internal,test-005,,2026-08-01T08:20:00+07:00,Khách có được duyệt giao diện trước khi lập trình không?,Dạ có bên em gửi wireframe hoặc mockup để khách duyệt trước khi bắt đầu code ạ.
+mima_internal,test-006,,2026-08-01T08:25:00+07:00,Sau nghiệm thu có được bàn giao mã nguồn không?,Dạ mã nguồn và tài liệu hướng dẫn được bàn giao sau khi nghiệm thu theo thỏa thuận ạ.
+mima_internal,test-007,,2026-08-01T08:30:00+07:00,Website có hiển thị tốt trên điện thoại không?,Dạ giao diện được thiết kế responsive để sử dụng trên máy tính bảng và điện thoại ạ.
+mima_internal,test-008,,2026-08-01T08:35:00+07:00,Website có cài chứng chỉ SSL không?,Dạ phạm vi cài SSL phụ thuộc gói và hạ tầng đã chọn bên em sẽ xác nhận trong báo giá ạ.
+mima_internal,test-009,,2026-08-01T08:40:00+07:00,Có thể tích hợp thanh toán trực tuyến vào web không?,Dạ có thể tích hợp cổng thanh toán sau khi xác định nhà cung cấp và yêu cầu kỹ thuật ạ.
+mima_internal,test-010,,2026-08-01T08:45:00+07:00,Website bán hàng có quản lý tồn kho không?,Dạ chức năng tồn kho có thể triển khai nếu được đưa vào phạm vi chức năng của dự án ạ.
+mima_internal,test-011,,2026-08-01T08:50:00+07:00,Có kết nối website với CRM được không?,Dạ có thể kết nối CRM qua API nếu hệ thống CRM hỗ trợ và hai bên thống nhất dữ liệu đồng bộ ạ.
+mima_internal,test-012,,2026-08-01T08:55:00+07:00,Một dự án được chỉnh sửa giao diện mấy vòng?,Số vòng chỉnh sửa được ghi trong gói hoặc hợp đồng và tính từ bản mockup đầu tiên ạ.
+mima_internal,test-013,,2026-08-01T09:00:00+07:00,Khi nào khách phải thanh toán đợt cuối?,Đợt thanh toán cuối được thực hiện khi nghiệm thu và trước bước bàn giao hoàn chỉnh ạ.
+mima_internal,test-014,,2026-08-01T09:05:00+07:00,Nội dung sản phẩm do ai cung cấp?,Thông thường khách cung cấp dữ liệu gốc còn phạm vi biên tập nội dung tùy theo gói đã chọn ạ.
+mima_internal,test-015,,2026-08-01T09:10:00+07:00,Bên em có hỗ trợ nhập sản phẩm ban đầu không?,Dạ có thể hỗ trợ nhập dữ liệu ban đầu nhưng số lượng cụ thể cần được ghi trong báo giá ạ.
+mima_internal,test-016,,2026-08-01T09:15:00+07:00,Có hướng dẫn quản trị website sau bàn giao không?,Dạ bên em có hướng dẫn thao tác quản trị trong bước bàn giao và cung cấp tài liệu nếu phạm vi có quy định ạ.
+mima_internal,test-017,,2026-08-01T09:20:00+07:00,Nếu khách tự sửa mã nguồn thì còn bảo hành không?,Việc bên khác can thiệp mã nguồn có thể nằm ngoài phạm vi bảo hành và cần được kỹ thuật kiểm tra ạ.
+mima_internal,test-018,,2026-08-01T09:25:00+07:00,Lỗi hiển thị phát sinh sau bàn giao xử lý thế nào?,Anh/chị gửi mô tả cùng ảnh lỗi để kỹ thuật xác định nguyên nhân và đối chiếu phạm vi bảo hành ạ.
+mima_internal,test-019,,2026-08-01T09:30:00+07:00,Hosting dùng cho một website cần lưu lượng bao nhiêu?,Dung lượng phù hợp phụ thuộc số ảnh dữ liệu và lưu lượng truy cập thực tế của website ạ.
+mima_internal,test-020,,2026-08-01T09:35:00+07:00,Hosting có sao lưu dữ liệu định kỳ không?,Lịch sao lưu phụ thuộc gói hosting và chính sách hạ tầng bên em sẽ xác nhận trước khi đăng ký ạ.
+mima_internal,test-021,,2026-08-01T09:40:00+07:00,Có thể nâng cấp hosting khi hết dung lượng không?,Dạ có thể nâng cấp sau khi kỹ thuật kiểm tra mức sử dụng và tư vấn gói phù hợp ạ.
+mima_internal,test-022,,2026-08-01T09:45:00+07:00,Tên miền hết hạn có khôi phục được không?,Khả năng khôi phục phụ thuộc trạng thái và thời gian quá hạn của tên miền tại nhà đăng ký ạ.
+mima_internal,test-023,,2026-08-01T09:50:00+07:00,Khách có tự đứng tên chủ thể tên miền không?,Dạ thông tin chủ thể nên dùng dữ liệu của khách và được xác nhận khi thực hiện đăng ký ạ.
+mima_internal,test-024,,2026-08-01T09:55:00+07:00,Có chuyển tên miền từ nhà cung cấp khác về được không?,Dạ có thể chuyển nếu tên miền đủ điều kiện và khách cung cấp mã chuyển theo quy định ạ.
+mima_internal,test-025,,2026-08-01T10:00:00+07:00,Email doanh nghiệp khác Gmail cá nhân thế nào?,Email doanh nghiệp sử dụng tên miền riêng giúp nhận diện thương hiệu và quản lý tài khoản tập trung hơn ạ.
+mima_internal,test-026,,2026-08-01T10:05:00+07:00,Có tạo nhiều hộp thư theo phòng ban không?,Dạ có thể tạo các hộp thư riêng theo hạn mức của gói email doanh nghiệp đã đăng ký ạ.
+mima_internal,test-027,,2026-08-01T10:10:00+07:00,SEO tổng thể gồm các công việc chính nào?,SEO tổng thể thường gồm nghiên cứu từ khóa tối ưu kỹ thuật nội dung và xây dựng tín hiệu uy tín ạ.
+mima_internal,test-028,,2026-08-01T10:15:00+07:00,Bao lâu thì SEO bắt đầu có kết quả?,Thời gian SEO phụ thuộc hiện trạng website cạnh tranh và nguồn lực nội dung nên cần khảo sát trước ạ.
+mima_internal,test-029,,2026-08-01T10:20:00+07:00,Khách có được xem báo cáo SEO định kỳ không?,Dạ báo cáo sẽ tổng hợp tiến độ từ khóa lưu lượng và công việc đã triển khai theo chu kỳ thống nhất ạ.
+mima_internal,test-030,,2026-08-01T10:25:00+07:00,Tại sao không thể cam kết chắc chắn thứ hạng SEO?,Thứ hạng phụ thuộc thuật toán cạnh tranh và nhiều yếu tố ngoài kiểm soát nên bên em chỉ cam kết phạm vi công việc ạ.
+mima_internal,test-031,,2026-08-01T10:30:00+07:00,Website mới có làm SEO ngay được không?,Dạ được nhưng cần hoàn thiện nền tảng kỹ thuật cấu trúc và nội dung cơ bản trước khi mở rộng ạ.
+mima_internal,test-032,,2026-08-01T10:35:00+07:00,SEO on-page khác SEO off-page ở điểm nào?,On-page tối ưu yếu tố trên website còn off-page xây dựng tín hiệu uy tín từ các nguồn bên ngoài ạ.
+mima_internal,test-033,,2026-08-01T10:40:00+07:00,Cần cung cấp tài khoản nào để triển khai SEO?,Thường cần quyền phù hợp vào website Search Console và Analytics nhưng không gửi mật khẩu qua chat ạ.
+mima_internal,test-034,,2026-08-01T10:45:00+07:00,Backlink chất lượng được đánh giá theo tiêu chí gì?,Cần xem mức liên quan chủ đề chất lượng website nguồn lưu lượng và tính tự nhiên của liên kết ạ.
+mima_internal,test-035,,2026-08-01T10:50:00+07:00,Có cam kết mọi backlink đều được Google index không?,Dạ không thể cam kết index tuyệt đối vì việc thu thập và lập chỉ mục phụ thuộc chính sách Google ạ.
+mima_internal,test-036,,2026-08-01T10:55:00+07:00,Bài PR báo chí có được duyệt nội dung trước không?,Quy trình duyệt phụ thuộc đầu báo nhưng nội dung sẽ được thống nhất trước khi gửi đăng ạ.
+mima_internal,test-037,,2026-08-01T11:00:00+07:00,Chạy Google Ads cần chuẩn bị landing page thế nào?,Landing page nên tải nhanh trình bày rõ lợi ích và có hành động chuyển đổi đo lường được ạ.
+mima_internal,test-038,,2026-08-01T11:05:00+07:00,Ngân sách quảng cáo có bao gồm phí quản lý không?,Ngân sách trả cho nền tảng và phí quản lý là hai khoản riêng trừ khi báo giá ghi cách tính khác ạ.
+mima_internal,test-039,,2026-08-01T11:10:00+07:00,Có theo dõi chuyển đổi cho chiến dịch quảng cáo không?,Dạ cần cài đo lường chuyển đổi phù hợp trước khi tối ưu hiệu quả chiến dịch ạ.
+mima_internal,test-040,,2026-08-01T11:15:00+07:00,Tại sao quảng cáo không cam kết số đơn hàng?,Số đơn còn phụ thuộc sản phẩm ngân sách cạnh tranh giá bán và khả năng chuyển đổi của trang đích ạ.
+mima_internal,test-041,,2026-08-01T11:20:00+07:00,Có thể tạm dừng chiến dịch quảng cáo giữa tháng không?,Việc tạm dừng cần đối chiếu thỏa thuận và ảnh hưởng dữ liệu tối ưu trước khi thực hiện ạ.
+mima_internal,test-042,,2026-08-01T11:25:00+07:00,Facebook Ads có cần cung cấp quyền quản trị trang không?,Dạ cần cấp đúng quyền qua trình quản lý doanh nghiệp và không gửi mật khẩu cá nhân cho nhân viên ạ.
+mima_internal,test-043,,2026-08-01T11:30:00+07:00,Thiết kế logo cần khách cung cấp thông tin gì?,Khách nên cung cấp tên thương hiệu ngành nghề phong cách màu sắc mong muốn và mẫu tham khảo ạ.
+mima_internal,test-044,,2026-08-01T11:35:00+07:00,Một bộ nhận diện thương hiệu thường gồm gì?,Phạm vi có thể gồm logo màu sắc font chữ danh thiếp và hướng dẫn sử dụng tùy gói ạ.
+mima_internal,test-045,,2026-08-01T11:40:00+07:00,Có thiết kế banner theo kích thước mạng xã hội không?,Dạ có thể thiết kế đúng kích thước từng nền tảng sau khi khách cung cấp nội dung và hình ảnh ạ.
+mima_internal,test-046,,2026-08-01T11:45:00+07:00,Ứng dụng di động có làm cho cả Android và iOS không?,Phạm vi nền tảng phụ thuộc phương án kỹ thuật và sẽ được xác nhận trong tài liệu yêu cầu ạ.
+mima_internal,test-047,,2026-08-01T11:50:00+07:00,Có thể đồng bộ dữ liệu giữa app và website không?,Dạ có thể nếu hai hệ thống có API và thống nhất mô hình dữ liệu cùng cơ chế bảo mật ạ.
+mima_internal,test-048,,2026-08-01T11:55:00+07:00,Phần mềm theo yêu cầu được báo giá dựa trên gì?,Chi phí phụ thuộc số chức năng vai trò người dùng tích hợp độ phức tạp và thời gian triển khai ạ.
+mima_internal,test-049,,2026-08-01T12:00:00+07:00,Có ký biên bản nghiệm thu khi hoàn thành không?,Dạ quy trình bàn giao có bước xác nhận nghiệm thu theo hồ sơ và thỏa thuận của dự án ạ.
+mima_internal,test-050,,2026-08-01T12:05:00+07:00,Khách muốn thay đổi phạm vi giữa dự án thì làm sao?,Hai bên cần ghi nhận yêu cầu mới đánh giá ảnh hưởng thời gian chi phí rồi xác nhận trước khi làm ạ.
+mima_internal,test-051,,2026-08-01T12:10:00+07:00,Có hỗ trợ khẩn cấp khi website ngừng hoạt động không?,Anh/chị gửi thời điểm và ảnh lỗi để kỹ thuật phân loại mức độ rồi phản hồi theo kênh hỗ trợ ạ.
+mima_internal,test-052,,2026-08-01T12:15:00+07:00,Làm sao gửi yêu cầu hỗ trợ kỹ thuật rõ ràng?,Nên gửi đường dẫn thiết bị trình duyệt thao tác gây lỗi và ảnh hoặc video màn hình ạ.
+mima_internal,test-053,,2026-08-01T12:20:00+07:00,Dữ liệu khách hàng trên website được bảo vệ thế nào?,Cần phân quyền cập nhật phần mềm dùng kết nối an toàn sao lưu và hạn chế chia sẻ tài khoản ạ.
+mima_internal,test-054,,2026-08-01T12:25:00+07:00,Có nên gửi mật khẩu quản trị qua tin nhắn không?,Không nên gửi mật khẩu hoặc OTP qua chat hãy dùng cơ chế cấp quyền và kênh bí mật an toàn ạ.
+mima_internal,test-055,,2026-08-01T12:30:00+07:00,Khi nhân sự nghỉ việc cần xử lý tài khoản ra sao?,Cần thu hồi quyền đổi thông tin xác thực và kiểm tra nhật ký truy cập liên quan ngay ạ.
+mima_internal,test-056,,2026-08-01T12:35:00+07:00,Website chậm cần cung cấp thông tin nào để kiểm tra?,Nên gửi URL thời điểm xảy ra thiết bị mạng và các thao tác cụ thể để kỹ thuật tái hiện lỗi ạ.
+mima_internal,test-057,,2026-08-01T12:40:00+07:00,Có thể đo lượt khách điền form trên website không?,Dạ có thể cấu hình sự kiện chuyển đổi và kiểm tra dữ liệu trên công cụ đo lường phù hợp ạ.
+mima_internal,test-058,,2026-08-01T12:45:00+07:00,Làm sao biết nguồn truy cập nào tạo ra khách hàng?,Cần gắn tham số chiến dịch cấu hình Analytics và theo dõi sự kiện chuyển đổi theo nguồn ạ.
+mima_internal,test-059,,2026-08-01T12:50:00+07:00,Có báo cáo hiệu quả website theo tháng không?,Dạ có thể lập báo cáo dựa trên chỉ số đã thống nhất và dữ liệu đo lường thực tế ạ.
+mima_internal,test-060,,2026-08-01T12:55:00+07:00,Khi nào cần bảo trì website định kỳ?,Nên bảo trì khi có bản vá bảo mật thay đổi tương thích hoặc theo lịch vận hành đã thống nhất ạ.
+mima_internal,test-061,,2026-08-01T13:00:00+07:00,Website cơ bản gồm những gì ạ?,Dạ gói website cơ bản phù hợp trang giới thiệu và sử dụng giao diện mẫu có sẵn ạ.
+mima_internal,test-062,,2026-08-01T13:05:00+07:00,Hosting có thể nâng cấp khi hết dung lượng không ạ?,Dạ có thể nâng cấp sau khi đội kỹ thuật kiểm tra mức dùng hiện tại và nhu cầu sắp tới ạ.
+mima_internal,test-063,,2026-08-01T13:10:00+07:00,Xin chào,Xin chào anh chị ạ.
+mima_internal,test-064,,2026-08-01T13:15:00+07:00,Cảm ơn,Dạ cảm ơn anh chị.
+mima_internal,test-065,,2026-08-01T13:20:00+07:00,Ok,Dạ bên em đã nhận thông tin.
