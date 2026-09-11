@@ -66,6 +66,21 @@ class Storage(ABC):
         """Lưu token, chi phí USD, model và latency của một lượt chat."""
 
     @abstractmethod
+    def save_knowledge_gap(
+        self,
+        tenant_id: str,
+        conversation_id: str,
+        *,
+        question: str,
+        top_score: float | None,
+        threshold: float,
+        reason: str,
+        trace_id: str,
+        occurred_at: str,
+    ) -> int:
+        """Lưu một lần bot thiếu tri thức và trả knowledge_gap_id."""
+
+    @abstractmethod
     def get_conversation(self, tenant_id: str, conversation_id: str) -> dict[str, Any] | None:
         """Đọc hội thoại kèm messages; không được trả dữ liệu tenant khác."""
 
@@ -78,6 +93,12 @@ class Storage(ABC):
         self, tenant_id: str, conversation_id: str | None = None
     ) -> list[dict[str, Any]]:
         """Đọc usage đã lọc tenant và tùy chọn conversation."""
+
+    @abstractmethod
+    def list_knowledge_gaps(
+        self, tenant_id: str, conversation_id: str | None = None
+    ) -> list[dict[str, Any]]:
+        """Đọc knowledge gap đã lọc tenant và tùy chọn conversation."""
 
     @abstractmethod
     def close(self) -> None:

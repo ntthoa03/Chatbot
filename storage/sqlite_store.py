@@ -7,6 +7,7 @@ TODO(Hieu/Postgres): thay class này bằng PostgresStorage cùng interface tron
 from __future__ import annotations
 
 from collections.abc import Mapping
+import math
 from pathlib import Path
 import re
 import sqlite3
@@ -226,6 +227,65 @@ class SQLiteStore(Storage):
             )
         return int(cursor.lastrowid)
 
+    def save_knowledge_gap(
+        self,
+        tenant_id: str,
+        conversation_id: str,
+        *,
+        question: str,
+        top_score: float | None,
+        threshold: float,
+        reason: str,
+        trace_id: str,
+        occurred_at: str,
+    ) -> int:
+        tenant_id = _require_tenant_id(tenant_id)
+        conversation_id = _require_text(conversation_id, "conversation_id")
+        question = _require_text(question, "question")
+        reason = _require_text(reason, "reason")
+        trace_id = _require_text(trace_id, "trace_id")
+        occurred_at = _require_text(occurred_at, "occurred_at")
+        allowed_reasons = {
+            "below_threshold",
+            "no_match",
+            "fallback_response",
+            "retrieval_error",
+        }
+        if reason not in allowed_reasons:
+            raise StorageValidationError("reason của knowledge gap không hợp lệ")
+        try:
+            normalized_threshold = float(threshold)
+            normalized_score = None if top_score is None else float(top_score)
+        except (TypeError, ValueError) as exc:
+            raise StorageValidationError("score/threshold của knowledge gap phải là số") from exc
+        if not math.isfinite(normalized_threshold) or not 0 <= normalized_threshold <= 1:
+            raise StorageValidationError("threshold phải nằm trong khoảng 0..1")
+        if normalized_score is not None and (
+            not math.isfinite(normalized_score) or not -1 <= normalized_score <= 1
+        ):
+            raise StorageValidationError("top_score phải nằm trong khoảng -1..1 hoặc null")
+        with self._connection:
+            self._require_owned_conversation(tenant_id, conversation_id)
+            cursor = self._connection.execute(
+                """
+                INSERT INTO knowledge_gaps (
+                    tenant_id, conversation_id, question, top_score,
+                    threshold, reason, trace_id, occurred_at
+                ) VALUES (?, ?, ?, ?, ?, ?, ?, ?)
+                """,
+                (
+                    tenant_id,
+                    conversation_id,
+                    question,
+                    normalized_score,
+                    normalized_threshold,
+                    reason,
+                    trace_id,
+                    occurred_at,
+                ),
+            )
+        return int(cursor.lastrowid)
+
     def _touch_conversation(self, tenant_id: str, conversation_id: str) -> None:
         self._connection.execute(
             """
@@ -294,6 +354,26 @@ class SQLiteStore(Storage):
                    cost_usd, latency_ms, created_at
             FROM usage_events WHERE {condition} ORDER BY usage_event_id
             """,  # condition chỉ gồm hằng số code, mọi giá trị vẫn parameterized.
+            parameters,
+        ).fetchall()
+        return [dict(row) for row in rows]
+
+    def list_knowledge_gaps(
+        self, tenant_id: str, conversation_id: str | None = None
+    ) -> list[dict[str, Any]]:
+        tenant_id = _require_tenant_id(tenant_id)
+        parameters: list[str] = [tenant_id]
+        condition = "tenant_id = ?"
+        if conversation_id is not None:
+            parameters.append(_require_text(conversation_id, "conversation_id"))
+            condition += " AND conversation_id = ?"
+        rows = self._connection.execute(
+            f"""
+            SELECT knowledge_gap_id, tenant_id, conversation_id, question,
+                   top_score, threshold, reason, trace_id, occurred_at
+            FROM knowledge_gaps WHERE {condition}
+            ORDER BY occurred_at, knowledge_gap_id
+            """,
             parameters,
         ).fetchall()
         return [dict(row) for row in rows]

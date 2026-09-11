@@ -31,7 +31,7 @@ def build_storage(
 ) -> Storage:
     """Tạo Storage theo một biến config, mặc định SQLite cho flow demo.
 
-    TODO(Hieu/Postgres): tạo ``storage/postgres_store.py`` với class
+    TODO(Postgres): tạo ``storage/postgres_store.py`` với class
     ``PostgresStore(Storage)`` nhận DSN ở constructor. Nhánh import bên dưới sẽ
     tự dùng implementation đó; chỉ đổi ``AI_API_STORAGE_BACKEND=postgres`` và
     đặt ``AI_API_POSTGRES_DSN``, không sửa ``api/main.py``.

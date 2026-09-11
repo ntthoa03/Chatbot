@@ -51,6 +51,11 @@ from ai_core.guardrail.pricing_semantic import (
     pricing_semantic_is_enabled,
 )
 from ai_core.guardrail.pricing import customer_budget_amounts
+from ai_core.gap_logger import (
+    KnowledgeGapReason,
+    log_knowledge_gap,
+    reply_indicates_missing_knowledge,
+)
 from ai_core.lead import (
     append_handoff_acknowledgement,
     append_handoff_contact_request,
@@ -1135,6 +1140,9 @@ def _repair_grounded_reply(
         "nhận xét quảng cáo, khẳng định hiệu quả hoặc số tiền không có bằng chứng. "
         "Mọi giá dịch vụ phải khớp cả tên gói và số tiền trong BẰNG CHỨNG. "
         "Mức ngân sách do khách đưa ra chỉ được nhắc lại như một điều kiện lọc. "
+        "Được thuật lại thời hạn bảo hành, quyền lợi miễn phí hoặc chính sách hoàn tiền "
+        "chỉ khi BẰNG CHỨNG ghi rõ; phải giữ nguyên mọi điều kiện và phạm vi. "
+        "Loại bỏ phần bot tự hứa, tự thương lượng, tự tặng thêm hoặc không có nguồn. "
         "Không thêm cam kết, giảm giá, hoàn tiền, thông tin nội bộ hay dữ kiện mới."
     )
     payload = {
@@ -1507,12 +1515,15 @@ def _execute_chat(
     retrieval_error: str | None = None
     fallback_retrieval_error: str | None = None
     fallback_suggestions: list[dict[str, Any]] = []
+    retrieval_attempted = False
+    retrieval_top_score: float | None = None
     with timer.step("retrieval_ms"):
         if lead_decision.reply_override is not None or tool_candidate or config_contact_answer is not None:
             # Tool chuyên biệt là nguồn dữ liệu chính cho intent này. Model vẫn là
             # bên quyết định gọi tool hay hỏi lại khi thiếu tham số.
             raw_sources = []
         else:
+            retrieval_attempted = True
             try:
                 if pricing_catalogue_query:
                     # Lấy rộng hơn top-k hiển thị để các chunk FAQ/quy trình không đẩy
@@ -1521,6 +1532,8 @@ def _execute_chat(
                     raw_sources = _prefer_pricing_catalogue_sources(candidates)
                 else:
                     raw_sources = retrieve(retrieval_query, request.tenant_id)
+                if raw_sources:
+                    retrieval_top_score = max(float(item["score"]) for item in raw_sources)
             except (RetrieverError, EmbedderError) as exc:
                 # Retrieval is a boundary dependency. A provider/index outage must not
                 # break the public chat response contract or tempt the model to invent.
@@ -1537,6 +1550,10 @@ def _execute_chat(
                         threshold=0.0,
                         relative_score_margin=1.0,
                     )
+                    if fallback_candidates:
+                        retrieval_top_score = max(
+                            float(item["score"]) for item in fallback_candidates
+                        )
                     fallback_suggestions = build_suggestions(fallback_candidates)
                 except (RetrieverError, EmbedderError, ValueError) as exc:
                     # Gợi ý là tính năng bổ trợ; lỗi ở lượt truy vấn này không làm hỏng fallback an toàn.
@@ -1754,11 +1771,16 @@ def _execute_chat(
                         "reason": semantic_check["reason"],
                     }
 
-    # Chỉ thử sửa lỗi diễn đạt grounding. Giá không có nguồn và các quy tắc
-    # cấm cứng vẫn fail-closed, không được nới bằng một lần gọi model khác.
+    # Chỉ thử sửa các lỗi mềm có thể cứu bằng cách bỏ claim thừa và giữ phần
+    # được evidence chứng minh. Giá trái quyền công bố, dữ liệu nội bộ và các
+    # quy tắc an toàn cứng vẫn fail-closed, không được repair mở lại.
     if (
         output_check.get("blocked")
-        and output_check.get("reason") == "ungrounded_claim"
+        and output_check.get("reason") in {
+            "ungrounded_claim",
+            "refund_or_warranty_promise",
+            "unauthorized_discount_or_gift",
+        }
         and model_called
         and llm_error is None
         and output_evidence
@@ -1935,6 +1957,48 @@ def _execute_chat(
         trace_id=trace_id,
     )
     response_dict = response.model_dump(mode="json")
+    retrieval_threshold = float(config.retrieval_policy.min_score)
+    # H4-01: các tín hiệu gap là độc lập. Đặc biệt phải ghi cả trường hợp
+    # retriever trả điểm dưới ngưỡng nhưng một tầng khác vẫn tạo được câu trả
+    # lời; nếu chỉ phụ thuộc helpful_fallback_used thì vùng rủi ro này bị mất.
+    retrieval_below_threshold = bool(
+        retrieval_attempted
+        and retrieval_top_score is not None
+        and retrieval_top_score < retrieval_threshold
+    )
+    bot_missing_knowledge = reply_indicates_missing_knowledge(reply_text)
+    knowledge_gap_detected = bool(
+        retrieval_attempted
+        and (
+            retrieval_error is not None
+            or retrieval_top_score is None
+            or retrieval_below_threshold
+            or helpful_fallback_used
+            or bot_missing_knowledge
+        )
+    )
+    if knowledge_gap_detected:
+        gap_reason: KnowledgeGapReason
+        if retrieval_error is not None:
+            gap_reason = "retrieval_error"
+        elif retrieval_top_score is None:
+            gap_reason = "no_match"
+        elif retrieval_below_threshold:
+            gap_reason = "below_threshold"
+        elif helpful_fallback_used or bot_missing_knowledge:
+            gap_reason = "fallback_response"
+        else:
+            # Nhánh phòng vệ; knowledge_gap_detected hiện chỉ có bốn tín hiệu trên.
+            gap_reason = "no_match"
+        log_knowledge_gap(
+            question=request.message,
+            tenant_id=request.tenant_id,
+            conversation_id=str(request.conversation_id),
+            trace_id=trace_id,
+            top_score=retrieval_top_score,
+            threshold=retrieval_threshold,
+            reason=gap_reason,
+        )
     cache_stored = False
     if (
         cache_candidate
@@ -1981,6 +2045,14 @@ def _execute_chat(
             "retrieval_query": retrieval_query,
             "retrieval": {
                 "query": retrieval_query,
+                "attempted": retrieval_attempted,
+                "top_score": retrieval_top_score,
+                "threshold": retrieval_threshold,
+                "data_sufficient": bool(
+                    retrieval_attempted
+                    and retrieval_top_score is not None
+                    and retrieval_top_score >= retrieval_threshold
+                ),
                 "chunks": traced_chunks,
                 "error": retrieval_error,
                 "fallback_error": fallback_retrieval_error,

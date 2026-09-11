@@ -2,7 +2,7 @@
 -- TODO(Hieu/Postgres): chuyển type/default/index sang migration production.
 
 PRAGMA foreign_keys = ON;
-PRAGMA user_version = 1;
+PRAGMA user_version = 2;
 
 CREATE TABLE IF NOT EXISTS tenants (
     tenant_id TEXT PRIMARY KEY,
@@ -64,6 +64,22 @@ CREATE TABLE IF NOT EXISTS usage_events (
         REFERENCES conversations (conversation_id, tenant_id)
 );
 
+CREATE TABLE IF NOT EXISTS knowledge_gaps (
+    knowledge_gap_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    tenant_id TEXT NOT NULL,
+    conversation_id TEXT NOT NULL,
+    question TEXT NOT NULL,
+    top_score REAL CHECK (top_score IS NULL OR (top_score >= -1 AND top_score <= 1)),
+    threshold REAL NOT NULL CHECK (threshold >= 0 AND threshold <= 1),
+    reason TEXT NOT NULL CHECK (
+        reason IN ('below_threshold', 'no_match', 'fallback_response', 'retrieval_error')
+    ),
+    trace_id TEXT NOT NULL,
+    occurred_at TEXT NOT NULL,
+    FOREIGN KEY (conversation_id, tenant_id)
+        REFERENCES conversations (conversation_id, tenant_id)
+);
+
 -- Chỉ thêm index phục vụ ba truy vấn demo bắt buộc; không tối ưu sâu bản tạm.
 CREATE INDEX IF NOT EXISTS idx_messages_tenant_conversation
     ON messages (tenant_id, conversation_id, message_id);
@@ -71,3 +87,5 @@ CREATE INDEX IF NOT EXISTS idx_leads_tenant_conversation
     ON leads (tenant_id, conversation_id, lead_id);
 CREATE INDEX IF NOT EXISTS idx_usage_tenant_conversation
     ON usage_events (tenant_id, conversation_id, usage_event_id);
+CREATE INDEX IF NOT EXISTS idx_knowledge_gaps_tenant_time
+    ON knowledge_gaps (tenant_id, occurred_at, knowledge_gap_id);
