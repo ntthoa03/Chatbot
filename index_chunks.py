@@ -53,6 +53,14 @@ def content_hash(text: str) -> str:
 def load_chunks(path: Path) -> list[dict]:
     if not path.exists():
         raise IndexError_(f"Không tìm thấy file input: {path}")
+    purpose_path = path.parent / "PURPOSE.json"
+    if purpose_path.exists():
+        try:
+            purpose = json.loads(purpose_path.read_text(encoding="utf-8"))
+        except (OSError, json.JSONDecodeError) as exc:
+            raise IndexError_(f"PURPOSE.json không hợp lệ cạnh {path}.") from exc
+        if purpose.get("purpose") != "knowledge_only" or "index_chunks" not in purpose.get("allowed_consumers", []):
+            raise IndexError_(f"Từ chối index artifact không có purpose=knowledge_only: {path}")
     with path.open(encoding="utf-8") as f:
         chunks = json.load(f)
     if not isinstance(chunks, list):
@@ -63,7 +71,7 @@ def load_chunks(path: Path) -> list[dict]:
         if not isinstance(c, dict):
             raise IndexError_(f"Chunk thứ {i} phải là JSON object.")
         try:
-            normalized = KnowledgeChunk.model_validate(c).model_dump(mode="json")
+            normalized = KnowledgeChunk.model_validate(c).model_dump(mode="json", exclude_none=True)
         except ValidationError as exc:
             details = "; ".join(
                 f"{'.'.join(str(part) for part in error['loc'])}: {error['msg']}"
@@ -198,6 +206,15 @@ def build_index(
                     "title": meta.get("title"),
                     "type": meta.get("type"),
                     "updated_at": meta.get("updated_at"),
+                    **({"source": meta["source"]} if meta.get("source") else {}),
+                    **(
+                        {"source_priority": meta["source_priority"]}
+                        if meta.get("source_priority") is not None else {}
+                    ),
+                    **(
+                        {"source_confidence": meta["source_confidence"]}
+                        if meta.get("source_confidence") is not None else {}
+                    ),
                 },
                 "vector": embeddings[cache_key],
             }
