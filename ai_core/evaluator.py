@@ -28,6 +28,11 @@ from pydantic import BaseModel, ConfigDict, Field, ValidationError, model_valida
 
 CaseType = Literal["normal", "trap"]
 ResultStatus = Literal["PASS", "FAIL", "ERROR", "MANUAL_REVIEW"]
+DataStatus = Literal[
+    "sufficient", "insufficient", "below_threshold", "not_answerable",
+    "fallback_response", "guardrail_blocked", "judge_error",
+    "retrieval_error", "not_applicable", "unknown",
+]
 ChatCallable = Callable[[dict[str, Any]], dict[str, Any]]
 DiagnosticResolver = Callable[[str], dict[str, Any] | None]
 
@@ -89,6 +94,20 @@ class JudgeVerdict(_FrozenEvalModel):
 JudgeCallable = Callable[[EvalCase, str], JudgeVerdict | dict[str, Any]]
 
 
+class AnswerabilityVerdict(_FrozenEvalModel):
+    """Whether retrieved context directly contains the facts needed to answer."""
+
+    answerable: bool
+    confidence: float = Field(ge=0.0, le=1.0)
+    supporting_chunk_ids: tuple[str, ...] = ()
+    reason: str = Field(min_length=1)
+
+
+AnswerabilityCallable = Callable[
+    [str, Sequence[dict[str, Any]]], AnswerabilityVerdict | dict[str, Any]
+]
+
+
 class CriterionResult(_FrozenEvalModel):
     name: str
     expected: str
@@ -115,6 +134,17 @@ class CaseResult(_FrozenEvalModel):
     latency_ms: int = Field(ge=0)
     trace_id: str
     diagnostic_stage: str | None = None
+    retrieval_attempted: bool = False
+    retrieval_hit: bool = False
+    context_answerable: bool | None = None
+    answerability_confidence: float | None = None
+    answerability_reason: str | None = None
+    supporting_chunk_ids: tuple[str, ...] = ()
+    final_response_usable: bool = False
+    data_sufficient: bool = False
+    data_status: DataStatus = "unknown"
+    retrieval_top_score: float | None = None
+    retrieval_threshold: float | None = None
     judge_reason: str | None = None
     error: str | None = None
 
@@ -131,6 +161,15 @@ class TopicSummary(_FrozenEvalModel):
     manual_review: int = Field(ge=0)
     evaluated: int = Field(ge=0)
     pass_rate: float = Field(ge=0.0, le=1.0)
+    data_sufficient_count: int = Field(default=0, ge=0)
+    data_insufficient_count: int = Field(default=0, ge=0)
+    retrieval_error_count: int = Field(default=0, ge=0)
+    data_sufficiency_rate: float = Field(default=0.0, ge=0.0, le=1.0)
+    retrieval_hit_count: int = Field(default=0, ge=0)
+    retrieval_hit_rate: float = Field(default=0.0, ge=0.0, le=1.0)
+    context_answerable_count: int = Field(default=0, ge=0)
+    context_judged_count: int = Field(default=0, ge=0)
+    context_answerability_rate: float = Field(default=0.0, ge=0.0, le=1.0)
     average_cost_usd: float = Field(ge=0.0)
     average_latency_ms: float = Field(ge=0.0)
 
@@ -144,6 +183,19 @@ class EvalSummary(_FrozenEvalModel):
     evaluated: int = Field(ge=0)
     pass_rate: float = Field(ge=0.0, le=1.0)
     completion_rate: float = Field(ge=0.0, le=1.0)
+    data_sufficient_count: int = Field(default=0, ge=0)
+    data_insufficient_count: int = Field(default=0, ge=0)
+    retrieval_error_count: int = Field(default=0, ge=0)
+    retrieval_not_applicable_count: int = Field(default=0, ge=0)
+    data_unknown_count: int = Field(default=0, ge=0)
+    data_sufficiency_rate: float = Field(default=0.0, ge=0.0, le=1.0)
+    retrieval_hit_count: int = Field(default=0, ge=0)
+    retrieval_hit_rate: float = Field(default=0.0, ge=0.0, le=1.0)
+    context_answerable_count: int = Field(default=0, ge=0)
+    context_judged_count: int = Field(default=0, ge=0)
+    context_answerability_rate: float = Field(default=0.0, ge=0.0, le=1.0)
+    answerability_judge_error_count: int = Field(default=0, ge=0)
+    unusable_response_count: int = Field(default=0, ge=0)
     average_cost_usd: float = Field(ge=0.0)
     average_model_call_cost_usd: float = Field(ge=0.0)
     model_calls: int = Field(ge=0)
@@ -183,6 +235,14 @@ def load_cases(path: str | Path) -> list[EvalCase]:
     """Load and validate the YAML list defined in the Task.xlsx reference sheet."""
 
     source = Path(path)
+    purpose_path = source.parent / "PURPOSE.json"
+    if purpose_path.exists():
+        try:
+            purpose = json.loads(purpose_path.read_text(encoding="utf-8"))
+        except (OSError, json.JSONDecodeError) as exc:
+            raise EvalConfigError(f"PURPOSE.json không hợp lệ cạnh {source}.") from exc
+        if purpose.get("purpose") != "evaluation_only" or "ai_core.evaluator" not in purpose.get("allowed_consumers", []):
+            raise EvalConfigError(f"Từ chối chấm artifact không có purpose=evaluation_only: {source}")
     try:
         raw = yaml.safe_load(source.read_text(encoding="utf-8"))
     except FileNotFoundError as exc:
@@ -270,12 +330,163 @@ def score_reply(
     )
 
 
+def _safe_float(value: Any) -> float | None:
+    try:
+        return float(value) if value is not None else None
+    except (TypeError, ValueError):
+        return None
+
+
+def _extract_data_diagnostics(diagnostics: dict[str, Any] | None) -> dict[str, Any]:
+    """Classify retrieval coverage independently from answer correctness."""
+
+    if not isinstance(diagnostics, dict):
+        return {
+            "retrieval_attempted": False,
+            "retrieval_hit": False,
+            "data_sufficient": False,
+            "data_status": "unknown",
+            "retrieval_top_score": None,
+            "retrieval_threshold": None,
+        }
+    retrieval = diagnostics.get("retrieval")
+    if not isinstance(retrieval, dict):
+        retrieval = {}
+    chunks = retrieval.get("chunks") if isinstance(retrieval.get("chunks"), list) else []
+    fallback = (
+        retrieval.get("fallback_candidates")
+        if isinstance(retrieval.get("fallback_candidates"), list)
+        else []
+    )
+    score_values = [
+        score
+        for item in (*chunks, *fallback)
+        if isinstance(item, dict) and (score := _safe_float(item.get("score"))) is not None
+    ]
+    top_score = _safe_float(retrieval.get("top_score"))
+    if top_score is None and score_values:
+        top_score = max(score_values)
+    threshold = _safe_float(retrieval.get("threshold"))
+    attempted = bool(retrieval.get("attempted")) if "attempted" in retrieval else bool(
+        retrieval.get("query") is not None or chunks or fallback or retrieval.get("error")
+    )
+    if not attempted:
+        status: DataStatus = "not_applicable"
+        sufficient = False
+    elif retrieval.get("error") or diagnostics.get("stage") == "retrieval_error":
+        status = "retrieval_error"
+        sufficient = False
+    else:
+        explicit = retrieval.get("data_sufficient")
+        if isinstance(explicit, bool):
+            sufficient = explicit
+        elif top_score is not None and threshold is not None:
+            sufficient = top_score >= threshold
+        else:
+            # Legacy traces only stored chunks after threshold filtering.
+            sufficient = bool(chunks)
+        status = "sufficient" if sufficient else "insufficient"
+    return {
+        "retrieval_attempted": attempted,
+        "retrieval_hit": sufficient,
+        "data_sufficient": sufficient,
+        "data_status": status,
+        "retrieval_top_score": top_score,
+        "retrieval_threshold": threshold,
+    }
+
+
+def _retrieved_chunks(diagnostics: dict[str, Any] | None) -> list[dict[str, Any]]:
+    retrieval = diagnostics.get("retrieval") if isinstance(diagnostics, dict) else None
+    if not isinstance(retrieval, dict):
+        return []
+    chunks = retrieval.get("chunks")
+    return [item for item in chunks if isinstance(item, dict)] if isinstance(chunks, list) else []
+
+
+def _final_response_usable(
+    response: dict[str, Any], diagnostics: dict[str, Any] | None,
+) -> tuple[bool, DataStatus | None]:
+    """Exclude blocked, fallback and handoff replies from effective coverage."""
+
+    guardrail = response.get("guardrail") if isinstance(response.get("guardrail"), dict) else {}
+    if bool(guardrail.get("blocked")) or (diagnostics or {}).get("stage") == "blocked_output":
+        return False, "guardrail_blocked"
+    if (
+        bool(response.get("need_human"))
+        or bool((diagnostics or {}).get("helpful_fallback_used"))
+        or (diagnostics or {}).get("stage") in {"fallback", "handoff_requested"}
+    ):
+        return False, "fallback_response"
+    return bool(str(response.get("reply", "")).strip()), None
+
+
+def _effective_data_diagnostics(
+    question: str,
+    response: dict[str, Any],
+    diagnostics: dict[str, Any] | None,
+    answerability_fn: AnswerabilityCallable | None,
+) -> dict[str, Any]:
+    """Combine similarity, direct evidence and final-response usability.
+
+    Legacy callers without a judge retain the old similarity result. Any run
+    claiming the effective metric must explicitly pass ``answerability_fn``.
+    """
+
+    result = _extract_data_diagnostics(diagnostics)
+    usable, unusable_status = _final_response_usable(response, diagnostics)
+    result.update({
+        "context_answerable": None,
+        "answerability_confidence": None,
+        "answerability_reason": None,
+        "supporting_chunk_ids": (),
+        "final_response_usable": usable,
+    })
+    if result["data_status"] in {"unknown", "not_applicable", "retrieval_error"}:
+        result["data_sufficient"] = False
+        return result
+    if not result["retrieval_hit"]:
+        if answerability_fn is not None:
+            result.update(data_sufficient=False, data_status="below_threshold")
+        return result
+    if answerability_fn is None:
+        if unusable_status is not None:
+            result.update(data_sufficient=False, data_status=unusable_status)
+        return result
+    try:
+        verdict = AnswerabilityVerdict.model_validate(
+            answerability_fn(question, _retrieved_chunks(diagnostics)[:5])
+        )
+    except Exception as exc:
+        result.update(
+            data_sufficient=False,
+            data_status="judge_error",
+            answerability_reason=f"{type(exc).__name__}: {exc}",
+        )
+        return result
+    result.update({
+        "context_answerable": verdict.answerable,
+        "answerability_confidence": verdict.confidence,
+        "answerability_reason": verdict.reason,
+        "supporting_chunk_ids": verdict.supporting_chunk_ids,
+    })
+    if unusable_status is not None:
+        result.update(data_sufficient=False, data_status=unusable_status)
+    else:
+        result.update(
+            data_sufficient=verdict.answerable,
+            data_status="sufficient" if verdict.answerable else "not_answerable",
+        )
+    return result
+
+
 def score_case(
     case: EvalCase,
     response: dict[str, Any],
     *,
     diagnostics: dict[str, Any] | None = None,
     judge_fn: JudgeCallable | None = None,
+    answerability_fn: AnswerabilityCallable | None = None,
 ) -> CaseResult:
     """Score one response, separating quality verdicts from infrastructure errors."""
 
@@ -322,6 +533,9 @@ def score_case(
         (diagnostics or {}).get("model")
         if isinstance((diagnostics or {}).get("model"), dict)
         else {}
+    )
+    data_diagnostics = _effective_data_diagnostics(
+        case.question, response, diagnostics, answerability_fn,
     )
     if "called" in diagnostic_model:
         model_called = bool(diagnostic_model.get("called"))
@@ -392,6 +606,7 @@ def score_case(
         latency_ms=int(usage.get("latency_ms", 0) or 0),
         trace_id=trace_id,
         diagnostic_stage=diagnostic_stage,
+        **data_diagnostics,
         judge_reason=judge_reason,
         error=error_message,
     )
@@ -406,6 +621,7 @@ def _error_result(case: EvalCase, exc: Exception, latency_ms: int = 0) -> CaseRe
         guardrail_blocked=False, model="", model_called=False,
         cost_usd=0.0, latency_ms=latency_ms,
         trace_id="", diagnostic_stage="exception",
+        data_status="unknown",
         error=f"{type(exc).__name__}: {exc}",
     )
 
@@ -415,7 +631,7 @@ def build_case_fingerprint(cases_path: str | Path) -> str:
 
     payload = {
         "cases": yaml.safe_load(Path(cases_path).read_text(encoding="utf-8")),
-        "scoring_schema_version": 4,
+        "scoring_schema_version": 5,
     }
     encoded = json.dumps(payload, ensure_ascii=False, sort_keys=True, separators=(",", ":"))
     return hashlib.sha256(encoded.encode("utf-8")).hexdigest()
@@ -472,6 +688,15 @@ def build_comparison(
         "baseline_pass_rate": round(float(base.get("pass_rate", 0)), 4),
         "current_pass_rate": current.pass_rate,
         "pass_rate_delta": round(current.pass_rate - float(base.get("pass_rate", 0)), 4),
+        "baseline_data_sufficiency_rate": round(
+            float(base.get("data_sufficiency_rate", 0)), 4
+        ),
+        "current_data_sufficiency_rate": current.data_sufficiency_rate,
+        "data_sufficiency_rate_delta": round(
+            current.data_sufficiency_rate
+            - float(base.get("data_sufficiency_rate", 0)),
+            4,
+        ),
         "baseline_average_cost_usd": round(float(base.get("average_cost_usd", 0)), 12),
         "current_average_cost_usd": current.average_cost_usd,
         "average_cost_usd_delta": round(
@@ -499,6 +724,7 @@ def run_eval(
     requests_per_minute: float | None = None,
     diagnostic_resolver: DiagnosticResolver | None = None,
     judge_fn: JudgeCallable | None = None,
+    answerability_fn: AnswerabilityCallable | None = None,
     experiment_context: dict[str, Any] | None = None,
 ) -> EvalReport:
     """Execute independent cases concurrently and return an ordered report."""
@@ -546,6 +772,7 @@ def run_eval(
             diagnostics = diagnostic_resolver(trace_id) if diagnostic_resolver else None
             return score_case(
                 case, response, diagnostics=diagnostics, judge_fn=judge_fn,
+                answerability_fn=answerability_fn,
             )
         except Exception as exc:  # one provider/case failure must not abort the suite
             elapsed_ms = round((time.perf_counter() - case_started) * 1000)
@@ -576,6 +803,10 @@ def run_eval(
         topic_errors = sum(item.status == "ERROR" for item in topic_results)
         topic_manual = sum(item.status == "MANUAL_REVIEW" for item in topic_results)
         topic_evaluated = topic_passed + topic_failed
+        topic_data_sufficient = sum(item.data_sufficient for item in topic_results)
+        topic_retrieval_hits = sum(item.retrieval_hit for item in topic_results)
+        topic_context_judged = sum(item.context_answerable is not None for item in topic_results)
+        topic_context_answerable = sum(item.context_answerable is True for item in topic_results)
         topic_metrics[topic] = TopicSummary(
             total=len(topic_results),
             passed=topic_passed,
@@ -584,14 +815,67 @@ def run_eval(
             manual_review=topic_manual,
             evaluated=topic_evaluated,
             pass_rate=round(topic_passed / topic_evaluated, 4) if topic_evaluated else 0.0,
+            data_sufficient_count=topic_data_sufficient,
+            data_insufficient_count=sum(
+                item.data_status in {
+                    "insufficient", "below_threshold", "not_answerable",
+                    "fallback_response", "guardrail_blocked",
+                }
+                for item in topic_results
+            ),
+            retrieval_error_count=sum(
+                item.data_status == "retrieval_error" for item in topic_results
+            ),
+            data_sufficiency_rate=round(topic_data_sufficient / len(topic_results), 4),
+            retrieval_hit_count=topic_retrieval_hits,
+            retrieval_hit_rate=round(topic_retrieval_hits / len(topic_results), 4),
+            context_answerable_count=topic_context_answerable,
+            context_judged_count=topic_context_judged,
+            context_answerability_rate=(
+                round(topic_context_answerable / topic_context_judged, 4)
+                if topic_context_judged else 0.0
+            ),
             average_cost_usd=round(fmean(item.cost_usd for item in topic_results), 12),
             average_latency_ms=round(fmean(item.latency_ms for item in topic_results), 2),
         )
+    data_sufficient_count = sum(item.data_sufficient for item in results)
+    retrieval_hit_count = sum(item.retrieval_hit for item in results)
+    context_judged_count = sum(item.context_answerable is not None for item in results)
+    context_answerable_count = sum(item.context_answerable is True for item in results)
     summary = EvalSummary(
         total=len(results), passed=passed, failed=failed, errors=errors,
         manual_review=manual_review, evaluated=evaluated,
         pass_rate=round(passed / evaluated, 4) if evaluated else 0.0,
         completion_rate=round(evaluated / len(results), 4),
+        data_sufficient_count=data_sufficient_count,
+        data_insufficient_count=sum(
+            item.data_status in {
+                "insufficient", "below_threshold", "not_answerable",
+                "fallback_response", "guardrail_blocked",
+            }
+            for item in results
+        ),
+        retrieval_error_count=sum(item.data_status == "retrieval_error" for item in results),
+        retrieval_not_applicable_count=sum(
+            item.data_status == "not_applicable" for item in results
+        ),
+        data_unknown_count=sum(item.data_status == "unknown" for item in results),
+        data_sufficiency_rate=round(data_sufficient_count / len(results), 4),
+        retrieval_hit_count=retrieval_hit_count,
+        retrieval_hit_rate=round(retrieval_hit_count / len(results), 4),
+        context_answerable_count=context_answerable_count,
+        context_judged_count=context_judged_count,
+        context_answerability_rate=(
+            round(context_answerable_count / context_judged_count, 4)
+            if context_judged_count else 0.0
+        ),
+        answerability_judge_error_count=sum(
+            item.data_status == "judge_error" for item in results
+        ),
+        unusable_response_count=sum(
+            item.data_status in {"fallback_response", "guardrail_blocked"}
+            for item in results
+        ),
         average_cost_usd=round(fmean(costs), 12),
         average_model_call_cost_usd=(
             round(fmean(model_call_costs), 12) if model_call_costs else 0.0
@@ -651,7 +935,11 @@ def save_report(
             "id", "type", "topic", "input_style", "status", "passed", "score", "pass_score", "question", "reply",
             "failed_checks", "need_human", "guardrail_blocked", "model", "cost_usd",
             "model_called",
-            "latency_ms", "trace_id", "diagnostic_stage", "judge_reason", "error",
+            "latency_ms", "trace_id", "diagnostic_stage", "retrieval_attempted",
+            "retrieval_hit", "context_answerable", "answerability_confidence",
+            "answerability_reason", "supporting_chunk_ids", "final_response_usable",
+            "data_sufficient", "data_status", "retrieval_top_score",
+            "retrieval_threshold", "judge_reason", "error",
         ])
         writer.writeheader()
         for result in report.results:
@@ -670,6 +958,26 @@ def save_report(
             comparison.get("baseline_completion_rate"),
             comparison.get("completion_rate_delta"), "%",
         ),
+        (
+            "data_sufficiency_rate", report.summary.data_sufficiency_rate,
+            comparison.get("baseline_data_sufficiency_rate"),
+            comparison.get("data_sufficiency_rate_delta"), "%",
+        ),
+        ("data_sufficient_count", report.summary.data_sufficient_count, None, None, "cases"),
+        ("data_insufficient_count", report.summary.data_insufficient_count, None, None, "cases"),
+        ("retrieval_hit_rate", report.summary.retrieval_hit_rate, None, None, "%"),
+        ("retrieval_hit_count", report.summary.retrieval_hit_count, None, None, "cases"),
+        (
+            "context_answerability_rate", report.summary.context_answerability_rate,
+            None, None, "% of judged contexts",
+        ),
+        ("context_judged_count", report.summary.context_judged_count, None, None, "cases"),
+        (
+            "answerability_judge_error_count",
+            report.summary.answerability_judge_error_count, None, None, "cases",
+        ),
+        ("unusable_response_count", report.summary.unusable_response_count, None, None, "cases"),
+        ("retrieval_error_count", report.summary.retrieval_error_count, None, None, "cases"),
         (
             "average_cost_usd", report.summary.average_cost_usd,
             comparison.get("baseline_average_cost_usd"),
@@ -696,6 +1004,15 @@ def save_report(
     for topic, metrics in report.summary.topic_metrics.items():
         metric_rows.extend([
             (f"topic.{topic}.pass_rate", metrics.pass_rate, None, None, "%"),
+            (
+                f"topic.{topic}.data_sufficiency_rate",
+                metrics.data_sufficiency_rate, None, None, "%",
+            ),
+            (f"topic.{topic}.retrieval_hit_rate", metrics.retrieval_hit_rate, None, None, "%"),
+            (
+                f"topic.{topic}.context_answerability_rate",
+                metrics.context_answerability_rate, None, None, "% of judged contexts",
+            ),
             (f"topic.{topic}.passed", metrics.passed, None, None, "cases"),
             (f"topic.{topic}.total", metrics.total, None, None, "cases"),
             (
@@ -713,7 +1030,23 @@ def save_report(
         writer.writerows(metric_rows)
     with scorecard_path.open("w", encoding="utf-8-sig", newline="") as handle:
         writer = csv.writer(handle)
+        writer.writerow([
+            "RETRIEVAL HIT (CHI SIMILARITY)",
+            f"{report.summary.retrieval_hit_rate:.2%} "
+            f"({report.summary.retrieval_hit_count}/{report.summary.total} cau)",
+        ])
+        writer.writerow([
+            "CONTEXT ANSWERABLE (DA JUDGE)",
+            f"{report.summary.context_answerability_rate:.2%} "
+            f"({report.summary.context_answerable_count}/"
+            f"{report.summary.context_judged_count} context)",
+        ])
         writer.writerow(["TỶ LỆ ĐÚNG", f"{report.summary.pass_rate:.2%}"])
+        writer.writerow([
+            "TỶ LỆ CÓ ĐỦ DỮ LIỆU",
+            f"{report.summary.data_sufficiency_rate:.2%} "
+            f"({report.summary.data_sufficient_count}/{report.summary.total} câu)",
+        ])
         writer.writerow([
             "CHI PHÍ TRUNG BÌNH MỖI LƯỢT",
             f"${report.summary.average_cost_usd:.8f} "
@@ -750,7 +1083,8 @@ def save_report(
         writer = csv.writer(handle)
         writer.writerow([
             "CHỦ ĐỀ", "TỔNG", "ĐẠT", "SAI", "ERROR", "REVIEW",
-            "TỶ LỆ ĐÚNG", "CHI PHÍ TB ƯỚC TÍNH (USD)", "ĐỘ TRỄ TB (ms)",
+            "TỶ LỆ ĐÚNG", "TỶ LỆ CÓ ĐỦ DỮ LIỆU",
+            "CHI PHÍ TB ƯỚC TÍNH (USD)", "ĐỘ TRỄ TB (ms)",
         ])
         for topic, metrics in report.summary.topic_metrics.items():
             writer.writerow([
@@ -761,6 +1095,7 @@ def save_report(
                 metrics.errors,
                 metrics.manual_review,
                 f"{metrics.pass_rate:.2%}",
+                f"{metrics.data_sufficiency_rate:.2%}",
                 f"{metrics.average_cost_usd:.8f}",
                 f"{metrics.average_latency_ms:.2f}",
             ])
