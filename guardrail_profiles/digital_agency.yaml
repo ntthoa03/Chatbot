@@ -99,7 +99,7 @@ output:
         phê duyệt. Em xin phép chuyển anh/chị đến chuyên viên có thẩm quyền để kiểm tra ưu đãi phù hợp và xác nhận
         bằng thông tin chính thức ạ.
     patterns:
-    - \b(?:em|ben em|chung toi|toi).{0,35}(?:giam gia|bot gia|tang them|tang rieng|thuong luong|chot gia|uu dai|chiet
+    - \b(?:em|ben em|chung toi|toi(?! da\b)).{0,35}(?:giam gia|bot gia|tang them|tang rieng|thuong luong|chot gia|uu dai|chiet
       khau|mien phi)\b
     - \b(?:giam rieng|uu dai rieng|tang them|tang rieng)\b
     - \b(?:giam|bot|uu dai|chiet khau)\s+(?:gia\s+)?\d+(?:[.,]\d+)?\s*(?:%|k|nghin|trieu|tr)\b
@@ -111,7 +111,7 @@ output:
     request_variants:
     - name: internal_information
       patterns:
-      - \b(?:cho|gui|cung cap|tiet lo|chia se|biet|noi that|doc|xuat|export).{0,55}(?:luong(?! (?:khach|nguoi|truy
+      - \b(?:cho|gui|cung cap|tiet lo|chia se|biet|noi that|doc|xuat|export).{0,55}(?:(?<!dung )(?<!so )luong(?! (?:khach|nguoi|truy
         cap|don|lead))|bang luong|gia von|bien loi nhuan|chi phi noi bo|doanh thu noi bo|chien luoc noi bo)\b
       - '\b(?:danh sach|du lieu|so dien thoai|email|hop dong).{0,45}khach hang(?: khac)?\b'
       - '\bkhach hang(?: khac)?.{0,45}(?:danh sach|du lieu|so dien thoai|email|hop dong)\b'
@@ -130,7 +130,7 @@ output:
         vì đây là thông tin nội bộ và cần được bảo mật. Em xin phép chuyển anh/chị đến chuyên viên phụ trách nếu
         anh/chị có yêu cầu chính đáng cần được xác minh ạ.
     patterns:
-    - \b(?:luong(?! (?:khach|nguoi|truy cap|don|lead))|bang luong|gia von|gia nhap|bien loi nhuan|chi phi (?:noi
+    - \b(?:(?<!dung )(?<!so )luong(?! (?:khach|nguoi|truy cap|don|lead))|bang luong|gia von|gia nhap|bien loi nhuan|chi phi (?:noi
       bo|van hanh|nhan su)|doanh thu noi bo|chien luoc noi bo|quy trinh noi bo|mat khau noi bo)\b
     - '\b(?:du lieu|danh sach|so dien thoai|email|hop dong).{0,30}khach hang(?: khac)?\b'
     - '\bkhach hang(?: khac)?.{0,30}(?:so dien thoai|email|du lieu|hop dong)\b'

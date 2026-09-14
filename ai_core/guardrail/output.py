@@ -27,8 +27,8 @@ if TYPE_CHECKING:
 
 
 _STOPWORDS = {
-    "anh", "chi", "ban", "ben", "cac", "cho", "co", "cua", "duoc", "em",
-    "gia", "goi", "la", "mot", "nay", "nhung", "the", "thi", "toi", "tu",
+    "anh", "chi", "ban", "ben", "cac", "cho", "co", "cua", "da", "duoc", "em",
+    "gia", "goi", "la", "mot", "nay", "nhe", "nhung", "the", "thi", "toi", "tu",
     "va", "voi", "website", "dich", "vu",
 }
 
@@ -268,9 +268,14 @@ def _normalize(text: str) -> str:
 
 
 def _clause_at(text: str, start: int, end: int) -> str:
-    left = max(text.rfind(mark, 0, start) for mark in (".", "!", "?", ";", "\n"))
-    right_candidates = [text.find(mark, end) for mark in (".", "!", "?", ";", "\n")]
-    right_candidates = [position for position in right_candidates if position >= 0]
+    # A dot inside a formatted amount (5.500.000) is not a sentence boundary.
+    boundaries = [
+        match.start()
+        for match in re.finditer(r"(?<!\d)\.(?!\d)|[!?;\n]", text)
+    ]
+    left_candidates = [position for position in boundaries if position < start]
+    left = max(left_candidates) if left_candidates else -1
+    right_candidates = [position for position in boundaries if position >= end]
     right = min(right_candidates) if right_candidates else len(text)
     return text[left + 1:right]
 
@@ -280,6 +285,7 @@ def _is_safely_negated(text: str, start: int, end: int) -> bool:
     after = text[end:min(len(text), end + 40)]
     negated_before = re.search(
         r"(?:khong(?: the| he| bao gio)?|chua|tuyet doi khong|se khong)\s+$"
+        r"|\bkhong(?: the)?\s+(?:xem|coi)\s+(?:day\s+)?la\s+$"
         r"|\bkhong(?: the)?\s+(?:tiet lo|chia se|cung cap|xac nhan).{0,35}$",
         before,
     )
@@ -290,13 +296,24 @@ def _is_safely_negated(text: str, start: int, end: int) -> bool:
     return bool(negated_before or prohibited_after)
 
 
-def _matches_rule(text: str, rule: OutputRuleConfig) -> bool:
+def _matches_rule(
+    text: str,
+    rule: OutputRuleConfig,
+    evidence: Sequence[str] = (),
+) -> bool:
     if not rule.enabled:
         return False
     for pattern in rule.patterns:
         for match in re.finditer(pattern, text):
             clause = _clause_at(text, match.start(), match.end())
             if any(re.search(allowed, clause) for allowed in rule.allow_patterns):
+                continue
+            # Warranty/refund terms and an included "free" entitlement are not
+            # automatically a new promise.  If the same fact is stated in trusted
+            # RAG/tool evidence, the bot is reporting a published policy.  Keep
+            # hard rules for unsupported offers/promises, but do not block the
+            # faithful quotation merely because it contains a risky keyword.
+            if _is_grounded_policy_disclosure(clause, rule.reason, evidence):
                 continue
             if not _is_safely_negated(text, match.start(), match.end()):
                 return True
@@ -354,6 +371,105 @@ def check_forbidden_request(message: str, config: AgentConfig | None = None) -> 
 def _grounding_tokens(text: str) -> set[str]:
     tokens = set(re.findall(r"[a-z0-9]+", _normalize(text)))
     return {token for token in tokens if token not in _STOPWORDS and (len(token) >= 3 or token.isdigit())}
+
+
+_POLICY_DISCLOSURE_KEYWORDS = {
+    "result_guarantee": ("kpi", "top", "thu hang", "ket qua"),
+    "refund_or_warranty_promise": ("bao hanh", "hoan tien", "warranty", "refund"),
+    "unauthorized_discount_or_gift": ("mien phi", "free", "tang", "uu dai"),
+}
+_POLICY_QUALIFIERS = (
+    "100%",
+    "tron doi",
+    "vinh vien",
+    "vo thoi han",
+    "vo dieu kien",
+    "moi loi",
+    "mien phi",
+)
+
+
+def _number_atoms(text: str) -> set[str]:
+    """Return individual comparable numbers, including both ends of a range."""
+
+    atoms: set[str] = set()
+    for value in re.findall(r"\d+(?:[.,]\d+)*", _normalize(text)):
+        compact = re.sub(r"\D", "", value).lstrip("0") or "0"
+        atoms.add(compact)
+    return atoms
+
+
+def _document_currency_amounts(text: str) -> set[int]:
+    """Read VND values from prose and from table cells with a shared VND header."""
+
+    amounts = set(currency_amounts(text))
+    normalized = _normalize(text)
+    if not re.search(r"\b(?:gia|price|vnd|dong)\b", normalized):
+        return amounts
+    # CSV/Excel markdown often stores ``Giá (VND)`` in the header and bare
+    # ``5.500.000`` in a later cell, so the amount has no suffix of its own.
+    for value in re.findall(r"\b\d{1,3}(?:[.,]\d{3}){1,3}\b|\b\d{6,12}\b", normalized):
+        amounts.add(int(re.sub(r"\D", "", value)))
+    return amounts
+
+
+def _is_grounded_policy_disclosure(
+    clause: str,
+    reason: str,
+    evidence: Sequence[str],
+) -> bool:
+    """Allow a risky-looking entitlement only when one evidence chunk entails it.
+
+    This is deliberately narrow: it applies only to published warranty/refund
+    facts and documented free/gift entitlements.  It never relaxes price,
+    privacy, secret, competitor or out-of-scope rules.
+    """
+
+    keywords = _POLICY_DISCLOSURE_KEYWORDS.get(reason)
+    if not keywords or not evidence:
+        return False
+    normalized_clause = _normalize(clause)
+    active_keywords = {item for item in keywords if item in normalized_clause}
+    if not active_keywords:
+        return False
+
+    # A package/table KPI may be quoted as a published fact. First-person or
+    # certainty language is still a new promise and cannot use this exception.
+    if reason == "result_guarantee" and re.search(
+        r"\b(?:ben em|chung toi|em)\b.{0,35}\b(?:cam ket|dam bao|hua|chac chan|se)\b",
+        normalized_clause,
+    ):
+        return False
+
+    # Conditional bargaining is an offer by the bot, not a policy quotation.
+    if reason == "unauthorized_discount_or_gift" and re.search(
+        r"\b(?:neu|chot|ky hom nay|giam|bot|ha gia|giam rieng|tang them)\b",
+        normalized_clause,
+    ):
+        return False
+
+    clause_numbers = _number_atoms(normalized_clause)
+    clause_tokens = _grounding_tokens(normalized_clause)
+    active_qualifiers = {
+        item for item in _POLICY_QUALIFIERS if item in normalized_clause
+    }
+    for raw_candidate in evidence:
+        candidate = _normalize(str(raw_candidate))
+        if not active_keywords.intersection(
+            item for item in keywords if item in candidate
+        ):
+            continue
+        if not clause_numbers.issubset(_number_atoms(candidate)):
+            continue
+        if any(item not in candidate for item in active_qualifiers):
+            continue
+        candidate_tokens = _grounding_tokens(candidate)
+        if not clause_tokens:
+            continue
+        matching = len(clause_tokens & candidate_tokens)
+        if matching >= 2 and matching / len(clause_tokens) >= 0.45:
+            return True
+    return False
 
 
 def _config_contact_evidence(config: AgentConfig) -> list[str]:
@@ -423,12 +539,16 @@ def _has_unauthorized_price(
     if has_non_vnd_amount(normalized):
         return True
 
+    normalized_evidence = [_normalize(item) for item in evidence]
     evidence_sentences = [
         part.strip()
-        for item in evidence
-        for part in re.split(r"[!?;\n]+", _normalize(item))
+        for item in normalized_evidence
+        for part in re.split(r"[!?;\n]+", item)
         if part.strip()
     ]
+    # Keep each complete table as a candidate too. Its VND marker is normally
+    # in the header while the package and bare amount are in another row.
+    evidence_sentences.extend(normalized_evidence)
     reply_sentences = [
         part.strip() for part in re.split(r"[!?;\n]+", normalized) if part.strip()
     ]
@@ -467,7 +587,9 @@ def _has_unauthorized_price(
             ):
                 continue
             candidates = [
-                item for item in evidence_sentences if amount in currency_amounts(item)
+                item
+                for item in evidence_sentences
+                if amount in _document_currency_amounts(item)
             ]
             if not candidates:
                 return True
@@ -503,11 +625,10 @@ def _has_ungrounded_claim(
     customer_budgets = customer_budget_amounts(conversation_evidence) | {
         int(value) for value in trusted_customer_budgets
     }
-    evidence_numbers = {
-        re.sub(r"\D", "", value)
-        for value in re.findall(r"\b\d[\d .,-]*\b", _normalize(evidence_text))
-        if re.sub(r"\D", "", value)
-    }
+    # Compare individual numeric atoms.  Compacting an entire range turned
+    # evidence ``20-30`` into ``2030`` and incorrectly rejected the equivalent
+    # reply ``20 đến 30`` (atoms 20 and 30).
+    evidence_numbers = _number_atoms(evidence_text)
     evidence_emails = {
         value.casefold()
         for value in re.findall(
@@ -574,7 +695,7 @@ def _has_ungrounded_claim(
             sentence_tokens = _grounding_tokens(sentence)
             if sentence_tokens and len(sentence_tokens & conversation_tokens) >= min(2, len(sentence_tokens)):
                 continue
-        evidence_currency = currency_amounts(evidence_text)
+        evidence_currency = _document_currency_amounts(evidence_text)
         for start, end, amount in currency_mentions(sentence):
             if amount in evidence_currency:
                 continue
@@ -600,10 +721,8 @@ def _has_ungrounded_claim(
             return True
         # Numeric identifiers/durations must occur verbatim in trusted evidence.
         if not currency_amounts(sentence):
-            for number in re.findall(r"\b\d[\d .,-]*\b", sentence):
-                compact = re.sub(r"\D", "", number)
-                if compact and compact not in evidence_numbers:
-                    return True
+            if not _number_atoms(sentence).issubset(evidence_numbers):
+                return True
     return False
 
 
@@ -628,7 +747,7 @@ def check_output(
 
     normalized = _normalize(reply)
     for rule in config.guardrails.output.rules:
-        if _matches_rule(normalized, rule):
+        if _matches_rule(normalized, rule, evidence or ()):
             return {"blocked": True, "reason": rule.reason}
 
     if config.guardrails.output.block_configured_model_names:
