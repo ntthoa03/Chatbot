@@ -14,6 +14,7 @@ from typing import Any, Callable, Sequence
 
 from ai_core.config import ConfigError, validate_tenant_id
 from ai_core.embedder import embed_texts
+from ai_core.gap_logger import reply_indicates_missing_knowledge
 
 
 MIN_SAFE_SIMILARITY = 0.92
@@ -98,6 +99,7 @@ def response_is_cacheable(response: dict[str, Any]) -> bool:
     guardrail = response.get("guardrail") or {}
     return bool(
         response.get("reply")
+        and not reply_indicates_missing_knowledge(str(response.get("reply") or ""))
         and response.get("sources")
         and not response.get("tool_calls")
         and not response.get("need_human")
