@@ -108,6 +108,26 @@ def is_pricing_catalogue_query(message: str) -> bool:
     names_one_package = bool(
         re.search(r"\bgoi\s+(?!(?:nao|gi|dich vu|web|website)\b)[a-z0-9]+", normalized)
     )
+    # A document can be named "bảng giá" while the customer asks for one
+    # policy/attribute inside it.  Treating every such question as a catalogue
+    # request drops policy/process chunks before the model sees them (H405-08).
+    asks_specific_fact = bool(
+        re.search(
+            r"\b(?:ap dung|dieu kien|kpi|bao hanh|thoi gian|bao lau|"
+            r"bao nhieu trang|so trang|quy trinh|pham vi)\b",
+            normalized,
+        )
+    )
+    explicitly_requests_multiple_options = bool(
+        re.search(r"\b(?:cac goi|nhung goi|goi nao|tat ca cac goi|danh sach goi)\b", normalized)
+    )
+    if (
+        asks_specific_fact
+        and not explicitly_requests_multiple_options
+        and not has_service_budget_band
+        and not has_budget_catalogue_request
+    ):
+        return False
     return (
         has_price_intent or has_service_budget_band or has_budget_catalogue_request
     ) and not names_one_package

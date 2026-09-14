@@ -266,6 +266,9 @@ def build_remote_vector_record(chunk: dict[str, Any], vector: Sequence[float]) -
             "title": source["title"],
             "type": source["type"],
             "updated_at": source["updated_at"],
+            "source": source.get("source"),
+            "source_priority": source.get("source_priority"),
+            "source_confidence": source.get("source_confidence"),
         },
     }
 
@@ -277,4 +280,7 @@ def _public_metadata(item: dict) -> dict[str, Any]:
         "title": item.get("title"),
         "type": item.get("type"),
         "updated_at": item.get("updated_at"),
+        "source": item.get("source"),
+        "source_priority": item.get("source_priority"),
+        "source_confidence": item.get("source_confidence"),
     }

@@ -23,6 +23,9 @@ class ChunkMetadata(BaseModel):
     title: str = Field(min_length=1)
     type: Literal["service", "pricing", "policy", "faq", "blog"]
     updated_at: date
+    source: Literal["crawl", "document", "chat_log", "tenant_provided"] | None = None
+    source_priority: int | None = Field(default=None, ge=0, le=100)
+    source_confidence: float | None = Field(default=None, ge=0.0, le=1.0)
 
 
 class KnowledgeChunk(BaseModel):

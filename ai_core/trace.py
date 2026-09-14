@@ -72,13 +72,21 @@ def _redact_text(text: str) -> str:
     )
 
 
-def _sanitize(value: Any) -> Any:
+_IDENTIFIER_FIELDS = {"trace_id", "conversation_id", "tenant_id", "chunk_id"}
+
+
+def _sanitize(value: Any, *, field_name: str | None = None) -> Any:
     if isinstance(value, str):
+        if field_name in _IDENTIFIER_FIELDS:
+            return value
         return _redact_text(value)
     if isinstance(value, dict):
-        return {str(key): _sanitize(item) for key, item in value.items()}
+        return {
+            str(key): _sanitize(item, field_name=str(key))
+            for key, item in value.items()
+        }
     if isinstance(value, (list, tuple)):
-        return [_sanitize(item) for item in value]
+        return [_sanitize(item, field_name=field_name) for item in value]
     if value is None or isinstance(value, (bool, int, float)):
         return value
     return _redact_text(str(value))
